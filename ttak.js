@@ -194,132 +194,148 @@ function get_tamil_letters( word ){
     return ta_letters;
 }
 
-function kirantham_nekki(word)
+function kirantham_nekki(inputWord)
 {
-	word = word.replace("ஸ்ரீ", "திரு").replace("க்ஷூ","கீ");
-		
+	var givenWords = inputWord.split(" ");
+	var theWholeWord = "";
+	
+	for(wrdsCount = 0; wrdsCount < givenWords.length; wrdsCount++)
+	{
+	
+	word = givenWords[wrdsCount].replace("ஸ்ரீ", "திரு").replace("க்ஷூ","கீ");		
 			
 	var _ta_letters = get_tamil_letters( word );
 	
 	
-	for(i =0; i < _ta_letters.length; i++)
-	{
-		if(i == 0)
+		for(i =0; i < _ta_letters.length; i++)
 		{
-			//First character-list
-			_ta_letters[i] = _ta_letters[i].replace("ஷ","ச");	
-			_ta_letters[i] = _ta_letters[i].replace("ஜ","ச");	
-			_ta_letters[i] = _ta_letters[i].replace("ர்","இ");
-			_ta_letters[i] = _ta_letters[i].replace("ர","இர");
-			_ta_letters[i] = _ta_letters[i].replace("ல","இல");
-			_ta_letters[i] = _ta_letters[i].replace("ய","இய");
-			if (_ta_letters[i] == ("ஹௌ"))
+			if(i == 0)
 			{
-				_ta_letters[i] = _ta_letters[i].replace("ஹௌ", "ஔ");
+				//First character-list
+				_ta_letters[i] = _ta_letters[i].replace("ஷ","ச");	
+				_ta_letters[i] = _ta_letters[i].replace("ஜ","ச");	
+				_ta_letters[i] = _ta_letters[i].replace("ர்","இ");
+				_ta_letters[i] = _ta_letters[i].replace("ர","இர");
+				_ta_letters[i] = _ta_letters[i].replace("ல","இல");
+				_ta_letters[i] = _ta_letters[i].replace("ய","இய");
+				if (_ta_letters[i] == ("ஹௌ"))
+				{
+					_ta_letters[i] = _ta_letters[i].replace("ஹௌ", "ஔ");
+				}
+				else if (_ta_letters[i] == ("ஹோ"))
+				{
+					_ta_letters[i] = _ta_letters[i].replace("ஹோ", "ஓ");
+				}
+				else if (_ta_letters[i] == ("ஹொ"))
+				{
+					_ta_letters[i] = _ta_letters[i].replace("ஹொ", "ஒ");
+				}
+				else if (_ta_letters[i] == ("ஹை"))
+				{
+					_ta_letters[i] = _ta_letters[i].replace("ஹை", "ஐ");
+				}
+				else if (_ta_letters[i] == ("ஹே"))
+				{
+					_ta_letters[i] = _ta_letters[i].replace("ஹே", "ஏ");
+				}
+				else if (_ta_letters[i] == ("ஹே"))
+				{
+					_ta_letters[i] = _ta_letters[i].replace("ஹே", "எ");
+				}
+				else if (_ta_letters[i] == ("ஹூ"))
+				{
+					_ta_letters[i] = _ta_letters[i].replace("ஹூ", "ஊ");
+				}
+				else if (_ta_letters[i] == ("ஹு"))
+				{
+					_ta_letters[i] = _ta_letters[i].replace("ஹு", "உ");
+				}
+				else if (_ta_letters[i] == ("ஹீ"))
+				{
+					_ta_letters[i] = _ta_letters[i].replace("ஹீ", "ஈ");
+				}
+				else if (_ta_letters[i] == ("ஹி"))
+				{
+					_ta_letters[i] = _ta_letters[i].replace("ஹி", "இ");
+				}
+				else if (_ta_letters[i] == ("ஹா"))
+				{
+					_ta_letters[i] = _ta_letters[i].replace("ஹா", "ஆ");
+				}
+				else
+				{
+					_ta_letters[i] = _ta_letters[i].replace("ஹ","அ");
+				}
+				_ta_letters[i] = _ta_letters[i].replace("க்ஷ", "க")			
 			}
-			else if (_ta_letters[i] == ("ஹோ"))
+			else if(i == (_ta_letters.length - 1))
 			{
-				_ta_letters[i] = _ta_letters[i].replace("ஹோ", "ஓ");
-			}
-			else if (_ta_letters[i] == ("ஹொ"))
-			{
-				_ta_letters[i] = _ta_letters[i].replace("ஹொ", "ஒ");
-			}
-			else if (_ta_letters[i] == ("ஹை"))
-			{
-				_ta_letters[i] = _ta_letters[i].replace("ஹை", "ஐ");
-			}
-			else if (_ta_letters[i] == ("ஹே"))
-			{
-				_ta_letters[i] = _ta_letters[i].replace("ஹே", "ஏ");
-			}
-			else if (_ta_letters[i] == ("ஹே"))
-			{
-				_ta_letters[i] = _ta_letters[i].replace("ஹே", "எ");
-			}
-			else if (_ta_letters[i] == ("ஹூ"))
-			{
-				_ta_letters[i] = _ta_letters[i].replace("ஹூ", "ஊ");
-			}
-			else if (_ta_letters[i] == ("ஹு"))
-			{
-				_ta_letters[i] = _ta_letters[i].replace("ஹு", "உ");
-			}
-			else if (_ta_letters[i] == ("ஹீ"))
-			{
-				_ta_letters[i] = _ta_letters[i].replace("ஹீ", "ஈ");
-			}
-			else if (_ta_letters[i] == ("ஹி"))
-			{
-				_ta_letters[i] = _ta_letters[i].replace("ஹி", "இ");
-			}
-			else if (_ta_letters[i] == ("ஹா"))
-			{
-				_ta_letters[i] = _ta_letters[i].replace("ஹா", "ஆ");
+				//lastCharList
+				if(_ta_letters[i].indexOf("ஷ்") >= 0)
+				{
+					_ta_letters[i] = _ta_letters[i].replace("ஷ்","சு");
+				}
+				else if(_ta_letters[i].indexOf("ஷ") >= 0 ||
+				_ta_letters[i].indexOf("ஸ") >= 0 ||
+				_ta_letters[i].indexOf("ஜ") >= 0
+				)
+				{
+					_ta_letters[i] = _ta_letters[i].replace("ஷ","ச/ய");	
+					_ta_letters[i] = _ta_letters[i].replace("ஸ","ச/த");			
+					_ta_letters[i] = _ta_letters[i].replace("ஜ","ச");
+				}
+				else
+				{
+					_ta_letters[i] = _ta_letters[i].replace("ா","ை");
+				}
 			}
 			else
 			{
-				_ta_letters[i] = _ta_letters[i].replace("ஹ","அ");
+				//middle characters
+				if(_ta_letters[i].indexOf("ஷ்") >= 0)
+				{
+					_ta_letters[i] = _ta_letters[i].replace("ஷ்","ட்");
+				}
+				else 
+				{
+					_ta_letters[i] = _ta_letters[i].replace("ஷ","ச/ய");			
+					_ta_letters[i] = _ta_letters[i].replace("க்ஷ", "க்க")	
+					_ta_letters[i] = _ta_letters[i].replace("ஸ","ச/த");
+					_ta_letters[i] = _ta_letters[i].replace("ஜ","ச");
+				}
 			}
-			_ta_letters[i] = _ta_letters[i].replace("க்ஷ", "க")			
-		}
-		else if(i == (_ta_letters.length - 1))
-		{
-			//lastCharList
-			if(_ta_letters[i].indexOf("ஷ்") >= 0)
-			{
-				_ta_letters[i] = _ta_letters[i].replace("ஷ்","சு");
-			}
-			else if(_ta_letters[i].indexOf("ஷ") >= 0 ||
-			_ta_letters[i].indexOf("ஸ") >= 0 ||
-			_ta_letters[i].indexOf("ஜ") >= 0
-			)
-			{
-				_ta_letters[i] = _ta_letters[i].replace("ஷ","ச/ய");	
-				_ta_letters[i] = _ta_letters[i].replace("ஸ","ச/த");			
-				_ta_letters[i] = _ta_letters[i].replace("ஜ","ச");
-			}
-			else
-			{
-				_ta_letters[i] = _ta_letters[i].replace("ா","ை");
-			}
-		}
-		else
-		{
-			//middle characters
-			if(_ta_letters[i].indexOf("ஷ்") >= 0)
-			{
-				_ta_letters[i] = _ta_letters[i].replace("ஷ்","ட்");
-			}
-			else 
-			{
-				_ta_letters[i] = _ta_letters[i].replace("ஷ","ச/ய");			
-				_ta_letters[i] = _ta_letters[i].replace("க்ஷ", "க்க")	
-				_ta_letters[i] = _ta_letters[i].replace("ஸ","ச/த");
-				_ta_letters[i] = _ta_letters[i].replace("ஜ","ச");
-			}
-		}
-	}	
+		}	
 	
-	for(i =0; i < _ta_letters.length; i++)
-	{
-		//For all common letters
-		_ta_letters[i] = _ta_letters[i].replace("ஹ","க");
-		_ta_letters[i] = _ta_letters[i].replace("ஸ","ச");
-		_ta_letters[i] = _ta_letters[i].replace("ஜ","ய");
-	}
+		for(i =0; i < _ta_letters.length; i++)
+		{
+			//For all common letters
+			_ta_letters[i] = _ta_letters[i].replace("ஹ","க");
+			_ta_letters[i] = _ta_letters[i].replace("ஸ","ச");
+			_ta_letters[i] = _ta_letters[i].replace("ஜ","ய");
+		}
 	
-	pureTaWord = "";
-	for(i =0; i < _ta_letters.length; i++)
-	{
-		//For all common letters
-		pureTaWord += _ta_letters[i];
-	}
+		pureTaWord = "";
+	
+		for(i =0; i < _ta_letters.length; i++)
+		{
+			//For all common letters
+			pureTaWord += _ta_letters[i];
+		}
 	
 		pureTaWord = pureTaWord.replace("க்ல", "க்கில")
 			.replace("க்ர", "க்கிர")			
 			.replace("்வ", "ுவ");
 			//.replace("்ம", "ும")
+			
+		if(word == pureTaWord)
+		{
+			theWholeWord += pureTaWord + " ";
+		}
+		else
+		{
+			theWholeWord += pureTaWord + " ("+word+") ";
+		}
+	}
 	
-	return pureTaWord;
+	return theWholeWord;
 }
