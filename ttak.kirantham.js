@@ -203,18 +203,18 @@ function kirantham_nekki_thanithamizh(inputWord_ta)
 	
 	if(vadam_tamil != null)
 	{	
-		var givenWords = inputWord_ta.split(" ");
-		var theWholeWord = "";
+		var givenWords_ta = inputWord_ta.split(" ");
+		
 
-		for(wrdsCount = 0; wrdsCount < givenWords.length; wrdsCount++)
+		for(wrdsCount = 0; wrdsCount < givenWords_ta.length; wrdsCount++)
 		{
-			if(vadam_tamil[givenWords[wrdsCount]] != null)
+			if(vadam_tamil[givenWords_ta[wrdsCount]] != null)
 			{
-				thani_thamizh_word += vadam_tamil[givenWords[wrdsCount]] + " (" + givenWords[wrdsCount] + ") ";				
+				thani_thamizh_word += vadam_tamil[givenWords_ta[wrdsCount]] + " (" + givenWords_ta[wrdsCount] + ") ";				
 			}
 			else
 			{
-				thani_thamizh_word += kirantham_nekki(givenWords[wrdsCount]);
+				thani_thamizh_word += kirantham_nekki(givenWords_ta[wrdsCount]);
 			}
 		}		
 		//thani_thamizh_word = vadam_tamil['அனுமதி']
