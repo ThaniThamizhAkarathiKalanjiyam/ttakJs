@@ -194,6 +194,20 @@ function get_tamil_letters( word ){
     return ta_letters;
 }
 
+function kirantham_nekki_thanithamizh(inputWord_ta)
+{
+	var thani_thamizh_word = "";
+	
+	if(vadam_tamil != null)
+	{		
+		//To use this fuction you should import vadam.tamil.pairs.js
+		//into your head tag. then only able to use
+		thani_thamizh_word = vadam_tamil['அனுமதி']
+		alert(thani_thamizh_word);
+	}
+	return thani_thamizh_word;
+}
+
 function kirantham_nekki(inputWord)
 {
 	var givenWords = inputWord.split(" ");
