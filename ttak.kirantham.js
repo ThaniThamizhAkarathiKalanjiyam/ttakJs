@@ -271,9 +271,12 @@ function kirantham_nekki(inputWord)
 			else if(i == (_ta_letters.length - 1))
 			{
 				//lastCharList
-				if(_ta_letters[i].indexOf("ஷ்") >= 0)
+				if(_ta_letters[i].indexOf("ஷ்") >= 0 ||
+				_ta_letters[i].indexOf("ஸ்") >= 0
+				)
 				{
 					_ta_letters[i] = _ta_letters[i].replace("ஷ்","சு");
+					_ta_letters[i] = _ta_letters[i].replace("ஸ்","சு"); //அமிருதசரஸ்
 				}
 				else if(_ta_letters[i].indexOf("ஷ") >= 0 ||
 				_ta_letters[i].indexOf("ஸ") >= 0 ||
