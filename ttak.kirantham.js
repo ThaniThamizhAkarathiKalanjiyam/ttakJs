@@ -208,9 +208,11 @@ function kirantham_nekki_thanithamizh(inputWord_ta)
 
 		for(wrdsCount_ta = 0; wrdsCount_ta < givenWords_ta.length; wrdsCount_ta++)
 		{
-			if(vadam_tamil[givenWords_ta[wrdsCount_ta]] != null)
+			var tamil_word = vadam_tamil[givenWords_ta[wrdsCount_ta]];
+			
+			if(tamil_word != null)
 			{
-				thani_thamizh_word += vadam_tamil[givenWords_ta[wrdsCount_ta]] + " (" + givenWords_ta[wrdsCount_ta] + ") ";				
+				thani_thamizh_word += tamil_word + " (" + givenWords_ta[wrdsCount_ta] + ") ";				
 			}
 			else
 			{
@@ -222,7 +224,10 @@ function kirantham_nekki_thanithamizh(inputWord_ta)
 	}
 	return thani_thamizh_word;
 }
-
+function removeSpecialChars(strVal)
+{
+strVal = strVal.replace(/[^a-zA-Z 0-9]+/g,”);
+}
 function kirantham_nekki(inputWord)
 {
 	var givenWords = inputWord.split(" ");
@@ -324,8 +329,13 @@ function kirantham_nekki(inputWord)
 			else
 			{
 				//middle characters
-				if(_ta_letters[i].indexOf("ஷ்") >= 0)
+				if(_ta_letters[i].indexOf("க்ஷ்") >= 0)
 				{
+					_ta_letters[i] = _ta_letters[i].replace("க்ஷ்","க்கு");//அஷ்டலக்ஷ்மி
+				}				
+				else if(_ta_letters[i].indexOf("ஷ்") >= 0)
+				{
+					//க்ஷ்
 					_ta_letters[i] = _ta_letters[i].replace("ஷ்","ட்");
 				}
 				else 
