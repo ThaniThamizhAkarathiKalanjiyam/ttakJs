@@ -224,10 +224,10 @@ function kirantham_nekki_thanithamizh(inputWord_ta)
 	}
 	return thani_thamizh_word;
 }
-function removeSpecialChars(strVal)
-{
-strVal = strVal.replace(/[^a-zA-Z 0-9]+/g,”);
-}
+//function removeSpecialChars(strVal)
+//{
+//strVal = strVal.replace(/[^a-zA-Z 0-9]+/g,”);
+//}
 function kirantham_nekki(inputWord)
 {
 	var givenWords = inputWord.split(" ");
@@ -329,7 +329,11 @@ function kirantham_nekki(inputWord)
 			else
 			{
 				//middle characters
-				if(_ta_letters[i].indexOf("ஷ்") >= 0)
+				if(_ta_letters[i].indexOf("க்ஷ்") >= 0)
+				{
+					_ta_letters[i] = _ta_letters[i].replace("க்ஷ்","க்கு");
+				}
+				else if(_ta_letters[i].indexOf("ஷ்") >= 0)
 				{
 					_ta_letters[i] = _ta_letters[i].replace("ஷ்","ட்");
 				}
