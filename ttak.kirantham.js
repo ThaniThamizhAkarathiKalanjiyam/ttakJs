@@ -329,13 +329,8 @@ function kirantham_nekki(inputWord)
 			else
 			{
 				//middle characters
-				if(_ta_letters[i].indexOf("க்ஷ்") >= 0)
+				if(_ta_letters[i].indexOf("ஷ்") >= 0)
 				{
-					_ta_letters[i] = _ta_letters[i].replace("க்ஷ்","க்கு");//அஷ்டலக்ஷ்மி
-				}				
-				else if(_ta_letters[i].indexOf("ஷ்") >= 0)
-				{
-					//க்ஷ்
 					_ta_letters[i] = _ta_letters[i].replace("ஷ்","ட்");
 				}
 				else 
