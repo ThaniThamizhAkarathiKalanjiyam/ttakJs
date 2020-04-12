@@ -3,7 +3,7 @@ var searchUrls = [
 	"tam_con/sanka_ilakkiyam/"
 ]
 
-var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/search/"
+var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/"
 var md = window.markdownit();
 
 searchWord = function(searchUrl) {
@@ -29,7 +29,7 @@ searchWord = function(searchUrl) {
 	var gitHubUrl = ""
 	if(searchUrl == "" || searchUrl == undefined)
 	{
-		gitHubUrl = bseSearchDir + tamil_letters[0]+"/"+ txtsearchLow
+		gitHubUrl = bseSearchDir + "search/" + tamil_letters[0]+"/"+ txtsearchLow
 	}
 	else
 	{
