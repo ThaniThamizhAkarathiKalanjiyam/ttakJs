@@ -43,15 +43,17 @@ searchWord = function(searchUrl) {
 			$( "#ResultDict" ).html(txtsearchLow + ": இச்சொல் அகராதியில் இல்லை.");	  
 		}else{
 			var result = md.render(data);
-			$( "#ResultDict" ).html( result );	  
+			$( "#ResultDict" ).append( result );	  
 		}	  
 	});	
 };
 
 $("#btnSearch").click( function(){
+	$( "#ResultDict" ).html("");
+	searchWord()
 	for(i = 0; i < searchUrls.length; i++)
 	{
-		searchWord(searchUrls[0]);
+		searchWord(searchUrls[i]);
 	}
 });
 
