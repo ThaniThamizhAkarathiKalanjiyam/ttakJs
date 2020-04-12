@@ -1,13 +1,13 @@
 $(document).ready(function() {
 var searchUrls = [
-"tam_con/sanka_ilakkiyam/"
+	"tam_con/sanka_ilakkiyam/"
 ]
 
 var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/search/"
 var md = window.markdownit();
 
 searchWord = function(searchUrl) {
-	$( "#ResultDict" ).html( "Please wait . . . " );
+	$( "#ResultDictInfo" ).html( "Please wait . . . " );
 	var txtsearchLow = $("#txtsearch").val().toLowerCase()
 	var tamil_letters = get_tamil_letters(txtsearchLow);
 
@@ -17,13 +17,13 @@ searchWord = function(searchUrl) {
 	
 	function AjaxError(x, e) {
 	  if (x.status == 0) {
-		$( "#ResultDict" ).html(' Check Your Network.');
+		$( "#ResultDictInfo" ).html(' Check Your Network.');
 	  } else if (x.status == 404) {
-		$( "#ResultDict" ).html('Requested URL not found.');
+		$( "#ResultDictInfo" ).html('Requested URL not found.');
 	  } else if (x.status == 500) {
-		$( "#ResultDict" ).html('Internel Server Error.');
+		$( "#ResultDictInfo" ).html('Internel Server Error.');
 	  }  else {
-		 $( "#ResultDict" ).html('Unknow Error.\n' + x.responseText);
+		 $( "#ResultDictInfo" ).html('Unknow Error.\n' + x.responseText);
 	  }
 	}
 	var gitHubUrl = ""
@@ -40,7 +40,7 @@ searchWord = function(searchUrl) {
 	function( data ) {
 		if(data.length == 0)
 		{
-			$( "#ResultDict" ).html(txtsearchLow + ": இச்சொல் அகராதியில் இல்லை.");	  
+			$( "#ResultDictInfo" ).html(txtsearchLow + ": இச்சொல் அகராதியில் இல்லை.");	  
 		}else{
 			var result = md.render(data);
 			$( "#ResultDict" ).append( result );	  
