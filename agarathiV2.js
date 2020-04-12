@@ -26,8 +26,8 @@ searchWord = function(searchUrl) {
 		 $( "#ResultDict" ).html('Unknow Error.\n' + x.responseText);
 	  }
 	}
-
-	if(gitHubUrl == "" || gitHubUrl == undefined)
+	var gitHubUrl = ""
+	if(searchUrl == "" || searchUrl == undefined)
 	{
 		gitHubUrl = bseSearchDir + tamil_letters[0]+"/"+ txtsearchLow
 	}
