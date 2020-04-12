@@ -1,8 +1,12 @@
 $(document).ready(function() {
-	
+var searchUrls = [
+"tam_con/sanka_ilakkiyam/"
+]
+
+var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/search/"
 var md = window.markdownit();
 
-searchWord = function() {
+searchWord = function(searchUrl) {
 	$( "#ResultDict" ).html( "Please wait . . . " );
 	var txtsearchLow = $("#txtsearch").val().toLowerCase()
 	var tamil_letters = get_tamil_letters(txtsearchLow);
@@ -23,40 +27,31 @@ searchWord = function() {
 	  }
 	}
 
-var gitHubUrl = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/search/"+tamil_letters[0]+"/"+ txtsearchLow
-//var gitHubUrlOpenDict = "https://github.com/ThaniThamizhAkarathiKalanjiyam/agarathi"
+	if(gitHubUrl == "" || gitHubUrl == undefined)
+	{
+		gitHubUrl = bseSearchDir + tamil_letters[0]+"/"+ txtsearchLow
+	}
+	else
+	{
+		gitHubUrl = bseSearchDir + searchUrl + txtsearchLow
+	}
 	
 	$.get(gitHubUrl ,   
 	function( data ) {
 		if(data.length == 0)
 		{
-			$( "#ResultDict" ).html("The Result not available");	  
+			$( "#ResultDict" ).html(txtsearchLow + ": இச்சொல் அகராதியில் இல்லை.");	  
 		}else{
 			var result = md.render(data);
-			//result += "<br/>Thanks <a href="+gitHubUrlOpenDict+">Open Sourced Tamil Dictionary</a>"
 			$( "#ResultDict" ).html( result );	  
 		}	  
 	});	
 };
 
-
-gitHubUrl = "https://thanithamizhakarathikalanjiyam.github.io/ttakJs/tabs.html"
-$.get(gitHubUrl ,   
-	function( data ) {
-		if(data.length == 0)
-		{
-			$( "#ResultDict" ).html( data );	    
-		}	  
-	});
-
 $("#btnSearch").click( function(){
-	searchWord();
-});
-
-$("#txtSearch").keypress( function(){
-	if (event.which == 13)
+	for(i = 0; i < searchUrls.length; i++)
 	{
-		searchWord();
+		searchWord(searchUrls[0]);
 	}
 });
 
