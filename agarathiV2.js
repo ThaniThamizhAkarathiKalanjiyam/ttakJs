@@ -44,7 +44,7 @@ searchWord = function(searchUrl) {
 	function( data ) {
 		if(data.length == 0)
 		{
-			 content = content + txtsearchLow + ": இச்சொல் அகராதியில் இல்லை.");	  
+			 content = content + txtsearchLow + ": இச்சொல் அகராதியில் இல்லை.";	  
 		}else{
 			var result = md.render(data);
 			content = content +  result ;	  
