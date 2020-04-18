@@ -1,6 +1,6 @@
 $(document).ready(function() {
 var searchUrls = [
-	"tam_con/sanka_ilakkiyam/"
+	{"dictName":"பாண்டியராஜா தொடரடைவு சங்க இலக்கியம்", "dir":"tam_con/sanka_ilakkiyam/", "id":"ResultDictSankIlak"}
 ]
 
 var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/"
