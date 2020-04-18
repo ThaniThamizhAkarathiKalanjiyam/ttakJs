@@ -57,7 +57,6 @@ searchWord = function(searchUrl) {
 
 $("#btnSearch").click( function(){
 	//$( "#ResultDict" ).html("");
-	searchWord()
 	for(i = 0; i < searchUrls.length; i++)
 	{
 		searchWord(searchUrls[i]);
