@@ -1,9 +1,10 @@
 $(document).ready(function() {
 var searchUrls = [
+	{"dictName":"தனித் தமிழகராதிக் களஞ்சியம்", "dir":"agarathi/", "id":"ResultDict"},
 	{"dictName":"பாண்டியராஜா தொடரடைவு சங்க இலக்கியம்", "dir":"tam_con/sanka_ilakkiyam/", "id":"ResultDictSankIlak"}
 ]
 
-var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/"
+var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/"
 var md = window.markdownit();
 
 searchWord = function(searchUrl) {
@@ -55,7 +56,7 @@ searchWord = function(searchUrl) {
 };
 
 $("#btnSearch").click( function(){
-	$( "#ResultDict" ).html("");
+	//$( "#ResultDict" ).html("");
 	searchWord()
 	for(i = 0; i < searchUrls.length; i++)
 	{
