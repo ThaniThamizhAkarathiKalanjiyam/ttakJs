@@ -1,7 +1,7 @@
 $(document).ready(function() {
 var searchUrls = [
-	{"dictName":"தனித் தமிழகராதிக் களஞ்சியம்", "dir":"agarathi/", "id":"ResultDict"},
-	{"dictName":"பாண்டியராஜா தொடரடைவு சங்க இலக்கியம்", "dir":"tam_con/sanka_ilakkiyam/", "id":"ResultDictSankIlak"}
+	{"dict":"தனித் தமிழகராதிக் களஞ்சியம்", "dir":"agarathi/", "id":"ResultDict"},
+	{"dict":"பாண்டியராஜா தொடரடைவு சங்க இலக்கியம்", "dir":"tam_con/sanka_ilakkiyam/", "id":"ResultDictSankIlak"}
 ]
 
 var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/"
@@ -11,7 +11,7 @@ searchWord = function(searchUrl) {
 	
 	var id = "#"+searchUrl.id
 	var content = "<h1>" + searchUrl.dict + "</h1>" + "<br/>"
-	
+	bseSearchDir = bseSearchDir + searchUrl.dir
 	$( id ).html( "Please wait . . . " );
 	var txtsearchLow = $("#txtsearch").val().toLowerCase()
 	var tamil_letters = get_tamil_letters(txtsearchLow);
@@ -32,7 +32,7 @@ searchWord = function(searchUrl) {
 	  }
 	}
 	var gitHubUrl = ""
-	if(searchUrl == "" || searchUrl == undefined)
+	if(searchUrl.id == "ResultDict")
 	{
 		gitHubUrl = bseSearchDir + "search/" + tamil_letters[0]+"/"+ txtsearchLow
 	}
