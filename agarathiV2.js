@@ -7,7 +7,11 @@ var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/"
 var md = window.markdownit();
 
 searchWord = function(searchUrl) {
-	$( "#ResultDictInfo" ).html( "Please wait . . . " );
+	
+	var id = "#"+searchUrl.id
+	var content = "<h1>" + searchUrl.dict + "</h1>" + "<br/>"
+	
+	$( id ).html( "Please wait . . . " );
 	var txtsearchLow = $("#txtsearch").val().toLowerCase()
 	var tamil_letters = get_tamil_letters(txtsearchLow);
 
@@ -17,13 +21,13 @@ searchWord = function(searchUrl) {
 	
 	function AjaxError(x, e) {
 	  if (x.status == 0) {
-		$( "#ResultDictInfo" ).html(' Check Your Network.');
+		$( id ).html(' Check Your Network.');
 	  } else if (x.status == 404) {
-		$( "#ResultDictInfo" ).html('Requested URL not found.');
+		$( id ).html('Requested URL not found.');
 	  } else if (x.status == 500) {
-		$( "#ResultDictInfo" ).html('Internel Server Error.');
+		$( id ).html('Internel Server Error.');
 	  }  else {
-		 $( "#ResultDictInfo" ).html('Unknow Error.\n' + x.responseText);
+		 $( id ).html('Unknow Error.\n' + x.responseText);
 	  }
 	}
 	var gitHubUrl = ""
@@ -40,12 +44,14 @@ searchWord = function(searchUrl) {
 	function( data ) {
 		if(data.length == 0)
 		{
-			$( "#ResultDictInfo" ).html(txtsearchLow + ": இச்சொல் அகராதியில் இல்லை.");	  
+			 content = content + txtsearchLow + ": இச்சொல் அகராதியில் இல்லை.");	  
 		}else{
 			var result = md.render(data);
-			$( "#ResultDict" ).append( result );	  
+			content = content +  result ;	  
 		}	  
 	});	
+	
+	$( id ).html(content);
 };
 
 $("#btnSearch").click( function(){
