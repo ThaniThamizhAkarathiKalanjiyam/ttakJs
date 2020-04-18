@@ -1,7 +1,7 @@
 $(document).ready(function() {
 var searchUrls = [
 	{"dict":"தனித் தமிழகராதிக் களஞ்சியம்", "dir":"agarathi/", "id":"ResultDict"},
-	{"dict":"பாண்டியராஜா தொடரடைவு சங்க இலக்கியம்", "dir":"tam_con/sanka_ilakkiyam/", "id":"ResultDictSankIlak"}
+	{"dict":"பாண்டியராஜா தொடரடைவு சங்க இலக்கியம்", "dir":"agarathi/tam_con/sanka_ilakkiyam/", "id":"ResultDictSankIlak"}
 ]
 
 var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/"
