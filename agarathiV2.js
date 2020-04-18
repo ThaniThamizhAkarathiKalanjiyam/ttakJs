@@ -49,10 +49,9 @@ searchWord = function(searchUrl) {
 		}else{
 			var result = md.render(data);
 			content = content +  result ;	  
-		}	  
+		}	
+		$( id ).html(content);		
 	});	
-	
-	$( id ).html(content);
 };
 
 $("#btnSearch").click( function(){
