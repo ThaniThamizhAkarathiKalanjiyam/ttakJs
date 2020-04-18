@@ -11,7 +11,7 @@ searchWord = function(searchUrl) {
 	
 	var id = "#"+searchUrl.id
 	var content = "<h1>" + searchUrl.dict + "</h1>" + "<br/>"
-	bseSearchDir = bseSearchDir + searchUrl.dir
+	var url = bseSearchDir + searchUrl.dir
 	$( id ).html( "Please wait . . . " );
 	var txtsearchLow = $("#txtsearch").val().toLowerCase()
 	var tamil_letters = get_tamil_letters(txtsearchLow);
@@ -34,11 +34,11 @@ searchWord = function(searchUrl) {
 	var gitHubUrl = ""
 	if(searchUrl.id == "ResultDict")
 	{
-		gitHubUrl = bseSearchDir + "search/" + tamil_letters[0]+"/"+ txtsearchLow
+		gitHubUrl = url + "search/" + tamil_letters[0]+"/"+ txtsearchLow
 	}
 	else
 	{
-		gitHubUrl = bseSearchDir + searchUrl + txtsearchLow
+		gitHubUrl = url + searchUrl + txtsearchLow
 	}
 	
 	$.get(gitHubUrl ,   
