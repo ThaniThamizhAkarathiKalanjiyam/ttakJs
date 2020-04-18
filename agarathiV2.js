@@ -24,7 +24,8 @@ searchWord = function(searchUrl) {
 	  if (x.status == 0) {
 		$( id ).html(' Check Your Network.');
 	  } else if (x.status == 404) {
-		$( id ).html('Requested URL not found.');
+			content = content + txtsearchLow + ": இச்சொல் அகராதியில் இல்லை.";
+			$( id ).html(content);
 	  } else if (x.status == 500) {
 		$( id ).html('Internel Server Error.');
 	  }  else {
