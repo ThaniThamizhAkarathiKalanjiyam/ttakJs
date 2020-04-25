@@ -2,7 +2,8 @@ $(document).ready(function() {
 var searchUrls = [
 	{"dict":"தனித் தமிழகராதிக் களஞ்சியம்", "dir":"search/", "id":"ResultDict"},
 	{"dict":"பாண்டியராஜா தொடரடைவு சங்க இலக்கியம்", "dir":"tam_con/sanka_ilakkiyam/", "id":"ResultDictSankIlak"},
-	{"dict":"தமிழ்நாடு கணினித்திட்ட அகராதி", "dir":"tnkt/", "id":"ResultDictTNKT"}
+	{"dict":"தமிழ்நாடு கணினித்திட்ட அகராதி", "dir":"tnkt/", "id":"ResultDictTNKT"},
+	{"dict":"வடசொல் தமிழ் அகர வரிசைச் சுருக்கம்", "dir":"neela/vasol_tamil/", "id":"ResultDictVTAS"}
 ]
 
 var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/"
