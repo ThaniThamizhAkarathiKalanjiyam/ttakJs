@@ -11,7 +11,8 @@ var md = window.markdownit();
 searchWord = function(searchUrl) {
 	
 	var id = "#"+searchUrl.id
-	var content = "<h1>" + searchUrl.dict + "</h1>"
+	//var content = "<h1>" + searchUrl.dict + "</h1>"
+	var content = ""
 	var url = bseSearchDir + searchUrl.dir
 	$( id ).html( "Please wait . . . " );
 	var txtsearchLow = $("#txtsearch").val().toLowerCase()
