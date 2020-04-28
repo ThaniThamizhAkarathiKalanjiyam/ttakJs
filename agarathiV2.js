@@ -1,41 +1,5 @@
 $(document).ready(function() {
-var searchUrls = [
-	{
-		"dict": "ததஅக",
-		"dict_full": "தனித் தமிழகராதிக் களஞ்சியம்",
-		"desc":"இசையினி யாஹூ குழுமம் தொகுத்த அகராதி தொகுப்பு",
-		"dir": "search/",
-		"id": "ResultDict"
-	},
-	{
-		"dict": "சங்கம்",
-		"dict_full": "பாண்டியராஜா தொடரடைவு சங்க இலக்கியம்",
-		"desc":"பாண்டியராஜா அவர்களின் சங்க இலக்கிய தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
-		"dir": "tam_con/sanka_ilakkiyam/",
-		"id": "ResultDictSankIlak"
-	},
-	{
-		"dict": "தமாகதி",
-		"dict_full": "தமிழ்நாடு மாணவர் கணினித் திட்டம்",
-		"desc":"தமிழ்நாடு மாணவர்களுக்கு வழங்கிய மடிக்கணியில் இருக்கும் அகராதி",
-		"dir": "tnkt/",
-		"id": "ResultDictTNKT"
-	},
-	{
-		"dict": "வடசொல்",
-		"dict_full": "வடசொல் தமிழ் அகர வரிசைச் சுருக்கம்",
-		"desc":"திருவரங்க நீலாம்பிகை அம்மையார் அவர்களின் வடசொல் தமிழ் அகர வரிசைச் சுருக்கம் தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
-		"dir": "neela/vasol_tamil/",
-		"id": "ResultDictVTAS"
-	},
-	{
-		"dict": "சிலம்பு",
-		"dict_full": "பாண்டியராஜா தொடரடைவு சிலப்பதிகாரம் ",
-		"desc":"பாண்டியராஜா அவர்களின் சிலப்பதிகாரம் தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
-		"dir": "tam_con/peru/silambu_result/",
-		"id": "ResultDictSilam"
-	}
-]
+
 
 var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/"
 var md = window.markdownit();
@@ -89,10 +53,9 @@ searchWord = function(searchUrl) {
 	});	
 };
 
-$("#btnSearch").click( function(){
-	
+$.getJSON( "https://thanithamizhakarathikalanjiyam.github.io/ttakJS/url.json", function( searchUrls ) {
 
-	
+$("#btnSearch").click( function(){
 	for(i = 0; i < searchUrls.length; i++)
 	{
 		searchWord(searchUrls[i]);
@@ -119,6 +82,7 @@ $("#btnSearch").click( function(){
 	
 	$("#nav_tab").html(nav_tabs_html)
 	$("#nav_tabContent").html(nav_tabs_content_html)
+});
 
 $("#txtSearch").focus();
 
