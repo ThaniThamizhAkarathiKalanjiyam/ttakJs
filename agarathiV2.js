@@ -53,7 +53,7 @@ searchWord = function(searchUrl) {
 	});	
 };
 
-$.getJSON( "https://thanithamizhakarathikalanjiyam.github.io/ttakJS/url.json", function( searchUrls ) {
+$.getJSON( "https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function( searchUrls ) {
 
 $("#btnSearch").click( function(){
 	for(i = 0; i < searchUrls.length; i++)
