@@ -1,9 +1,9 @@
 $(document).ready(function() {
 var searchUrls = [
-	{"dict":"தனித் தமிழகராதிக் களஞ்சியம்", "dir":"search/", "id":"ResultDict"},
-	{"dict":"பாண்டியராஜா தொடரடைவு சங்க இலக்கியம்", "dir":"tam_con/sanka_ilakkiyam/", "id":"ResultDictSankIlak"},
-	{"dict":"தமிழ்நாடு கணினித்திட்ட அகராதி", "dir":"tnkt/", "id":"ResultDictTNKT"},
-	{"dict":"வடசொல் தமிழ் அகர வரிசைச் சுருக்கம்", "dir":"neela/vasol_tamil/", "id":"ResultDictVTAS"}
+	{"dict":"ததஅக", "dir":"search/", "id":"ResultDict"},
+	{"dict":"சங்கம்", "dir":"tam_con/sanka_ilakkiyam/", "id":"ResultDictSankIlak"},
+	{"dict":"தமாகதி", "dir":"tnkt/", "id":"ResultDictTNKT"},
+	{"dict":"வடசொல்", "dir":"neela/vasol_tamil/", "id":"ResultDictVTAS"}
 ]
 
 var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/"
@@ -59,12 +59,29 @@ searchWord = function(searchUrl) {
 };
 
 $("#btnSearch").click( function(){
-	//$( "#ResultDict" ).html("");
+	
+
+	
 	for(i = 0; i < searchUrls.length; i++)
 	{
 		searchWord(searchUrls[i]);
 	}
 });
 
+	var nav_tabs_html = ""
+	var nav_tabs_content_html = ""
+	
+	for(i = 0; i < searchUrls.length; i++)
+	{
+		var id  = searchUrls[i].id;
+		var dict = = searchUrls[i].dict;
+		nav_tabs_html += '<a class="nav-item nav-link active" id="nav-'+id+'-tab" data-toggle="tab" href="#nav-'+id+'" role="tab" aria-controls="nav-'+id+'" aria-selected="true">'+dict+'</a>' 
+	}
+	
+	$("#nav_tab").html(nav_tabs_html)
+	
+
 $("#txtSearch").focus();
+
+
 });
