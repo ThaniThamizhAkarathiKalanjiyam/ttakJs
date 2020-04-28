@@ -74,7 +74,7 @@ $("#btnSearch").click( function(){
 	for(i = 0; i < searchUrls.length; i++)
 	{
 		var id  = searchUrls[i].id;
-		var dict = = searchUrls[i].dict;
+		var dict = searchUrls[i].dict;
 		nav_tabs_html += '<a class="nav-item nav-link active" id="nav-'+id+'-tab" data-toggle="tab" href="#nav-'+id+'" role="tab" aria-controls="nav-'+id+'" aria-selected="true">'+dict+'</a>' 
 	}
 	
