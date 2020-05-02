@@ -16,7 +16,7 @@
 	{
 		"dict": "அறிவகம்",
 		"dict_full": "அ.கி.மூர்த்தி-ன் அறிவியல் அகராதி",
-		"desc": "அ.கி.மூர்த்தி அவர்களின் அறிவியல் அகராதி-லிருந்து (http://ta.wikisource.org/wiki/%E0%AE%AA%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%AE%E0%AF%8D:%E0%AE%85%E0%AE%B1%E0%AE%BF%E0%AE%B5%E0%AE%BF%E0%AE%AF%E0%AE%B2%E0%AF%8D_%E0%AE%85%E0%AE%95%E0%AE%B0%E0%AE%BE%E0%AE%A4%E0%AE%BF.pdf) உருவாக்கப் பட்டது.",
+		"desc": "அ.கி.மூர்த்தி அவர்களின் அறிவியல் <a href='http://ta.wikisource.org/wiki/%E0%AE%AA%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%AE%E0%AF%8D:%E0%AE%85%E0%AE%B1%E0%AE%BF%E0%AE%B5%E0%AE%BF%E0%AE%AF%E0%AE%B2%E0%AF%8D_%E0%AE%85%E0%AE%95%E0%AE%B0%E0%AE%BE%E0%AE%A4%E0%AE%BF.pdf'>அகராதி-லிருந்து </a> உருவாக்கப் பட்டது.",
 		"dir": "aki_moor/ariv_aga/",
 		"id": "ResultDictArivagam"
 	},
@@ -82,6 +82,20 @@
 		"desc": "பாண்டியராஜா அவர்களின் இறையனார் அகப்பொருள் தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
 		"dir": "tam_con/irai_agam/",
 		"id": "ResultDictIraiAga"
+	},
+	{
+		"dict": "திருக்குறள்",
+		"dict_full": "பாண்டியராஜா தொடரடைவு திருக்குறள்",
+		"desc": "பாண்டியராஜா அவர்களின் திருக்குறள் தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
+		"dir": "tam_con/kural/",
+		"id": "ResultDictThiKural"
+	},
+	{
+		"dict": "பதினெண்கீழ்க்கணக்கு",
+		"dict_full": "பாண்டியராஜா தொடரடைவு பதினெண்கீழ்க்கணக்கு",
+		"desc": "பாண்டியராஜா அவர்களின் பதினெண்கீழ்க்கணக்கு தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
+		"dir": "tam_con/pathinen/",
+		"id": "ResultDictPathinen"
 	},
 	{
 		"dict": "வடசொல்",
