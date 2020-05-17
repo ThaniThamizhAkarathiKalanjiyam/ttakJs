@@ -5,10 +5,10 @@ $(document).ready(function () {
 
     searchWord = function (searchUrl) {
 
-        var id = searchUrls.id;
-        var dict = searchUrls.dict;
-        var dict_full = searchUrls.dict_full;
-        var desc = searchUrls.desc;
+        var id = searchUrl.id;
+        var dict = searchUrl.dict;
+        var dict_full = searchUrl.dict_full;
+        var desc = searchUrl.desc;
         //var content = "<h1>" + searchUrl.dict + "</h1>"
         var content = ""
             var url = bseSearchDir + searchUrl.dir
