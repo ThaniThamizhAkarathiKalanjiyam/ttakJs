@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     searchWord = function (searchUrl) {
 
-        var id = searchUrl.id;
+        var id = "#"+searchUrl.id
         var dict = searchUrl.dict;
         var dict_full = searchUrl.dict_full;
         var desc = searchUrl.desc;
