@@ -90,7 +90,11 @@ $(document).ready(function () {
 	
 	thodarpudaya_sol = function(search_word){
 		$.getJSON("https://thanithamizhakarathikalanjiyam.github.io/agarathi/ety/etytamildict/"+search_word, function (thod_sol_data) {
-			$("#thod_sol").html(thod_sol_data)
+			var wordsList = ""
+			$.each(thod_sol_data,function(key,val){
+				wordsList += val+"<br/>"
+			})
+			$("#thod_sol").html()
 		});
 	}
 
