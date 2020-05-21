@@ -92,7 +92,8 @@ $(document).ready(function () {
 		$.getJSON("https://thanithamizhakarathikalanjiyam.github.io/agarathi/ety/etytamildict/"+search_word, function (thod_sol_data) {
 			var wordsList = ""
 			$.each(thod_sol_data,function(key,val){
-				wordsList += (key+ 1) +". "+val+"<br/>"
+cnt = key+ 1
+				wordsList += cnt  +". "+val+"<br/>"
 			})
 			$("#thod_sol").html(wordsList)
 		});
