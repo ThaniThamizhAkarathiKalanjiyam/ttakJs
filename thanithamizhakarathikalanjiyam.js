@@ -5,8 +5,8 @@ $(document).ready(function () {
 
     searchWord = function (searchUrl) {
 
-        var id = "#"+searchUrl.id
-        var dict = searchUrl.dict;
+        var id = "#" + searchUrl.id
+            var dict = searchUrl.dict;
         var dict_full = searchUrl.dict_full;
         var desc = searchUrl.desc;
         //var content = "<h1>" + searchUrl.dict + "</h1>"
@@ -54,10 +54,12 @@ $(document).ready(function () {
     $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (searchUrls) {
 
         $("#btnSearch").click(function () {
+			var txtsearchLow = $("#txtsearch").val().toLowerCase()
             $("#div_intro").html("")
             for (i = 0; i < searchUrls.length; i++) {
                 searchWord(searchUrls[i]);
             }
+			thodarpudaya_sol(txtsearchLow)
         });
 
         var sidenav_left_html = ""
@@ -85,5 +87,11 @@ $(document).ready(function () {
     });
 
     $("#txtSearch").focus();
+	
+	thodarpudaya_sol = function(search_word){
+		$.getJSON("https://thanithamizhakarathikalanjiyam.github.io/agarathi/ety/etytamildict/"+search_word, function (thod_sol_data) {
+			$("#thod_sol").html(thod_sol_data)
+		});
+	}
 
 });
