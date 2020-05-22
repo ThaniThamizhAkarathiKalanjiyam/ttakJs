@@ -6,7 +6,8 @@ $(document).ready(function () {
     searchWord = function (searchUrl) {
 
         var id = "#" + searchUrl.id
-            var dict = searchUrl.dict;
+		var id_card =  searchUrl.id
+        var dict = searchUrl.dict;
         var dict_full = searchUrl.dict_full;
         var desc = searchUrl.desc;
         //var content = "<h1>" + searchUrl.dict + "</h1>"
@@ -47,9 +48,17 @@ $(document).ready(function () {
                     var result = md.render(data);
                     content = content + result;
                 }
-                $(id).html(content);
+                //$(id).html(content);
+// $('card_header_"+ id_card ).html(content);
+//$('card_body_"+ id_card ).html(content);
+$('card_title_"+ id_card ).html(dict);
+$('card_text_"+ id_card ).html(content);
+$('card_footer_"+ id_card ).html(dict_full);
+
             });
     };
+	
+	
 
     $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (searchUrls) {
 
@@ -79,7 +88,8 @@ $(document).ready(function () {
 
                     sidenav_left_html += "<div class='form-check'><input class='form-check-input' type='checkbox' value='' id='sideLink" + id + "'> <label class='form-check-label' for='defaultCheck1'>" + dict + "</label></div>"
 
-                    nav_tabs_content_html += "<div id='" + id + "'></div>"
+                    //nav_tabs_content_html += "<div id='" + id + "'></div>"
+					nav_tabs_content_html += "<div class='card text-center'><div class='card-header' id='card_header_"+ id +"'>Featured</div><div class='card-body' id='card_body_"+ id +"'><h5 class='card-title' id='card_title_"+ id +"'>Special title treatment</h5><p class='card-text' id='card_text_"+ id +"'>With supporting text below as a natural lead-in to additional content.</p></div><div class='card-footer text-muted' id='card_footer_"+ id +"'>*-*</div></div>"
             }
 
             $("#sidenav_left").html(sidenav_left_html)
