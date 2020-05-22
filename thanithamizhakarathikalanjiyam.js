@@ -51,9 +51,9 @@ $(document).ready(function () {
                 //$(id).html(content);
 // $('card_header_"+ id_card ).html(content);
 //$('card_body_"+ id_card ).html(content);
-$('card_title_"+ id_card ).html(dict);
-$('card_text_"+ id_card ).html(content);
-$('card_footer_"+ id_card ).html(dict_full);
+$("card_title_"+ id_card ).html(dict);
+$("card_text_"+ id_card ).html(content);
+$("card_footer_"+ id_card ).html(dict_full);
 
             });  
     };
