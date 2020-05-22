@@ -53,7 +53,7 @@ $("#card_header_"+ id_card ).html(dict);
 //$('#card_body_"+ id_card ).html(content);
 $("#card_title_"+ id_card ).html(txtsearchLow);
 $("#card_text_"+ id_card ).html(content);
-$("#card_footer_"+ id_card ).html(dict_full);
+$("#card_footer_"+ id_card ).html("");
 
 $("#card_div_"+ id_card ).css("display","block")
 
