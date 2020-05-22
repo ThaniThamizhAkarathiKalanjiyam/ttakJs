@@ -49,9 +49,9 @@ $(document).ready(function () {
                     content = content + result;
                 }
                 //$(id).html(content);
-// $('card_header_"+ id_card ).html(content);
+$("card_header_"+ id_card ).html(dict);
 //$('card_body_"+ id_card ).html(content);
-$("card_title_"+ id_card ).html(dict);
+$("card_title_"+ id_card ).html(txtsearchLow);
 $("card_text_"+ id_card ).html(content);
 $("card_footer_"+ id_card ).html(dict_full);
 
