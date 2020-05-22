@@ -55,6 +55,8 @@ $("#card_title_"+ id_card ).html(txtsearchLow);
 $("#card_text_"+ id_card ).html(content);
 $("#card_footer_"+ id_card ).html(dict_full);
 
+$("#card_div_"+ id_card ).css("display","block")
+
             });  
     };
 	
@@ -63,6 +65,7 @@ $("#card_footer_"+ id_card ).html(dict_full);
     $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (searchUrls) {
 
         $("#btnSearch").click(function () {
+			$(".card_div_elem").css("disply","none")
 			var txtsearchLow = $("#txtsearch").val().toLowerCase()
             $("#div_intro").html("")
             for (i = 0; i < searchUrls.length; i++) {
@@ -89,7 +92,7 @@ $("#card_footer_"+ id_card ).html(dict_full);
                     sidenav_left_html += "<div class='form-check'><input class='form-check-input' type='checkbox' value='' id='sideLink" + id + "'> <label class='form-check-label' for='defaultCheck1'>" + dict + "</label></div>"
 
                     //nav_tabs_content_html += "<div id='" + id + "'></div>"
-					nav_tabs_content_html += "<div class='card text-center'><div class='card-header' id='card_header_"+ id +"'>Featured</div><div class='card-body' id='card_body_"+ id +"'><h5 class='card-title' id='card_title_"+ id +"'>Special title treatment</h5><p class='card-text' id='card_text_"+ id +"'>With supporting text below as a natural lead-in to additional content.</p></div><div class='card-footer text-muted' id='card_footer_"+ id +"'>*-*</div></div>"
+					nav_tabs_content_html += "<div class='card text-left card_div_elem' id='card_div_"+ id +"' style='display:none;'><div class='card-header' id='card_header_"+ id +"'>Featured</div><div class='card-body' id='card_body_"+ id +"'><h5 class='card-title' id='card_title_"+ id +"'>Special title treatment</h5><p class='card-text' id='card_text_"+ id +"'>With supporting text below as a natural lead-in to additional content.</p></div><div class='card-footer text-muted' id='card_footer_"+ id +"'>*-*</div></div>"
             }
 
             $("#sidenav_left").html(sidenav_left_html)
