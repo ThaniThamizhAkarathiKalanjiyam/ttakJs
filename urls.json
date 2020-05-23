@@ -1,8 +1,8 @@
 [
 	{
-		"dict": "இதராதி",
+		"dict": "இசையினி",
 		"dict_full": "இசையினி தமிழ் அகராதி",
-		"desc": "இசையினி யாஹூ குழுமம் தொகுத்த அகராதி தொகுப்பு",
+		"desc": "இசையினி யாகு குழுமம் தொகுத்த அகராதி தொகுப்பு",
 		"dir": "search/",
 		"id": "ResultDict"
 	},
@@ -21,7 +21,7 @@
 		"id": "ResultDictTNKT"
 	},
 		{
-		"dict": "அறிவகம்",
+		"dict": "அறிவியல் அகராதி",
 		"dict_full": "அ.கி.மூர்த்தி-ன் அறிவியல் அகராதி",
 		"desc": "அ.கி.மூர்த்தி அவர்களின் அறிவியல் <a href='http://ta.wikisource.org/wiki/%E0%AE%AA%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%AE%E0%AF%8D:%E0%AE%85%E0%AE%B1%E0%AE%BF%E0%AE%B5%E0%AE%BF%E0%AE%AF%E0%AE%B2%E0%AF%8D_%E0%AE%85%E0%AE%95%E0%AE%B0%E0%AE%BE%E0%AE%A4%E0%AE%BF.pdf'>அகராதி-லிருந்து </a> உருவாக்கப் பட்டது.",
 		"dir": "aki_moor/ariv_aga/",

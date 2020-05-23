@@ -134,4 +134,21 @@ cnt = key+ 1
 		});
 	}
 
+
+
+    var lightbox = $('.lightbox-container'),
+        center = function () {
+            var T = $(window).height() / 2 - lightbox.height() / 2 + $(window).scrollTop(),
+                L = $(window).width() / 2 - lightbox.width() / 2;
+            lightbox.css({
+                top: T,
+                left: L
+            }).click(function () {
+                $(this).hide();
+            });
+        };
+    $(window).scroll(center);
+    $(window).resize(center);
+
+
 });
