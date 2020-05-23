@@ -128,7 +128,7 @@ $( pan_id ).css("display","none")
 			var wordsList = ""
 			$.each(thod_sol_data,function(key,val){
 cnt = key+ 1
-				wordsList += cnt  +". "+val+"<br/>"
+				wordsList += cnt  +". "+val+"&nbsp;"
 			})
 			$("#thod_sol").html(wordsList)
 		});
