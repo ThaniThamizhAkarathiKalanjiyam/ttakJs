@@ -68,7 +68,7 @@ $( pan_id ).css("display","none")
     $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (searchUrls) {
 
         $("#btnSearch").click(function () {
-			//$(".card_div_elem").css("disply","none")
+			//
 			var txtsearchLow = $("#txtsearch").val().toLowerCase()
             $("#div_intro").html("")
             for (i = 0; i < searchUrls.length; i++) {
@@ -133,5 +133,5 @@ cnt = key+ 1
 			$("#thod_sol").html(wordsList)
 		});
 	}
-$( "#accordion" ).accordion();
+$(".card_div_elem").css("disply","none")
 });
