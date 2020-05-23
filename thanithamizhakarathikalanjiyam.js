@@ -93,11 +93,15 @@ $("#card_div_"+ id_card ).css("display","block")
                     sidenav_left_html += "<div class='form-check'><input class='form-check-input' type='checkbox' value='' id='sideLink" + id + "'> <label class='form-check-label' for='defaultCheck1'>" + dict + "</label></div>"
 
                     //nav_tabs_content_html += "<div id='" + id + "'></div>"
-					nav_tabs_content_html += "<div class='card text-left card_div_elem' id='card_div_"+ id +"' style='display:none;'><div class='card-header' id='card_header_"+ id +"'>Featured</div><div class='card-body' id='card_body_"+ id +"'><h5 class='card-title' id='card_title_"+ id +"'>Special title treatment</h5><p class='card-text' id='card_text_"+ id +"'>With supporting text below as a natural lead-in to additional content.</p></div><div class='card-footer text-muted' id='card_footer_"+ id +"'>*-*</div></div>"
+					//nav_tabs_content_html += "<div class='card text-left card_div_elem' id='card_div_"+ id +"' style='display:none;'><div class='card-header' id='card_header_"+ id +"'>Featured</div><div class='card-body' id='card_body_"+ id +"'><h5 class='card-title' id='card_title_"+ id +"'>Special title treatment</h5><p class='card-text' id='card_text_"+ id +"'>With supporting text below as a natural lead-in to additional content.</p></div><div class='card-footer text-muted' id='card_footer_"+ id +"'>*-*</div></div>"
+					
+					nav_tabs_content_html += "<div class='panel panel-success '><div class='panel-heading' id='card_header_"+ id_card +"'>Panel Heading</div><div class='panel-body' id='card_text_"+ id_card +"'></div></div>"
             }
 
             $("#sidenav_left").html(sidenav_left_html)
-            $("#nav_tabs_content_html").html(nav_tabs_content_html)
+            //$("#nav_tabs_content_html").html(nav_tabs_content_html)
+			$("#accordion").html(nav_tabs_content_html)
+			
     });
 
     $("#txtSearch").focus();
