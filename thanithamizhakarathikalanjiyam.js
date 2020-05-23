@@ -34,9 +34,10 @@ $(document).ready(function () {
             }
         }
         var gitHubUrl = ""
-            if (searchUrl.id == "ResultDict") {
+            if (searchUrl.id == "ResultDict" ||
+			searchUrl.id == "ResultDictTamKal") {
                 gitHubUrl = url + tamil_letters[0] + "/" + txtsearchLow
-            } else {
+            }else {
                 gitHubUrl = url + txtsearchLow
             }
 

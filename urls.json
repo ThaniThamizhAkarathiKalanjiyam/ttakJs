@@ -1,10 +1,17 @@
 [
 	{
-		"dict": "ததஅக",
-		"dict_full": "தனித் தமிழகராதிக் களஞ்சியம்",
+		"dict": "இதராதி",
+		"dict_full": "இசையினி தமிழ் அகராதி",
 		"desc": "இசையினி யாஹூ குழுமம் தொகுத்த அகராதி தொகுப்பு",
 		"dir": "search/",
 		"id": "ResultDict"
+	},
+	{
+		"dict": "தமிழ்க் கல்வி அகராதி",
+		"dict_full": "தமிழ்க் கல்வி அகராதி",
+		"desc": "தமிழ்க் கல்வி அகராதி <a href='https://www.tamilkalvi.in/'>அகராதி-லிருந்து </a> உருவாக்கப் பட்டது.",
+		"dir": "tam_kal/",
+		"id": "ResultDictTamKal"
 	},
 	{
 		"dict": "தமாகதி",
@@ -13,7 +20,7 @@
 		"dir": "tnkt/",
 		"id": "ResultDictTNKT"
 	},
-	{
+		{
 		"dict": "அறிவகம்",
 		"dict_full": "அ.கி.மூர்த்தி-ன் அறிவியல் அகராதி",
 		"desc": "அ.கி.மூர்த்தி அவர்களின் அறிவியல் <a href='http://ta.wikisource.org/wiki/%E0%AE%AA%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%AE%E0%AF%8D:%E0%AE%85%E0%AE%B1%E0%AE%BF%E0%AE%B5%E0%AE%BF%E0%AE%AF%E0%AE%B2%E0%AF%8D_%E0%AE%85%E0%AE%95%E0%AE%B0%E0%AE%BE%E0%AE%A4%E0%AE%BF.pdf'>அகராதி-லிருந்து </a> உருவாக்கப் பட்டது.",
