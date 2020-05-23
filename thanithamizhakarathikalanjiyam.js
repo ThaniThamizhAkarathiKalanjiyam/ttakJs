@@ -100,7 +100,7 @@ $("#card_div_"+ id_card ).css("display","block")
 
             $("#sidenav_left").html(sidenav_left_html)
             //$("#nav_tabs_content_html").html(nav_tabs_content_html)
-			$("#accordion").html(nav_tabs_content_html)
+			$("#nav_tabs_content_html").html(nav_tabs_content_html)
 			
     });
 
