@@ -21,18 +21,18 @@ $(document).ready(function () {
             error: AjaxError
         });
 
-        function AjaxError(x, e) {
-            if (x.status == 0) {
-                $(id).html(' Check Your Network.');
-            } else if (x.status == 404) {
-                content = content + txtsearchLow + ": இச்சொல் " + dict_full + " அகராதியில் இல்லை.";
-                $(id).html(content);
-            } else if (x.status == 500) {
-                $(id).html('Internel Server Error.');
-            } else {
-                $(id).html('Unknow Error.\n' + x.responseText);
-            }
-        }
+        // function AjaxError(x, e) {
+            // if (x.status == 0) {
+                // $(id).html(' Check Your Network.');
+            // } else if (x.status == 404) {
+                // content = content + txtsearchLow + ": இச்சொல் " + dict_full + " அகராதியில் இல்லை.";
+                // $(id).html(content);
+            // } else if (x.status == 500) {
+                // $(id).html('Internel Server Error.');
+            // } else {
+                // $(id).html('Unknow Error.\n' + x.responseText);
+            // }
+        // }
         var gitHubUrl = ""
             if (searchUrl.id == "ResultDict" ||
 			searchUrl.id == "ResultDictTamKal") {
@@ -40,24 +40,24 @@ $(document).ready(function () {
             }else {
                 gitHubUrl = url + txtsearchLow
             }
-
+$("#panel_"+ id  ).css("display","none")
             $.get(gitHubUrl,
                 function (data) {
                 if (data.length == 0) {
                     content = content + txtsearchLow + ": இச்சொல் " + dict_full + " அகராதியில் இல்லை.";
+					
                 } else {
                     var result = md.render(data);
                     content = content + result;
+					$("#panel_"+ id  ).css("display","block")
+					
+					//$(id).html(content);
+					$("#card_header_"+ id_card ).html(dict);
+					//$('#card_body_"+ id_card ).html(content);
+					$("#card_title_"+ id_card ).html(txtsearchLow);
+					$("#card_text_"+ id_card ).html(content);
+					$("#card_footer_"+ id_card ).html("");
                 }
-                //$(id).html(content);
-$("#card_header_"+ id_card ).html(dict);
-//$('#card_body_"+ id_card ).html(content);
-$("#card_title_"+ id_card ).html(txtsearchLow);
-$("#card_text_"+ id_card ).html(content);
-$("#card_footer_"+ id_card ).html("");
-
-$("#panel_"+ id  ).css("display","block")
-
             });  
     };
 	
@@ -66,7 +66,7 @@ $("#panel_"+ id  ).css("display","block")
     $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (searchUrls) {
 
         $("#btnSearch").click(function () {
-			$(".card_div_elem").css("disply","none")
+			//$(".card_div_elem").css("disply","none")
 			var txtsearchLow = $("#txtsearch").val().toLowerCase()
             $("#div_intro").html("")
             for (i = 0; i < searchUrls.length; i++) {
