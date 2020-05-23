@@ -110,7 +110,7 @@ $("#card_div_"+ id_card ).css("display","block")
 					else 
 						panColor = "default"
 					
-					nav_tabs_content_html += "<div class='panel panel-"+panColor+" id='panel_"+ id +"'><div class='panel-heading' id='card_header_"+ id +"'>Panel Heading</div><div class='panel-body' id='card_text_"+ id +"'></div></div>"
+					nav_tabs_content_html += "<div class='panel panel-"+panColor+" id='panel_"+ id +"' style='display:none;'><div class='panel-heading' id='card_header_"+ id +"'>Panel Heading</div><div class='panel-body' id='card_text_"+ id +"'></div></div>"
             }
 
             $("#sidenav_left").html(sidenav_left_html)
