@@ -40,7 +40,7 @@ $(document).ready(function () {
             }else {
                 gitHubUrl = url + txtsearchLow
             }
-			var pan_id = "#panel_"+ id
+			var pan_id = "#panel_"+ id_card
 $( pan_id ).css("display","none")
 
             $.get(gitHubUrl,
@@ -51,7 +51,7 @@ $( pan_id ).css("display","none")
                 } else {
                     var result = md.render(data);
                     content = content + result;
-					$("#panel_"+ id  ).css("display","block")
+					$("#panel_"+ id_card  ).css("display","block")
 					
 					//$(id).html(content);
 					$("#card_header_"+ id_card ).html(dict);
