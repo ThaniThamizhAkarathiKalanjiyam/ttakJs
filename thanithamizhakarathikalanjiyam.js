@@ -17,9 +17,9 @@ $(document).ready(function () {
         var txtsearchLow = $("#txtsearch").val().toLowerCase()
             var tamil_letters = get_tamil_letters(txtsearchLow);
 
-        $.ajaxSetup({
-            error: AjaxError
-        });
+        // $.ajaxSetup({
+            // error: AjaxError
+        // });
 
         // function AjaxError(x, e) {
             // if (x.status == 0) {
