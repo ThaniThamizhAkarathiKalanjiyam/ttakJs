@@ -112,5 +112,5 @@ cnt = key+ 1
 			$("#thod_sol").html(wordsList)
 		});
 	}
-
+$( "#accordion" ).accordion();
 });
