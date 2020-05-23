@@ -95,7 +95,7 @@ $("#card_div_"+ id_card ).css("display","block")
                     //nav_tabs_content_html += "<div id='" + id + "'></div>"
 					//nav_tabs_content_html += "<div class='card text-left card_div_elem' id='card_div_"+ id +"' style='display:none;'><div class='card-header' id='card_header_"+ id +"'>Featured</div><div class='card-body' id='card_body_"+ id +"'><h5 class='card-title' id='card_title_"+ id +"'>Special title treatment</h5><p class='card-text' id='card_text_"+ id +"'>With supporting text below as a natural lead-in to additional content.</p></div><div class='card-footer text-muted' id='card_footer_"+ id +"'>*-*</div></div>"
 					
-					nav_tabs_content_html += "<div class='panel panel-success '><div class='panel-heading' id='card_header_"+ id_card +"'>Panel Heading</div><div class='panel-body' id='card_text_"+ id_card +"'></div></div>"
+					nav_tabs_content_html += "<div class='panel panel-success '><div class='panel-heading' id='card_header_"+ id +"'>Panel Heading</div><div class='panel-body' id='card_text_"+ id +"'></div></div>"
             }
 
             $("#sidenav_left").html(sidenav_left_html)
