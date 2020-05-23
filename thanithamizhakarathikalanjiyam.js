@@ -40,7 +40,9 @@ $(document).ready(function () {
             }else {
                 gitHubUrl = url + txtsearchLow
             }
-$("#panel_"+ id  ).css("display","none")
+			var pan_id = "#panel_"+ id
+$( pan_id ).css("display","none")
+
             $.get(gitHubUrl,
                 function (data) {
                 if (data.length == 0) {
