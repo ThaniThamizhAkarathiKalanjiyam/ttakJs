@@ -1,5 +1,6 @@
 $(document).ready(function () {
 
+	var bseWeb = "https://ThaniThamizhAkarathiKalanjiyam.github.io/"
     var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/"
         var md = window.markdownit();
 
@@ -8,31 +9,21 @@ $(document).ready(function () {
         var id = "#" + searchUrl.id
 		var id_card =  searchUrl.id
         var dict = searchUrl.dict;
+		var sep_dict = searchUrl.sep_dict;
         var dict_full = searchUrl.dict_full;
         var desc = searchUrl.desc;
         //var content = "<h1>" + searchUrl.dict + "</h1>"
         var content = ""
-            var url = bseSearchDir + searchUrl.dir
+            var url = ""
+			if(sep_dict == true){
+				url = bseWeb + searchUrl.dir
+			}else{
+			url = bseSearchDir + searchUrl.dir
+			}
             $(id).html("Please wait . . . ");
         var txtsearchLow = $("#txtsearch").val().toLowerCase()
             var tamil_letters = get_tamil_letters(txtsearchLow);
-
-        // $.ajaxSetup({
-            // error: AjaxError
-        // });
-
-        // function AjaxError(x, e) {
-            // if (x.status == 0) {
-                // $(id).html(' Check Your Network.');
-            // } else if (x.status == 404) {
-                // content = content + txtsearchLow + ": இச்சொல் " + dict_full + " அகராதியில் இல்லை.";
-                // $(id).html(content);
-            // } else if (x.status == 500) {
-                // $(id).html('Internel Server Error.');
-            // } else {
-                // $(id).html('Unknow Error.\n' + x.responseText);
-            // }
-        // }
+        
         var gitHubUrl = ""
             if (searchUrl.id == "ResultDict" ||
 			searchUrl.id == "ResultDictTamKal") {
