@@ -159,5 +159,12 @@
 		"desc": "திருவரங்க நீலாம்பிகை அம்மையார் அவர்களின் வடசொல் தமிழ் அகர வரிசைச் சுருக்கம் தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
 		"dir": "neela/vasol_tamil/",
 		"id": "ResultDictVTAS"
+	},
+	{
+		"dict": "மின்தமிழ் ",
+		"dict_full": "மின்தமிழ் அகராதி",
+		"desc": "Unofficial dictionary is collected from Mintamil https://groups.google.com/forum/#!forum/mintamil Google group.",
+		"dir": "mintamil/",
+		"id": "ResultDictMinTam"
 	}
 ]
