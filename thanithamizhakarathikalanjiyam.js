@@ -49,7 +49,7 @@ $(document).ready(function () {
                     //$('#card_body_"+ id_card ).html(content);
                     $("#card_title_" + id_card).html(txtsearchLow);
                     $("#card_text_" + id_card).html(replaceIlakText2Links(content));
-					popup_poem()
+					popup_poem("#card_text_" + id_card)
                     $("#card_footer_" + id_card).html("");
 					
                 }
@@ -198,8 +198,8 @@ $(document).ready(function () {
         return result_str
     }
 
-popup_poem = function(){
-$(".popup_poem").click(function(){
+popup_poem = function(card_text_id_card){
+$("#"+card_text_id_card+".popup_poem").click(function(){
 	
 alert(	$(this).attr("patt_href"))
 	
