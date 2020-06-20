@@ -160,18 +160,13 @@ replaceTheIlakiyaText2Links =  function(card_text_id_card){
 
 replaceIlakText2Links =  function(str){
 	
-	// var txtResultDictPathinen = $("#"+card_text_id_card+">ul>li")
-    // $.each(txtResultDictPathinen, function (index, value) {
-        // str = value.innerHTML
+var result_str = str
             var patt = /புறம் \d+\/\d+/g;
         var result = str.match(patt);
         $.each(result, function (resultindex, resultvalue) {
-           return str.replace(resultvalue, "Hi all 3")
-
+           result_str = result_str.replace(resultvalue, "Hi all 3")
         })
-    // })
- 
-	
+   return result_str
 }
 
 });
