@@ -57,13 +57,23 @@ $(document).ready(function () {
     $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (searchUrls) {
 
         $("#btnSearch").click(function () {
-            //
-            var txtsearchLow = $("#txtsearch").val().toLowerCase()
+           $.when(
+		   
+		   function({
+			   var txtsearchLow = $("#txtsearch").val().toLowerCase()
                 $("#div_intro").html("")
                 for (i = 0; i < searchUrls.length; i++) {
                     searchWord(searchUrls[i]);
                 }
-                thodarpudaya_sol(txtsearchLow)
+                
+		   })
+		   
+		   ).then(function(){
+			   
+			   popup_poem()
+			   thodarpudaya_sol(txtsearchLow)
+		   })
+            
         });
 
         var sidenav_left_html = ""
@@ -183,10 +193,11 @@ $(document).ready(function () {
         return result_str
     }
 
-
+popup_poem = function({
 $(".popup_poem").click(function(){
 	
 alert(	$(this).attr("patt_href"))
 	
+})
 })
 });
