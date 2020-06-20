@@ -47,8 +47,8 @@ $( pan_id ).css("display","none")
 					//$(id).html(content);
 					$("#card_header_"+ id_card ).html(dict);
 					//$('#card_body_"+ id_card ).html(content);
-					$("#card_title_"+ id_card ).html(replaceIlakText2Links(txtsearchLow));
-					$("#card_text_"+ id_card ).html(content);
+					$("#card_title_"+ id_card ).html(txtsearchLow);
+					$("#card_text_"+ id_card ).html(replaceIlakText2Links(content));
 					$("#card_footer_"+ id_card ).html("");
                 }
             });  
