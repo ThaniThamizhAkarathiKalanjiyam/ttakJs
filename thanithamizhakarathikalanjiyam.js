@@ -199,7 +199,7 @@ $(document).ready(function () {
     }
 
 popup_poem = function(card_text_id_card){
-$("#"+card_text_id_card+".popup_poem").click(function(){
+$(card_text_id_card+" .popup_poem").click(function(){
 	
 alert(	$(this).attr("patt_href"))
 	
