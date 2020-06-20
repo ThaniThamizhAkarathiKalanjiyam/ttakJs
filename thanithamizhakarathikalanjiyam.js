@@ -183,4 +183,10 @@ $(document).ready(function () {
         return result_str
     }
 
+
+$(".popup_poem").click(function(){
+	
+alert(	$(this).attr("patt_href"))
+	
+})
 });
