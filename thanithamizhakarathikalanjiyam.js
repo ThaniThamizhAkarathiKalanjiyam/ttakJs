@@ -117,7 +117,7 @@ $(document).ready(function () {
                         panColor = "default"
                     }
 
-                    nav_tabs_content_html += "<div class='card_div_elem panel panel-" + panColor + " col-sm-6' id='panel_" + id + "' style='display:none;'><div class='panel-heading' id='card_header_" + id + "'>Panel Heading</div><div class='panel-body' id='card_text_" + id + "'></div></div>"
+                    nav_tabs_content_html += "<div class='card_div_elem panel panel-" + panColor + " col-sm-4' id='panel_" + id + "' style='display:none;max-height:400px;overflow:auto;'><div class='panel-heading' id='card_header_" + id + "'>Panel Heading</div><div class='panel-body' id='card_text_" + id + "'></div></div>"
             }
 
             $("#sidenav_left").html(sidenav_left_html)
