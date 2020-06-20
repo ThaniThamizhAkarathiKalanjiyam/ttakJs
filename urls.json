@@ -20,6 +20,13 @@
 		"dir": "tnkt/",
 		"id": "ResultDictTNKT","sep_dict":false
 	},
+{
+		"dict": "சததஅ",
+		"dict_full": "தமிழ் தமிழ் அகரமுதலி ",
+		"desc": "சன்முகப்பிள்ளை தமிழ் தமிழ் அகரமுதலி",
+		"dir": "tamil_tamil_akaramuthali/docs/",
+		"id": "ResultDictCCTA","sep_dict":true
+	},
 		{
 		"dict": "அறிவியல் அகராதி",
 		"dict_full": "அ.கி.மூர்த்தி-ன் அறிவியல் அகராதி",
