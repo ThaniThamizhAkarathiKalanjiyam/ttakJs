@@ -172,7 +172,7 @@ $(document).ready(function () {
 				$div.attr("poem_no", $poem_no)
 				$div.attr("patt_href", patt_href)
 				$div.html(resultvalue)
-				$icon = $("class='material-icons'")
+				$icon = $("<span class='material-icons'>")
 				$icon.html("launch")
 				$div.append($icon)
 				                
