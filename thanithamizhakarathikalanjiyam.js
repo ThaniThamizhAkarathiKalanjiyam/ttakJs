@@ -47,7 +47,7 @@ $( pan_id ).css("display","none")
 					//$(id).html(content);
 					$("#card_header_"+ id_card ).html(dict);
 					//$('#card_body_"+ id_card ).html(content);
-					$("#card_title_"+ id_card ).html(txtsearchLow);
+					$("#card_title_"+ id_card ).html(replaceIlakText2Links(txtsearchLow));
 					$("#card_text_"+ id_card ).html(content);
 					$("#card_footer_"+ id_card ).html("");
                 }
@@ -154,6 +154,22 @@ replaceTheIlakiyaText2Links =  function(card_text_id_card){
 
         })
     })
+ 
+	
+}
+
+replaceIlakText2Links =  function(str){
+	
+	// var txtResultDictPathinen = $("#"+card_text_id_card+">ul>li")
+    // $.each(txtResultDictPathinen, function (index, value) {
+        // str = value.innerHTML
+            var patt = /புறம் \d+\/\d+/g;
+        var result = str.match(patt);
+        $.each(result, function (resultindex, resultvalue) {
+           return str.replace(resultvalue, "Hi all 3")
+
+        })
+    // })
  
 	
 }
