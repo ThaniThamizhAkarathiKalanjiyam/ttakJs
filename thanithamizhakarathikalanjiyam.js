@@ -168,7 +168,7 @@ $(document).ready(function () {
             if (matches) {
                 $poem_no = matches[0];
 
-				$div = $("<span style='color:red;' class='popup_poem'>")
+				$div = $("<span class='popup_poem'>")
 				$div.attr("poem_no", $poem_no)
 				$div.attr("patt_href", patt_href)
 				$div.html(resultvalue)
