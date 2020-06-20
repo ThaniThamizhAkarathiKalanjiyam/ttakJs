@@ -88,15 +88,21 @@ $(document).ready(function () {
 
                     var panColor = "default"
                     var colInt = i % 6
-                    if (colInt == 0)
-                        panColor = "primary" else if (colInt == 1)
-                                panColor = "success" else if (colInt == 2)
-                                        panColor = "info" else if (colInt == 3)
-                                                panColor = "warning" else if (colInt == 4)
-                                                        panColor = "danger" else
-                                                                panColor = "default"
+                    if (colInt == 0) {
+                        panColor = "primary"
+                    } else if (colInt == 1) {
+                        panColor = "success"
+                    } else if (colInt == 2) {
+                        panColor = "info"
+                    } else if (colInt == 3) {
+                        panColor = "warning"
+                    } else if (colInt == 4) {
+                        panColor = "danger"
+                    } else {
+                        panColor = "default"
+                    }
 
-                                                                    nav_tabs_content_html += "<div class='card_div_elem panel panel-" + panColor + "' id='panel_" + id + "' style='display:none;'><div class='panel-heading' id='card_header_" + id + "'>Panel Heading</div><div class='panel-body' id='card_text_" + id + "'></div></div>"
+                    nav_tabs_content_html += "<div class='card_div_elem panel panel-" + panColor + "' id='panel_" + id + "' style='display:none;'><div class='panel-heading' id='card_header_" + id + "'>Panel Heading</div><div class='panel-body' id='card_text_" + id + "'></div></div>"
             }
 
             $("#sidenav_left").html(sidenav_left_html)
@@ -161,14 +167,14 @@ $(document).ready(function () {
 
             if (matches) {
                 $poem_no = matches[0];
-				
-				$div = $("<div>")
-				$div.attr("poem_no",poem_no)
-				$div.attr("patt_href",patt_href)
-				$div.click(function(){
-						alert( patt_href + poem_no.toString() )				
-				})
-                result_str = result_str.replace(resultvalue, "<div id=>")
+
+                $div = $("<div>")
+                    $div.attr("poem_no", poem_no)
+                    $div.attr("patt_href", patt_href)
+                    $div.click(function () {
+                        alert(patt_href + poem_no.toString())
+                    })
+                    result_str = result_str.replace(resultvalue, "<div id=>")
 
             }
         })
