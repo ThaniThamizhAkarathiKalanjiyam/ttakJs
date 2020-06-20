@@ -168,13 +168,15 @@ $(document).ready(function () {
             if (matches) {
                 $poem_no = matches[0];
 
-                $div = $("<div>")
-                    $div.attr("poem_no", poem_no)
-                    $div.attr("patt_href", patt_href)
-                    $div.click(function () {
-                        alert(patt_href + poem_no.toString())
-                    })
-                    result_str = result_str.replace(resultvalue, "<div id=>")
+				$div = $("<div style='color:red;'>")
+				$div.attr("poem_no", $poem_no)
+				$div.attr("patt_href", patt_href)
+				$div.html(resultvalue)
+				$div.click(function () {
+					alert(patt_href + $poem_no.toString())
+				})
+                
+				result_str = result_str.replace(resultvalue, $div)
 
             }
         })
