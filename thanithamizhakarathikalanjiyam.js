@@ -177,7 +177,7 @@ $(document).ready(function () {
 				$div.append($icon)
 				                
 				result_str = result_str.replace(resultvalue, $div[0].outerHTML)
-
+ 
             }
         })
         return result_str
