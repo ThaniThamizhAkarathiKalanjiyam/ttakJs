@@ -168,14 +168,14 @@ $(document).ready(function () {
             if (matches) {
                 $poem_no = matches[0];
 
-				$div = $("<div style='color:red;'>")
+				$div = $("<span style='color:red;' class='popup_poem'>")
 				$div.attr("poem_no", $poem_no)
 				$div.attr("patt_href", patt_href)
 				$div.html(resultvalue)
-				$div.click(function () {
-					alert(patt_href + $poem_no.toString())
-				})
-                
+				$icon = $("class='material-icons'")
+				$icon.html("launch")
+				$div.append($icon)
+				                
 				result_str = result_str.replace(resultvalue, $div[0].outerHTML)
 
             }
