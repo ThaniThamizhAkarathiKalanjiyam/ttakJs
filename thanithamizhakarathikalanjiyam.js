@@ -142,4 +142,20 @@ cnt = key+ 1
     $(window).resize(center);
 
 
+replaceTheIlakiyaText2Links =  function(card_text_id_card){
+	
+	var txtResultDictPathinen = $("#"+card_text_id_card+">ul>li")
+    $.each(txtResultDictPathinen, function (index, value) {
+        str = value.innerHTML
+            var patt = /புறம் \d+\/\d+/g;
+        var result = str.match(patt);
+        $.each(result, function (resultindex, resultvalue) {
+            value.innerHTML = str.replace(resultvalue, "Hi all 3")
+
+        })
+    })
+ 
+	
+}
+
 });
