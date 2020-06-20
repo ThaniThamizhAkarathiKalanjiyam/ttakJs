@@ -176,7 +176,7 @@ $(document).ready(function () {
 					alert(patt_href + $poem_no.toString())
 				})
                 
-				result_str = result_str.replace(resultvalue, $div)
+				result_str = result_str.replace(resultvalue, $div[0].outerHTML)
 
             }
         })
