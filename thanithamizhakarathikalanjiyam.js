@@ -54,19 +54,22 @@ $(document).ready(function () {
             });
     };
 
-    $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (searchUrls) {
 
-        $("#btnSearch").click(function () {
-           $.when(
-		   
-		   function({
+  searchWordUrl = function(searchUrls){
 			   var txtsearchLow = $("#txtsearch").val().toLowerCase()
                 $("#div_intro").html("")
                 for (i = 0; i < searchUrls.length; i++) {
                     searchWord(searchUrls[i]);
                 }
                 
-		   })
+		   }
+
+    $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (searchUrls) {
+
+        $("#btnSearch").click(function () {
+           $.when(
+		   
+		 searchWordUrl(searchUrls)
 		   
 		   ).then(function(){
 			   
