@@ -49,14 +49,16 @@ $(document).ready(function () {
                     //$('#card_body_"+ id_card ).html(content);
                     $("#card_title_" + id_card).html(txtsearchLow);
                     $("#card_text_" + id_card).html(replaceIlakText2Links(content));
+					popup_poem()
                     $("#card_footer_" + id_card).html("");
+					
                 }
             });
     };
 
 
   searchWordUrl = function(searchUrls){
-			   var txtsearchLow = $("#txtsearch").val().toLowerCase()
+			   
                 $("#div_intro").html("")
                 for (i = 0; i < searchUrls.length; i++) {
                     searchWord(searchUrls[i]);
@@ -72,8 +74,8 @@ $(document).ready(function () {
 		 searchWordUrl(searchUrls)
 		   
 		   ).then(function(){
+			   var txtsearchLow = $("#txtsearch").val().toLowerCase()
 			   
-			   popup_poem()
 			   thodarpudaya_sol(txtsearchLow)
 		   })
             
