@@ -46,7 +46,7 @@ $(document).ready(function () {
 
                     //$(id).html(content);
                     $("#card_header_" + id_card).html(dict);
-					$("#card_header_" + id_card).append("<span class='material-icons copy_content_str'>content_copy</span>");
+					$("#card_header_" + id_card).append("<span class='material-icons copy_content_str' title='Copy'>content_copy</span>");
 					
                     //$('#card_body_"+ id_card ).html(content);
                     $("#card_title_" + id_card).html(txtsearchLow);
