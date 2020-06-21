@@ -32,14 +32,14 @@
 		"dict_full": "அ.கி.மூர்த்தி-ன் அறிவியல் அகராதி",
 		"desc": "அ.கி.மூர்த்தி அவர்களின் அறிவியல் <a href='http://ta.wikisource.org/wiki/%E0%AE%AA%E0%AE%95%E0%AF%8D%E0%AE%95%E0%AE%AE%E0%AF%8D:%E0%AE%85%E0%AE%B1%E0%AE%BF%E0%AE%B5%E0%AE%BF%E0%AE%AF%E0%AE%B2%E0%AF%8D_%E0%AE%85%E0%AE%95%E0%AE%B0%E0%AE%BE%E0%AE%A4%E0%AE%BF.pdf'>அகராதி-லிருந்து </a> உருவாக்கப் பட்டது.",
 		"dir": "aki_moor/ariv_aga/",
-		"id": "ResultDictArivagam","sep_dict":false
+		"id": "ResultDictArivagam","sep_dict":true
 	},
 	{
 		"dict": "கண்மணிப்புகழ்",
 		"dict_full": "கண்மணிப்புகழ் மருத்துவ அகராதி",
 		"desc": "திருமதி ச.கண்மணிகணேசன், மரு.புகழேந்திப்பாண்டியன் அவர்களின் மருத்துவ அகராதி-லிருந்து உருவாக்கப் பட்டது.",
 		"dir": "kanmani_pugal/maru_aga/",
-		"id": "ResultDictKanPug","sep_dict":false
+		"id": "ResultDictKanPug","sep_dict":true
 	},
 	{
 		"dict": "பழமொழி",
