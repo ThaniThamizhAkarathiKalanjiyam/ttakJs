@@ -20,7 +20,7 @@ $(document).ready(function () {
             } else {
                 url = bseSearchDir + searchUrl.dir
             }
-            $(id).html("Please wait . . . ");
+            // $(id).html("Please wait . . . ");
         var txtsearchLow = $("#txtsearch").val().toLowerCase()
             var tamil_letters = get_tamil_letters(txtsearchLow);
 
