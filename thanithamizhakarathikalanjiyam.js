@@ -240,7 +240,7 @@ versol_div = function(root_word,childs){
 		 'children' : childs
       }
     ]
-} }).redraw(true);
+} })//.redraw(true);
 }
 
 $.when(versol_div("வேர்",["இடது கிளை","வலது கிளை"]),
