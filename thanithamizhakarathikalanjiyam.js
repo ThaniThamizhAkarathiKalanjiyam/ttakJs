@@ -237,6 +237,10 @@ versol_div = function(root_word,childs){
 } }).redraw(true);
 }
 
-versol_div("Verசொல்","Vilaivuசொல்")
-side_extra_info()
+$.when(versol_div("Verசொல்","Vilaivuசொல்"),
+side_extra_info()).then(function(){
+	
+	
+})
+
 });
