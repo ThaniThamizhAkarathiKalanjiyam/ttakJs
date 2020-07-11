@@ -233,6 +233,6 @@ versol_div = function(){
     ]
 } });
 }
-
+versol_div()
 side_extra_info()
 });
