@@ -139,7 +139,7 @@ $(document).ready(function () {
                 })
                 $("#thod_sol").html(wordsList)
 				
-				versol_div(search_word)
+				versol_div(search_word,thod_sol_data)
         });
     }
 
@@ -217,7 +217,7 @@ side_extra_info = function(){
 	$(".ui-accordion-content").show();
 }
 
-versol_div = function(root_word){
+versol_div = function(root_word,childs){
 	$('#jstree_demo_div').jstree({ 'core' : {
     'data' : [
        // 'Simple root node',
@@ -227,10 +227,11 @@ versol_div = function(root_word){
            'opened' : true,
            'selected' : true
          },
-         'children' : [
-           { 'text' : 'Child 1' },
-           'Child 2'
-         ]
+         // 'children' : [
+           // { 'text' : 'Child 1' },
+           // 'Child 2'
+         // ]
+		 'children' : childs
       }
     ]
 } });
