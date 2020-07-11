@@ -142,7 +142,7 @@ $(document).ready(function () {
 				
         });
     }
-versol_div("Verசொல்","Vilaivuசொல்")
+
     var lightbox = $('.lightbox-container'),
     center = function () {
         var T = $(window).height() / 2 - lightbox.height() / 2 + $(window).scrollTop(),
@@ -237,5 +237,6 @@ versol_div = function(root_word,childs){
 } }).redraw(true);
 }
 
+versol_div("Verசொல்","Vilaivuசொல்")
 side_extra_info()
 });
