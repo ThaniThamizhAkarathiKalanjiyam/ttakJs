@@ -215,7 +215,24 @@ side_extra_info = function(){
 	$(".ui-accordion-content").show();
 }
 
-
+versol_div = function(){
+	$('#jstree_demo_div').jstree({ 'core' : {
+    'data' : [
+       'Simple root node',
+       {
+         'text' : 'Root node 2',
+         'state' : {
+           'opened' : true,
+           'selected' : true
+         },
+         'children' : [
+           { 'text' : 'Child 1' },
+           'Child 2'
+         ]
+      }
+    ]
+} });
+}
 
 side_extra_info()
 });
