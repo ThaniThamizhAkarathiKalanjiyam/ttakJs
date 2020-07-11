@@ -220,7 +220,7 @@ side_extra_info = function(){
 versol_div = function(root_word,childs){
 	$('#jstree_demo_div').jstree({ 'core' : {
     'data' : [
-       // 'Simple root node',
+       'பிறசொற்கள் ',
        {
          'text' : root_word,
          'state' : {
@@ -237,7 +237,7 @@ versol_div = function(root_word,childs){
 } }).redraw(true);
 }
 
-$.when(versol_div("Verசொல்","Vilaivuசொல்"),
+$.when(versol_div("வேர்",["இடது கிளை","வலது கிளை"]),
 side_extra_info()).then(function(){
 	
 	
