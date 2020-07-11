@@ -67,8 +67,8 @@
 		"dict": "சங்கப் புலவர் அகராதி",
 		"dict_full": "இசையினி சங்கப் புலவர் அகராதி",
 		"desc": "இசையினி சங்கப் புலவர் அகராதி தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
-		"dir": "isai_per/sankam/",
-		"id": "ResultDictIsaiPerSan","sep_dict":false
+		"dir": "tamil_pulavarkal/sankam/",
+		"id": "ResultDictIsaiPerSan","sep_dict":true
 	},
 	{
 		"dict": "சிலப்பதிகாரம்",
