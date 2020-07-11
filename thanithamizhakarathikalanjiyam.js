@@ -207,4 +207,15 @@ alert(	$(this).attr("patt_href"))
 	
 })
 }
+
+side_extra_info = function(){
+	$( "#accordion" ).accordion({
+	  heightStyle: "content"
+	});
+	$(".ui-accordion-content").show();
+}
+
+
+
+side_extra_info()
 });
