@@ -139,7 +139,8 @@ $(document).ready(function () {
                 })
                 $("#thod_sol").html(wordsList)
 				
-				
+				$('#jstree_demo_div').jstree(true).settings.core.data = thod_sol_data;
+				$('#jstree_demo_div').jstree(true).refresh();
         });
     }
 
