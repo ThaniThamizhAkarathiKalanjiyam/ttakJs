@@ -71,6 +71,7 @@ $(document).ready(function () {
     $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (searchUrls) {
 
         $("#btnSearch").click(function () {
+			
            $.when(
 		   
 		 searchWordUrl(searchUrls)
@@ -138,7 +139,7 @@ $(document).ready(function () {
                         wordsList += cnt + ". " + val + "&nbsp;"
                 })
                 $("#thod_sol").html(wordsList)
-				
+				$('#jstree_demo_div').jstree().deselect_all(true);
 				if(search_word.length > 0 && wordsList.length > 0){
 					$('#jstree_demo_div').jstree(true).settings.core.data = thod_sol_data;
 					$('#jstree_demo_div').jstree(true).refresh();
@@ -245,8 +246,7 @@ versol_div = function(root_word,childs){
 $('#jstree_demo_div').on("select_node.jstree", function (e, data) {
 	if(data.node != undefined){
 	  $("#txtsearch").val(data.node.text);
-	  $("#btnSearch").trigger("click")
-	  $('#jstree_demo_div').jstree().deselect_all(true);
+	  $("#btnSearch").trigger("click")	  
 	}
 });
 $.when(versol_div("வேர்",["இடது கிளை","வலது கிளை"]),
