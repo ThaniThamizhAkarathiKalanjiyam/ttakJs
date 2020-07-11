@@ -246,6 +246,7 @@ $('#jstree_demo_div').on("select_node.jstree", function (e, data) {
 	if(data.node != undefined){
 	  $("#txtsearch").val(data.node.text);
 	  $("#btnSearch").trigger("click")
+	  $('#jstree_demo_div').deselect_all(true)
 	}
 });
 $.when(versol_div("வேர்",["இடது கிளை","வலது கிளை"]),
