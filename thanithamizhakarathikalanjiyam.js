@@ -139,8 +139,13 @@ $(document).ready(function () {
                 })
                 $("#thod_sol").html(wordsList)
 				
-				$('#jstree_demo_div').jstree(true).settings.core.data = thod_sol_data;
-				$('#jstree_demo_div').jstree(true).refresh();
+				if(search_word.length > 0 && wordsList.length > 0){
+					$('#jstree_demo_div').jstree(true).settings.core.data = thod_sol_data;
+					$('#jstree_demo_div').jstree(true).refresh();
+				}else
+				{
+					versol_div("வேர்",["இடது கிளை","வலது கிளை"])
+				}
         });
     }
 
