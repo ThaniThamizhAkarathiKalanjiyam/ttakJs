@@ -138,6 +138,8 @@ $(document).ready(function () {
                         wordsList += cnt + ". " + val + "&nbsp;"
                 })
                 $("#thod_sol").html(wordsList)
+				
+				versol_div(search_word)
         });
     }
 
@@ -215,12 +217,12 @@ side_extra_info = function(){
 	$(".ui-accordion-content").show();
 }
 
-versol_div = function(){
+versol_div = function(root_word){
 	$('#jstree_demo_div').jstree({ 'core' : {
     'data' : [
-       'Simple root node',
+       // 'Simple root node',
        {
-         'text' : 'Root node 2',
+         'text' : root_word,
          'state' : {
            'opened' : true,
            'selected' : true
@@ -233,6 +235,6 @@ versol_div = function(){
     ]
 } });
 }
-versol_div()
+
 side_extra_info()
 });
