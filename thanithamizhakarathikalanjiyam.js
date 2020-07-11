@@ -242,7 +242,7 @@ versol_div = function(root_word,childs){
     ]
 } })//.redraw(true);
 }
-$('#jstree_demo_div').on("changed.jstree", function (e, data) {
+$('#jstree_demo_div').on("select_node.jstree", function (e, data) {
 	if(data.node != undefined){
 	  $("#txtsearch").val(data.node.text);
 	  $("#btnSearch").trigger("click")
