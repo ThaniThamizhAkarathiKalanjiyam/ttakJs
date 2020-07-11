@@ -119,7 +119,7 @@ $(document).ready(function () {
                         panColor = "default"
                     }
 
-                    nav_tabs_content_html += "<div class='card_div_elem panel panel-" + panColor + "' id='panel_" + id + "' style='display:none;'><div class='panel-heading' id='card_header_" + id + "'>Panel Heading</div><div class='panel-body' id='card_text_" + id + "' style='min-height:400px;max-height:400px;overflow:auto;'></div></div>"
+                    nav_tabs_content_html += "<div class='card_div_elem panel panel-" + panColor + "' id='panel_" + id + "' style='display:none;'><div class='panel-heading' id='card_header_" + id + "'>Panel Heading</div><div class='panel-body' id='card_text_" + id + "' style='overflow:auto;'></div></div>"
             }
 
             $("#sidenav_left").html(sidenav_left_html)
@@ -243,7 +243,8 @@ versol_div = function(root_word,childs){
 } })//.redraw(true);
 }
 $('#jstree_demo_div').on("changed.jstree", function (e, data) {
-  console.log(data.selected);
+  $("#txtsearch").text(data.node.text);
+  $("#btnSearch").trigger("click")
 });
 $.when(versol_div("வேர்",["இடது கிளை","வலது கிளை"]),
 side_extra_info()).then(function(){
