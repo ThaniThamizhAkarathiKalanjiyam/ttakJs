@@ -234,7 +234,7 @@ versol_div = function(root_word,childs){
 		 'children' : childs
       }
     ]
-} });
+} }).redraw(true);
 }
 
 side_extra_info()
