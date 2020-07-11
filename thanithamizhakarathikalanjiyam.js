@@ -242,7 +242,9 @@ versol_div = function(root_word,childs){
     ]
 } })//.redraw(true);
 }
-
+$('#jstree_demo_div').on("changed.jstree", function (e, data) {
+  console.log(data.selected);
+});
 $.when(versol_div("வேர்",["இடது கிளை","வலது கிளை"]),
 side_extra_info()).then(function(){
 	
