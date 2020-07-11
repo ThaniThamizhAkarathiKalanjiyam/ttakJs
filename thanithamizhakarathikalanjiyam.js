@@ -139,10 +139,10 @@ $(document).ready(function () {
                 })
                 $("#thod_sol").html(wordsList)
 				
-				versol_div(search_word,thod_sol_data)
+				
         });
     }
-
+versol_div("Verசொல்","Vilaivuசொல்")
     var lightbox = $('.lightbox-container'),
     center = function () {
         var T = $(window).height() / 2 - lightbox.height() / 2 + $(window).scrollTop(),
