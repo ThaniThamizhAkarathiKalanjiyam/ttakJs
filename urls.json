@@ -61,7 +61,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு சங்க இலக்கியம்",
 		"desc": "பாண்டியராஜா அவர்களின் சங்க இலக்கிய தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
 		"dir": "tam_con/sanka_ilakkiyam/",
-		"id": "ResultDictSankIlak","sep_dict":false
+		"id": "ResultDictSankIlak","sep_dict":true
 	},
 	{
 		"dict": "சங்கப் புலவர் அகராதி",
@@ -75,98 +75,98 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு சிலப்பதிகாரம் ",
 		"desc": "பாண்டியராஜா அவர்களின் சிலப்பதிகாரம் தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
 		"dir": "tam_con/peru/silambu/",
-		"id": "ResultDictSilam","sep_dict":false
+		"id": "ResultDictSilam","sep_dict":true
 	},
 	{
 		"dict": "மணிமேகலை",
 		"dict_full": "பாண்டியராஜா தொடரடைவு மணிமேகலை ",
 		"desc": "பாண்டியராஜா அவர்களின் மணிமேகலை தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
 		"dir": "tam_con/peru/mani/",
-		"id": "ResultDictMani","sep_dict":false
+		"id": "ResultDictMani","sep_dict":true
 	},
 	{
 		"dict": "சீவக சிந்தாமணி",
 		"dict_full": "பாண்டியராஜா தொடரடைவு சீவக சிந்தாமணி ",
 		"desc": "பாண்டியராஜா அவர்களின் சீவக சிந்தாமணி தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
 		"dir": "tam_con/peru/chindha/",
-		"id": "ResultDictChindha","sep_dict":false
+		"id": "ResultDictChindha","sep_dict":true
 	},
 	{
 		"dict": "வளையாபதி",
 		"dict_full": "பாண்டியராஜா தொடரடைவு வளையாபதி ",
 		"desc": "பாண்டியராஜா அவர்களின் வளையாபதி தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
 		"dir": "tam_con/peru/valai/",
-		"id": "ResultDictValai","sep_dict":false
+		"id": "ResultDictValai","sep_dict":true
 	},
 	{
 		"dict": "குண்டலகேசி",
 		"dict_full": "பாண்டியராஜா தொடரடைவு குண்டலகேசி ",
 		"desc": "பாண்டியராஜா அவர்களின் குண்டலகேசி தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
 		"dir": "tam_con/peru/gunda/",
-		"id": "ResultDictGunda","sep_dict":false
+		"id": "ResultDictGunda","sep_dict":true
 	},
 	{
 		"dict": "தொல்காப்பியம்",
 		"dict_full": "பாண்டியராஜா தொடரடைவு தொல்காப்பியம் ",
 		"desc": "பாண்டியராஜா அவர்களின் தொல்காப்பியம் தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
 		"dir": "tam_con/thol/",
-		"id": "ResultDictThol","sep_dict":false
+		"id": "ResultDictThol","sep_dict":true
 	},
 	{
 		"dict": "முத்தொள்ளாயிரம்",
 		"dict_full": "பாண்டியராஜா தொடரடைவு முத்தொள்ளாயிரம் ",
 		"desc": "பாண்டியராஜா அவர்களின் முத்தொள்ளாயிரம் தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
 		"dir": "tam_con/muthol/",
-		"id": "ResultDictMuthol","sep_dict":false
+		"id": "ResultDictMuthol","sep_dict":true
 	},
 	{
 		"dict": "இறையனார் அகப்பொருள்",
 		"dict_full": "பாண்டியராஜா தொடரடைவு இறையனார் அகப்பொருள் ",
 		"desc": "பாண்டியராஜா அவர்களின் இறையனார் அகப்பொருள் தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
 		"dir": "tam_con/irai_agam/",
-		"id": "ResultDictIraiAga","sep_dict":false
+		"id": "ResultDictIraiAga","sep_dict":true
 	},
 	{
 		"dict": "திருக்குறள்",
 		"dict_full": "பாண்டியராஜா தொடரடைவு திருக்குறள்",
 		"desc": "பாண்டியராஜா அவர்களின் திருக்குறள் தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
 		"dir": "tam_con/kural/",
-		"id": "ResultDictThiKural","sep_dict":false
+		"id": "ResultDictThiKural","sep_dict":true
 	},
 	{
 		"dict": "பதினெண்கீழ்க்கணக்கு",
 		"dict_full": "பாண்டியராஜா தொடரடைவு பதினெண்கீழ்க்கணக்கு",
 		"desc": "பாண்டியராஜா அவர்களின் பதினெண்கீழ்க்கணக்கு தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
 		"dir": "tam_con/pathinen/",
-		"id": "ResultDictPathinen","sep_dict":false
+		"id": "ResultDictPathinen","sep_dict":true
 	},
 	{
 		"dict": "கம்பராமாயணம்",
 		"dict_full": "பாண்டியராஜா தொடரடைவு கம்பராமாயணம்",
 		"desc": "பாண்டியராஜா அவர்களின் கம்பராமாயணம் தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
 		"dir": "tam_con/kamba_rama/",
-		"id": "ResultDictKambaRama","sep_dict":false
+		"id": "ResultDictKambaRama","sep_dict":true
 	},
 	{
 		"dict": "நளவெண்பா",
 		"dict_full": "பாண்டியராஜா தொடரடைவு நளவெண்பா",
 		"desc": "பாண்டியராஜா அவர்களின் நளவெண்பா தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
 		"dir": "tam_con/nala_venpa/",
-		"id": "ResultDictNalaVenpa","sep_dict":false
+		"id": "ResultDictNalaVenpa","sep_dict":true
 	},
 	{
 		"dict": "பெருங்கதை",
 		"dict_full": "பாண்டியராஜா தொடரடைவு பெருங்கதை",
 		"desc": "பாண்டியராஜா அவர்களின் பெருங்கதை தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
 		"dir": "tam_con/perun_kathai/",
-		"id": "ResultDictPerunKathai","sep_dict":false
+		"id": "ResultDictPerunKathai","sep_dict":true
 	},
 	{
 		"dict": "வில்லிபாரதம்",
 		"dict_full": "பாண்டியராஜா தொடரடைவு வில்லிபாரதம்",
 		"desc": "பாண்டியராஜா அவர்களின் வில்லிபாரதம் தொடரடைவு தொகுப்பிலிருந்து உருவாக்கப் பட்டது",
 		"dir": "tam_con/villi/",
-		"id": "ResultDictVilli","sep_dict":false
+		"id": "ResultDictVilli","sep_dict":true
 	},
 	{
 		"dict": "வடசொல்",
