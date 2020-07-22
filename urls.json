@@ -7,6 +7,13 @@
 		"id": "ResultDict","sep_dict":false
 	},
 	{
+		"dict": "இசையினி V2",
+		"dict_full": "இசையினி ஆங்கில அகராதி",
+		"desc": "ஆங்கில அகராதி தொகுப்பு",
+		"dir": "wn/wn_synset/",
+		"id": "ResultWNDict","sep_dict":true
+	},
+	{
 		"dict": "தமிழ்க் கல்வி அகராதி",
 		"dict_full": "தமிழ்க் கல்வி அகராதி",
 		"desc": "தமிழ்க் கல்வி அகராதி <a href='https://www.tamilkalvi.in/'>அகராதி-லிருந்து </a> உருவாக்கப் பட்டது.",
