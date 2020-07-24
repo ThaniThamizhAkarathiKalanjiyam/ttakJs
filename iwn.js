@@ -6,7 +6,7 @@ $(document).ready(function(){
 				url: 'https://thanithamizhakarathikalanjiyam.github.io/iwn/wn_synset/'+$txtSearchVal,
 				type: 'GET',
 				success: function (ResponseJsonE) {
-					$response = Json.Parse(ResponseJsonE)
+					$response = JSON.Parse(ResponseJsonE)
 					alert($response)
 				},
 				error: function () {
