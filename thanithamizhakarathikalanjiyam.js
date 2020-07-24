@@ -136,7 +136,7 @@ $(document).ready(function () {
             var wordsList = ""
                 $.each(thod_sol_data, function (key, val) {
                     cnt = key + 1
-                        wordsList += cnt + ". " + val + "&nbsp;"
+                    wordsList += cnt + ". " + val + "&nbsp;"
                 })
                 $("#thod_sol").html(wordsList)
 				$('#jstree_demo_div').jstree().deselect_all(true);
@@ -249,10 +249,12 @@ $('#jstree_demo_div').on("select_node.jstree", function (e, data) {
 	  $("#btnSearch").trigger("click")	  
 	}
 });
-$.when(versol_div("வேர்",["இடது கிளை","வலது கிளை"]),
-side_extra_info()).then(function(){
+$.when(
+	versol_div("வேர்",["இடது கிளை","வலது கிளை"]),
+	side_extra_info()
 	
-	
+	).then(function(){
+		
 })
 
 });
