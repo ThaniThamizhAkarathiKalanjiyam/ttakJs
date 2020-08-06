@@ -1,62 +1,62 @@
 $(document).ready(function () {
 
-    var bseWeb = "https://ThaniThamizhAkarathiKalanjiyam.github.io/"
+		var bseWeb = "https://ThaniThamizhAkarathiKalanjiyam.github.io/"
         var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/"
         var md = window.markdownit();
 
-    searchWord = function (searchUrl) {
+		searchWord = function (searchUrl) {
 
-        var id = "#" + searchUrl.id
-            var id_card = searchUrl.id
-            var dict = searchUrl.dict;
-        var sep_dict = searchUrl.sep_dict;
-        var dict_full = searchUrl.dict_full;
-        var desc = searchUrl.desc;
-        //var content = "<h1>" + searchUrl.dict + "</h1>"
-        var content = ""
-            var url = ""
-            if (sep_dict == true) {
-                url = bseWeb + searchUrl.dir
-            } else {
-                url = bseSearchDir + searchUrl.dir
-            }
-            // $(id).html("Please wait . . . ");
-        var txtsearchLow = $("#txtsearch").val().toLowerCase()
-            var tamil_letters = get_tamil_letters(txtsearchLow);
+			var id = "#" + searchUrl.id
+			var id_card = searchUrl.id
+			var dict = searchUrl.dict;
+			var sep_dict = searchUrl.sep_dict;
+			var dict_full = searchUrl.dict_full;
+			var desc = searchUrl.desc;
+			//var content = "<h1>" + searchUrl.dict + "</h1>"
+			var content = ""
+				var url = ""
+				if (sep_dict == true) {
+					url = bseWeb + searchUrl.dir
+				} else {
+					url = bseSearchDir + searchUrl.dir
+				}
+				// $(id).html("Please wait . . . ");
+			var txtsearchLow = $("#txtsearch").val().toLowerCase()
+			var tamil_letters = get_tamil_letters(txtsearchLow);
 
-        var gitHubUrl = ""
-            if (searchUrl.id == "ResultDict" ||
-                searchUrl.id == "ResultDictTamKal") {
-                gitHubUrl = url + tamil_letters[0] + "/" + txtsearchLow
-            } else {
-                gitHubUrl = url + txtsearchLow
-            }
-            var pan_id = "#panel_" + id_card
-            $(pan_id).css("display", "none")
+			var gitHubUrl = ""
+				if (searchUrl.id == "ResultDict" ||
+					searchUrl.id == "ResultDictTamKal") {
+					gitHubUrl = url + tamil_letters[0] + "/" + txtsearchLow
+				} else {
+					gitHubUrl = url + txtsearchLow
+				}
+				var pan_id = "#panel_" + id_card
+				$(pan_id).css("display", "none")
 
-            $.get(gitHubUrl,
-                function (data) {
-                if (data.length == 0) {
-                    content = content + txtsearchLow + ": இச்சொல் " + dict_full + " அகராதியில் இல்லை.";
+				$.get(gitHubUrl,
+					function (data) {
+					if (data.length == 0) {
+						content = content + txtsearchLow + ": இச்சொல் " + dict_full + " அகராதியில் இல்லை.";
 
-                } else {
-                    var result = md.render(data);
-                    content = content + result;
-                    $("#panel_" + id_card).css("display", "block")
+					} else {
+						var result = md.render(data);
+						content = content + result;
+						$("#panel_" + id_card).css("display", "block")
 
-                    //$(id).html(content);
-                    $("#card_header_" + id_card).html(dict);
-					$("#card_header_" + id_card).append("<span class='material-icons copy_content_str' title='Copy'>content_copy</span>");
-					
-                    //$('#card_body_"+ id_card ).html(content);
-                    $("#card_title_" + id_card).html(txtsearchLow);
-                    $("#card_text_" + id_card).html(replaceIlakText2Links(content));
-					popup_poem("#card_text_" + id_card)
-                    $("#card_footer_" + id_card).html("");
-					
-                }
-            });
-    };
+						//$(id).html(content);
+						$("#card_header_" + id_card).html(dict);
+						$("#card_header_" + id_card).append("<span class='material-icons copy_content_str' title='Copy'>content_copy</span>");
+						
+						//$('#card_body_"+ id_card ).html(content);
+						$("#card_title_" + id_card).html(txtsearchLow);
+						$("#card_text_" + id_card).html(replaceIlakText2Links(content));
+						popup_poem("#card_text_" + id_card)
+						$("#card_footer_" + id_card).html("");
+						
+					}
+				});
+		};
 
 
   searchWordUrl = function(searchUrls){
@@ -64,25 +64,26 @@ $(document).ready(function () {
                 $("#div_intro").html("")
                 for (i = 0; i < searchUrls.length; i++) {
                     searchWord(searchUrls[i]);
-                }
-                
+                }                
 		   }
 
-    $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (searchUrls) {
-
-        $("#btnSearch").click(function () {
+	searchWord_Click = function (searchUrls) {
 			
-           $.when(
-		   
-		 searchWordUrl(searchUrls)
-		   
+           $.when(		   
+				searchWordUrl(searchUrls)		   
 		   ).then(function(){
 			   var txtsearchLow = $("#txtsearch").val().toLowerCase()
 			   
 			   thodarpudaya_sol(txtsearchLow)
 		   })
             
-        });
+        }
+		
+    $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (searchUrls) {
+
+        $("#btnSearch").click(function(){
+			searchWord_Click(searchUrls)
+		});
 
         var sidenav_left_html = ""
             var nav_tabs_content_html = ""
@@ -100,10 +101,7 @@ $(document).ready(function () {
                     }
 
                     sidenav_left_html += "<div class='form-check'><input class='form-check-input' type='checkbox' value='' id='sideLink" + id + "'> <label class='form-check-label' for='defaultCheck1'>" + dict + "</label></div>"
-
-                    //nav_tabs_content_html += "<div id='" + id + "'></div>"
-                    //nav_tabs_content_html += "<div class='card text-left card_div_elem' id='card_div_"+ id +"' style='display:none;'><div class='card-header' id='card_header_"+ id +"'>Featured</div><div class='card-body' id='card_body_"+ id +"'><h5 class='card-title' id='card_title_"+ id +"'>Special title treatment</h5><p class='card-text' id='card_text_"+ id +"'>With supporting text below as a natural lead-in to additional content.</p></div><div class='card-footer text-muted' id='card_footer_"+ id +"'>*-*</div></div>"
-
+                
                     var panColor = "default"
                     var colInt = i % 6
                     if (colInt == 0) {
@@ -164,20 +162,20 @@ $(document).ready(function () {
     $(window).scroll(center);
     $(window).resize(center);
 
-    replaceTheIlakiyaText2Links = function (card_text_id_card) {
+	// replaceTheIlakiyaText2Links = function (card_text_id_card) {
 
-        var txtResultDictPathinen = $("#" + card_text_id_card + ">ul>li")
-            $.each(txtResultDictPathinen, function (index, value) {
-                str = value.innerHTML
-                    var patt = /புறம் \d+\/\d+/g;
-                var result = str.match(patt);
-                $.each(result, function (resultindex, resultvalue) {
-                    value.innerHTML = str.replace(resultvalue, "Hi all 3")
+	// var txtResultDictPathinen = $("#" + card_text_id_card + ">ul>li")
+	// $.each(txtResultDictPathinen, function (index, value) {
+	// str = value.innerHTML
+	// var patt = /புறம் \d+\/\d+/g;
+	// var result = str.match(patt);
+	// $.each(result, function (resultindex, resultvalue) {
+	// value.innerHTML = str.replace(resultvalue, "Hi all 3")
 
-                })
-            })
+	// })
+	// })
 
-    }
+	// }
 
     replaceIlakText2Links = function (str) {
 

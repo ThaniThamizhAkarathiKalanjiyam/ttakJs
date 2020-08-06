@@ -28,7 +28,11 @@
 	    font-size: smaller !important;
 }
 .h1, h1 {
-    font-size: large;
+    font-size: large !important;
+}
+.h2, h2 {
+    font-size: xx-small !important;
+    font-weight: bold !important;
 }
 
 
