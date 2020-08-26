@@ -96,7 +96,7 @@ $(document).ready(function () {
                     $("#card_header_" + id_card).append("<span class='material-icons copy_content_str' title='Copy'>content_copy</span>");
 
                     $("#card_title_" + id_card).html(txtsearchLow);
-                    $("#card_text_" + id_card).html(replaceIlakText2Links(content));
+                    $("#card_text_" + id_card).html(content);
                     //popup_poem("#card_text_" + id_card)
                     $("#card_footer_" + id_card).html("");
 
