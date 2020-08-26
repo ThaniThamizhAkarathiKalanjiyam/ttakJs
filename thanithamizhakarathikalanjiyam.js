@@ -14,48 +14,50 @@ $(document).ready(function () {
 			var desc = searchUrl.desc;
 			//var content = "<h1>" + searchUrl.dict + "</h1>"
 			var content = ""
-				var url = ""
-				if (sep_dict == true) {
-					url = bseWeb + searchUrl.dir
-				} else {
-					url = bseSearchDir + searchUrl.dir
-				}
+			var url = ""
+			if (sep_dict == true) {
+				url = bseWeb + searchUrl.dir
+			} else {
+				url = bseSearchDir + searchUrl.dir
+			}
 				// $(id).html("Please wait . . . ");
 			var txtsearchLow = $("#txtsearch").val().toLowerCase()
 			var tamil_letters = get_tamil_letters(txtsearchLow);
 
 			var gitHubUrl = ""
-				if (searchUrl.id == "ResultDict" ||
-					searchUrl.id == "ResultDictTamKal") {
-					gitHubUrl = url + tamil_letters[0] + "/" + txtsearchLow
-				} else {
-					gitHubUrl = url + txtsearchLow
-				}
-				var pan_id = "#panel_" + id_card
-				$(pan_id).css("display", "none")
+			if (searchUrl.id == "ResultDict" ||
+				searchUrl.id == "ResultDictTamKal") {
+				gitHubUrl = url + tamil_letters[0] + "/" + txtsearchLow
+			} else {
+				gitHubUrl = url + txtsearchLow
+			}
+			var pan_id = "#panel_" + id_card
+			$(pan_id).css("display", "none")
 
+			  
 				$.get(gitHubUrl,
 					function (data) {
 					if (data.length == 0) {
 						content = content + txtsearchLow + ": இச்சொல் " + dict_full + " அகராதியில் இல்லை.";
-
 					} else {
 						var result = md.render(data);
 						content = content + result;
 						$("#panel_" + id_card).css("display", "block")
-
-						//$(id).html(content);
+ 
 						$("#card_header_" + id_card).html(dict);
 						$("#card_header_" + id_card).append("<span class='material-icons copy_content_str' title='Copy'>content_copy</span>");
-						
-						//$('#card_body_"+ id_card ).html(content);
+						 
 						$("#card_title_" + id_card).html(txtsearchLow);
 						$("#card_text_" + id_card).html(replaceIlakText2Links(content));
 						popup_poem("#card_text_" + id_card)
 						$("#card_footer_" + id_card).html("");
 						
+						if(searchUrl.id == "ResultWNDict"){
+								
+						}						
 					}
 				});
+			
 		};
 
 
@@ -75,9 +77,29 @@ $(document).ready(function () {
 			   var txtsearchLow = $("#txtsearch").val().toLowerCase()
 			   
 			   thodarpudaya_sol(txtsearchLow)
+			   isaiyini_eng_dict(txtsearchLow)
 		   })
             
         }
+        
+        
+       isaiyini_eng_dict =  function  (inputEngWord) {
+
+			$.ajax({
+				url: "data.csv",
+				async: false,
+				success: function (csvd) {
+					var items = $.csv.toObjects(csvd);
+					var jsonobject = JSON.stringify(items);
+					alert(jsonobject);
+				},
+				dataType: "text",
+				complete: function () {
+					// call a function on complete 
+				}
+			});
+       }
+        
 		
     $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (searchUrls) {
 
@@ -162,21 +184,6 @@ $(document).ready(function () {
     $(window).scroll(center);
     $(window).resize(center);
 
-	// replaceTheIlakiyaText2Links = function (card_text_id_card) {
-
-	// var txtResultDictPathinen = $("#" + card_text_id_card + ">ul>li")
-	// $.each(txtResultDictPathinen, function (index, value) {
-	// str = value.innerHTML
-	// var patt = /புறம் \d+\/\d+/g;
-	// var result = str.match(patt);
-	// $.each(result, function (resultindex, resultvalue) {
-	// value.innerHTML = str.replace(resultvalue, "Hi all 3")
-
-	// })
-	// })
-
-	// }
-
     replaceIlakText2Links = function (str) {
 
         var result_str = str
@@ -247,12 +254,88 @@ $('#jstree_demo_div').on("select_node.jstree", function (e, data) {
 	  $("#btnSearch").trigger("click")	  
 	}
 });
+
+
+ getAllUrlParams = function(url) {
+
+  // get query string from url (optional) or window
+  var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
+
+  // we'll store the parameters here
+  var obj = {};
+
+  // if query string exists
+  if (queryString) {
+
+    // stuff after # is not part of query string, so get rid of it
+    queryString = queryString.split('#')[0];
+
+    // split our query string into its component parts
+    var arr = queryString.split('&');
+
+    for (var i = 0; i < arr.length; i++) {
+      // separate the keys and the values
+      var a = arr[i].split('=');
+
+      // set parameter name and value (use 'true' if empty)
+      var paramName = a[0];
+      var paramValue = typeof (a[1]) === 'undefined' ? true : a[1];
+
+      // (optional) keep case consistent
+      paramName = paramName.toLowerCase();
+      if (typeof paramValue === 'string') paramValue = paramValue.toLowerCase();
+
+      // if the paramName ends with square brackets, e.g. colors[] or colors[2]
+      if (paramName.match(/\[(\d+)?\]$/)) {
+
+        // create key if it doesn't exist
+        var key = paramName.replace(/\[(\d+)?\]/, '');
+        if (!obj[key]) obj[key] = [];
+
+        // if it's an indexed array e.g. colors[2]
+        if (paramName.match(/\[\d+\]$/)) {
+          // get the index value and add the entry at the appropriate position
+          var index = /\[(\d+)\]/.exec(paramName)[1];
+          obj[key][index] = paramValue;
+        } else {
+          // otherwise add the value to the end of the array
+          obj[key].push(paramValue);
+        }
+      } else {
+        // we're dealing with a string
+        if (!obj[paramName]) {
+          // if it doesn't exist, create property
+          obj[paramName] = paramValue;
+        } else if (obj[paramName] && typeof obj[paramName] === 'string'){
+          // if property does exist and it's a string, convert it to an array
+          obj[paramName] = [obj[paramName]];
+          obj[paramName].push(paramValue);
+        } else {
+          // otherwise add the property
+          obj[paramName].push(paramValue);
+        }
+      }
+    }
+  }
+
+  return obj;
+}
+
+init_click_event  = function(){
+
+	var getAllUrlParams_url      = window.location.href; 
+	var searchString  =  getAllUrlParams(getAllUrlParams_url).q
+	$("#txtsearch").val(searchString)
+	$("#btnSearch").trigger("click")
+	
+}
+
 $.when(
 	versol_div("வேர்",["இடது கிளை","வலது கிளை"]),
 	side_extra_info()
 	
 	).then(function(){
-		
+		init_click_event()
 })
 
 });
