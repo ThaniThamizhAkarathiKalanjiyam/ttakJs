@@ -151,7 +151,7 @@ $(document).ready(function () {
             if (searchString !== undefined) {
 				console.log("init_text_click_event")
 				
-                $("#txtsearch").val(String.fromHtmlEntities(searchString))
+                $("#txtsearch").val(decodeURIComponent(searchString))
                 $("#btnSearch").trigger("click")
             }
     }
