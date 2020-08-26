@@ -53,9 +53,70 @@ $(document).ready(function () {
         });
     }
 
-    $.when(
-        init_getJSON()).then(function () {
+    searchWord = function (searchUrl) {
+
+        var id = "#" + searchUrl.id
+            var id_card = searchUrl.id
+            var dict = searchUrl.dict;
+        var sep_dict = searchUrl.sep_dict;
+        var dict_full = searchUrl.dict_full;
+        var desc = searchUrl.desc;
+        //var content = "<h1>" + searchUrl.dict + "</h1>"
+        var content = ""
+            var url = ""
+            if (sep_dict == true) {
+                url = bseWeb + searchUrl.dir
+            } else {
+                url = bseSearchDir + searchUrl.dir
+            }
+            // $(id).html("Please wait . . . ");
+            var txtsearchLow = $("#txtsearch").val().toLowerCase()
+            var tamil_letters = get_tamil_letters(txtsearchLow);
+
+        var gitHubUrl = ""
+            if (searchUrl.id == "ResultDict" ||
+                searchUrl.id == "ResultDictTamKal") {
+                gitHubUrl = url + tamil_letters[0] + "/" + txtsearchLow
+            } else {
+                gitHubUrl = url + txtsearchLow
+            }
+            var pan_id = "#panel_" + id_card
+            $(pan_id).css("display", "none")
+
+            $.get(gitHubUrl,
+                function (data) {
+                if (data.length == 0) {
+                    content = content + txtsearchLow + ": இச்சொல் " + dict_full + " அகராதியில் இல்லை.";
+                } else {
+                    var result = md.render(data);
+                    content = content + result;
+                    $("#panel_" + id_card).css("display", "block")
+
+                    $("#card_header_" + id_card).html(dict);
+                    $("#card_header_" + id_card).append("<span class='material-icons copy_content_str' title='Copy'>content_copy</span>");
+
+                    $("#card_title_" + id_card).html(txtsearchLow);
+                    $("#card_text_" + id_card).html(replaceIlakText2Links(content));
+                    popup_poem("#card_text_" + id_card)
+                    $("#card_footer_" + id_card).html("");
+
+                    if (searchUrl.id == "ResultWNDict") {}
+                }
+            });
+
+    };
+
+    init_click_event = function () {
+        for (i = 0; i < searchUrls.length; i++) {
+            searchWord(searchUrls[i]);
+        }
+    };
+
+    $("#btnSearch").click(function () {
         init_click_event()
-    })
+    });
+
+    $.when(
+        init_getJSON()).then(function () {});
 
 });
