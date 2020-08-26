@@ -7,7 +7,7 @@ $(document).ready(function () {
     init_getJSON = function () {
         $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (data) {
             searchUrls = data
-			consol.log("init_getJSON")
+			console.log("init_getJSON")
             var sidenav_left_html = "";
             var nav_tabs_content_html = "";
             for (i = 0; i < searchUrls.length; i++) {
@@ -148,7 +148,7 @@ $(document).ready(function () {
         var getAllUrlParams_url = window.location.href;
         var searchString = getAllUrlParams(getAllUrlParams_url).q
             if (searchString !== undefined) {
-				consol.log("init_text_click_event")
+				console.log("init_text_click_event")
                 $("#txtsearch").val(searchString)
                 $("#btnSearch").trigger("click")
             }
