@@ -160,9 +160,12 @@ $(document).ready(function () {
         init_click_event()
     });
     var jqxhr = $.when(
-            init_getJSON()).then(function () {});
+            init_getJSON()).then(function () {})
+			.done(function () {
+				init_text_click_event();
+			});
     // Set another completion function for the request above
     jqxhr.always(function () {
-        init_text_click_event();
+        
     });
 });
