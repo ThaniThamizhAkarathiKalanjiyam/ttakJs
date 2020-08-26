@@ -43,6 +43,7 @@ $(document).ready(function () {
             //$("#nav_tabs_content_html").html(nav_tabs_content_html)
             $("#nav_tabs_content_html").html(nav_tabs_content_html)
             //btnSearch_click(searchUrls)
+			init_text_click_event()
         });
     }
     searchWord = function (searchUrl) {
@@ -162,8 +163,8 @@ $(document).ready(function () {
         init_click_event()
     });
     var jqxhr = $.when(
-            init_getJSON(),
-			init_text_click_event()
+            init_getJSON()
+			
 			).then(function () {})
 			.done(function () {
 				
