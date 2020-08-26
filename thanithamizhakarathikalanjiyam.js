@@ -103,9 +103,7 @@ $(document).ready(function () {
 		init_getJSON =  function(){
     $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (searchUrls) {
 
-        $("#btnSearch").click(function(){
-			searchWord_Click(searchUrls)
-		});
+        
 
         var sidenav_left_html = ""
             var nav_tabs_content_html = ""
@@ -147,6 +145,11 @@ $(document).ready(function () {
             //$("#nav_tabs_content_html").html(nav_tabs_content_html)
             $("#nav_tabs_content_html").html(nav_tabs_content_html)
 
+		$("#btnSearch").click(function(){
+			searchWord_Click(searchUrls)
+		});
+		
+		
     });
 		}
 
