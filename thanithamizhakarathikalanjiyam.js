@@ -3,9 +3,12 @@ $(document).ready(function () {
     var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/";
     var md = window.markdownit();
     var searchUrls = {};
+	assign_searchUrls =  function(data){
+		searchUrls = data;
+	}
     init_getJSON = function () {
         $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (data) {
-            searchUrls = data;
+            assign_searchUrls(data)
             var sidenav_left_html = "";
             var nav_tabs_content_html = "";
             for (i = 0; i < searchUrls.length; i++) {
