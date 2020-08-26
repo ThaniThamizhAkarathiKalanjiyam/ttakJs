@@ -150,7 +150,8 @@ $(document).ready(function () {
         var searchString = getAllUrlParams(getAllUrlParams_url).q
             if (searchString !== undefined) {
 				console.log("init_text_click_event")
-                $("#txtsearch").val(searchString)
+				
+                $("#txtsearch").val(String.fromHtmlEntities(searchString))
                 $("#btnSearch").trigger("click")
             }
     }
