@@ -1,15 +1,12 @@
- var searchUrls = {};
+ var searchUrls;
 $(document).ready(function () {
     var bseWeb = "https://ThaniThamizhAkarathiKalanjiyam.github.io/";
     var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/";
     var md = window.markdownit();
-   
-	assign_searchUrls =  function(data){
-		searchUrls = data;
-	}
+   	
     init_getJSON = function () {
         $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (data) {
-            assign_searchUrls(data)
+            searchUrls = data
             var sidenav_left_html = "";
             var nav_tabs_content_html = "";
             for (i = 0; i < searchUrls.length; i++) {
