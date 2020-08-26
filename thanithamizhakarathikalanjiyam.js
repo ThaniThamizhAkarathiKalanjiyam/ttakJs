@@ -2,7 +2,7 @@ $(document).ready(function () {
     var bseWeb = "https://ThaniThamizhAkarathiKalanjiyam.github.io/";
     var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/";
     var md = window.markdownit();
-    var searchUrls = [];
+    var searchUrls = {};
     init_getJSON = function () {
         $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (data) {
             searchUrls = data;
