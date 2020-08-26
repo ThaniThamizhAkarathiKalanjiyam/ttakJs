@@ -1,8 +1,9 @@
+ var searchUrls = {};
 $(document).ready(function () {
     var bseWeb = "https://ThaniThamizhAkarathiKalanjiyam.github.io/";
     var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/";
     var md = window.markdownit();
-    var searchUrls = {};
+   
 	assign_searchUrls =  function(data){
 		searchUrls = data;
 	}
