@@ -100,7 +100,7 @@ $(document).ready(function () {
 			});
        }
         
-		
+		init_getJSON =  function(){
     $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (searchUrls) {
 
         $("#btnSearch").click(function(){
@@ -148,6 +148,7 @@ $(document).ready(function () {
             $("#nav_tabs_content_html").html(nav_tabs_content_html)
 
     });
+		}
 
     $("#txtSearch").focus();
 
@@ -325,17 +326,19 @@ init_click_event  = function(){
 
 	var getAllUrlParams_url      = window.location.href; 
 	var searchString  =  getAllUrlParams(getAllUrlParams_url).q
-	$("#txtsearch").val(searchString)
-	$("#btnSearch").trigger("click")
-	
+	if(searchString !== undefined)
+	{
+		$("#txtsearch").val(searchString)
+		$("#btnSearch").trigger("click")
+	}
 }
 
 $.when(
 	versol_div("வேர்",["இடது கிளை","வலது கிளை"]),
-	side_extra_info()
-	
+	side_extra_info(),
+	init_getJSON()
 	).then(function(){
-		init_click_event()
+	init_click_event()	
 })
 
 });
