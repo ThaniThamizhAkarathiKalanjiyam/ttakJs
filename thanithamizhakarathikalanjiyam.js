@@ -20,7 +20,7 @@ $(document).ready(function () {
                 var desc = searchUrls[i].desc;
                 var kaan = searchUrls[i].kaan;
 
-                if (kaan_url === kaan) {
+                if (kaan_url === kaan || kaan_url == undefined) {
 
                     var active_class = "",
                     show_active_class = "";
@@ -84,7 +84,7 @@ $(document).ready(function () {
         var pan_id = "#panel_" + id_card;
         $(pan_id).css("display", "none");
 
-        if (kaan_url === kaan) {
+        if (kaan_url === kaan || kaan_url == undefined) {
             $.get(gitHubUrl,
                 function (data) {
                 if (data.length == 0) {
