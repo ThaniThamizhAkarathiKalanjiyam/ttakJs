@@ -1,9 +1,10 @@
 var searchUrls;
+var getAllUrlParams_url = window.location.href;
 $(document).ready(function () {
     var bseWeb = "https://ThaniThamizhAkarathiKalanjiyam.github.io/";
     var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/";
     var md = window.markdownit();
-    var getAllUrlParams_url = window.location.href;
+    
     var kaan_url = getAllUrlParams(getAllUrlParams_url).kaan;
     init_getJSON = function () {
         $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (data) {
