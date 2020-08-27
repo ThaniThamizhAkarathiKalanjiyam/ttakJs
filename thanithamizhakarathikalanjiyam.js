@@ -1,78 +1,87 @@
- var searchUrls;
+var searchUrls;
 $(document).ready(function () {
     var bseWeb = "https://ThaniThamizhAkarathiKalanjiyam.github.io/";
     var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/";
     var md = window.markdownit();
-   	
+var kaan_url = getAllUrlParams(getAllUrlParams_url).kaan;
     init_getJSON = function () {
         $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (data) {
-            searchUrls = data
-			console.log("init_getJSON")
+            searchUrls = data;
+            console.log("init_getJSON");
             var sidenav_left_html = "";
             var nav_tabs_content_html = "";
+            
             for (i = 0; i < searchUrls.length; i++) {
                 var id = searchUrls[i].id;
                 var dict = searchUrls[i].dict;
                 var dict_full = searchUrls[i].dict_full;
                 var desc = searchUrls[i].desc;
-                var active_class = "",
-                show_active_class = "";
-                if (i == 0) {
-                    active_class = "active"
-                        show_active_class = "show active"
-                }
-                sidenav_left_html += "<div class='form-check'><input class='form-check-input' type='checkbox' value='' id='sideLink" + id + "'> <label class='form-check-label' for='defaultCheck1'>" + dict + "</label></div>"
-                var panColor = "default"
-                    var colInt = i % 6
-                    if (colInt == 0) {
-                        panColor = "primary"
-                    } else if (colInt == 1) {
-                        panColor = "success"
-                    } else if (colInt == 2) {
-                        panColor = "info"
-                    } else if (colInt == 3) {
-                        panColor = "warning"
-                    } else if (colInt == 4) {
-                        panColor = "danger"
-                    } else {
-                        panColor = "default"
+                var kaan = searchUrls[i].kaan;
+
+                if (kaan_url === kaan) {
+
+                    var active_class = "",
+                    show_active_class = "";
+                    if (i == 0) {
+                        active_class = "active";
+                        show_active_class = "show active";
                     }
-                    nav_tabs_content_html += "<div class='card_div_elem panel panel-" + panColor + "' id='panel_" + id + "' style='display:none;'><div class='panel-heading' id='card_header_" + id + "'>Panel Heading</div><div class='panel-body' id='card_text_" + id + "' style='overflow:auto;'></div></div>"
+                    sidenav_left_html += "<div class='form-check'><input class='form-check-input' type='checkbox' value='' id='sideLink" + id + "'> <label class='form-check-label' for='defaultCheck1'>" + dict + "</label></div>"
+                    var panColor = "default"
+                        var colInt = i % 6
+                        if (colInt == 0) {
+                            panColor = "primary"
+                        } else if (colInt == 1) {
+                            panColor = "success"
+                        } else if (colInt == 2) {
+                            panColor = "info"
+                        } else if (colInt == 3) {
+                            panColor = "warning"
+                        } else if (colInt == 4) {
+                            panColor = "danger"
+                        } else {
+                            panColor = "default"
+                        }
+                        nav_tabs_content_html += "<div class='card_div_elem panel panel-" + panColor + "' id='panel_" + id + "' style='display:none;'><div class='panel-heading' id='card_header_" + id + "'>Panel Heading</div><div class='panel-body' id='card_text_" + id + "' style='overflow:auto;'></div></div>"
+                }
             }
             $("#sidenav_left").html(sidenav_left_html)
             //$("#nav_tabs_content_html").html(nav_tabs_content_html)
             $("#nav_tabs_content_html").html(nav_tabs_content_html)
             //btnSearch_click(searchUrls)
-			init_text_click_event()
+            init_text_click_event()
         });
     }
     searchWord = function (searchUrl) {
-        var id = "#" + searchUrl.id
-            var id_card = searchUrl.id
-            var dict = searchUrl.dict;
+       
+        var id = "#" + searchUrl.id;
+        var id_card = searchUrl.id;
+        var dict = searchUrl.dict;
         var sep_dict = searchUrl.sep_dict;
         var dict_full = searchUrl.dict_full;
         var desc = searchUrl.desc;
+        var kaan = searchUrls[i].kaan;
         //var content = "<h1>" + searchUrl.dict + "</h1>"
-        var content = ""
-            var url = ""
-            if (sep_dict == true) {
-                url = bseWeb + searchUrl.dir
-            } else {
-                url = bseSearchDir + searchUrl.dir
-            }
-            // $(id).html("Please wait . . . ");
-            var txtsearchLow = $("#txtsearch").val().toLowerCase()
+        var content = "";
+        var url = "";
+        if (sep_dict == true) {
+            url = bseWeb + searchUrl.dir;
+        } else {
+            url = bseSearchDir + searchUrl.dir;
+        }
+        // $(id).html("Please wait . . . ");
+        var txtsearchLow = $("#txtsearch").val().toLowerCase()
             var tamil_letters = get_tamil_letters(txtsearchLow);
-        var gitHubUrl = ""
-            if (searchUrl.id == "ResultDict" ||
-                searchUrl.id == "ResultDictTamKal") {
-                gitHubUrl = url + tamil_letters[0] + "/" + txtsearchLow
-            } else {
-                gitHubUrl = url + txtsearchLow
-            }
-            var pan_id = "#panel_" + id_card
-            $(pan_id).css("display", "none")
+        var gitHubUrl = "";
+        if (searchUrl.id == "ResultDict" ||
+            searchUrl.id == "ResultDictTamKal") {
+            gitHubUrl = url + tamil_letters[0] + "/" + txtsearchLow
+        } else {
+            gitHubUrl = url + txtsearchLow
+        }
+        var pan_id = "#panel_" + id_card;
+        $(pan_id).css("display", "none");
+        if (kaan_url === kaan) {
             $.get(gitHubUrl,
                 function (data) {
                 if (data.length == 0) {
@@ -90,6 +99,7 @@ $(document).ready(function () {
                     if (searchUrl.id == "ResultWNDict") {}
                 }
             });
+        }
     };
     getAllUrlParams = function (url) {
         // get query string from url (optional) or window
@@ -149,8 +159,8 @@ $(document).ready(function () {
         var getAllUrlParams_url = window.location.href;
         var searchString = getAllUrlParams(getAllUrlParams_url).q
             if (searchString !== undefined) {
-				console.log("init_text_click_event")
-				
+                console.log("init_text_click_event")
+
                 $("#txtsearch").val(decodeURIComponent(searchString))
                 $("#btnSearch").trigger("click")
             }
@@ -164,14 +174,8 @@ $(document).ready(function () {
         init_click_event()
     });
     var jqxhr = $.when(
-            init_getJSON()
-			
-			).then(function () {})
-			.done(function () {
-				
-			});
+            init_getJSON()).then(function () {})
+        .done(function () {});
     // Set another completion function for the request above
-    jqxhr.always(function () {
-        
-    });
+    jqxhr.always(function () {});
 });
