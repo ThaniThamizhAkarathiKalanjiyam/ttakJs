@@ -4,8 +4,7 @@ $(document).ready(function () {
     var bseWeb = "https://ThaniThamizhAkarathiKalanjiyam.github.io/";
     var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/";
     var md = window.markdownit();
-    var getAllUrlParams_url = window.location.href;
-    var kaan_url = getAllUrlParams(getAllUrlParams_url).kaan;
+ 
     init_getJSON = function () {
         $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (data) {
             searchUrls = data;
@@ -19,8 +18,9 @@ $(document).ready(function () {
                 var dict_full = searchUrls[i].dict_full;
                 var desc = searchUrls[i].desc;
                 var kaan = searchUrls[i].kaan;
-
-                if (kaan_url === kaan || kaan_url == undefined) {
+   var getAllUrlParams_url = window.location.href;
+    var kaan_url = getAllUrlParams(getAllUrlParams_url).kaan;
+                if (kaan_url === kaan || kaan_url === undefined) {
 
                     var active_class = "",
                     show_active_class = "";
@@ -83,8 +83,9 @@ $(document).ready(function () {
         }
         var pan_id = "#panel_" + id_card;
         $(pan_id).css("display", "none");
-
-        if (kaan_url === kaan || kaan_url == undefined) {
+var getAllUrlParams_url = window.location.href;
+    var kaan_url = getAllUrlParams(getAllUrlParams_url).kaan;
+        if (kaan_url === kaan || kaan_url === undefined) {
             $.get(gitHubUrl,
                 function (data) {
                 if (data.length == 0) {
