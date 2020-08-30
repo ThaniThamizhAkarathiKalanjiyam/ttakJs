@@ -105,14 +105,14 @@ $(document).ready(function () {
                         csvJSON_data = JSON.parse(csvJSON(data));
                         $("#card_text_" + id_card).html("");
 
-                        $.each(csvJSON_data, function (url_index, url_value) {
-                            urlgloss = ("https://thanithamizhakarathikalanjiyam.github.io/iwn/wn_gloss/" + url_value.synset_id)
+                        $.each(csvJSON_data, function (url_index, url_value) {                            
                             synset_id = url_value.synset_id;
+							ss_type = url_value.ss_type;
+							word = url_value.word;
+							urlgloss = ("https://thanithamizhakarathikalanjiyam.github.io/iwn/wn_gloss/" + synset_id)
                             if (synset_id !== "") {
                                 $.get(urlgloss, function (data) {
-
                                     JSON_parsed_data = JSON.parse(csvJSON(data));
-
                                     $ul = $("<ul>");
                                     $.each(JSON_parsed_data, function (JSON_parsed_data_index, JSON_parsed_data_value) {
                                         synset_id = url_value.synset_id;
@@ -121,6 +121,9 @@ $(document).ready(function () {
                                             $ul.append($li);
                                         }
                                     });
+									$bold_heading  = $("<b>")
+									$bold_heading.append(word + " " + ss_type + ".")
+									$("#card_text_" + id_card).append($bold_heading);
                                     $("#card_text_" + id_card).append($ul);
                                 });
                             }
