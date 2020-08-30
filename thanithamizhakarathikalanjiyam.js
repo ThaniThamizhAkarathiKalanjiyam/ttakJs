@@ -101,7 +101,7 @@ $(document).ready(function () {
                     //popup_poem("#card_text_" + id_card)
                     $("#card_footer_" + id_card).html("");
                     if (searchUrl.id == "ResultWNDict") {
-								alert(csvJSON(content))				
+								alert(csvJSON(data))				
 					}
                 }
             });
