@@ -121,19 +121,17 @@ $(document).ready(function () {
                                             $ul.append($li);
                                         }
                                     });
-									
-                                });
-								jqxhr.done(function(data){
 									$bold_heading  = $("<b>")
 									$bold_heading.append(url_value.word + " " + url_value.ss_type + ".")
 									$div = $("<div>")
 									$div.append($bold_heading);
 									$div.append($ul);
-									// return $div;
+									//return $div;
 									// $("#card_text_" + id_card).append($bold_heading);
-                                    // $("#card_text_" + id_card).append($ul);
-									
-									$("#card_text_" + id_card).append($div);
+                                    $("#card_text_" + id_card).append($div);
+                                });
+								jqxhr.done(function(data){
+									//$("#card_text_" + id_card).append(data);
 								})
                             }
                         });
