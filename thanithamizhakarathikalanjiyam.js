@@ -101,127 +101,130 @@ $(document).ready(function () {
                     //popup_poem("#card_text_" + id_card)
                     $("#card_footer_" + id_card).html("");
                     if (searchUrl.id == "ResultWNDict") {
-						ResultWNDict_content = "";
+                        ResultWNDict_content = "";
                         csvJSON_data = JSON.parse(csvJSON(data));
-						//Get glossary
+                        //Get glossary
                         $.each(csvJSON_data, function (csv_index, csv_value) {
-                            $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/iwn/wn_gloss/"+csv_value.synset_id, function (data) {
-								JSON_parsed_data = JSON.parse(csvJSON(data));
-								ResultWNDict_content += JSON_parsed_data.gloss +"\n";
-							});
-                        });
-						$("#card_text_" + id_card).html(ResultWNDict_content);
+                            synset_id = csv_value.synset_id
+                                if (synset_id !== "") {
+                                    $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/iwn/wn_gloss/" + synset_id, function (data) {
+                                        JSON_parsed_data = JSON.parse(csvJSON(data));
+                                        ResultWNDict_content += JSON_parsed_data.gloss + "\n";
+                                    });
+								}
+                            });
+                            $("#card_text_" + id_card).html(ResultWNDict_content);
+                        }
                     }
-                }
-            });
-        }
-    };
-    getAllUrlParams = function (url) {
-        // get query string from url (optional) or window
-        var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
-        // we'll store the parameters here
-        var obj = {};
-        // if query string exists
-        if (queryString) {
-            // stuff after # is not part of query string, so get rid of it
-            queryString = queryString.split('#')[0];
-            // split our query string into its component parts
-            var arr = queryString.split('&');
-            for (var i = 0; i < arr.length; i++) {
-                // separate the keys and the values
-                var a = arr[i].split('=');
-                // set parameter name and value (use 'true' if empty)
-                var paramName = a[0];
-                var paramValue = typeof(a[1]) === 'undefined' ? true : a[1];
-                // (optional) keep case consistent
-                paramName = paramName.toLowerCase();
-                if (typeof paramValue === 'string')
-                    paramValue = paramValue.toLowerCase();
-                // if the paramName ends with square brackets, e.g. colors[] or colors[2]
-                if (paramName.match(/\[(\d+)?\]$/)) {
-                    // create key if it doesn't exist
-                    var key = paramName.replace(/\[(\d+)?\]/, '');
-                    if (!obj[key])
-                        obj[key] = [];
-                    // if it's an indexed array e.g. colors[2]
-                    if (paramName.match(/\[\d+\]$/)) {
-                        // get the index value and add the entry at the appropriate position
-                        var index = /\[(\d+)\]/.exec(paramName)[1];
-                        obj[key][index] = paramValue;
-                    } else {
-                        // otherwise add the value to the end of the array
-                        obj[key].push(paramValue);
-                    }
-                } else {
-                    // we're dealing with a string
-                    if (!obj[paramName]) {
-                        // if it doesn't exist, create property
-                        obj[paramName] = paramValue;
-                    } else if (obj[paramName] && typeof obj[paramName] === 'string') {
-                        // if property does exist and it's a string, convert it to an array
-                        obj[paramName] = [obj[paramName]];
-                        obj[paramName].push(paramValue);
-                    } else {
-                        // otherwise add the property
-                        obj[paramName].push(paramValue);
-                    }
-                }
+                });
             }
-        }
-        return obj;
-    }
-
-    //var csv is the CSV file with headers
-    csvJSON = function (csv) {
-
-        var lines = csv.split("\n");
-
-        var result = [];
-
-        // NOTE: If your columns contain commas in their values, you'll need
-        // to deal with those before doing the next step
-        // (you might convert them to &&& or something, then covert them back later)
-        // jsfiddle showing the issue https://jsfiddle.net/
-        var headers = lines[0].split(",");
-
-        for (var i = 1; i < lines.length; i++) {
-
+        };
+        getAllUrlParams = function (url) {
+            // get query string from url (optional) or window
+            var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
+            // we'll store the parameters here
             var obj = {};
-            var currentline = lines[i].split(",");
-
-            for (var j = 0; j < headers.length; j++) {
-                obj[headers[j]] = currentline[j];
+            // if query string exists
+            if (queryString) {
+                // stuff after # is not part of query string, so get rid of it
+                queryString = queryString.split('#')[0];
+                // split our query string into its component parts
+                var arr = queryString.split('&');
+                for (var i = 0; i < arr.length; i++) {
+                    // separate the keys and the values
+                    var a = arr[i].split('=');
+                    // set parameter name and value (use 'true' if empty)
+                    var paramName = a[0];
+                    var paramValue = typeof(a[1]) === 'undefined' ? true : a[1];
+                    // (optional) keep case consistent
+                    paramName = paramName.toLowerCase();
+                    if (typeof paramValue === 'string')
+                        paramValue = paramValue.toLowerCase();
+                    // if the paramName ends with square brackets, e.g. colors[] or colors[2]
+                    if (paramName.match(/\[(\d+)?\]$/)) {
+                        // create key if it doesn't exist
+                        var key = paramName.replace(/\[(\d+)?\]/, '');
+                        if (!obj[key])
+                            obj[key] = [];
+                        // if it's an indexed array e.g. colors[2]
+                        if (paramName.match(/\[\d+\]$/)) {
+                            // get the index value and add the entry at the appropriate position
+                            var index = /\[(\d+)\]/.exec(paramName)[1];
+                            obj[key][index] = paramValue;
+                        } else {
+                            // otherwise add the value to the end of the array
+                            obj[key].push(paramValue);
+                        }
+                    } else {
+                        // we're dealing with a string
+                        if (!obj[paramName]) {
+                            // if it doesn't exist, create property
+                            obj[paramName] = paramValue;
+                        } else if (obj[paramName] && typeof obj[paramName] === 'string') {
+                            // if property does exist and it's a string, convert it to an array
+                            obj[paramName] = [obj[paramName]];
+                            obj[paramName].push(paramValue);
+                        } else {
+                            // otherwise add the property
+                            obj[paramName].push(paramValue);
+                        }
+                    }
+                }
             }
-
-            result.push(obj);
-
+            return obj;
         }
 
-        //return result; //JavaScript object
-        return JSON.stringify(result); //JSON
-    }
+        //var csv is the CSV file with headers
+        csvJSON = function (csv) {
 
-    init_text_click_event = function () {
-        var getAllUrlParams_url = window.location.href;
-        var searchString = getAllUrlParams(getAllUrlParams_url).q
-            if (searchString !== undefined) {
-                console.log("init_text_click_event")
+            var lines = csv.split("\n");
 
-                $("#txtsearch").val(decodeURIComponent(searchString))
-                $("#btnSearch").trigger("click")
+            var result = [];
+
+            // NOTE: If your columns contain commas in their values, you'll need
+            // to deal with those before doing the next step
+            // (you might convert them to &&& or something, then covert them back later)
+            // jsfiddle showing the issue https://jsfiddle.net/
+            var headers = lines[0].split(",");
+
+            for (var i = 1; i < lines.length; i++) {
+
+                var obj = {};
+                var currentline = lines[i].split(",");
+
+                for (var j = 0; j < headers.length; j++) {
+                    obj[headers[j]] = currentline[j];
+                }
+
+                result.push(obj);
+
             }
-    }
-    init_click_event = function () {
-        for (i = 0; i < searchUrls.length; i++) {
-            searchWord(searchUrls[i]);
+
+            //return result; //JavaScript object
+            return JSON.stringify(result); //JSON
         }
-    };
-    $("#btnSearch").click(function () {
-        init_click_event()
+
+        init_text_click_event = function () {
+            var getAllUrlParams_url = window.location.href;
+            var searchString = getAllUrlParams(getAllUrlParams_url).q
+                if (searchString !== undefined) {
+                    console.log("init_text_click_event")
+
+                    $("#txtsearch").val(decodeURIComponent(searchString))
+                    $("#btnSearch").trigger("click")
+                }
+        }
+        init_click_event = function () {
+            for (i = 0; i < searchUrls.length; i++) {
+                searchWord(searchUrls[i]);
+            }
+        };
+        $("#btnSearch").click(function () {
+            init_click_event()
+        });
+        var jqxhr = $.when(
+                init_getJSON()).then(function () {})
+            .done(function () {});
+        // Set another completion function for the request above
+        jqxhr.always(function () {});
     });
-    var jqxhr = $.when(
-            init_getJSON()).then(function () {})
-        .done(function () {});
-    // Set another completion function for the request above
-    jqxhr.always(function () {});
-});
