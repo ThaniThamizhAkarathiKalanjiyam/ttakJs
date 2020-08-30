@@ -106,7 +106,7 @@ $(document).ready(function () {
 						//Get glossary
                         $.each(csvJSON_data, function (csv_index, csv_value) {
                             $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/iwn/wn_gloss/"+csv_value.synset_id, function (data) {
-								ResultWNDict_content += csvJSON(data).gloss;
+								ResultWNDict_content += csvJSON(data).gloss +"\n";
 							});
                         });
 						$("#card_text_" + id_card).html(content);
