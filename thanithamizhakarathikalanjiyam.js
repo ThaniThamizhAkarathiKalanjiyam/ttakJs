@@ -4,7 +4,7 @@ $(document).ready(function () {
     var bseWeb = "https://ThaniThamizhAkarathiKalanjiyam.github.io/";
     var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/";
     var md = window.markdownit();
- 
+
     init_getJSON = function () {
         $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (data) {
             searchUrls = data;
@@ -18,8 +18,8 @@ $(document).ready(function () {
                 var dict_full = searchUrls[i].dict_full;
                 var desc = searchUrls[i].desc;
                 var kaan = searchUrls[i].kaan;
-   var getAllUrlParams_url = window.location.href;
-    var kaan_url = getAllUrlParams(getAllUrlParams_url).kaan;
+                var getAllUrlParams_url = window.location.href;
+                var kaan_url = getAllUrlParams(getAllUrlParams_url).kaan;
                 if (kaan_url === kaan || kaan_url === undefined) {
 
                     var active_class = "",
@@ -83,8 +83,8 @@ $(document).ready(function () {
         }
         var pan_id = "#panel_" + id_card;
         $(pan_id).css("display", "none");
-var getAllUrlParams_url = window.location.href;
-    var kaan_url = getAllUrlParams(getAllUrlParams_url).kaan;
+        var getAllUrlParams_url = window.location.href;
+        var kaan_url = getAllUrlParams(getAllUrlParams_url).kaan;
         if (kaan_url === kaan || kaan_url === undefined) {
             $.get(gitHubUrl,
                 function (data) {
@@ -100,7 +100,9 @@ var getAllUrlParams_url = window.location.href;
                     $("#card_text_" + id_card).html(content);
                     //popup_poem("#card_text_" + id_card)
                     $("#card_footer_" + id_card).html("");
-                    if (searchUrl.id == "ResultWNDict") {}
+                    if (searchUrl.id == "ResultWNDict") {
+								alert(csvJSON(content))				
+					}
                 }
             });
         }
@@ -159,8 +161,39 @@ var getAllUrlParams_url = window.location.href;
         }
         return obj;
     }
+
+    //var csv is the CSV file with headers
+    csvJSON = function (csv) {
+
+        var lines = csv.split("\n");
+
+        var result = [];
+
+        // NOTE: If your columns contain commas in their values, you'll need
+        // to deal with those before doing the next step
+        // (you might convert them to &&& or something, then covert them back later)
+        // jsfiddle showing the issue https://jsfiddle.net/
+        var headers = lines[0].split(",");
+
+        for (var i = 1; i < lines.length; i++) {
+
+            var obj = {};
+            var currentline = lines[i].split(",");
+
+            for (var j = 0; j < headers.length; j++) {
+                obj[headers[j]] = currentline[j];
+            }
+
+            result.push(obj);
+
+        }
+
+        //return result; //JavaScript object
+        return JSON.stringify(result); //JSON
+    }
+
     init_text_click_event = function () {
-var getAllUrlParams_url = window.location.href;
+        var getAllUrlParams_url = window.location.href;
         var searchString = getAllUrlParams(getAllUrlParams_url).q
             if (searchString !== undefined) {
                 console.log("init_text_click_event")
