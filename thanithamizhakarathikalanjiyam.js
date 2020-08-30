@@ -111,6 +111,7 @@ $(document).ready(function () {
                             synset_id = url_value.synset_id
 							if (synset_id !== "") {
                                 $.getJSON(urlgloss, function (data) {
+									alert("Hi all")
                                     JSON_parsed_data = JSON.parse(csvJSON(data));
                                     ResultWNDict_content += JSON_parsed_data.gloss + "<br/>";
                                     $("#card_text_" + id_card).append(ResultWNDict_content);
