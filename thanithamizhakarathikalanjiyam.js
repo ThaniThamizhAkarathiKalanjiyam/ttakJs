@@ -111,7 +111,7 @@ $(document).ready(function () {
 							word = url_value.word;
 							urlgloss = ("https://thanithamizhakarathikalanjiyam.github.io/iwn/wn_gloss/" + synset_id)
                             if (synset_id !== "") {
-                                $.get(urlgloss, function (data) {
+                               var jqxhr = $.get(urlgloss, function (data,word,ss_type) {
                                     JSON_parsed_data = JSON.parse(csvJSON(data));
                                     $ul = $("<ul>");
                                     $.each(JSON_parsed_data, function (JSON_parsed_data_index, JSON_parsed_data_value) {
@@ -123,9 +123,16 @@ $(document).ready(function () {
                                     });
 									$bold_heading  = $("<b>")
 									$bold_heading.append(word + " " + ss_type + ".")
-									$("#card_text_" + id_card).append($bold_heading);
-                                    $("#card_text_" + id_card).append($ul);
+									$div = $("<div>")
+									$div.append($bold_heading);
+									$div.append($ul);
+									return $div;
+									// $("#card_text_" + id_card).append($bold_heading);
+                                    // $("#card_text_" + id_card).append($ul);
                                 });
+								jqxhr.done(function(data){
+									$("#card_text_" + id_card).append(data);
+								})
                             }
                         });
 
