@@ -102,11 +102,11 @@ $(document).ready(function () {
                     $("#card_footer_" + id_card).html("");
                     if (searchUrl.id == "ResultWNDict") {
 						ResultWNDict_content = "";
-                        csvJSON_data = csvJSON(data);
+                        csvJSON_data = JSON.parse(csvJSON(data));
 						//Get glossary
                         $.each(csvJSON_data, function (csv_index, csv_value) {
                             $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/iwn/wn_gloss/"+csv_value.synset_id, function (data) {
-								JSON_parsed_data = JSON.parse(csvJSON(data))
+								JSON_parsed_data = JSON.parse(csvJSON(data));
 								ResultWNDict_content += JSON_parsed_data.gloss +"\n";
 							});
                         });
