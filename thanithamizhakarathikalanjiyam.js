@@ -108,7 +108,8 @@ $(document).ready(function () {
 
                         $.each(csvJSON_data, function (url_index, url_value) {
                             urlgloss = ("https://thanithamizhakarathikalanjiyam.github.io/iwn/wn_gloss/" + url_value.synset_id)
-                            if (synset_id !== "") {
+                            synset_id = url_value.synset_id
+							if (synset_id !== "") {
                                 $.getJSON(urlgloss, function (data) {
                                     JSON_parsed_data = JSON.parse(csvJSON(data));
                                     ResultWNDict_content += JSON_parsed_data.gloss + "<br/>";
