@@ -101,7 +101,7 @@ $(document).ready(function () {
                     //popup_poem("#card_text_" + id_card)
                     $("#card_footer_" + id_card).html("");
                     if (searchUrl.id == "ResultWNDict") {
-                        
+
                         csvJSON_data = JSON.parse(csvJSON(data));
 
                         $("#card_text_" + id_card).html("");
@@ -109,19 +109,33 @@ $(document).ready(function () {
                         $.each(csvJSON_data, function (url_index, url_value) {
                             urlgloss = ("https://thanithamizhakarathikalanjiyam.github.io/iwn/wn_gloss/" + url_value.synset_id)
                             synset_id = url_value.synset_id
-							if (synset_id !== "") {
-                                $.get(urlgloss, function (data) {
-									//alert("Hi all")
-                                    JSON_parsed_data = JSON.parse(csvJSON(data));
-                                    // ResultWNDict_content = JSON_parsed_data.gloss + "<br/>";
-									$.each(JSON_parsed_data, function (JSON_parsed_data_index, JSON_parsed_data_value) {
-										synset_id = url_value.synset_id
-										if (synset_id !== "") {
-											$("#card_text_" + id_card).append(JSON_parsed_data_value.gloss+ "<br/>");
-										}
-									});
-                                });
-                            }
+                                if (synset_id !== "") {
+                                    $.get(urlgloss, function (data) {
+                                        //alert("Hi all")
+                                        JSON_parsed_data = JSON.parse(csvJSON(data));
+                                        // ResultWNDict_content = JSON_parsed_data.gloss + "<br/>";
+                                        $.each(csvJSON_data, function (url_index, url_value) {
+                                            urlgloss = ("https://thanithamizhakarathikalanjiyam.github.io/iwn/wn_gloss/" + url_value.synset_id)
+                                            synset_id = url_value.synset_id
+                                                if (synset_id !== "") {
+                                                    $.get(urlgloss, function (data) {
+                                                        //alert("Hi all")
+                                                        JSON_parsed_data = JSON.parse(csvJSON(data));
+                                                        // ResultWNDict_content = JSON_parsed_data.gloss + "<br/>";
+                                                        $ul = $("<ul>")
+                                                            $.each(JSON_parsed_data, function (JSON_parsed_data_index, JSON_parsed_data_value) {
+                                                                synset_id = url_value.synset_id
+                                                                    if (synset_id !== "" && JSON_parsed_data_value.gloss !== undefined) {
+                                                                        $li = $("<li>").html(JSON_parsed_data_value.gloss)
+                                                                            $ul.append($li)
+                                                                    }
+                                                            });
+                                                        $("#card_text_" + id_card).append($ul);
+                                                    });
+                                                }
+                                        });
+                                    });
+                                }
                         });
 
                     }
