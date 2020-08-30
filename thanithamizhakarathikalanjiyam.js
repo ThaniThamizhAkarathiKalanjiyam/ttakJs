@@ -103,32 +103,29 @@ $(document).ready(function () {
                     if (searchUrl.id == "ResultWNDict") {
                         ResultWNDict_content = "";
                         csvJSON_data = JSON.parse(csvJSON(data));
-						
-						$.when (csvJSON_data_each(csvJSON_data)).then(function(ResultWNDict_content){
-							$("#card_text_" + id_card).html(ResultWNDict_content);
-						});                        
+                        var urls_gloss = [];
+                        urls_gloss.push("https://thanithamizhakarathikalanjiyam.github.io/iwn/wn_gloss/" + synset_id);
+
+$("#card_text_" + id_card).html("");
+
+                        $.each(urls_gloss, function (url_index, url_value) {
+                           
+                            if (synset_id !== "") {
+                                $.getJSON(url_value, function (data) {
+                                    JSON_parsed_data = JSON.parse(csvJSON(data));
+                                    ResultWNDict_content += JSON_parsed_data.gloss + "<br/>";
+									$("#card_text_" + id_card).append(ResultWNDict_content);
+                                });
+                            }
+                        });
+
+                        
+
                     }
                 }
             });
         }
     };
-
-    //Get glossary
-    csvJSON_data_each = function (csvJSON_data) {
-		ResultWNDict_content = "";
-        var jhr = $.each(csvJSON_data, function (csv_index, csv_value) {
-            synset_id = csv_value.synset_id
-                if (synset_id !== "") {
-                    $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/iwn/wn_gloss/" + synset_id, function (data) {
-                        JSON_parsed_data = JSON.parse(csvJSON(data));
-                        ResultWNDict_content += JSON_parsed_data.gloss + "\n";
-                    });
-                }
-        });
-		jhr.promise().done(function() {
-			return ResultWNDict_content;
-		});		
-    }
 
     getAllUrlParams = function (url) {
         // get query string from url (optional) or window
