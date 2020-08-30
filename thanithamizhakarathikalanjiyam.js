@@ -103,23 +103,19 @@ $(document).ready(function () {
                     if (searchUrl.id == "ResultWNDict") {
                         ResultWNDict_content = "";
                         csvJSON_data = JSON.parse(csvJSON(data));
-                        var urls_gloss = [];
-                        urls_gloss.push("https://thanithamizhakarathikalanjiyam.github.io/iwn/wn_gloss/" + synset_id);
 
-$("#card_text_" + id_card).html("");
+                        $("#card_text_" + id_card).html("");
 
-                        $.each(urls_gloss, function (url_index, url_value) {
-                           
+                        $.each(csvJSON_data, function (url_index, url_value) {
+                            urlgloss = ("https://thanithamizhakarathikalanjiyam.github.io/iwn/wn_gloss/" + url_value.synset_id)
                             if (synset_id !== "") {
-                                $.getJSON(url_value, function (data) {
+                                $.getJSON(urlgloss, function (data) {
                                     JSON_parsed_data = JSON.parse(csvJSON(data));
                                     ResultWNDict_content += JSON_parsed_data.gloss + "<br/>";
-									$("#card_text_" + id_card).append(ResultWNDict_content);
+                                    $("#card_text_" + id_card).append(ResultWNDict_content);
                                 });
                             }
                         });
-
-                        
 
                     }
                 }
