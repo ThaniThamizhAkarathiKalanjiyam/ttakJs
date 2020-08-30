@@ -116,7 +116,7 @@ $(document).ready(function () {
     //Get glossary
     csvJSON_data_each = function (csvJSON_data) {
 		ResultWNDict_content = "";
-        $.each(csvJSON_data, function (csv_index, csv_value) {
+        var jhr = $.each(csvJSON_data, function (csv_index, csv_value) {
             synset_id = csv_value.synset_id
                 if (synset_id !== "") {
                     $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/iwn/wn_gloss/" + synset_id, function (data) {
@@ -125,7 +125,9 @@ $(document).ready(function () {
                     });
                 }
         });
-		return ResultWNDict_content;
+		jhr.promise().done(function() {
+			return ResultWNDict_content;
+		});		
     }
 
     getAllUrlParams = function (url) {
