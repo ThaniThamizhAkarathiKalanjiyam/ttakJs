@@ -101,7 +101,7 @@ $(document).ready(function () {
                     //popup_poem("#card_text_" + id_card)
                     $("#card_footer_" + id_card).html("");
                     if (searchUrl.id == "ResultWNDict") {
-                        ResultWNDict_content = "";
+                        
                         csvJSON_data = JSON.parse(csvJSON(data));
 
                         $("#card_text_" + id_card).html("");
@@ -113,7 +113,7 @@ $(document).ready(function () {
                                 $.get(urlgloss, function (data) {
 									//alert("Hi all")
                                     JSON_parsed_data = JSON.parse(csvJSON(data));
-                                    ResultWNDict_content += JSON_parsed_data.gloss + "<br/>";
+                                    ResultWNDict_content = JSON_parsed_data.gloss + "<br/>";
                                     $("#card_text_" + id_card).append(ResultWNDict_content);
                                 });
                             }
