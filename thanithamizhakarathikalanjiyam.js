@@ -114,9 +114,8 @@ $(document).ready(function () {
 									//alert("Hi all")
                                     JSON_parsed_data = JSON.parse(csvJSON(data));
                                     // ResultWNDict_content = JSON_parsed_data.gloss + "<br/>";
-									$.each(JSON_parsed_data_gloss, function (JSON_parsed_data_gloss_index, JSON_parsed_data_gloss_value) {
-										$("#card_text_" + id_card).append(JSON_parsed_data_gloss_value+ "<br/>");
-									}
+									
+                                    $("#card_text_" + id_card).append(ResultWNDict_content);
                                 });
                             }
                         });
