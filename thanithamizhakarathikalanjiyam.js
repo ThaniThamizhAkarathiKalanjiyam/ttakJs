@@ -109,7 +109,7 @@ $(document).ready(function () {
 								ResultWNDict_content += csvJSON(data).gloss +"\n";
 							});
                         });
-						$("#card_text_" + id_card).html(content);
+						$("#card_text_" + id_card).html(ResultWNDict_content);
                     }
                 }
             });
