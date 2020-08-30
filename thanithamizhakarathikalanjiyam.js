@@ -115,7 +115,10 @@ $(document).ready(function () {
                                     JSON_parsed_data = JSON.parse(csvJSON(data));
                                     // ResultWNDict_content = JSON_parsed_data.gloss + "<br/>";
 									$.each(JSON_parsed_data, function (JSON_parsed_data_index, JSON_parsed_data_value) {
-										$("#card_text_" + id_card).append(JSON_parsed_data_value.gloss+ "<br/>");
+										synset_id = url_value.synset_id
+										if (synset_id !== "") {
+											$("#card_text_" + id_card).append(JSON_parsed_data_value.gloss+ "<br/>");
+										}
 									});
                                 });
                             }
