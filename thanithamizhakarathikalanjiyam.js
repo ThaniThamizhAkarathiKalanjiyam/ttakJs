@@ -271,7 +271,7 @@ $(document).ready(function () {
     $('#jstree_demo_div').on("select_node.jstree", function (e, data) {
         if (data.node != undefined) {
             $("#txtsearch").val(data.node.text);
-            $("#btnSearch").trigger("click")
+            //$("#btnSearch").trigger("click")
         }
     });
 
