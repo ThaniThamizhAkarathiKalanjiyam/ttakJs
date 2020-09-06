@@ -231,6 +231,7 @@ $(document).ready(function () {
         var getAllUrlParams_url = window.location.href;
         var searchString = getAllUrlParams(getAllUrlParams_url).q
             if (searchString !== undefined) {
+				$(document).prop('title', searchString + 'in Tamil / English | அஃக |  தனித் தமிழ் அகராதிக் களஞ்சியம் ');
                 console.log("init_text_click_event")
 
                 $("#txtsearch").val(decodeURIComponent(searchString))
