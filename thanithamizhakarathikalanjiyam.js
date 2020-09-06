@@ -248,8 +248,9 @@ $(document).ready(function () {
         // txtWord = $("#txtsearch").val();
 		var txtsearchLow = $("#txtsearch").val().toLowerCase()
 		alert(txtsearchLow)
-        //window.location.href = "https://thanithamizhakarathikalanjiyam.github.io/?q=" + txtWord;
-    });
+        window.location.href = "https://thanithamizhakarathikalanjiyam.github.io/?q=" + txtWord;
+		
+	});
 
     versol_div = function (root_word, childs) {
         $('#jstree_demo_div').jstree({
