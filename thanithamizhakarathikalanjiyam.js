@@ -247,8 +247,8 @@ $(document).ready(function () {
         //init_click_event()
         // txtWord = $("#txtsearch").val();
 		var txtsearchLow = $("#txtsearch").val().toLowerCase()
-		alert(txtsearchLow)
-        window.location.href = "https://thanithamizhakarathikalanjiyam.github.io/?q=" + txtWord;
+		// alert(txtsearchLow)
+        window.location.href = "https://thanithamizhakarathikalanjiyam.github.io/?q=" + txtsearchLow;
 		
 	});
 
