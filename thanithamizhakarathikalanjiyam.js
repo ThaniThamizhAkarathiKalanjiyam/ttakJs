@@ -243,7 +243,9 @@ $(document).ready(function () {
         }
     };
     $("#btnSearch").click(function () {
-        init_click_event()
+        //init_click_event()
+		txtWord = $("#txtSearch").val();
+		window.location.href = "https://thanithamizhakarathikalanjiyam.github.io/?q="+txtWord;
     });
     var jqxhr = $.when(
             init_getJSON()).then(function () {})
