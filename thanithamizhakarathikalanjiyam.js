@@ -236,6 +236,7 @@ $(document).ready(function () {
                 $("#txtsearch").val(decodeURIComponent(searchString))
                 //$("#btnSearch").trigger("click")
 				init_click_event();
+				thodarpudaya_sol($("#txtsearch").val())
             }
     }
     init_click_event = function () {
@@ -249,7 +250,6 @@ $(document).ready(function () {
 		var txtsearchLow = $("#txtsearch").val().toLowerCase()
 		// alert(txtsearchLow)
         window.location.href = "https://thanithamizhakarathikalanjiyam.github.io/?q=" + txtsearchLow;
-		
 	});
 
     versol_div = function (root_word, childs) {
@@ -278,11 +278,28 @@ $(document).ready(function () {
             //$("#btnSearch").trigger("click")
         }
     });
-
+ thodarpudaya_sol = function (search_word) {
+        $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/agarathi/ety/etytamildict/" + search_word, function (thod_sol_data) {
+            var wordsList = ""
+                $.each(thod_sol_data, function (key, val) {
+                    cnt = key + 1
+                    wordsList += cnt + ". " + val + "&nbsp;"
+                })
+                $("#thod_sol").html(wordsList)
+				$('#jstree_demo_div').jstree().deselect_all(true);
+				if(search_word.length > 0 && wordsList.length > 0){
+					$('#jstree_demo_div').jstree(true).settings.core.data = thod_sol_data;
+					$('#jstree_demo_div').jstree(true).refresh();
+				}else
+				{
+					versol_div("வேர்",["இடது கிளை","வலது கிளை"])
+				}
+        });
+    }
     var jqxhr = $.when(
             init_getJSON()).then(function () {})
         .done(function () {
-            versol_div("வேர்", ["இடது கிளை", "வலது கிளை"]);
+            //versol_div("வேர்", ["இடது கிளை", "வலது கிளை"]);
             side_extra_info();
         });
     // Set another completion function for the request above
