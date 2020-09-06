@@ -105,34 +105,34 @@ $(document).ready(function () {
                         csvJSON_data = JSON.parse(csvJSON(data));
                         $("#card_text_" + id_card).html("");
 
-                        $.each(csvJSON_data, function (url_index, url_value) {                            
+                        $.each(csvJSON_data, function (url_index, url_value) {
                             synset_id = url_value.synset_id;
-							ss_type = url_value.ss_type;
-							word = url_value.word;
-							urlgloss = ("https://thanithamizhakarathikalanjiyam.github.io/iwn/wn_gloss/" + synset_id)
+                            ss_type = url_value.ss_type;
+                            word = url_value.word;
+                            urlgloss = ("https://thanithamizhakarathikalanjiyam.github.io/iwn/wn_gloss/" + synset_id)
                             if (synset_id !== "") {
-                               var jqxhr = $.get(urlgloss, function (data,word,ss_type) {
-                                    JSON_parsed_data = JSON.parse(csvJSON(data));
-                                    $ul = $("<ul>");
-                                    $.each(JSON_parsed_data, function (JSON_parsed_data_index, JSON_parsed_data_value) {
-                                        synset_id = url_value.synset_id;
-                                        if (synset_id !== "" && JSON_parsed_data_value.gloss !== undefined) {
-                                            $li = $("<li>").html(JSON_parsed_data_value.gloss);
-                                            $ul.append($li);
-                                        }
+                                var jqxhr = $.get(urlgloss, function (data, word, ss_type) {
+                                        JSON_parsed_data = JSON.parse(csvJSON(data));
+                                        $ul = $("<ul>");
+                                        $.each(JSON_parsed_data, function (JSON_parsed_data_index, JSON_parsed_data_value) {
+                                            synset_id = url_value.synset_id;
+                                            if (synset_id !== "" && JSON_parsed_data_value.gloss !== undefined) {
+                                                $li = $("<li>").html(JSON_parsed_data_value.gloss);
+                                                $ul.append($li);
+                                            }
+                                        });
+                                        $bold_heading = $("<b>")
+                                            $bold_heading.append(url_value.word + " " + url_value.ss_type + ".")
+                                            $div = $("<div>")
+                                            $div.append($bold_heading);
+                                        $div.append($ul);
+                                        //return $div;
+                                        // $("#card_text_" + id_card).append($bold_heading);
+                                        $("#card_text_" + id_card).append($div);
                                     });
-									$bold_heading  = $("<b>")
-									$bold_heading.append(url_value.word + " " + url_value.ss_type + ".")
-									$div = $("<div>")
-									$div.append($bold_heading);
-									$div.append($ul);
-									//return $div;
-									// $("#card_text_" + id_card).append($bold_heading);
-                                    $("#card_text_" + id_card).append($div);
-                                });
-								jqxhr.done(function(data){
-									//$("#card_text_" + id_card).append(data);
-								})
+                                jqxhr.done(function (data) {
+                                    //$("#card_text_" + id_card).append(data);
+                                })
                             }
                         });
 
@@ -244,12 +244,43 @@ $(document).ready(function () {
     };
     $("#btnSearch").click(function () {
         //init_click_event()
-		txtWord = $("#txtSearch").val();
-		window.location.href = "https://thanithamizhakarathikalanjiyam.github.io/?q="+txtWord;
+        txtWord = $("#txtSearch").val();
+        window.location.href = "https://thanithamizhakarathikalanjiyam.github.io/?q=" + txtWord;
     });
+
+    versol_div = function (root_word, childs) {
+        $('#jstree_demo_div').jstree({
+            'core': {
+                'data': [
+                    'பிறசொற்கள் ', {
+                        'text': root_word,
+                        'state': {
+                            'opened': true,
+                            'selected': true
+                        },
+                        // 'children' : [
+                        // { 'text' : 'Child 1' },
+                        // 'Child 2'
+                        // ]
+                        'children': childs
+                    }
+                ]
+            }
+        }) //.redraw(true);
+    }
+    $('#jstree_demo_div').on("select_node.jstree", function (e, data) {
+        if (data.node != undefined) {
+            $("#txtsearch").val(data.node.text);
+            $("#btnSearch").trigger("click")
+        }
+    });
+
     var jqxhr = $.when(
             init_getJSON()).then(function () {})
-        .done(function () {});
+        .done(function () {
+            versol_div("வேர்", ["இடது கிளை", "வலது கிளை"]);
+            side_extra_info();
+        });
     // Set another completion function for the request above
     jqxhr.always(function () {});
 });
