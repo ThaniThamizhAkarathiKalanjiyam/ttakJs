@@ -234,7 +234,8 @@ $(document).ready(function () {
                 console.log("init_text_click_event")
 
                 $("#txtsearch").val(decodeURIComponent(searchString))
-                $("#btnSearch").trigger("click")
+                //$("#btnSearch").trigger("click")
+				init_click_event();
             }
     }
     init_click_event = function () {
