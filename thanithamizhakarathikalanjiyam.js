@@ -245,8 +245,10 @@ $(document).ready(function () {
     };
     $("#btnSearch").click(function () {
         //init_click_event()
-        txtWord = $("#txtSearch").val();
-        window.location.href = "https://thanithamizhakarathikalanjiyam.github.io/?q=" + txtWord;
+        // txtWord = $("#txtsearch").val();
+		var txtsearchLow = $("#txtsearch").val().toLowerCase()
+		alert(txtsearchLow)
+        //window.location.href = "https://thanithamizhakarathikalanjiyam.github.io/?q=" + txtWord;
     });
 
     versol_div = function (root_word, childs) {
