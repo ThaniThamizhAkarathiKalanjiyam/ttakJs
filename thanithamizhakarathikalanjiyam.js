@@ -274,8 +274,12 @@ $(document).ready(function () {
     }
     $('#jstree_demo_div').on("select_node.jstree", function (e, data) {
         if (data.node != undefined) {
-            $("#txtsearch").val(data.node.text);
+            // $("#txtsearch").val(data.node.text);
             //$("#btnSearch").trigger("click")
+			var txtsearchLow = data.node.text.toLowerCase()
+			// alert(txtsearchLow)
+			window.location.href = "https://thanithamizhakarathikalanjiyam.github.io/?q=" + txtsearchLow;
+	
         }
     });
  thodarpudaya_sol = function (search_word) {
