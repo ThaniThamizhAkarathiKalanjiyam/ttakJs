@@ -355,7 +355,7 @@ $(document).ready(function () {
 	
 	$("#txtsearch").on("keypress",function(){
 		
-		getSuggestions();
+		
 		
 	})
 	
@@ -365,6 +365,7 @@ $(document).ready(function () {
             //versol_div("வேர்", ["இடது கிளை", "வலது கிளை"]);
 			$('#jstree_demo_div').jstree();
             side_extra_info();
+			getSuggestions();
         });
     // Set another completion function for the request above
     jqxhr.always(function () {});
