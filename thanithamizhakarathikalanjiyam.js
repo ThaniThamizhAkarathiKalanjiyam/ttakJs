@@ -305,25 +305,41 @@ $(document).ready(function () {
     }
 			
 	getSuggestions = function (funcData) {
-		$.ajax({
-			url: 'https://ta.wiktionary.org/w/api.php',
-			type: 'GET',
-			dataType: 'json',
-			data: {
+		
+		
+		$.get('https://ta.wiktionary.org/w/api.php', 
+			{
 				"action":"opensearch",
 				"format":"json",
 				"formatversion":"2",
 				"search":"c",
 				"namespace":"0",
 				"limit":"10"			
-			},
-			success: function (ResponseJsonE) {
+			}, 
+			function(data) {
 				console.log(ResponseJsonE)
-			},
-			error: function () {
-				//$dfd.reject();
-			}
 		});
+		
+		
+		// $.ajax({
+			// url: 'https://ta.wiktionary.org/w/api.php',
+			// type: 'GET',
+			// dataType: 'json',
+			// data: {
+				// "action":"opensearch",
+				// "format":"json",
+				// "formatversion":"2",
+				// "search":"c",
+				// "namespace":"0",
+				// "limit":"10"			
+			// },
+			// success: function (ResponseJsonE) {
+				// console.log(ResponseJsonE)
+			// },
+			// error: function () {
+				// //$dfd.reject();
+			// }
+		// });
 	}
 	
 	$("#txtsearch").on("keypress",function(){
