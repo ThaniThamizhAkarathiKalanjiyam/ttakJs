@@ -307,9 +307,7 @@ $(document).ready(function () {
 	getSuggestions = function (funcData) {
 		
 		$.getJSON(
-		'https://en.wikipedia.org/w/api.php?action=query&format=json&gsrlimit=15&generator=search' +
-		'&origin=*' + // <-- this is the magic ingredient!
-		'&gsrsearch='q', 
+'https://en.wikipedia.org/w/api.php?action=query&format=json&gsrlimit=15&generator=search' +'&origin=*' + '&gsrsearch=q', 
 		function(ResponseJsonE){ 
 			console.log(ResponseJsonE)
 		}
