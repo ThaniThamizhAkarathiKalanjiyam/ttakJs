@@ -306,6 +306,13 @@ $(document).ready(function () {
 			
 	getSuggestions = function (funcData) {
 		
+		$.getJSON(
+		'https://en.wikipedia.org/w/api.php?action=query&format=json&gsrlimit=15&generator=search' +
+		'&origin=*' + // <-- this is the magic ingredient!
+		'&gsrsearch='q, function(ResponseJsonE){ 
+			console.log(ResponseJsonE)
+		}
+		);
 		
 		// $.get('https://ta.wiktionary.org/w/api.php', 
 			// {
@@ -321,28 +328,29 @@ $(document).ready(function () {
 		// });
 		
 		
-		$.ajax({
-			url: 'https://ta.wiktionary.org/w/api.php',
-			type: 'GET',
-			dataType: 'json',
-			 headers: {  
-			 'Access-Control-Allow-Origin': 'https://ta.wiktionary.org' 
-			 },
-			data: {
-				"action":"opensearch",
-				"format":"json",
-				"formatversion":"2",
-				"search":"c",
-				"namespace":"0",
-				"limit":"10"			
-			},
-			success: function (ResponseJsonE) {
-				console.log(ResponseJsonE)
-			},
-			error: function () {
-				//$dfd.reject();
-			}
-		});
+		// $.ajax({
+			// url: 'https://ta.wiktionary.org/w/api.php',
+			// type: 'GET',
+			// dataType: 'json',
+			 // headers: {  
+			 // 'Access-Control-Allow-Origin': 'https://ta.wiktionary.org' ,
+			 // 'Vary': 'Origin'
+			 // },
+			// data: {
+				// "action":"opensearch",
+				// "format":"json",
+				// "formatversion":"2",
+				// "search":"c",
+				// "namespace":"0",
+				// "limit":"10"			
+			// },
+			// success: function (ResponseJsonE) {
+				// console.log(ResponseJsonE)
+			// },
+			// error: function () {
+				// //$dfd.reject();
+			// }
+		// });
 	}
 	
 	$("#txtsearch").on("keypress",function(){
