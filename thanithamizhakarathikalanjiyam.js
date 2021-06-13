@@ -314,22 +314,22 @@ $(document).ready(function () {
 						"action":"opensearch",
 						"format":"json",
 						"formatversion":"2",
-						"search":"c",
+						"search":request.term,
 						"namespace":"0",
 						"limit":"10"			
 					}, 
 					function(data) {
-						console.log(responseData)
-						$.each(responseData.postData.Records, function (key, val) {
+						console.log(data)
+						// $.each(responseData.postData.Records, function (key, val) {
 
-							var value = normaliseValue(val.lot_no)
-								var label = normaliseValue(val.lot_no) + " [" + normaliseValue(val.net_qty) + "]"
-								autocompleteOptions.push({
-									"label": label,
-									"value": value
-								})
-						})
-						response(autocompleteOptions);
+							// var value = normaliseValue(val.lot_no)
+								// var label = normaliseValue(val.lot_no) + " [" + normaliseValue(val.net_qty) + "]"
+								// autocompleteOptions.push({
+									// "label": label,
+									// "value": value
+								// })
+						// })
+						response(responseData[1]);
 				});
 			},
 			minLength: 0,
