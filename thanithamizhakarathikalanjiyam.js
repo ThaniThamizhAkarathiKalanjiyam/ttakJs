@@ -313,18 +313,18 @@ $(document).ready(function () {
 		}
 		);
 		
-		// $.get('https://ta.wiktionary.org/w/api.php', 
-			// {
-				// "action":"opensearch",
-				// "format":"json",
-				// "formatversion":"2",
-				// "search":"c",
-				// "namespace":"0",
-				// "limit":"10"			
-			// }, 
-			// function(data) {
-				// console.log(ResponseJsonE)
-		// });
+		$.get('https://ta.wiktionary.org/w/api.php?origin=*', 
+			{
+				"action":"opensearch",
+				"format":"json",
+				"formatversion":"2",
+				"search":"c",
+				"namespace":"0",
+				"limit":"10"			
+			}, 
+			function(data) {
+				console.log(ResponseJsonE)
+		});
 		
 		
 		// $.ajax({
