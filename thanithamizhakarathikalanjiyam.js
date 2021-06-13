@@ -306,50 +306,51 @@ $(document).ready(function () {
 			
 	getSuggestions = function (funcData) {
 		
-		$.getJSON(
-'https://en.wikipedia.org/w/api.php?action=query&format=json&gsrlimit=15&generator=search' +'&origin=*' + '&gsrsearch=q', 
-		function(ResponseJsonE){ 
-			console.log(ResponseJsonE)
-		}
-		);
-		
-		$.get('https://ta.wiktionary.org/w/api.php?origin=*', 
-			{
-				"action":"opensearch",
-				"format":"json",
-				"formatversion":"2",
-				"search":"c",
-				"namespace":"0",
-				"limit":"10"			
-			}, 
-			function(data) {
-				console.log(ResponseJsonE)
-		});
-		
-		
-		// $.ajax({
-			// url: 'https://ta.wiktionary.org/w/api.php',
-			// type: 'GET',
-			// dataType: 'json',
-			 // headers: {  
-			 // 'Access-Control-Allow-Origin': 'https://ta.wiktionary.org' ,
-			 // 'Vary': 'Origin'
-			 // },
-			// data: {
-				// "action":"opensearch",
-				// "format":"json",
-				// "formatversion":"2",
-				// "search":"c",
-				// "namespace":"0",
-				// "limit":"10"			
-			// },
-			// success: function (ResponseJsonE) {
-				// console.log(ResponseJsonE)
-			// },
-			// error: function () {
-				// //$dfd.reject();
-			// }
-		// });
+		$("#txtsearch").autocomplete({
+			autoFocus: true,
+			source: function (request, response) {
+				$.get('https://ta.wiktionary.org/w/api.php?origin=*', 
+					{
+						"action":"opensearch",
+						"format":"json",
+						"formatversion":"2",
+						"search":"c",
+						"namespace":"0",
+						"limit":"10"			
+					}, 
+					function(data) {
+						console.log(responseData)
+						$.each(responseData.postData.Records, function (key, val) {
+
+							var value = normaliseValue(val.lot_no)
+								var label = normaliseValue(val.lot_no) + " [" + normaliseValue(val.net_qty) + "]"
+								autocompleteOptions.push({
+									"label": label,
+									"value": value
+								})
+						})
+						response(autocompleteOptions);
+				});
+			},
+			minLength: 0,
+			maxShowItems: 5,//Add jquery.ui.autocomplete.scroll.js
+			//select: function (event, ui) {
+			//    //log("Selected: " + ui.item.value + " aka " + ui.item.id);
+			//},
+			select: function (event, ui) {
+				//var cust_noLoc = convertToString($("#txtsearch").val())
+				//$('#SalesShipsContainer').jtable('load', {
+				//    "vendor_no": "",
+				//    "item_no": ui.item.value,
+				//    "cust_no": cust_noLoc
+				//});
+			},
+			change: function (event, ui) {
+				// $('#SalesShipsContainer').jtable('load');
+				//$("#txtmin_qty").val(ui.item.min_value);
+			}
+		})
+
 	}
 	
 	$("#txtsearch").on("keypress",function(){
