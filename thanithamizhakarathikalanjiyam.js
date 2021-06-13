@@ -309,8 +309,6 @@ $(document).ready(function () {
             //versol_div("வேர்", ["இடது கிளை", "வலது கிளை"]);
 			$('#jstree_demo_div').jstree();
             side_extra_info();
-			var youtube = "<iframe width='560' height='315' src='https://www.youtube.com/embed/1pHkv4KUiFY' title='YouTube video player' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>";
-			$("#nav_tabs_content_html").html(youtube);
         });
     // Set another completion function for the request above
     jqxhr.always(function () {});
