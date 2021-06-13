@@ -303,6 +303,35 @@ $(document).ready(function () {
 				}
         });
     }
+			
+	getSuggestions = function (funcData) {
+		$.ajax({
+			url: 'https://ta.wiktionary.org/w/api.php',
+			type: 'GET',
+			dataType: 'json',
+			data: {
+				"action":"opensearch",
+				"format":"json",
+				"formatversion":"2",
+				"search":"c",
+				"namespace":"0",
+				"limit":"10			
+			},
+			success: function (ResponseJsonE) {
+				console.log(ResponseJsonE)
+			},
+			error: function () {
+				//$dfd.reject();
+			}
+		});
+	}
+	
+	$("#txtsearch").on("keypress",function(){
+		
+		getSuggestions();
+		
+	})
+	
     var jqxhr = $.when(
             init_getJSON()).then(function () {})
         .done(function () {
