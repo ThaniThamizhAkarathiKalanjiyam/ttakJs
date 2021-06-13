@@ -353,10 +353,10 @@ $(document).ready(function () {
 
 	}
 	
-	$("#txtsearch").on("keypress",function(){
-		
-		
-		
+	$("#txtsearch").on("keypress",function(e){
+		if(e.which == 13) {
+			$("#btnSearch").trigger("click")
+		}
 	})
 	
     var jqxhr = $.when(
