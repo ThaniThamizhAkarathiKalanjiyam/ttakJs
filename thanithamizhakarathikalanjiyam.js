@@ -329,7 +329,7 @@ $(document).ready(function () {
 									// "value": value
 								// })
 						// })
-						response(responseData[1]);
+						response(data[1]);
 				});
 			},
 			minLength: 0,
