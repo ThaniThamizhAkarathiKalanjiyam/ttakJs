@@ -326,7 +326,8 @@ $(document).ready(function () {
 			type: 'GET',
 			dataType: 'json',
 			 headers: {  
-			 'Access-Control-Allow-Origin': 'https://ta.wiktionary.org/w/api.php' },
+			 'Access-Control-Allow-Origin': 'https://ta.wiktionary.org' 
+			 },
 			data: {
 				"action":"opensearch",
 				"format":"json",
