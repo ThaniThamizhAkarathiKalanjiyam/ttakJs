@@ -318,7 +318,8 @@ $(document).ready(function () {
 						"formatversion":"2",
 						"search":request.term,
 						"namespace":"0",
-						"limit":"10"			
+						"limit":"10",
+						"origin":"*"
 					}, 
 					function(data) {
 						console.log(data)
