@@ -365,7 +365,10 @@ $(document).ready(function () {
 	
 	 updateSearchWords = function (txtsearchLow) {
 		 
+		 if(txtsearchLow === undefined){
+			 
 		 var utf_txtsearchLow = decodeURIComponent(txtsearchLow);
+		 
         $.ajax({
             url: 'https://docs.google.com/forms/d/e/1FAIpQLSfHQVgPZRpRq2Fegi9LFoibfNtCjLzufxCdqQYqlhL81VnkVA/formResponse',
             type: 'POST',
@@ -382,7 +385,10 @@ $(document).ready(function () {
                 
             }
         });
-    };
+    
+		 }
+	
+	};
 	
     var jqxhr = $.when(
             init_getJSON()).then(function () {})
