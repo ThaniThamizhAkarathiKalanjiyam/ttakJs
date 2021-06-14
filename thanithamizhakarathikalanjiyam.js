@@ -364,13 +364,15 @@ $(document).ready(function () {
 	}) 
 	
 	 updateSearchWords = function (txtsearchLow) {
+		 
+		 var utf_txtsearchLow = decodeURIComponent(txtsearchLow);
         $.ajax({
             url: 'https://docs.google.com/forms/d/e/1FAIpQLSfHQVgPZRpRq2Fegi9LFoibfNtCjLzufxCdqQYqlhL81VnkVA/formResponse',
             type: 'POST',
             dataType: 'jsonp',
             data: {
-				"entry.891892085":txtsearchLow,
-				"entry.1113699608":txtsearchLow,
+				"entry.891892085":utf_txtsearchLow,
+				"entry.1113699608":utf_txtsearchLow,
 				"submit":"Submit",
 			},
             success: function (ResponseJsonE) {
