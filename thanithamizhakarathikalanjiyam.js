@@ -365,7 +365,7 @@ $(document).ready(function () {
 	
 	 updateSearchWords = function (txtsearchLow) {
 		 
-		 if(txtsearchLow === undefined){
+		 if(txtsearchLow !== undefined){
 			 
 		 var utf_txtsearchLow = decodeURIComponent(txtsearchLow);
 		 
