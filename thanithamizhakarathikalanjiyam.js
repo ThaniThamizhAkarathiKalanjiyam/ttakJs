@@ -230,6 +230,7 @@ $(document).ready(function () {
     init_text_click_event = function () {
         var getAllUrlParams_url = window.location.href;
         var searchString = getAllUrlParams(getAllUrlParams_url).q
+		updateSearchWords(searchString)
             if (searchString !== undefined) {
 				decode_searchString = decodeURIComponent(searchString)
 				
@@ -251,7 +252,7 @@ $(document).ready(function () {
         //init_click_event()
         // txtWord = $("#txtsearch").val();
 		var txtsearchLow = $("#txtsearch").val().toLowerCase()
-		updateSearchWords(txtsearchLow)
+		// updateSearchWords(txtsearchLow)
 		// alert(txtsearchLow)
         window.location.href = "https://thanithamizhakarathikalanjiyam.github.io/?q=" + txtsearchLow;
 	});
