@@ -395,7 +395,7 @@ $(document).ready(function () {
         .done(function () {
             //versol_div("வேர்", ["இடது கிளை", "வலது கிளை"]);
 			$('#jstree_demo_div').jstree();
-            side_extra_info();			
+            // side_extra_info();			
         });
     // Set another completion function for the request above
     jqxhr.always(function () {});
