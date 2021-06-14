@@ -251,6 +251,7 @@ $(document).ready(function () {
         //init_click_event()
         // txtWord = $("#txtsearch").val();
 		var txtsearchLow = $("#txtsearch").val().toLowerCase()
+		updateSearchWords(txtsearchLow)
 		// alert(txtsearchLow)
         window.location.href = "https://thanithamizhakarathikalanjiyam.github.io/?q=" + txtsearchLow;
 	});
@@ -360,6 +361,25 @@ $(document).ready(function () {
 			getSuggestions();
 		}
 	}) 
+	
+	 updateSearchWords = function (txtsearchLow) {
+        $.ajax({
+            url: 'https://docs.google.com/forms/d/e/1FAIpQLSfHQVgPZRpRq2Fegi9LFoibfNtCjLzufxCdqQYqlhL81VnkVA/formResponse',
+            type: 'POST',
+            dataType: 'jsonp',
+            data: {
+				entry.891892085=txtsearchLow,
+				entry.1113699608=txtsearchLow,
+				submit=Submit,
+			},
+            success: function (ResponseJsonE) {
+                
+            },
+            error: function () {
+                
+            }
+        });
+    };
 	
     var jqxhr = $.when(
             init_getJSON()).then(function () {})
