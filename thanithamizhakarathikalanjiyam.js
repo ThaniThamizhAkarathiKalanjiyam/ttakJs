@@ -95,7 +95,7 @@ $(document).ready(function () {
                     content = content + result;
                     $("#panel_" + id_card).css("display", "block")
                     $("#card_header_" + id_card).html(dict);
-                    $("#card_header_" + id_card).append("<span class='material-icons copy_content_str' title='Copy'>content_copy</span>");
+                    // $("#card_header_" + id_card).append("<span class='material-icons copy_content_str' title='Copy'>content_copy</span>");
                     $("#card_title_" + id_card).html(txtsearchLow);
                     $("#card_text_" + id_card).html(content);
                     //popup_poem("#card_text_" + id_card)
