@@ -8,7 +8,7 @@ $(document).ready(function () {
     init_getJSON = function () {
         $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (data) {
             searchUrls = data;
-            console.log("init_getJSON");
+            // console.log("init_getJSON");
             var sidenav_left_html = "";
             var nav_tabs_content_html = "";
 
