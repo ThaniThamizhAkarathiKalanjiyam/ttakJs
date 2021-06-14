@@ -368,9 +368,9 @@ $(document).ready(function () {
             type: 'POST',
             dataType: 'jsonp',
             data: {
-				entry.891892085=txtsearchLow,
-				entry.1113699608=txtsearchLow,
-				submit=Submit,
+				"entry.891892085":txtsearchLow,
+				"entry.1113699608":txtsearchLow,
+				"submit":"Submit",
 			},
             success: function (ResponseJsonE) {
                 
