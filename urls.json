@@ -1,11 +1,11 @@
 [{
         "desc": "இசையினி தொகுத்த அகராதி தொகுப்பு",
-        "dict": "இசையினி",
+        "dict": "இசையினி சொற்பிறப்பியல்",
         "dict_full": "இசையினி சொற்பிறப்பியல்",
-        "kaan": "isai_ta",
-        "dir": "search/",
+        "kaan": "WordRoot",
+        "dir": "WordRoot/",
         "id": "WordRoot",
-        "sep_dict": false,
+        "sep_dict": true,
         "year": 100
     },
 	{
