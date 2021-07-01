@@ -8,7 +8,7 @@ $(document).ready(function () {
             dataType: 'json',
             data: {},
             success: function (ResponseJsonE) {
-				
+				debugger
 				$.each(ResponseJsonE.tam_first_letters,function(value, index){
 					var option = $("option").val(value).html(value)
 					$("#sel_first_letter").append(option);
