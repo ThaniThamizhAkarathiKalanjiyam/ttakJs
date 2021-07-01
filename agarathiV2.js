@@ -4,9 +4,13 @@ $(document).ready(function () {
 		
 		$.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/tam_letters.json", function (ResponseJsonE) {
 			
-			$.each(ResponseJsonE.tam_first_letters,function(value, index){
-					var option = $("<option>").val(value).html(value)
-					$("#sel_first_letter").append(option);
+			$.each(ResponseJsonE.tam_first_letters,function(index, value){
+										
+					$('#sel_first_letter').append($('<option>',
+					 {
+						value: value,
+						text : value
+					}));
 				});
 			
 		});
