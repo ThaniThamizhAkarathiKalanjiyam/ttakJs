@@ -46,7 +46,7 @@ $(document).ready(function () {
     //Initial method call
     var jqxhr = $.when().then(function () {
             GetAgarathiV2()
-			jtableInit()
+			$('#myTable').DataTable();
         });
     // Set another completion function for the request above
     jqxhr.always(function () {
