@@ -1,8 +1,7 @@
 $(document).ready(function () {
 
     GetAgarathiV2 = function (funcData) {
-		debugger
-       
+		
 		$.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/tam_letters.json", function (ResponseJsonE) {
 			
 			$.each(ResponseJsonE.tam_first_letters,function(value, index){
