@@ -22,10 +22,31 @@ $(document).ready(function () {
 
         });
     }
+	fill_lstMayankuMey = function(ninraMey)
+	{
+		
+	}
+	
+	jtableInit = function(){
+		$('#MyTableContainer').jtable({
+             
+            //General options comes here
+ 
+            actions: {
+            },
+            fields: {
+                 //Action definitions comes here
+               //Field definitions comes here
+            }
+ 
+            //Event handlers...
+        }); 
+	}
 
     //Initial method call
     var jqxhr = $.when().then(function () {
             GetAgarathiV2()
+			jtableInit()
         });
     // Set another completion function for the request above
     jqxhr.always(function () {
