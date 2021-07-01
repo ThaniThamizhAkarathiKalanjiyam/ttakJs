@@ -2,11 +2,18 @@ $(document).ready(function () {
 
     GetAgarathiV2 = function (funcData) {
         $.ajax({
-            url: 'Process',
-            type: 'POST',
+            url: 'https://thanithamizhakarathikalanjiyam.github.io/ttakJs/tam_letters.json',
+            type: 'GET',
             dataType: 'json',
             data: {},
-            success: function (ResponseJsonE) {},
+            success: function (ResponseJsonE) {
+				
+				$.each(ResponseJsonE.tam_first_letters, value, index){
+					var option = $("option").val(value).html(value)
+					$("#sel_first_letter").appendChild(option);
+				}
+				
+			},
             error: function () {}
         });
     }
