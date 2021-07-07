@@ -420,5 +420,10 @@ drawChart =	function () {
             // side_extra_info();			
         });
     // Set another completion function for the request above
-    jqxhr.always(function () {});
+    jqxhr.always(function () {
+		
+		google.charts.load('current', {packages:['wordtree']});
+      google.charts.setOnLoadCallback(drawChart);
+		
+	});
 });
