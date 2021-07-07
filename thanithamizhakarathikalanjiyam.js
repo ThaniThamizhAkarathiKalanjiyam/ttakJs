@@ -303,7 +303,7 @@ drawChart =	function (thod_sol_data,search_word) {
 				var wt_word = thod_sol_data_value.replace(search_word,(search_word+" ")).trim()
 				wordTreeDataMpm.push([wt_word])
 			});
-			
+			console.log("wordTreeDataMpm",wordTreeDataMpm)
 			var data = google.visualization.arrayToDataTable(
 			   wordTreeDataMpm 
 			);
