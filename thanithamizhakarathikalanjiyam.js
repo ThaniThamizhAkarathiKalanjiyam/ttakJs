@@ -296,7 +296,7 @@ drawChart =	function (thod_sol_data) {
 
           // ]
         // );
-		
+		debugger
 		var data = google.visualization.arrayToDataTable(
           [ thod_sol_data.join('"],["')
           ]
