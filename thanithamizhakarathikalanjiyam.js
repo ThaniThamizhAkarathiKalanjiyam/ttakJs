@@ -297,8 +297,9 @@ drawChart =	function (thod_sol_data) {
           // ]
         // );
 		debugger
+		var wordTreeDataMpm  = thod_sol_data.join('"],["')
 		var data = google.visualization.arrayToDataTable(
-          [ thod_sol_data.join('"],["')
+          [ wordTreeDataMpm
           ]
         );
 
