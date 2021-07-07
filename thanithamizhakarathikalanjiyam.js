@@ -297,21 +297,26 @@ drawChart =	function (thod_sol_data) {
           // ]
         // );
 		debugger
-		var wordTreeDataMpm  = thod_sol_data.join('"],["')
-		var data = google.visualization.arrayToDataTable(
-          [ wordTreeDataMpm
-          ]
-        );
+		if(thod_sol_data !== undefined){
+			var wordTreeDataMpm  = []
+			$.each(thod_sol_data,function(thod_sol_data_index, thod_sol_data_value){
+				wordTreeDataMpm.push([thod_sol_data_value])
+			});
+			
+			var data = google.visualization.arrayToDataTable(
+			  [ wordTreeDataMpm ]
+			);
 
-        var options = {
-          wordtree: {
-            format: 'implicit',
-            word: 'cats'
-          }
-        };
+			var options = {
+			  wordtree: {
+				format: 'implicit',
+				word: 'cats'
+			  }
+			};
 
-        var chart = new google.visualization.WordTree(document.getElementById('wordtree_basic'));
-        chart.draw(data, options);
+			var chart = new google.visualization.WordTree(document.getElementById('wordtree_basic'));
+			chart.draw(data, options);
+		}
       }
 		
  thodarpudaya_sol = function (search_word) {
