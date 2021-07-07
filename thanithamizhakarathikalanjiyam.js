@@ -300,7 +300,8 @@ drawChart =	function (thod_sol_data,search_word) {
 		if(thod_sol_data !== undefined){
 			var wordTreeDataMpm  = []
 			$.each(thod_sol_data,function(thod_sol_data_index, thod_sol_data_value){
-				wordTreeDataMpm.push([thod_sol_data_value.replace(search_word,(search_word+" "))])
+				var wt_word = thod_sol_data_value.replace(search_word,(search_word+" ")).trim()
+				wordTreeDataMpm.push([wt_word])
 			});
 			
 			var data = google.visualization.arrayToDataTable(
