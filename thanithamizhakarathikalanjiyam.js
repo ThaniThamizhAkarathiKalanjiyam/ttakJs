@@ -288,12 +288,17 @@ $(document).ready(function () {
         }
     });
 	
-drawChart =	function () {
-		console.log("Hi all")
-        var data = google.visualization.arrayToDataTable(
-          [ ['Phrases'],
-            ["இசை மணி."],["இசை மை"],["இசை வேளாளர்"],["இசை "],["இசை க்கரணம்"],["இசை க் கருவி"],["இசை க்கழல்"],["இசை க்காரன்"],["இசை க்கிளை"],["இசை க்குதல்"],["இசை க்குரற்குருவி"],["இசை க்குழல்"],["இசை  கடன்"],["இசை காரர்"],["இசை குடிமானம்"],["இசை கேடு"],["இசை கொள்ளல்"],["இசை கோள்"],["இசை ச்சிதடி"],["இசை ச்சுவை"],["இசை ஞானியார்"],["இசை த்தமிழ்"],["இசை ந்தவேளை"],["இசை நாள்"],["இசை நிறை"],["இசை நிறைசொல்"],["இசை நிறையசைச்சொல்"],["இசை நிறையேகாரம்"],["இசை நுணுக்கம்"],["இசை நூபுரம்"],["இசை நூல்"],["இசை ப்பா"],["இசை ப்பாட்டு"],
+drawChart =	function (thod_sol_data) {
+		// console.log("Hi all")
+        // var data = google.visualization.arrayToDataTable(
+          // [ ['Phrases'],
+            // ["இசை மணி."],["இசை மை"],["இசை வேளாளர்"],["இசை "],["இசை க்கரணம்"],["இசை க் கருவி"],["இசை க்கழல்"],["இசை க்காரன்"],["இசை க்கிளை"],["இசை க்குதல்"],["இசை க்குரற்குருவி"],["இசை க்குழல்"],["இசை  கடன்"],["இசை காரர்"],["இசை குடிமானம்"],["இசை கேடு"],["இசை கொள்ளல்"],["இசை கோள்"],["இசை ச்சிதடி"],["இசை ச்சுவை"],["இசை ஞானியார்"],["இசை த்தமிழ்"],["இசை ந்தவேளை"],["இசை நாள்"],["இசை நிறை"],["இசை நிறைசொல்"],["இசை நிறையசைச்சொல்"],["இசை நிறையேகாரம்"],["இசை நுணுக்கம்"],["இசை நூபுரம்"],["இசை நூல்"],["இசை ப்பா"],["இசை ப்பாட்டு"],
 
+          // ]
+        // );
+		
+		var data = google.visualization.arrayToDataTable(
+          [ thod_sol_data.join('"],["')
           ]
         );
 
@@ -310,7 +315,9 @@ drawChart =	function () {
 		
  thodarpudaya_sol = function (search_word) {
         $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/agarathi/ety/etytamildict/" + search_word, function (thod_sol_data) {
-            var wordsList = ""
+            
+			drawChart(thod_sol_data)
+			var wordsList = ""
                 $.each(thod_sol_data, function (key, val) {
                     cnt = key + 1
                     wordsList += cnt + ". " + val + "&nbsp;"
