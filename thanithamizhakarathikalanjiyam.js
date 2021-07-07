@@ -304,7 +304,7 @@ drawChart =	function (thod_sol_data) {
 			});
 			
 			var data = google.visualization.arrayToDataTable(
-			  [ wordTreeDataMpm ]
+			   wordTreeDataMpm 
 			);
 
 			var options = {
