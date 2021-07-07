@@ -437,8 +437,10 @@ drawChart =	function (thod_sol_data,search_word) {
     // Set another completion function for the request above
     jqxhr.always(function () {
 		
-		google.charts.load('current', {packages:['wordtree']});
-      google.charts.setOnLoadCallback(drawChart);
+		
 		
 	});
+	
+	google.charts.load('current', {packages:['wordtree']});
+      google.charts.setOnLoadCallback(drawChart);
 });
