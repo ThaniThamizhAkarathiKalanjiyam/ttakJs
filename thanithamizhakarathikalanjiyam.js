@@ -288,7 +288,7 @@ $(document).ready(function () {
         }
     });
 	
-drawChart =	function (thod_sol_data) {
+drawChart =	function (thod_sol_data,search_word) {
 		// console.log("Hi all")
         // var data = google.visualization.arrayToDataTable(
           // [ ['Phrases'],
@@ -300,7 +300,7 @@ drawChart =	function (thod_sol_data) {
 		if(thod_sol_data !== undefined){
 			var wordTreeDataMpm  = []
 			$.each(thod_sol_data,function(thod_sol_data_index, thod_sol_data_value){
-				wordTreeDataMpm.push([thod_sol_data_value])
+				wordTreeDataMpm.push([thod_sol_data_value.replace(search_word,(search_word+" "))])
 			});
 			
 			var data = google.visualization.arrayToDataTable(
@@ -322,7 +322,7 @@ drawChart =	function (thod_sol_data) {
  thodarpudaya_sol = function (search_word) {
         $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/agarathi/ety/etytamildict/" + search_word, function (thod_sol_data) {
             
-			drawChart(thod_sol_data)
+			drawChart(thod_sol_data,search_word)
 			var wordsList = ""
                 $.each(thod_sol_data, function (key, val) {
                     cnt = key + 1
