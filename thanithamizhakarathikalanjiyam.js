@@ -416,7 +416,7 @@ $(document).ready(function () {
 	   
 	   $.each(thod_sol_data,function(thod_sol_data_index,thod_sol_data_value){
 		   var phrase_val = thod_sol_data_value.replace(search_word,(search_word+" "))
-		   thod_sol_dataTable.push(phrase_val)
+		   thod_sol_dataTable.push([phrase_val])
 	   });
 	   
         var data = google.visualization.arrayToDataTable(
