@@ -405,8 +405,7 @@ $(document).ready(function () {
     // Set another completion function for the request above
     jqxhr.always(function () {
 		
-	google.charts.load('current', {packages:['wordtree']});
-      google.charts.setOnLoadCallback(drawChart);
+
 		
 	});      
 
