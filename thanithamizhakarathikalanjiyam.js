@@ -297,7 +297,7 @@ $(document).ready(function () {
                     cnt = key + 1
                     wordsList += cnt + ". " + val + "&nbsp;"
                 })
-				drawChart(thod_sol_data,search_word)
+				// drawChart(thod_sol_data,search_word)
                 $("#thod_sol").html(wordsList)
 				$('#jstree_demo_div').jstree().deselect_all(true);
 				if(search_word.length > 0 && wordsList.length > 0){
