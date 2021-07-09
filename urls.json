@@ -42,7 +42,7 @@
         "kaan": "",
         "dir": "soodamani/docs/",
         "id": "ResultDictsoodamani",
-        "sep_dict": false,
+        "sep_dict": true,
         "year": 100
     }, {
         "desc": "தமிழ்நாடு மாணவர்களுக்கு வழங்கிய மடிக்கணியில் இருக்கும் அகராதி",
