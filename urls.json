@@ -36,11 +36,11 @@
         "sep_dict": true,
         "year": 100
     }, {
-        "desc": "Soodamani Nigandu",
-        "dict": "Soodamani",
-        "dict_full": "Soodamani Nigandu",
+        "desc": "சூடாமணி நிகண்டு",
+        "dict": "சூடாமணி",
+        "dict_full": "சூடாமணி நிகண்டு",
         "kaan": "",
-        "dir": "soodamani/",
+        "dir": "soodamani/docs/",
         "id": "ResultDictsoodamani",
         "sep_dict": false,
         "year": 100
