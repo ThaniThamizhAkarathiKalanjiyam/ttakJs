@@ -49,9 +49,9 @@
         "dict": "தமாகதி",
         "dict_full": "தமிழ்நாடு மாணவர் கணினித் திட்டம்",
         "kaan": "",
-        "dir": "tnkt/",
+        "dir": "tnkt/docs/",
         "id": "ResultDictTNKT",
-        "sep_dict": false,
+        "sep_dict": true,
         "year": 100
     }, {
         "desc": "சன்முகப்பிள்ளை தமிழ் தமிழ் அகரமுதலி",
