@@ -359,5 +359,14 @@
         "id": "ResultDictTamPala",
         "sep_dict": false,
         "year": 100
+    }, {
+        "desc": "ஆசிரியர்: இரா.ரவிக்குமார்-ன்  கொங்கு வட்டார வழக்குச் சொல்லகராதி-லிருந்து உருவாக்கப் பட்டது.",
+        "dict": "கொங்கு வட்டார வழக்குச் சொல்லகராதி",
+        "dict_full": "கொங்கு வட்டார வழக்குச் சொல்லகராதி",
+        "kaan": "",
+        "dir": "kongu_vattaravalakkuch_sollakarathi/",
+        "id": "ResultDictKonguVatValSol",
+        "sep_dict": false,
+        "year": 100
     }
 ]
