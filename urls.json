@@ -366,7 +366,7 @@
         "kaan": "",
         "dir": "kongu_vattaravalakkuch_sollakarathi/",
         "id": "ResultDictKonguVatValSol",
-        "sep_dict": false,
+        "sep_dict": true,
         "year": 100
     }
 ]
