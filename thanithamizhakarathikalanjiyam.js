@@ -309,7 +309,13 @@ $(document).ready(function () {
 				}
         });
     }
-			
+
+	var tam_transliterate = []
+$.getJSON( "data//tam_transliterate.json", function( data ) {
+	tam_transliterate = data;
+
+});
+	
 	getSuggestions = function (funcData) {
 		
 		$("#txtsearch").autocomplete({
@@ -326,6 +332,31 @@ $(document).ready(function () {
 					}, 
 					function(data) {
 						console.log(data)
+						
+						
+						 var autocompleteOptions = []
+						//autocompleteOptions.push(
+						//    {
+						//        "label": "All Items",
+						//        "value": " "
+						//    })
+						var tam_word  = request.term;
+
+						$.each(tam_transliterate, function (key, val) {
+
+								var eng = (val.eng)
+								var tam = (val.tam)  
+								
+								tam_word = tam_word.replace(eng,tam)
+								
+							   
+						})
+						
+						autocompleteOptions.push({
+                            "label": tam_word,
+                            "value": tam_word
+                        })
+						
 						$.each(data[1], function (key, val) {
 
 							var value = val
