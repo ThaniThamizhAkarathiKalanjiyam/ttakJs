@@ -319,7 +319,7 @@ $.getJSON( "tamil_typist//data//tam_transliterate.json", function( data ) {
 	getSuggestions = function (funcData) {
 		
 		$("#txtsearch").autocomplete({
-			autoFocus: true,
+			//autoFocus: true,
 			source: function (request, response) {
 				$.get('https://ta.wiktionary.org/w/api.php?origin=*', 
 					{
