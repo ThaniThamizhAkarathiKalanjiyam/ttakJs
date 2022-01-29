@@ -326,16 +326,16 @@ $(document).ready(function () {
 					}, 
 					function(data) {
 						console.log(data)
-						// $.each(responseData.postData.Records, function (key, val) {
+						$.each(data[1], function (key, val) {
 
-							// var value = normaliseValue(val.lot_no)
-								// var label = normaliseValue(val.lot_no) + " [" + normaliseValue(val.net_qty) + "]"
-								// autocompleteOptions.push({
-									// "label": label,
-									// "value": value
-								// })
-						// })
-						response(data[1]);
+							var value = val
+								var label = val
+								autocompleteoptions.push({
+									"label": label,
+									"value": value
+								})
+						})
+						response(autocompleteoptions);
 				});
 			},
 			minLength: 0,
