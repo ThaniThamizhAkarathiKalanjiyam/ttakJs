@@ -311,7 +311,7 @@ $(document).ready(function () {
     }
 
 	var tam_transliterate = []
-$.getJSON( "data//tam_transliterate.json", function( data ) {
+$.getJSON( "tamil_typist//data//tam_transliterate.json", function( data ) {
 	tam_transliterate = data;
 
 });
