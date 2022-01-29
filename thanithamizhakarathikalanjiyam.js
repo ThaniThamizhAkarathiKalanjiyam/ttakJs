@@ -361,12 +361,12 @@ $.getJSON( "tamil_typist//data//tam_transliterate.json", function( data ) {
 
 							var value = val
 								var label = val
-								autocompleteoptions.push({
+								autocompleteOptions.push({
 									"label": label,
 									"value": value
 								})
 						})
-						response(autocompleteoptions);
+						response(autocompleteOptions);
 				});
 			},
 			minLength: 0,
