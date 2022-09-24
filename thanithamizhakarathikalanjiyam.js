@@ -3,7 +3,8 @@ var searchUrls;
 $(document).ready(function () {
     var bseWeb = "https://ThaniThamizhAkarathiKalanjiyam.github.io/";
     var bseSearchDir = "https://ThaniThamizhAkarathiKalanjiyam.github.io/agarathi/";
-    var md = window.markdownit();
+    //var md = window.markdownit();
+	var converter = new showdown.Converter()
 
     init_getJSON = function () {
         $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (data) {
@@ -91,7 +92,7 @@ $(document).ready(function () {
                 if (data.length == 0) {
                     content = content + txtsearchLow + ": இச்சொல் " + dict_full + " அகராதியில் இல்லை.";
                 } else {
-                    var result = md.render(data);
+                    var result = converter.makeHtml(data);
                     content = content + result;
                     $("#panel_" + id_card).css("display", "block")
                     $("#card_header_" + id_card).html(dict);
