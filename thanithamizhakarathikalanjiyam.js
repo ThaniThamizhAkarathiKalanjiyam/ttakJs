@@ -399,7 +399,7 @@ $.getJSON( "tamil_typist//data//tam_transliterate.json", function( data ) {
 		}
 	}) 
 	
-	 updateSearchWords = function (txtsearchLow) {
+updateSearchWords = function (txtsearchLow) {
 		 
 		 if(txtsearchLow !== undefined){
 			 
