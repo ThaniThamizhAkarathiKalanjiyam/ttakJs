@@ -17,7 +17,7 @@ $(document).ready(function () {
 
     wordsearch = function (funcData) {
 
-        var searctTextVal = $.trim($("#txtsearch").val().toLowerCase())
+        var searctTextVal = $.trim($("#txtSearch").val().toLowerCase())
 
             $.get(funcData.dir + searctTextVal,
                 function (ResponseJsonE) {
@@ -56,19 +56,19 @@ $(document).ready(function () {
 
     }
 
-    updateSearchWords = function (txtsearchLow) {
+    updateSearchWords = function (txtSearchLow) {
 
-        if (txtsearchLow !== undefined) {
+        if (txtSearchLow !== undefined) {
 
-            var utf_txtsearchLow = decodeURIComponent(txtsearchLow);
+            var utf_txtSearchLow = decodeURIComponent(txtSearchLow);
 
             $.ajax({
                 url: 'https://docs.google.com/forms/d/e/1FAIpQLSfHQVgPZRpRq2Fegi9LFoibfNtCjLzufxCdqQYqlhL81VnkVA/formResponse',
                 type: 'POST',
                 dataType: 'jsonp',
                 data: {
-                    "entry.891892085": utf_txtsearchLow,
-                    "entry.1113699608": utf_txtsearchLow,
+                    "entry.891892085": utf_txtSearchLow,
+                    "entry.1113699608": utf_txtSearchLow,
                     "submit": "Submit",
                     "origin": "*"
                 },
@@ -82,9 +82,9 @@ $(document).ready(function () {
 
     init_getJSON = function () {
         $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (url_data) {
-			searchUrls = url_data
-            
-            console.log(searchUrls)
+            searchUrls = url_data
+
+                console.log(searchUrls)
         });
     }
 
@@ -95,15 +95,58 @@ $(document).ready(function () {
             wordsearch(value)
         })
 
-        var searctTextVal = $.trim($("#txtsearch").val().toLowerCase())
+        var searctTextVal = $.trim($("#txtSearch").val().toLowerCase())
             updateSearchWords(searctTextVal)
 
     })
- 
+
+    $(".tam_consonant").click(function (event) {
+
+        var tam_consonant_id = "#" + event.target.id
+            var tam_consonant_val = $(tam_consonant_id).html()
+
+            var tamvowels = $(".tam_vowel")
+            $.each(tamvowels, function (index, element) {
+
+                var tam_vowel_id = "#" + element.id
+                    var accent_symbol_val = $(tam_vowel_id).attr("accent_symbol")
+
+                    var changed_uyir_mey = tam_consonant_val + accent_symbol_val
+                    $(tam_vowel_id).html(changed_uyir_mey)
+
+            })
+
+    })
+
+    $(".tam_vowel,.tam_consonant").click(function (event) {
+
+        var target_id = "#" + event.target.id
+
+            var tam_letter_html = $(target_id).html()
+
+            appendLet2txtSearch(tam_letter_html)
+
+    })
+
+    appendLet2txtSearch = function (letter, is_vowel) {
+
+        var txtSearchVal = $("#txtSearch").val()
+
+            var lastLetOfText = txtSearchVal[txtSearchVal.length - 1]
+            var firstLetOfText = letter[0]
+
+            if (lastLetOfText == firstLetOfText) {
+                txtSearchVal = txtSearchVal.slice(0, -1);
+            }
+
+            txtSearchVal = txtSearchVal + letter
+
+            $("#txtSearch").val(txtSearchVal)
+
+    }
+
     var jqxhr = $.when(init_getJSON())
-		.then(function () {
-			
-		})
+        .then(function () {})
         .done(function () {
             //versol_div("வேர்", ["இடது கிளை", "வலது கிளை"]);
             //$('#jstree_demo_div').jstree();
