@@ -209,7 +209,7 @@ $(document).ready(function () {
 	
 	getMeaaningForUrlQuery = function(){
 		
-		var searchString = getAllUrlParams(getAllUrlParams_url).q
+		var searchString = getAllUrlParams(window.location.href).q
 			
 		if(searchString !== undefined)
 		{
