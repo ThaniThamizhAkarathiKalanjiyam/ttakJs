@@ -210,10 +210,12 @@ $(document).ready(function () {
 	getMeaaningForUrlQuery = function(){
 		
 		var searchString = getAllUrlParams(window.location.href).q
-			
+					
 		if(searchString !== undefined)
 		{
-			$("#txtSearch").val(searchString)
+			decode_searchString = decodeURIComponent(searchString)
+			
+			$("#txtSearch").val(decode_searchString)
 			$("#btnSearch").trigger("click")
 		}
 	}
