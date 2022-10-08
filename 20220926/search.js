@@ -92,6 +92,8 @@ $(document).ready(function () {
             searchUrls = url_data
 
                 console.log(searchUrls)
+				
+				getMeaaningForUrlQuery()
         });
     }
 
@@ -223,7 +225,7 @@ $(document).ready(function () {
     var jqxhr = $.when(init_getJSON())
         .then(function () {
 			
-			getMeaaningForUrlQuery()
+			
 			
 		})
         .done(function () {
