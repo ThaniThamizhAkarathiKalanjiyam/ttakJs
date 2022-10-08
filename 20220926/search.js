@@ -224,9 +224,7 @@ $(document).ready(function () {
 
     var jqxhr = $.when(init_getJSON())
         .then(function () {
-			
-			
-			
+
 		})
         .done(function () {
             //versol_div("வேர்", ["இடது கிளை", "வலது கிளை"]);
