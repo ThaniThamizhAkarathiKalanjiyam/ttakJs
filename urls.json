@@ -1,20 +1,30 @@
 [
+{
+        "desc": "சென்னைப் பல்கலைக்கழக தமிழ்ப் பேரகராதி",
+        "dict": "சென்னைப் பல்கலைக்கழக தமிழ்ப் பேரகராதி",
+        "dict_full": "சென்னைப் பல்கலைக்கழக தமிழ்ப் பேரகராதி",
+        "kaan": "WordRoot",
+        "dir": "TamilLexiconDictionary/docs/",
+        "id": "WordRoot",
+        "sep_dict": true,
+        "year": 100
+    },
+{
+        "desc": "இசையினி தொகுத்த அகராதி தொகுப்பு",
+        "dict": "இசையினி சொற்பிறப்பியல்",
+        "dict_full": "இசையினி சொற்பிறப்பியல்",
+        "kaan": "WordRoot",
+        "dir": "WordRoot/",
+        "id": "WordRoot",
+        "sep_dict": true,
+        "year": 100
+    },
     {
         "desc": "சதுரகராதி ",
         "dict": "சதுரகராதி ",
         "dict_full": "சதுரகராதி - பெயரகராதி",
         "kaan": "WordRoot",
         "dir": "sathurakarathi/sathurakarathi_peyarakarathi/docs/",
-        "id": "WordRoot",
-        "sep_dict": true,
-        "year": 100
-    },
-    {
-        "desc": "இசையினி தொகுத்த அகராதி தொகுப்பு",
-        "dict": "இசையினி சொற்பிறப்பியல்",
-        "dict_full": "இசையினி சொற்பிறப்பியல்",
-        "kaan": "WordRoot",
-        "dir": "WordRoot/",
         "id": "WordRoot",
         "sep_dict": true,
         "year": 100
@@ -27,16 +37,18 @@
         "id": "ResultDict",
         "sep_dict": false,
         "year": 100
-    }, {
-        "desc": "பிரின்ஸ்டன் பல்கலைக்கழக வார்த்தைவலை அகராதி",
-        "dict": "பிரின்ஸ்டன் பல்கலைக்கழக வார்த்தைவலை அகராதி",
-        "dict_full": "பிரின்ஸ்டன் பல்கலைக்கழக வார்த்தைவலை அகராதி",
-        "kaan": "isai_en",
-        "dir": "iwn/wn_synset/",
-        "id": "ResultWNDict",
-        "sep_dict": true,
-        "year": 100
-    }, {
+    },
+    //{
+    //    "desc": "பிரின்ஸ்டன் பல்கலைக்கழக வார்த்தைவலை அகராதி",
+    //    "dict": "பிரின்ஸ்டன் பல்கலைக்கழக வார்த்தைவலை அகராதி",
+    //    "dict_full": "பிரின்ஸ்டன் பல்கலைக்கழக வார்த்தைவலை அகராதி",
+    //    "kaan": "isai_en",
+    //    "dir": "iwn/wn_synset/",
+    //    "id": "ResultWNDict",
+    //    "sep_dict": true,
+    //    "year": 100
+    //},
+    {
         "desc": "தமிழ்க் கல்வி அகராதி <a href='https://www.tamilkalvi.in/'>அகராதி-லிருந்து </a> உருவாக்கப் பட்டது.",
         "dict": "தமிழ்க் கல்வி அகராதி",
         "dict_full": "தமிழ்க் கல்வி அகராதி",
