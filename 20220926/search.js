@@ -41,7 +41,7 @@ $(document).ready(function () {
                         //odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
                         //</p>
 						
-						let result = ResponseJsonE.startsWith("##");
+						let result = ResponseJsonE.startsWith("#");
 						
 						if(result === true)
 						{
