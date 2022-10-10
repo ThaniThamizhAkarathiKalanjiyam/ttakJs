@@ -22,26 +22,14 @@ $(document).ready(function () {
             $.get(funcData.dir + searctTextVal,
                 function (ResponseJsonE) {
 
-                //<div id="accordion">
                 var accordionDiv = $("<div>")
-                //accordionDiv.attr("id", "accordion")
-				//$(accordionDiv).addClass("id", "accordion")
-
-                    //$.each(ResponseJsonE, function (index, value)
                 {
 
                     //<h3>Section 1</h3>
                     var h3Div = $("<h3>")
                         $(h3Div).html(funcData.dict_full)
                         $(accordionDiv).append(h3Div)
-                        //<div>
-                        //<p>
-                        //Mauris mauris ante, blandit et, ultrices a, suscipit eget, quam. Integer
-                        //ut neque. Vivamus nisi metus, molestie vel, gravida in, condimentum sit
-                        //amet, nunc. Nam a nibh. Donec suscipit eros. Nam mi. Proin viverra leo ut
-                        //odio. Curabitur malesuada. Vestibulum a velit eu ante scelerisque vulputate.
-                        //</p>
-						
+                        
 						let result = ResponseJsonE.startsWith("#");
 						
 						if(result === true)
@@ -54,14 +42,9 @@ $(document).ready(function () {
 						
                         pDiv.html(htmlVal)
                         $(accordionDiv).append(pDiv)
-                        //</div>
-                        //</div>
-
                 }
-                //)
+                
                 $("#meanings").append(accordionDiv)
-                //$( "#accordion" ).accordion();
-
             });
 
     }
@@ -102,15 +85,27 @@ $(document).ready(function () {
 
     $("#btnSearch").click(function () {
         $("#meanings").html("")
-
+		appendMermaidToMeanings()
+		
         $.each(searchUrls, function (index, value) {
             wordsearch(value)
         })
-
+		
         var searctTextVal = $.trim($("#txtSearch").val().toLowerCase())
-            updateSearchWords(searctTextVal)
-
+        updateSearchWords(searctTextVal)
+		
     })
+	
+	
+	appendMermaidToMeanings  = function(){
+		
+		var mermaidDiv = $("<div>")
+		$(mermaidDiv).addClass("mermaid")
+		$("#meanings").append(mermaidDiv)
+		
+		
+		drawWordLettersGraph()
+	}
 
     $(".tam_consonant").click(function (event) {
 
@@ -261,7 +256,7 @@ $(document).ready(function () {
     // Set another completion function for the request above
     jqxhr.always(function () {
 		
-		drawWordLettersGraph()
+		
 		
 	});
 
