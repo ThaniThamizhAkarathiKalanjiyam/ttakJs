@@ -223,9 +223,9 @@ $(document).ready(function () {
 		}
 	}
 	
-	drawWordLettersGraph = function(){
+	drawWordLettersGraph = function(word_for_graph){
 		
-		var word_for_graph ="உலகெலாம்";
+		//var word_for_graph ="உலகெலாம்";
 		var mat_graph = word_for_graph.match(/[ஃ-ஹ]([ா-்]|)/gi);
 		var mat_graph_len = (mat_graph.length - 1)
 
@@ -259,7 +259,7 @@ $(document).ready(function () {
     // Set another completion function for the request above
     jqxhr.always(function () {
 		
-		drawWordLettersGraph()
+		drawWordLettersGraph("தமிழ்")
 		
 	});
 
