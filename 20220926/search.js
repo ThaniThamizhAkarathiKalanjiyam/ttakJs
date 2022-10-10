@@ -225,7 +225,7 @@ $(document).ready(function () {
 	
 	drawWordLettersGraph = function(word_for_graph){
 		
-		if(word_for_graph === undefined)
+		if(word_for_graph === undefined || word_for_graph === "")
 		{
 			word_for_graph = "தமிழ்";
 		}
@@ -244,6 +244,10 @@ $(document).ready(function () {
 				graphTD += '\n_' + index + '["' + value +'"]--> _' + index_p1 + '["' +value_p1 + '"]'
 			}
 		})
+		
+		
+		
+		
 		graphTD =  $.trim(graphTD)
 
 		//$(".mermaid").html(graphTD)
