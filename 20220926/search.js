@@ -107,7 +107,7 @@ $(document).ready(function () {
 		// $("#meanings").append(mermaidDiv)
 		
 		
-		drawWordLettersGraph()
+		
 	}
 
     $(".tam_consonant").click(function (event) {
@@ -259,7 +259,7 @@ $(document).ready(function () {
     // Set another completion function for the request above
     jqxhr.always(function () {
 		
-		
+		drawWordLettersGraph()
 		
 	});
 
