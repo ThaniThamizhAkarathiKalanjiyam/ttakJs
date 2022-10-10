@@ -225,7 +225,10 @@ $(document).ready(function () {
 	
 	drawWordLettersGraph = function(word_for_graph){
 		
-		//var word_for_graph ="உலகெலாம்";
+		if(word_for_graph === undefined)
+		{
+			word_for_graph = "தமிழ்";
+		}
 		var mat_graph = word_for_graph.match(/[ஃ-ஹ]([ா-்]|)/gi);
 		var mat_graph_len = (mat_graph.length - 1)
 
