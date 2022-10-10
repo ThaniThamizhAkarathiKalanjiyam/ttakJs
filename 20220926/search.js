@@ -88,7 +88,7 @@ $(document).ready(function () {
 		
 		var searctTextVal = $.trim($("#txtSearch").val().toLowerCase())
 		
-		appendMermaidToMeanings()
+		drawWordLettersGraph(searctTextVal)
 		
         $.each(searchUrls, function (index, value) {
             wordsearch(value)
