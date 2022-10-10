@@ -85,13 +85,16 @@ $(document).ready(function () {
 
     $("#btnSearch").click(function () {
         $("#meanings").html("")
+		
+		var searctTextVal = $.trim($("#txtSearch").val().toLowerCase())
+		
 		appendMermaidToMeanings()
 		
         $.each(searchUrls, function (index, value) {
             wordsearch(value)
         })
 		
-        var searctTextVal = $.trim($("#txtSearch").val().toLowerCase())
+        
         updateSearchWords(searctTextVal)
 		
     })
@@ -99,9 +102,9 @@ $(document).ready(function () {
 	
 	appendMermaidToMeanings  = function(){
 		
-		var mermaidDiv = $("<div>")
-		$(mermaidDiv).addClass("mermaid")
-		$("#meanings").append(mermaidDiv)
+		// var mermaidDiv = $("<div>")
+		// $(mermaidDiv).addClass("mermaid")
+		// $("#meanings").append(mermaidDiv)
 		
 		
 		drawWordLettersGraph()
