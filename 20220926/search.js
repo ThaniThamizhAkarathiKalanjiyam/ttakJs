@@ -295,11 +295,10 @@ $(document).ready(function () {
     // Set another completion function for the request above
     jqxhr.always(function () {
 		
-		drawWordLettersGraph("தமிழ்")
+		//drawWordLettersGraph("தமிழ்")
 		
 	});
-	
-	
+		
 	checkIsFirstLetterValid = function(value){
 		var rule_string = "நன்.102 - 106 \n| முதல் எழுத்து \nஇலக்கணப்படி \n"
 		if (frst_letters.indexOf(value) > -1) {
