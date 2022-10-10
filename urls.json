@@ -1,21 +1,21 @@
 [
 	{
+		"desc": "இசையினி தொகுத்த அகராதி தொகுப்பு",
+		"dict": "இசையினி சொற்பிறப்பியல்",
+		"dict_full": "இசையினி சொற்பிறப்பியல்",
+		"kaan": "IsaiyiniWordNet",
+		"dir": "IsaiyiniWordNet/",
+		"class": "IsaiyiniWordNet mermaid",
+		"sep_dict": true,
+		"year": 100
+	},
+	{
 		"desc": "சென்னைப் பல்கலைக்கழக தமிழ்ப் பேரகராதி",
 		"dict": "சென்னைப் பல்கலைக்கழக தமிழ்ப் பேரகராதி",
 		"dict_full": "சென்னைப் பல்கலைக்கழக தமிழ்ப் பேரகராதி",
 		"kaan": "WordRoot",
 		"dir": "TamilLexiconDictionary/docs/",
-		"id": "WordRoot",
-		"sep_dict": true,
-		"year": 100
-	},
-	{
-		"desc": "இசையினி தொகுத்த அகராதி தொகுப்பு",
-		"dict": "இசையினி சொற்பிறப்பியல்",
-		"dict_full": "இசையினி சொற்பிறப்பியல்",
-		"kaan": "WordRoot",
-		"dir": "WordRoot/",
-		"id": "WordRoot",
+		"class": "WordRoot",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -25,7 +25,7 @@
 		"dict_full": "சதுரகராதி - பெயரகராதி",
 		"kaan": "WordRoot",
 		"dir": "sathurakarathi/sathurakarathi_peyarakarathi/docs/",
-		"id": "WordRoot",
+		"class": "WordRoot",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -35,7 +35,7 @@
 		"dict_full": "இசையினி தமிழ் அகராதி",
 		"kaan": "isai_ta",
 		"dir": "search/",
-		"id": "ResultDict",
+		"class": "ResultDict",
 		"sep_dict": false,
 		"year": 100
 	},
@@ -45,7 +45,7 @@
 		"dict_full": "தமிழ்க் கல்வி அகராதி",
 		"kaan": "",
 		"dir": "tam_kal/docs/",
-		"id": "ResultDictTamKal",
+		"class": "ResultDictTamKal",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -55,7 +55,7 @@
 		"dict_full": "சூடாமணி நிகண்டு",
 		"kaan": "",
 		"dir": "soodamani/docs/",
-		"id": "ResultDictsoodamani",
+		"class": "ResultDictsoodamani",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -65,7 +65,7 @@
 		"dict_full": "தமிழ்நாடு மாணவர் கணினித் திட்டம்",
 		"kaan": "",
 		"dir": "tnkt/docs/",
-		"id": "ResultDictTNKT",
+		"class": "ResultDictTNKT",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -75,7 +75,7 @@
 		"dict_full": "சன்முகப்பிள்ளை தமிழ் தமிழ் அகரமுதலி ",
 		"kaan": "",
 		"dir": "tamil_tamil_akaramuthali/docs/",
-		"id": "ResultDictCCTA",
+		"class": "ResultDictCCTA",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -85,7 +85,7 @@
 		"dict_full": "அ.கி.மூர்த்தி-ன் அறிவியல் அகராதி",
 		"kaan": "",
 		"dir": "aki_moor/ariv_aga/",
-		"id": "ResultDictArivagam",
+		"class": "ResultDictArivagam",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -95,7 +95,7 @@
 		"dict_full": "அ.கி.மூர்த்தி-ன் வணிகவியல் அகராதி",
 		"kaan": "",
 		"dir": "vanikaviyal_agarathi/docs/",
-		"id": "ResultDictArivagam",
+		"class": "ResultDictArivagam",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -105,7 +105,7 @@
 		"dict_full": "கண்மணிப்புகழ் மருத்துவ அகராதி",
 		"kaan": "kan_pug",
 		"dir": "kanmani_pugal/maru_aga/",
-		"id": "ResultDictKanPug",
+		"class": "ResultDictKanPug",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -115,7 +115,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு சங்க இலக்கியம்",
 		"kaan": "tam_con",
 		"dir": "tam_con/sanka_ilakkiyam/",
-		"id": "ResultDictSankIlak",
+		"class": "ResultDictSankIlak",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -125,7 +125,7 @@
 		"dict_full": "இசையினி சங்கப் புலவர் அகராதி",
 		"kaan": "",
 		"dir": "tamil_pulavarkal/sankam/",
-		"id": "ResultDictIsaiPerSan",
+		"class": "ResultDictIsaiPerSan",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -135,7 +135,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு சிலப்பதிகாரம் ",
 		"kaan": "tam_con",
 		"dir": "tam_con/peru/silambu/",
-		"id": "ResultDictSilam",
+		"class": "ResultDictSilam",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -145,7 +145,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு மணிமேகலை ",
 		"kaan": "tam_con",
 		"dir": "tam_con/peru/mani/",
-		"id": "ResultDictMani",
+		"class": "ResultDictMani",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -155,7 +155,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு சீவக சிந்தாமணி ",
 		"kaan": "tam_con",
 		"dir": "tam_con/peru/chindha/",
-		"id": "ResultDictChindha",
+		"class": "ResultDictChindha",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -165,7 +165,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு வளையாபதி ",
 		"kaan": "tam_con",
 		"dir": "tam_con/peru/valai/",
-		"id": "ResultDictValai",
+		"class": "ResultDictValai",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -175,7 +175,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு குண்டலகேசி ",
 		"kaan": "tam_con",
 		"dir": "tam_con/peru/gunda/",
-		"id": "ResultDictGunda",
+		"class": "ResultDictGunda",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -185,7 +185,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு தொல்காப்பியம் ",
 		"kaan": "tam_con",
 		"dir": "tam_con/thol/",
-		"id": "ResultDictThol",
+		"class": "ResultDictThol",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -195,7 +195,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு முத்தொள்ளாயிரம் ",
 		"kaan": "tam_con",
 		"dir": "tam_con/muthol/",
-		"id": "ResultDictMuthol",
+		"class": "ResultDictMuthol",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -205,7 +205,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு இறையனார் அகப்பொருள் ",
 		"kaan": "tam_con",
 		"dir": "tam_con/irai_agam/",
-		"id": "ResultDictIraiAga",
+		"class": "ResultDictIraiAga",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -215,7 +215,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு திருக்குறள்",
 		"kaan": "tam_con",
 		"dir": "tam_con/kural/",
-		"id": "ResultDictThiKural",
+		"class": "ResultDictThiKural",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -225,7 +225,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு பதினெண்கீழ்க்கணக்கு",
 		"kaan": "tam_con",
 		"dir": "tam_con/pathinen/",
-		"id": "ResultDictPathinen",
+		"class": "ResultDictPathinen",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -235,7 +235,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு கம்பராமாயணம்",
 		"kaan": "tam_con",
 		"dir": "tam_con/kamba_rama/",
-		"id": "ResultDictKambaRama",
+		"class": "ResultDictKambaRama",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -245,7 +245,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு நளவெண்பா",
 		"kaan": "tam_con",
 		"dir": "tam_con/nala_venpa/",
-		"id": "ResultDictNalaVenpa",
+		"class": "ResultDictNalaVenpa",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -255,7 +255,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு பெருங்கதை",
 		"kaan": "tam_con",
 		"dir": "tam_con/perun_kathai/",
-		"id": "ResultDictPerunKathai",
+		"class": "ResultDictPerunKathai",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -265,7 +265,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு வில்லிபாரதம்",
 		"kaan": "tam_con",
 		"dir": "tam_con/villi/",
-		"id": "ResultDictVilli",
+		"class": "ResultDictVilli",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -275,7 +275,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு திருப்புகழ் ",
 		"kaan": "tam_con",
 		"dir": "tam_con/tpgz/",
-		"id": "ResultDictTpgz",
+		"class": "ResultDictTpgz",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -285,7 +285,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு திருமந்திரம் ",
 		"kaan": "tam_con",
 		"dir": "tam_con/tmm/",
-		"id": "ResultDictTmm",
+		"class": "ResultDictTmm",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -295,7 +295,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு திருக்கோவையார் ",
 		"kaan": "tam_con",
 		"dir": "tam_con/tkvr/",
-		"id": "ResultDicttkvr",
+		"class": "ResultDicttkvr",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -305,7 +305,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு திருவாசகம் ",
 		"kaan": "tam_con",
 		"dir": "tam_con/thiruva/",
-		"id": "ResultDictthiruva",
+		"class": "ResultDictthiruva",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -315,7 +315,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு தேம்பாவணி ",
 		"kaan": "tam_con",
 		"dir": "tam_con/themba/",
-		"id": "ResultDictthemba",
+		"class": "ResultDictthemba",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -325,7 +325,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு பெரியபுராணம் ",
 		"kaan": "tam_con",
 		"dir": "tam_con/ppuranam/",
-		"id": "ResultDictppuranam",
+		"class": "ResultDictppuranam",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -335,7 +335,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு நாலாயிரத் திவ்விய பிரபந்தம் ",
 		"kaan": "tam_con",
 		"dir": "tam_con/ndp/",
-		"id": "ResultDictndp",
+		"class": "ResultDictndp",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -345,7 +345,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு சீறாப்புராணம் ",
 		"kaan": "tam_con",
 		"dir": "tam_con/cira/",
-		"id": "ResultDictcira",
+		"class": "ResultDictcira",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -355,7 +355,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு தேவாரம் - சுந்தரமூர்த்தி ",
 		"kaan": "tam_con",
 		"dir": "tam_con/tvrm-sund/",
-		"id": "ResultDicttvrmsund",
+		"class": "ResultDicttvrmsund",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -365,7 +365,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு தேவாரம் - திருஞானசம்பந்தர் ",
 		"kaan": "tam_con",
 		"dir": "tam_con/tvrm-samb/",
-		"id": "ResultDicttvrmsamb",
+		"class": "ResultDicttvrmsamb",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -375,7 +375,7 @@
 		"dict_full": "பாண்டியராஜா தொடரடைவு தேவாரம் - அப்பர் ",
 		"kaan": "tam_con",
 		"dir": "tam_con/tvrm-app/",
-		"id": "ResultDicttvrmapp",
+		"class": "ResultDicttvrmapp",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -385,7 +385,7 @@
 		"dict_full": "வடசொல் தமிழ் அகர வரிசைச் சுருக்கம்",
 		"kaan": "",
 		"dir": "vasol_tamil/docs/",
-		"id": "ResultDictVTAS",
+		"class": "ResultDictVTAS",
 		"sep_dict": false,
 		"year": 100
 	},
@@ -395,7 +395,7 @@
 		"dict_full": "மின்தமிழ் அகராதி",
 		"kaan": "",
 		"dir": "mintamil/",
-		"id": "ResultDictMinTam",
+		"class": "ResultDictMinTam",
 		"sep_dict": true,
 		"year": 100
 	},
@@ -405,7 +405,7 @@
 		"dict_full": "தமிழ்ப் பழமொழிகள்",
 		"kaan": "",
 		"dir": "wiki/tam_pala/",
-		"id": "ResultDictTamPala",
+		"class": "ResultDictTamPala",
 		"sep_dict": false,
 		"year": 100
 	},
@@ -415,7 +415,7 @@
 		"dict_full": "கொங்கு வட்டார வழக்குச் சொல்லகராதி",
 		"kaan": "",
 		"dir": "kongu_vattaravalakkuch_sollakarathi/",
-		"id": "ResultDictKonguVatValSol",
+		"class": "ResultDictKonguVatValSol",
 		"sep_dict": true,
 		"year": 100
 	}

@@ -24,7 +24,8 @@ $(document).ready(function () {
 
                 //<div id="accordion">
                 var accordionDiv = $("<div>")
-                    accordionDiv.attr("id", "accordion")
+                //accordionDiv.attr("id", "accordion")
+				//$(accordionDiv).addClass("id", "accordion")
 
                     //$.each(ResponseJsonE, function (index, value)
                 {
@@ -48,7 +49,9 @@ $(document).ready(function () {
 							ResponseJsonE = ResponseJsonE.substring(ResponseJsonE.indexOf("\n") + 1) 
 						}
                         var htmlVal = converter.makeHtml(ResponseJsonE);
-                    var pDiv = $("<p>")
+						var pDiv = $("<p>")
+						$(pDiv).addClass(funcData.class)
+						
                         pDiv.html(htmlVal)
                         $(accordionDiv).append(pDiv)
                         //</div>
@@ -221,6 +224,30 @@ $(document).ready(function () {
 			$("#btnSearch").trigger("click")
 		}
 	}
+	
+	drawWordLettersGraph = function(){
+		
+		var word_for_graph ="உலகெலாம்";
+		var mat_graph = word_for_graph.match(/[ஃ-ஹ]([ா-்]|)/gi);
+		var mat_graph_len = (mat_graph.length - 1)
+
+		var graphTD = "graph TD"
+
+		$.each(mat_graph,function(index, value){
+			//A["ஆ"]-->B["தி"];
+			var index_p1 = index + 1
+			var value_p1 = mat_graph[index_p1]
+			
+			if(index <  mat_graph_len)
+			{
+				graphTD += '\n_' + index + '["' + value +'"]--> _' + index_p1 + '["' +value_p1 + '"]'
+			}
+		})
+		graphTD =  $.trim(graphTD)
+
+		$(".mermaid").html(graphTD)
+		
+	}
 
     var jqxhr = $.when(init_getJSON())
         .then(function () {
@@ -232,6 +259,10 @@ $(document).ready(function () {
             // side_extra_info();
         });
     // Set another completion function for the request above
-    jqxhr.always(function () {});
+    jqxhr.always(function () {
+		
+		drawWordLettersGraph()
+		
+	});
 
 })
