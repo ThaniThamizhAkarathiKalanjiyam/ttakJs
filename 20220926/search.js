@@ -243,7 +243,18 @@ $(document).ready(function () {
 		})
 		graphTD =  $.trim(graphTD)
 
-		$(".mermaid").html(graphTD)
+		//$(".mermaid").html(graphTD)
+		
+		
+		const output = document.querySelector(".mermaid");
+		if (output.firstChild !== null) {
+		output.innerHTML = "";
+		}
+		const code = graphTD//document.querySelector(" textarea").value.trim();
+		let insert = function (code) {
+		output.innerHTML = code;
+		};
+		mermaid.render("preparedScheme", code, insert);
 		
 	}
 
