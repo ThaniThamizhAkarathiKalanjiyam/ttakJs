@@ -230,6 +230,13 @@ $(document).ready(function () {
 			word_for_graph = "தமிழ்";
 		}
 		var mat_graph = word_for_graph.match(/[ஃ-ஹ]([ா-்]|)/gi);
+		
+		if(mat_graph === null)
+		{
+			graphTD = 'graph TD;\nA["'+word_for_graph+'"]-->B["இது தமிழ் மொழிச் சொல் இல்லை"];'
+		}
+		else
+		{
 		var mat_graph_len = (mat_graph.length - 1)
 
 		var graphTD = "graph TD"
@@ -267,8 +274,8 @@ $(document).ready(function () {
 		})
 		
 		graphTD =  $.trim(graphTD)
-
-		//$(".mermaid").html(graphTD)
+		}
+	
 		
 		
 		const output = document.querySelector(".mermaid");
