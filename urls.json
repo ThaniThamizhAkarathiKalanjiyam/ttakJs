@@ -63,7 +63,7 @@
 		"desc": "சூடாமணி நிகண்டு",
 		"dict": "சூடாமணி",
 		"dict_full": "சூடாமணி நிகண்டு",
-		"kaan": "",
+		"kaan": "soodamani/docs/",
 		"dir": "soodamani/docs/",
 		"class": "ResultDictsoodamani",
 		"sep_dict": true,
@@ -96,6 +96,16 @@
 		"kaan": "",
 		"dir": "aki_moor/ariv_aga/",
 		"class": "ResultDictArivagam",
+		"sep_dict": true,
+		"year": 100
+	},
+		{
+		"desc": "மரவேலையும் அரக்குவேலையும்",
+		"dict": "மரவேலையும் அரக்குவேலையும்",
+		"dict_full": "மரவேலையும் அரக்குவேலையும்",
+		"kaan": "",
+		"dir": "technical_terms_in_handicrafts_ii/docs/",
+		"class": "handicrafts",
 		"sep_dict": true,
 		"year": 100
 	},
