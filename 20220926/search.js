@@ -84,11 +84,13 @@ $(document).ready(function () {
     }
 
     $("#btnSearch").click(function () {
+    	
         $("#meanings").html("")
 		
 		var searctTextVal = $.trim($("#txtSearch").val().toLowerCase())
 		
 		drawWordLettersGraph(searctTextVal)
+		kilaichorkal(searctTextVal)//Nov21 2022
 		
         $.each(searchUrls, function (index, value) {
             wordsearch(value)
