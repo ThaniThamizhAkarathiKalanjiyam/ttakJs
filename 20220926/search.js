@@ -77,7 +77,7 @@ $(document).ready(function () {
         $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (url_data) {
             searchUrls = url_data
 
-                console.log(searchUrls)
+                //console.log(searchUrls)
 				
 				getMeaaningForUrlQuery()
         });
