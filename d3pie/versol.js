@@ -1,10 +1,12 @@
  $(document).ready(function(){
 
-
+//added with 
 
 kilaichorkal = function(searchword){
 
 //https://raw.githubusercontent.com/ThaniThamizhAkarathiKalanjiyam/agarathi/master/ety/etytamildict/%E0%AE%85
+
+$("#versorkal").html("")//added
 
 if(searchword === undefined || searchword === "")
     {
