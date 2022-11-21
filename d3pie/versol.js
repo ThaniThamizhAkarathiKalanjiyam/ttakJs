@@ -6,7 +6,7 @@ kilaichorkal = function(searchword){
 
 //https://raw.githubusercontent.com/ThaniThamizhAkarathiKalanjiyam/agarathi/master/ety/etytamildict/%E0%AE%85
 
-if(word_for_graph === undefined || word_for_graph === "")
+if(searchword === undefined || searchword === "")
     {
       searchword = "தமிழ்";
     }
