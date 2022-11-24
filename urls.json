@@ -89,6 +89,16 @@
 		"sep_dict": true,
 		"year": 100
 	},
+{
+		"desc": "அறிவியல், தொழில்நுட்ப கலைச்சொல் களஞ்சிய அகராதி",
+		"dict": "அறிவியல், தொழில்நுட்ப கலைச்சொல் களஞ்சிய அகராதி",
+		"dict_full": "அறிவியல், தொழில்நுட்ப கலைச்சொல் களஞ்சிய அகராதி",
+		"kaan": "Ariv_tholil_kalai_kalnj_aka",
+		"dir": "Ariv_tholil_kalai_kalnj_aka/docs/",
+		"class": "ResultDictAriv_tholil_kalai_kalnj_aka",
+		"sep_dict": true,
+		"year": 100
+	},
 	{
 		"desc": "சன்முகப்பிள்ளை தமிழ் தமிழ் அகரமுதலி",
 		"dict": "சததஅ",
