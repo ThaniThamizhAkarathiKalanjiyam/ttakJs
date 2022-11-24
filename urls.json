@@ -53,8 +53,8 @@
 		"desc": "செந்தமிழ்ச் சொற்பிறப்பியல் அகரமுதலித் திட்ட இயக்ககம் உருவாக்கப் பட்டது.",
 		"dict": "சொற்குவை அகராதி",
 		"dict_full": "சொற்குவை அகராதி",
-		"kaan": "sorkuvai",
-		"dir": "sorkuvai/docs/",
+		"kaan": "Sorkuvai",
+		"dir": "Sorkuvai/docs/",
 		"class": "ResultDictsorkuvai",
 		"sep_dict": true,
 		"year": 100
