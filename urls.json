@@ -59,6 +59,16 @@
 		"sep_dict": true,
 		"year": 100
 	},
+	{
+		"desc": "மருத்துவக் கலைச்சொல் களஞ்சிய அகராதி",
+		"dict": "மருத்துவக் கலைச்சொல் களஞ்சிய அகராதி",
+		"dict_full": "மருத்துவக் கலைச்சொல் களஞ்சிய அகராதி",
+		"kaan": "Maruthuva_kalanjiya_perakarathi",
+		"dir": "Maruthuva_kalanjiya_perakarathi/docs/",
+		"class": "ResultDictmaruthuva_kalanjiya_perakarathi",
+		"sep_dict": true,
+		"year": 100
+	},
 {
 		"desc": "தமிழ்க் கல்வி அகராதி <a href='https://www.tamilkalvi.in/'>அகராதி-லிருந்து </a> உருவாக்கப் பட்டது.",
 		"dict": "தமிழ்க் கல்வி அகராதி",
