@@ -122,31 +122,21 @@ $(document).ready(function ()
 
     tamilMeaning = function (funcData)
     {
-        var form = new FormData();
-        form.append("dbowner", "pitchai_dbhub");
-        form.append("dbname", "dictionary_termset_lt_853755.db");
-        form.append("sql", "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En");
+       var fd = new FormData();    
+		fd.append( 'dbowner', "pitchai_dbhub" );
+		fd.append( 'dbname', "dictionary_termset_lt_853755.db" );
+		fd.append( 'sql', "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En" );
 
-        var settings =
-        {
-            "url": "https://api.dbhub.io/v1/query?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u",
-            "method": "GET",
-            "timeout": 0,
-            "processData": false,
-            "mimeType": "multipart/form-data",
-            "contentType": false,
-            "data": {
-				"dbowner": "pitchai_dbhub",
-				"dbname": "dictionary_termset_lt_853755.db",
-				"sql": "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En"
-			}
-        };
-
-        $.ajax(settings).done(function (response)
-        {
-            console.log(response);
-        }
-        );
+		$.ajax({
+		  url: 'https://api.dbhub.io/v1/query?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
+		  data: fd,
+		  processData: false,
+		  contentType: false,
+		  type: 'POST',
+		  success: function(data){
+			console.log(data);
+		  }
+		});
     }
 
     appendMermaidToMeanings = function ()
