@@ -1,26 +1,33 @@
-$(document).ready(function () {
+$(document).ready(function ()
+{
 
     var searchBaseUrl = "https://thanithamizhakarathikalanjiyam.github.io/"
 
-        $.ajaxSetup({
-            beforeSend: () => {
+        $.ajaxSetup(
+        {
+            beforeSend: () =>
+            {
                 $("#loading").show();
             },
-            complete: () => {
+            complete: () =>
+            {
                 $("#loading").hide();
             }
-        });
+        }
+        );
 
     var searchUrls = [];
 
     var converter = new showdown.Converter();
 
-    wordsearch = function (funcData) {
+    wordsearch = function (funcData)
+    {
 
         var searctTextVal = $.trim($("#txtSearch").val().toLowerCase())
 
             $.get(funcData.dir + searctTextVal,
-                function (ResponseJsonE) {
+                function (ResponseJsonE)
+            {
 
                 var accordionDiv = $("<div>")
                 {
@@ -29,136 +36,134 @@ $(document).ready(function () {
                     var h3Div = $("<h3>")
                         $(h3Div).html(funcData.dict_full)
                         $(accordionDiv).append(h3Div)
-                        
-						let result = ResponseJsonE.startsWith("#");
-						
-						if(result === true)
-						{
-							ResponseJsonE = ResponseJsonE.substring(ResponseJsonE.indexOf("\n") + 1) 
-						}
-                        var htmlVal = converter.makeHtml(ResponseJsonE);
-						var pDiv = $("<p>")
-						$(pDiv).addClass(funcData.class)
-						
+
+                        let result = ResponseJsonE.startsWith("#");
+
+                    if (result === true)
+                    {
+                        ResponseJsonE = ResponseJsonE.substring(ResponseJsonE.indexOf("\n") + 1)
+                    }
+                    var htmlVal = converter.makeHtml(ResponseJsonE);
+                    var pDiv = $("<p>")
+                        $(pDiv).addClass(funcData.class)
+
                         pDiv.html(htmlVal)
                         $(accordionDiv).append(pDiv)
                 }
-                
+
                 $("#meanings").append(accordionDiv)
-            });
+            }
+            );
 
     }
 
-    updateSearchWords = function (txtSearchLow) {
+    updateSearchWords = function (txtSearchLow)
+    {
 
-        if (txtSearchLow !== undefined) {
+        if (txtSearchLow !== undefined)
+        {
 
             var utf_txtSearchLow = decodeURIComponent(txtSearchLow);
 
-            $.ajax({
+            $.ajax(
+            {
                 url: 'https://docs.google.com/forms/d/e/1FAIpQLSfHQVgPZRpRq2Fegi9LFoibfNtCjLzufxCdqQYqlhL81VnkVA/formResponse',
                 type: 'POST',
                 dataType: 'jsonp',
-                data: {
+                data:
+                {
                     "entry.891892085": utf_txtSearchLow,
                     "entry.1113699608": utf_txtSearchLow,
                     "submit": "Submit",
                     "origin": "*"
                 },
-                success: function (ResponseJsonE) {},
-                error: function () {}
-            });
+                success: function (ResponseJsonE)  {},
+                error: function ()  {}
+            }
+            );
 
         }
 
     };
 
-    init_getJSON = function () {
-        $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (url_data) {
+    init_getJSON = function ()
+    {
+        $.getJSON("https://thanithamizhakarathikalanjiyam.github.io/ttakJs/urls.json", function (url_data)
+        {
             searchUrls = url_data
 
                 //console.log(searchUrls)
-				
-				getMeaaningForUrlQuery()
-        });
+
+                getMeaaningForUrlQuery()
+        }
+        );
     }
 
-    $("#btnSearch").click(function () {
-    	
+    $("#btnSearch").click(function ()
+    {
+
         $("#meanings").html("")
-		
-		var searctTextVal = $.trim($("#txtSearch").val().toLowerCase())
-		
-		drawWordLettersGraph(searctTextVal)
-		kilaichorkal(searctTextVal)//Nov21 2022
-		
-        // $.each(searchUrls, function (index, value) {
+
+        var searctTextVal = $.trim($("#txtSearch").val().toLowerCase())
+
+            drawWordLettersGraph(searctTextVal)
+            kilaichorkal(searctTextVal) //Nov21 2022
+
+            // $.each(searchUrls, function (index, value) {
             // wordsearch(value)
-        // })
-		
-		tamilMeaning()
-		
-        
-        updateSearchWords(searctTextVal)
-		
-    })
-	
-	 tamilMeaning = function (funcData) {
-		 var form = new FormData();
-		form.append("dbowner", "pitchai_dbhub");
-		form.append("dbname", "dictionary_termset_lt_853755.db");
-		form.append("sql", "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En");
+            // })
 
-        $.ajax({
-            url: 'https://api.dbhub.io/v1/query?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
-            type: 'GET',
-            //dataType: 'json',
-            // data: {
-			// "dbowner":"pitchai_dbhub",
-			// "dbname":"dictionary_termset_lt_853755.db",
-			// "sql":"c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En"
-			// },
-			data:form,
-            success: function (ResponseJsonE) {
-                if (ResponseJsonE != null){// && ResponseJsonE.postData.Records != null) {
-					console.log(ResponseJsonE)
-                    // if (ResponseJsonE.postData.Result == "OK") {
-                        // showToolBar()
-                        // showLabelMessage("#idLblMessage", ResponseJsonE.postData.Message)
-                        // $dfd.resolve(ResponseJsonE.postData);
-                        // //Show Parent Informations
-                        // $("#txttmp_qty").val(convertToDouble(ResponseJsonE.postData.Parent.tmp_value))
-                    // } else {
-                        // $dfd.resolve(ResponseJsonE.postData);
-                    // }
-                } else {
-                    // $dfd.reject();
-                }
-            },
-            error: function () {
-                // $dfd.reject();
-            }
-        });
+            tamilMeaning()
+
+            updateSearchWords(searctTextVal)
+
     }
-	
-	
-	appendMermaidToMeanings  = function(){
-		
-		// var mermaidDiv = $("<div>")
-		// $(mermaidDiv).addClass("mermaid")
-		// $("#meanings").append(mermaidDiv)
-		
-		
-		
-	}
+    )
 
-    $(".tam_consonant").click(function (event) {
+    tamilMeaning = function (funcData)
+    {
+        var form = new FormData();
+        form.append("dbowner", "pitchai_dbhub");
+        form.append("dbname", "dictionary_termset_lt_853755.db");
+        form.append("sql", "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En");
+
+        var settings =
+        {
+            "url": "https://api.dbhub.io/v1/query?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u",
+            "method": "GET",
+            "timeout": 0,
+            "processData": false,
+            "mimeType": "multipart/form-data",
+            "contentType": false,
+            "data": form
+        };
+
+        $.ajax(settings).done(function (response)
+        {
+            console.log(response);
+        }
+        );
+    }
+
+    appendMermaidToMeanings = function ()
+    {
+
+        // var mermaidDiv = $("<div>")
+        // $(mermaidDiv).addClass("mermaid")
+        // $("#meanings").append(mermaidDiv)
+
+
+    }
+
+    $(".tam_consonant").click(function (event)
+    {
 
         var tam_consonant_id = "#" + event.target.id
             var tam_consonant_val = $(tam_consonant_id).html()
 
             var tamvowels = $(".tam_vowel")
-            $.each(tamvowels, function (index, element) {
+            $.each(tamvowels, function (index, element)
+            {
 
                 var tam_vowel_id = "#" + element.id
                     var accent_symbol_val = $(tam_vowel_id).attr("accent_symbol")
@@ -166,11 +171,14 @@ $(document).ready(function () {
                     var changed_uyir_mey = tam_consonant_val + accent_symbol_val
                     $(tam_vowel_id).html(changed_uyir_mey)
 
-            })
+            }
+            )
 
-    })
+    }
+    )
 
-    $(".tam_vowel,.tam_consonant").click(function (event) {
+    $(".tam_vowel,.tam_consonant").click(function (event)
+    {
 
         var target_id = "#" + event.target.id
 
@@ -178,16 +186,19 @@ $(document).ready(function () {
 
             appendLet2txtSearch(tam_letter_html)
 
-    })
+    }
+    )
 
-    appendLet2txtSearch = function (letter, is_vowel) {
+    appendLet2txtSearch = function (letter, is_vowel)
+    {
 
         var txtSearchVal = $("#txtSearch").val()
 
             var lastLetOfText = txtSearchVal[txtSearchVal.length - 1]
             var firstLetOfText = letter[0]
 
-            if (lastLetOfText == firstLetOfText) {
+            if (lastLetOfText == firstLetOfText)
+            {
                 txtSearchVal = txtSearchVal.slice(0, -1);
             }
 
@@ -196,19 +207,22 @@ $(document).ready(function () {
             $("#txtSearch").val(txtSearchVal)
 
     }
-	
-	getAllUrlParams = function (url) {
+
+    getAllUrlParams = function (url)
+    {
         // get query string from url (optional) or window
         var queryString = url ? url.split('?')[1] : window.location.search.slice(1);
         // we'll store the parameters here
         var obj = {};
         // if query string exists
-        if (queryString) {
+        if (queryString)
+        {
             // stuff after # is not part of query string, so get rid of it
             queryString = queryString.split('#')[0];
             // split our query string into its component parts
             var arr = queryString.split('&');
-            for (var i = 0; i < arr.length; i++) {
+            for (var i = 0; i < arr.length; i++)
+            {
                 // separate the keys and the values
                 var a = arr[i].split('=');
                 // set parameter name and value (use 'true' if empty)
@@ -219,30 +233,41 @@ $(document).ready(function () {
                 if (typeof paramValue === 'string')
                     paramValue = paramValue.toLowerCase();
                 // if the paramName ends with square brackets, e.g. colors[] or colors[2]
-                if (paramName.match(/\[(\d+)?\]$/)) {
+                if (paramName.match(/\[(\d+)?\]$/))
+                {
                     // create key if it doesn't exist
                     var key = paramName.replace(/\[(\d+)?\]/, '');
                     if (!obj[key])
                         obj[key] = [];
                     // if it's an indexed array e.g. colors[2]
-                    if (paramName.match(/\[\d+\]$/)) {
+                    if (paramName.match(/\[\d+\]$/))
+                    {
                         // get the index value and add the entry at the appropriate position
                         var index = /\[(\d+)\]/.exec(paramName)[1];
                         obj[key][index] = paramValue;
-                    } else {
+                    }
+                    else
+                    {
                         // otherwise add the value to the end of the array
                         obj[key].push(paramValue);
                     }
-                } else {
+                }
+                else
+                {
                     // we're dealing with a string
-                    if (!obj[paramName]) {
+                    if (!obj[paramName])
+                    {
                         // if it doesn't exist, create property
                         obj[paramName] = paramValue;
-                    } else if (obj[paramName] && typeof obj[paramName] === 'string') {
+                    }
+                    else if (obj[paramName] && typeof obj[paramName] === 'string')
+                    {
                         // if property does exist and it's a string, convert it to an array
                         obj[paramName] = [obj[paramName]];
                         obj[paramName].push(paramValue);
-                    } else {
+                    }
+                    else
+                    {
                         // otherwise add the property
                         obj[paramName].push(paramValue);
                     }
@@ -251,131 +276,149 @@ $(document).ready(function () {
         }
         return obj;
     }
-	
-	getMeaaningForUrlQuery = function(){
-		
-		var searchString = getAllUrlParams(window.location.href).q
-					
-		if(searchString !== undefined)
-		{
-			decode_searchString = decodeURIComponent(searchString)
-			
-			$("#txtSearch").val(decode_searchString)
-			$("#btnSearch").trigger("click")
-		}
-	}
-	
-	drawWordLettersGraph = function(word_for_graph){
-		
-		if(word_for_graph === undefined || word_for_graph === "")
-		{
-			word_for_graph = "தமிழ்";
-		}
-		var mat_graph = word_for_graph.match(/[ஃ-ஹ]([ா-்]|)/gi);
-		
-		if(mat_graph === null)
-		{
-			graphTD = 'graph TD;\nA["'+word_for_graph+'"]-->B["இது தமிழ் மொழிச் சொல் இல்லை"];'
-		}
-		else
-		{
-		var mat_graph_len = (mat_graph.length - 1)
 
-		var graphTD = "graph TD"
-		var underscore = "_"
+    getMeaaningForUrlQuery = function ()
+    {
 
-		$.each(mat_graph,function(index, value){
-			//A["ஆ"]-->B["தி"];
-			var index_p1 = index + 1
-			var value_p1 = mat_graph[index_p1]
-			
-			if(index <  mat_graph_len)
-			{
-				graphTD += '\n'+ underscore + index + '["' + value +'"]-->'+ underscore + index_p1 + '["' +value_p1 + '"]'
-			}
-		})
-		
-		underscore += "_"
+        var searchString = getAllUrlParams(window.location.href).q
 
-		$.each(mat_graph,function(index, value){
-			//A["ஆ"]-->B["தி"];
-			var index_p1 = index + 1
-			var value_p1 = mat_graph[index_p1]
-			
-			if(index === 0)
-			{
-				graphTD += '\n_' + index +'-->'+ underscore + index_p1 + '["' + checkIsFirstLetterValid(value) + '"]'
-			}
-			else if(index === mat_graph_len)
-			{
-				graphTD += '\n_' + index +'-->'+ underscore + index_p1 + '["' + checkIsLastLetterValid(value) + '"]'
-			}else
-			{
-				graphTD += '\n_' + index +'-->'+ underscore + index_p1 + '["' + value + '"]'
-			}
-		})
-		
-		graphTD =  $.trim(graphTD)
-		}
-	
-		
-		
-		const output = document.querySelector(".mermaid");
-		if (output.firstChild !== null) {
-		output.innerHTML = "";
-		}
-		const code = graphTD//document.querySelector(" textarea").value.trim();
-		let insert = function (code) {
-		output.innerHTML = code;
-		};
-		mermaid.render("preparedScheme", code, insert);
-		
-	}
+            if (searchString !== undefined)
+            {
+                decode_searchString = decodeURIComponent(searchString)
+
+                    $("#txtSearch").val(decode_searchString)
+                    $("#btnSearch").trigger("click")
+            }
+    }
+
+    drawWordLettersGraph = function (word_for_graph)
+    {
+
+        if (word_for_graph === undefined || word_for_graph === "")
+        {
+            word_for_graph = "தமிழ்";
+        }
+        var mat_graph = word_for_graph.match(/[ஃ-ஹ]([ா-்]|)/gi);
+
+        if (mat_graph === null)
+        {
+            graphTD = 'graph TD;\nA["' + word_for_graph + '"]-->B["இது தமிழ் மொழிச் சொல் இல்லை"];'
+        }
+        else
+        {
+            var mat_graph_len = (mat_graph.length - 1)
+
+            var graphTD = "graph TD"
+                var underscore = "_"
+
+                $.each(mat_graph, function (index, value)
+                {
+                    //A["ஆ"]-->B["தி"];
+                    var index_p1 = index + 1
+                        var value_p1 = mat_graph[index_p1]
+
+                        if (index < mat_graph_len)
+                        {
+                            graphTD += '\n' + underscore + index + '["' + value + '"]-->' + underscore + index_p1 + '["' + value_p1 + '"]'
+                        }
+                }
+                )
+
+                underscore += "_"
+
+                $.each(mat_graph, function (index, value)
+                {
+                    //A["ஆ"]-->B["தி"];
+                    var index_p1 = index + 1
+                        var value_p1 = mat_graph[index_p1]
+
+                        if (index === 0)
+                        {
+                            graphTD += '\n_' + index + '-->' + underscore + index_p1 + '["' + checkIsFirstLetterValid(value) + '"]'
+                        }
+                        else if (index === mat_graph_len)
+                        {
+                            graphTD += '\n_' + index + '-->' + underscore + index_p1 + '["' + checkIsLastLetterValid(value) + '"]'
+                        }
+                        else
+                        {
+                            graphTD += '\n_' + index + '-->' + underscore + index_p1 + '["' + value + '"]'
+                        }
+                }
+                )
+
+                graphTD = $.trim(graphTD)
+        }
+
+        const output = document.querySelector(".mermaid");
+        if (output.firstChild !== null)
+        {
+            output.innerHTML = "";
+        }
+        const code = graphTD //document.querySelector(" textarea").value.trim();
+            let insert = function (code)
+        {
+            output.innerHTML = code;
+        };
+        mermaid.render("preparedScheme", code, insert);
+
+    }
 
     var jqxhr = $.when(init_getJSON())
-        .then(function () {
-
-		})
-        .done(function () {
+        .then(function ()  {}
+        )
+        .done(function ()
+        {
             //versol_div("வேர்", ["இடது கிளை", "வலது கிளை"]);
             //$('#jstree_demo_div').jstree();
             // side_extra_info();
-        });
+        }
+        );
     // Set another completion function for the request above
-    jqxhr.always(function () {
-		
-		//drawWordLettersGraph("தமிழ்")
-		
-	});
-		
-	checkIsFirstLetterValid = function(value){
-		var rule_string = "நன்.102 - 106 \n| முதல் எழுத்து \nஇலக்கணப்படி \n"
-		if (frst_letters.indexOf(value) > -1) {
-			//In the array!
-			rule_string += "சரியானது"
-		} else {
-			//Not in the array
-			rule_string += "சரியானது-இல்லை"
-		}
-		
-		return rule_string
-	}
-	
-	checkIsLastLetterValid = function(value){
-		var rule_string = "நன்னூல்.107 - 109 | இறுதி எழுத்து இலக்கணப்படி "
-		if (lst_letters.indexOf(value) > -1) {
-			//In the array!
-			rule_string += "சரியானது"
-		} else {
-			//Not in the array
-			rule_string += "சரியானது-இல்லை"
-		}
-		
-		return rule_string
-	}
-	
-	var frst_letters = ['அ','ஆ','இ','ஈ','உ','ஊ','எ','ஏ','ஐ','ஒ','ஓ','ஔ','க','கா','கி','கீ','கு','கூ','கெ','கே','கை','கொ','கோ','கௌ','ங','ச','சா','சி','சீ','சு','சூ','செ','சே','சை','சொ','சோ','சௌ','ஞ','ஞா','ஞெ','ஞொ','த','தா','தி','தீ','து','தூ','தெ','தே','தை','தொ','தோ','தௌ','ந','நா','நி','நீ','நு','நூ','நெ','நே','நை','நொ','நோ','நௌ','ப','பா','பி','பீ','பு','பூ','பெ','பே','பை','பொ','போ','பௌ','ம','மா','மி','மீ','மு','மூ','மெ','மே','மை','மொ','மோ','மௌ','ய','யா','யு','யூ','யோ','யௌ','வ','வா','வி','வீ','வெ','வே','வை','வௌ']
-	var lst_letters = ['க','கா','கி','கீ','கு','கூ','கே','கை','கோ','கௌ','ங','ஙா','ஙி','ஙீ','ஙு','ஙூ','ஙே','ஙை','ஙோ','ச','சா','சி','சீ','சு','சூ','சே','சை','சோ','ஞ்','ஞ','ஞா','ஞி','ஞீ','ஞு','ஞூ','ஞே','ஞை','ஞோ','ட','டா','டி','டீ','டு','டூ','டே','டை','டோ','ண்','ண','ணா','ணி','ணீ','ணு','ணூ','ணே','ணை','ணோ','த','தா','தி','தீ','து','தூ','தே','தை','தோ','ந்','ந','நா','நி','நீ','நு','நூ','நே','நை','நொ','நோ','ப','பா','பி','பீ','பு','பூ','பே','பை','போ','ம்','ம','மா','மி','மீ','மு','மூ','மே','மை','மோ','ய்','ய','யா','யி','யீ','யு','யூ','யே','யை','யோ','ர்','ர','ரா','ரி','ரீ','ரு','ரூ','ரே','ரை','ரோ','ல்','ல','லா','லி','லீ','லு','லூ','லே','லை','லோ','வ்','வ','வா','வி','வீ','வு','வூ','வே','வை','வோ','வௌ','ழ்','ழ','ழா','ழி','ழீ','ழு','ழூ','ழே','ழை','ழோ','ள்','ள','ளா','ளி','ளீ','ளு','ளூ','ளே','ளை','ளோ','ற','றா','றி','றீ','று','றூ','றே','றை','றோ','ன்','ன','னா','னி','னீ','னு','னூ','னே','னை','னோ'];
+    jqxhr.always(function ()
+    {
 
+        //drawWordLettersGraph("தமிழ்")
 
-})
+    }
+    );
+
+    checkIsFirstLetterValid = function (value)
+    {
+        var rule_string = "நன்.102 - 106 \n| முதல் எழுத்து \nஇலக்கணப்படி \n"
+            if (frst_letters.indexOf(value) > -1)
+            {
+                //In the array!
+                rule_string += "சரியானது"
+            }
+            else
+            {
+                //Not in the array
+                rule_string += "சரியானது-இல்லை"
+            }
+
+            return rule_string
+    }
+
+    checkIsLastLetterValid = function (value)
+    {
+        var rule_string = "நன்னூல்.107 - 109 | இறுதி எழுத்து இலக்கணப்படி "
+            if (lst_letters.indexOf(value) > -1)
+            {
+                //In the array!
+                rule_string += "சரியானது"
+            }
+            else
+            {
+                //Not in the array
+                rule_string += "சரியானது-இல்லை"
+            }
+
+            return rule_string
+    }
+
+    var frst_letters = ['அ', 'ஆ', 'இ', 'ஈ', 'உ', 'ஊ', 'எ', 'ஏ', 'ஐ', 'ஒ', 'ஓ', 'ஔ', 'க', 'கா', 'கி', 'கீ', 'கு', 'கூ', 'கெ', 'கே', 'கை', 'கொ', 'கோ', 'கௌ', 'ங', 'ச', 'சா', 'சி', 'சீ', 'சு', 'சூ', 'செ', 'சே', 'சை', 'சொ', 'சோ', 'சௌ', 'ஞ', 'ஞா', 'ஞெ', 'ஞொ', 'த', 'தா', 'தி', 'தீ', 'து', 'தூ', 'தெ', 'தே', 'தை', 'தொ', 'தோ', 'தௌ', 'ந', 'நா', 'நி', 'நீ', 'நு', 'நூ', 'நெ', 'நே', 'நை', 'நொ', 'நோ', 'நௌ', 'ப', 'பா', 'பி', 'பீ', 'பு', 'பூ', 'பெ', 'பே', 'பை', 'பொ', 'போ', 'பௌ', 'ம', 'மா', 'மி', 'மீ', 'மு', 'மூ', 'மெ', 'மே', 'மை', 'மொ', 'மோ', 'மௌ', 'ய', 'யா', 'யு', 'யூ', 'யோ', 'யௌ', 'வ', 'வா', 'வி', 'வீ', 'வெ', 'வே', 'வை', 'வௌ']
+    var lst_letters = ['க', 'கா', 'கி', 'கீ', 'கு', 'கூ', 'கே', 'கை', 'கோ', 'கௌ', 'ங', 'ஙா', 'ஙி', 'ஙீ', 'ஙு', 'ஙூ', 'ஙே', 'ஙை', 'ஙோ', 'ச', 'சா', 'சி', 'சீ', 'சு', 'சூ', 'சே', 'சை', 'சோ', 'ஞ்', 'ஞ', 'ஞா', 'ஞி', 'ஞீ', 'ஞு', 'ஞூ', 'ஞே', 'ஞை', 'ஞோ', 'ட', 'டா', 'டி', 'டீ', 'டு', 'டூ', 'டே', 'டை', 'டோ', 'ண்', 'ண', 'ணா', 'ணி', 'ணீ', 'ணு', 'ணூ', 'ணே', 'ணை', 'ணோ', 'த', 'தா', 'தி', 'தீ', 'து', 'தூ', 'தே', 'தை', 'தோ', 'ந்', 'ந', 'நா', 'நி', 'நீ', 'நு', 'நூ', 'நே', 'நை', 'நொ', 'நோ', 'ப', 'பா', 'பி', 'பீ', 'பு', 'பூ', 'பே', 'பை', 'போ', 'ம்', 'ம', 'மா', 'மி', 'மீ', 'மு', 'மூ', 'மே', 'மை', 'மோ', 'ய்', 'ய', 'யா', 'யி', 'யீ', 'யு', 'யூ', 'யே', 'யை', 'யோ', 'ர்', 'ர', 'ரா', 'ரி', 'ரீ', 'ரு', 'ரூ', 'ரே', 'ரை', 'ரோ', 'ல்', 'ல', 'லா', 'லி', 'லீ', 'லு', 'லூ', 'லே', 'லை', 'லோ', 'வ்', 'வ', 'வா', 'வி', 'வீ', 'வு', 'வூ', 'வே', 'வை', 'வோ', 'வௌ', 'ழ்', 'ழ', 'ழா', 'ழி', 'ழீ', 'ழு', 'ழூ', 'ழே', 'ழை', 'ழோ', 'ள்', 'ள', 'ளா', 'ளி', 'ளீ', 'ளு', 'ளூ', 'ளே', 'ளை', 'ளோ', 'ற', 'றா', 'றி', 'றீ', 'று', 'றூ', 'றே', 'றை', 'றோ', 'ன்', 'ன', 'னா', 'னி', 'னீ', 'னு', 'னூ', 'னே', 'னை', 'னோ'];
+
+}
+)
