@@ -136,9 +136,9 @@ $(document).ready(function ()
             "mimeType": "multipart/form-data",
             "contentType": false,
             "data": {
-				"dbowner", "pitchai_dbhub",
-				"dbname", "dictionary_termset_lt_853755.db",
-				"sql", "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En"
+				"dbowner": "pitchai_dbhub",
+				"dbname": "dictionary_termset_lt_853755.db",
+				"sql": "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En"
 			}
         };
 
