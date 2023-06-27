@@ -92,14 +92,49 @@ $(document).ready(function () {
 		drawWordLettersGraph(searctTextVal)
 		kilaichorkal(searctTextVal)//Nov21 2022
 		
-        $.each(searchUrls, function (index, value) {
-            wordsearch(value)
-        })
+        // $.each(searchUrls, function (index, value) {
+            // wordsearch(value)
+        // })
+		
+		tamilMeaning()
 		
         
         updateSearchWords(searctTextVal)
 		
     })
+	
+	 tamilMeaning = function (funcData) {
+        $.ajax({
+            url: 'https://api.dbhub.io/v1/query?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
+            type: 'GET',
+            dataType: 'json',
+            data: {
+			"dbowner":"pitchai_dbhub",
+			"dbname":"dictionary_termset_lt_853755.db",
+			"sql":"c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfg
+roXgrpXgrp7gr43grprgr4fgrrDgrqngr4En"
+			},
+            success: function (ResponseJsonE) {
+                if (ResponseJsonE != null){// && ResponseJsonE.postData.Records != null) {
+					console.log(ResponseJsonE)
+                    // if (ResponseJsonE.postData.Result == "OK") {
+                        // showToolBar()
+                        // showLabelMessage("#idLblMessage", ResponseJsonE.postData.Message)
+                        // $dfd.resolve(ResponseJsonE.postData);
+                        // //Show Parent Informations
+                        // $("#txttmp_qty").val(convertToDouble(ResponseJsonE.postData.Parent.tmp_value))
+                    // } else {
+                        // $dfd.resolve(ResponseJsonE.postData);
+                    // }
+                } else {
+                    // $dfd.reject();
+                }
+            },
+            error: function () {
+                // $dfd.reject();
+            }
+        });
+    }
 	
 	
 	appendMermaidToMeanings  = function(){
