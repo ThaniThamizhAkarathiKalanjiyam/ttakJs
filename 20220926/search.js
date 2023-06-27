@@ -102,25 +102,25 @@ $(document).ready(function ()
     // $("#btnSearch").click(function ()
     // {
 
-        // $("#meanings").html("")
+    // $("#meanings").html("")
 
-        // var searctTextVal = $.trim($("#txtSearch").val().toLowerCase())
+    // var searctTextVal = $.trim($("#txtSearch").val().toLowerCase())
 
-            // drawWordLettersGraph(searctTextVal)
-            // kilaichorkal(searctTextVal) //Nov21 2022
+    // drawWordLettersGraph(searctTextVal)
+    // kilaichorkal(searctTextVal) //Nov21 2022
 
-            // // $.each(searchUrls, function (index, value) {
-            // // wordsearch(value)
-            // // })
+    // // $.each(searchUrls, function (index, value) {
+    // // wordsearch(value)
+    // // })
 
-            // tamilMeaning()
+    // tamilMeaning()
 
-            // updateSearchWords(searctTextVal)
+    // updateSearchWords(searctTextVal)
 
     // }
     // )
-	
-	$("#btnSearch").click(function ()
+
+    $("#btnSearch").click(function ()
     {
 
         $("#meanings").html("")
@@ -143,22 +143,42 @@ $(document).ready(function ()
 
     tamilMeaning = function (funcData)
     {
-       var fd = new FormData();    
-		fd.append( 'dbowner', "pitchai_dbhub" );
-		fd.append( 'dbname', "dictionary_termset_lt_853755.db" );
-		fd.append( 'sql', "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En" );
+        var fd = new FormData();
+        fd.append('dbowner', "pitchai_dbhub");
+        fd.append('dbname', "dictionary_termset_lt_853755.db");
+        fd.append('sql', "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En");
 
-		$.ajax({
-		  url: 'https://api.dbhub.io/v1/query?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
-		  data: fd,
-		  processData: false,
-		  contentType: false,
-		  type: 'POST',
-		  success: function(jsonObj){
-			var obj = $.parseJSON(jsonObj);
-			console.log(obj);
-		  }
-		});
+        $.ajax(
+        {
+            url: 'https://api.dbhub.io/v1/query?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
+            data: fd,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function (jsonObj)
+            {
+                var obj = $.parseJSON(jsonObj);
+                console.log(obj);
+                $.each(obj, function (index, value)
+                {
+
+                    //console.log(value)
+                    $.each(value, function (index1, value1)
+                    {
+debugger
+                        if (value1.Name === "dictionary_meaning")
+                        {
+                            console.log(value1.Value)
+                        }
+
+                    }
+                    )
+
+                }
+                )
+            }
+        }
+        );
     }
 
     appendMermaidToMeanings = function ()
