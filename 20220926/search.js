@@ -104,15 +104,21 @@ $(document).ready(function () {
     })
 	
 	 tamilMeaning = function (funcData) {
+		 var form = new FormData();
+		form.append("dbowner", "pitchai_dbhub");
+		form.append("dbname", "dictionary_termset_lt_853755.db");
+		form.append("sql", "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En");
+
         $.ajax({
             url: 'https://api.dbhub.io/v1/query?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
             type: 'GET',
-            dataType: 'json',
-            data: {
-			"dbowner":"pitchai_dbhub",
-			"dbname":"dictionary_termset_lt_853755.db",
-			"sql":"c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En"
-			},
+            //dataType: 'json',
+            // data: {
+			// "dbowner":"pitchai_dbhub",
+			// "dbname":"dictionary_termset_lt_853755.db",
+			// "sql":"c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En"
+			// },
+			data:form,
             success: function (ResponseJsonE) {
                 if (ResponseJsonE != null){// && ResponseJsonE.postData.Records != null) {
 					console.log(ResponseJsonE)
