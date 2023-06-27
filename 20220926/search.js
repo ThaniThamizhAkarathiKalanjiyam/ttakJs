@@ -154,7 +154,7 @@ $(document).ready(function ()
 		  processData: false,
 		  contentType: false,
 		  type: 'POST',
-		  success: function(data){
+		  success: function(jsonObj){
 			var obj = $.parseJSON(jsonObj);
 			console.log(obj);
 		  }
