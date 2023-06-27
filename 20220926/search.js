@@ -99,15 +99,36 @@ $(document).ready(function ()
         );
     }
 
-    $("#btnSearch").click(function ()
+    // $("#btnSearch").click(function ()
+    // {
+
+        // $("#meanings").html("")
+
+        // var searctTextVal = $.trim($("#txtSearch").val().toLowerCase())
+
+            // drawWordLettersGraph(searctTextVal)
+            // kilaichorkal(searctTextVal) //Nov21 2022
+
+            // // $.each(searchUrls, function (index, value) {
+            // // wordsearch(value)
+            // // })
+
+            // tamilMeaning()
+
+            // updateSearchWords(searctTextVal)
+
+    // }
+    // )
+	
+	$("#btnSearch").click(function ()
     {
 
         $("#meanings").html("")
 
         var searctTextVal = $.trim($("#txtSearch").val().toLowerCase())
 
-            drawWordLettersGraph(searctTextVal)
-            kilaichorkal(searctTextVal) //Nov21 2022
+            //drawWordLettersGraph(searctTextVal)
+            //kilaichorkal(searctTextVal) //Nov21 2022
 
             // $.each(searchUrls, function (index, value) {
             // wordsearch(value)
@@ -134,7 +155,8 @@ $(document).ready(function ()
 		  contentType: false,
 		  type: 'POST',
 		  success: function(data){
-			console.log(data);
+			var obj = $.parseJSON(jsonObj);
+			console.log(obj);
 		  }
 		});
     }
