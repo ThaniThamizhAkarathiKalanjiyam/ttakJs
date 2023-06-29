@@ -146,8 +146,9 @@ $(document).ready(function ()
         var fd = new FormData();
         fd.append('dbowner', "pitchai_dbhub");
         fd.append('dbname', "dictionary_termset_lt_853755.db");
-        fd.append('sql', "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En");
-
+        //fd.append('sql', "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En");
+		fd.append('sql', "c2VsZWN0ICogZnJvbSB0YW1fZGljdDEgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En");
+		
         $.ajax(
         {
             url: 'https://api.dbhub.io/v1/query?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
@@ -158,7 +159,7 @@ $(document).ready(function ()
             success: function (jsonObj)
             {
                 var obj = $.parseJSON(jsonObj);
-                console.log(obj);
+                //console.log(obj);
                 $.each(obj, function (index, value)
                 {
 
