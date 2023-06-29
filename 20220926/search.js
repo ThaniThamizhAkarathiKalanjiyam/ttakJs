@@ -134,11 +134,13 @@ $(document).ready(function ()
             // wordsearch(value)
             // })
 
-            tamilMeaning({
-				
-				"searctTextVal": searctTextVal
-				
-			})
+            tamilMeaning(
+            {
+
+                "searctTextVal": searctTextVal
+
+            }
+            )
 
             updateSearchWords(searctTextVal)
 
@@ -151,10 +153,10 @@ $(document).ready(function ()
         fd.append('dbowner', "pitchai_dbhub");
         fd.append('dbname', "dictionary_termset_lt_853755.db");
         //fd.append('sql', "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En");
-		var sql = "select * from tamil_dict1 where dictionary_term='"+funcData.searctTextVal+"';"
-		var sql_encoded = $.base64.atob(sql, true)
-		fd.append('sql', sql_encoded);
-		
+        var sql = "select * from tamil_dict1 where dictionary_term='" + funcData.searctTextVal + "';"
+            var sql_encoded = $.base64.atob(sql, true)
+            fd.append('sql', sql_encoded);
+
         $.ajax(
         {
             url: 'https://api.dbhub.io/v1/query?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
@@ -170,22 +172,54 @@ $(document).ready(function ()
                 {
 
                     //console.log(value)
+                    var funcData = {}
+
                     $.each(value, function (index1, value1)
                     {
-debugger
+                        debugger
                         if (value1.Name === "dictionary_meaning")
                         {
-                            console.log(value1.Value)
+                            funcData.dictionary_meaning = value1.Value
+                        }
+                        if (value1.Name === "dictionary_name")
+                        {
+                            funcData.dictionary_name = value1.Value
                         }
 
                     }
-                    )
+
+                        addMeaning(funcData))
 
                 }
                 )
             }
         }
         );
+    }
+
+    addMeaning = function (funcData)
+    {
+
+        // funcData.dictionary_termset_id
+        // funcData.dictionary_term
+        // funcData.dictionary_meaning
+        // funcData.dictionaryset_id
+        // funcData.dictionary_name
+
+        var accordionDiv = $("<div>")
+            var h3Div = $("<h3>")
+            $(h3Div).html(funcData.dictionary_name)
+            $(accordionDiv).append(h3Div)
+
+            var htmlVal = converter.makeHtml(funcData.dictionary_meaning);
+        var pDiv = $("<p>")
+            $(pDiv).addClass(funcData.class)
+
+            pDiv.html(htmlVal)
+            $(accordionDiv).append(pDiv)
+
+            $("#meanings").append(accordionDiv)
+
     }
 
     appendMermaidToMeanings = function ()
