@@ -215,8 +215,15 @@ $(document).ready(function ()
             var h3Div = $("<h3>")
             $(h3Div).html(funcData.dictionary_name)
             $(accordionDiv).append(h3Div)
+			
+			   let dictionary_meaning = funcData.dictionary_meaning.startsWith("#");
 
-            var htmlVal = converter.makeHtml(funcData.dictionary_meaning);
+                    if (result === true)
+                    {
+                        dictionary_meaning = funcData.dictionary_meaning.substring(funcData.dictionary_meaning.indexOf("\n") + 1)
+                    }
+
+            var htmlVal = converter.makeHtml(dictionary_meaning);
         var pDiv = $("<p>")
             $(pDiv).addClass(funcData.class)
 
