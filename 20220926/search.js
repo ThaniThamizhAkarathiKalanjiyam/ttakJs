@@ -221,7 +221,9 @@ $(document).ready(function ()
                     if (result === true)
                     {
                         dictionary_meaning = funcData.dictionary_meaning.substring(funcData.dictionary_meaning.indexOf("\n") + 1)
-                    }
+                    }else{
+						dictionary_meaning = funcData.dictionary_meaning
+					}
 
             var htmlVal = converter.makeHtml(dictionary_meaning);
         var pDiv = $("<p>")
