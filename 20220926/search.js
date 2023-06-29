@@ -186,9 +186,8 @@ $(document).ready(function ()
                             funcData.dictionary_name = value1.Value
                         }
 
-                    };
-
-                        addMeaning(funcData));
+                    } );
+                    addMeaning(funcData)
 
                 }
                 )
