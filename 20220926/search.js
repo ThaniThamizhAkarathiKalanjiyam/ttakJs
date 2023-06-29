@@ -127,7 +127,7 @@ $(document).ready(function ()
 
         var searctTextVal = $.trim($("#txtSearch").val().toLowerCase())
 
-            //drawWordLettersGraph(searctTextVal)
+            drawWordLettersGraph(searctTextVal)
             //kilaichorkal(searctTextVal) //Nov21 2022
 
             // $.each(searchUrls, function (index, value) {
@@ -136,9 +136,14 @@ $(document).ready(function ()
 
             tamilMeaning(
             {
-
-                "searctTextVal": searctTextVal
-
+                "searctTextVal": searctTextVal,
+				"dbname":"dictionary_termset_lt_853755.db"
+            }
+            )
+			 tamilMeaning(
+            {
+                "searctTextVal": searctTextVal,
+				"dbname":"dictionary_termset_gt_853755.db"
             }
             )
 
@@ -151,7 +156,7 @@ $(document).ready(function ()
     {
         var fd = new FormData();
         fd.append('dbowner', "pitchai_dbhub");
-        fd.append('dbname', "dictionary_termset_lt_853755.db");
+        fd.append('dbname', funcData.dbname);
         //fd.append('sql', "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En");
         var sql = "select * from tamil_dict1 where dictionary_term='" + funcData.searctTextVal + "';";
         var sql_encoded = $.base64.btoa(sql, true);
@@ -186,7 +191,8 @@ $(document).ready(function ()
                             funcData.dictionary_name = value1.Value
                         }
 
-                    } );
+                    }
+                    );
                     addMeaning(funcData)
 
                 }
