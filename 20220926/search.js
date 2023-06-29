@@ -153,9 +153,9 @@ $(document).ready(function ()
         fd.append('dbowner', "pitchai_dbhub");
         fd.append('dbname', "dictionary_termset_lt_853755.db");
         //fd.append('sql', "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En");
-        var sql = "select * from tamil_dict1 where dictionary_term='" + funcData.searctTextVal + "';"
-            var sql_encoded = $.base64.atob(sql, true)
-            fd.append('sql', sql_encoded);
+        var sql = "select * from tamil_dict1 where dictionary_term='" + funcData.searctTextVal + "';";
+        var sql_encoded = $.base64.atob(sql, true);
+        fd.append('sql', sql_encoded);
 
         $.ajax(
         {
@@ -172,7 +172,7 @@ $(document).ready(function ()
                 {
 
                     //console.log(value)
-                    var funcData = {}
+                    var funcData = {};
 
                     $.each(value, function (index1, value1)
                     {
@@ -186,9 +186,9 @@ $(document).ready(function ()
                             funcData.dictionary_name = value1.Value
                         }
 
-                    }
+                    };
 
-                        addMeaning(funcData))
+                        addMeaning(funcData));
 
                 }
                 )
