@@ -154,7 +154,7 @@ $(document).ready(function ()
         fd.append('dbname', "dictionary_termset_lt_853755.db");
         //fd.append('sql', "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En");
         var sql = "select * from tamil_dict1 where dictionary_term='" + funcData.searctTextVal + "';";
-        var sql_encoded = $.base64.atob(sql, true);
+        var sql_encoded = $.base64.btoa(sql, true);
         fd.append('sql', sql_encoded);
 
         $.ajax(
