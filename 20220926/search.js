@@ -215,8 +215,8 @@ $(document).ready(function ()
             var h3Div = $("<h3>")
             $(h3Div).html(funcData.dictionary_name)
             $(accordionDiv).append(h3Div)
-			
-			   let dictionary_meaning = funcData.dictionary_meaning.startsWith("#");
+			 var dictionary_meaning = ""
+			   let result = funcData.dictionary_meaning.startsWith("#");
 
                     if (result === true)
                     {
