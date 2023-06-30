@@ -192,7 +192,7 @@ $(document).ready(function ()
                     $.each(value, function (index1, value1)
                     {
 
-                        if (value1.Name === "dictionary_word")
+                        if (value1.Name === "dictionary_term")
                         {
                             apiResult += "\r\n- " + value1.Value
                         }
@@ -221,7 +221,7 @@ $(document).ready(function ()
 					
                 var htmlVal = converter.makeHtml(apiResultArray);
                 var pDiv = $("<p>")
-                    $(pDiv).addClass(apiResult.class)
+                    //$(pDiv).addClass(apiResult.class)
 
                     pDiv.html(htmlVal)
                     $(accordionDiv).append(pDiv)
