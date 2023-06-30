@@ -138,7 +138,7 @@ $(document).ready(function ()
             {
                 "searctTextVal": searctTextVal,
 				"dbname":"dictionary_termset_lt_853755.db",
-				"sql":"select * from tamil_dict1 where dictionary_term='" + searctTextVal + "';";,
+				"sql":"select * from tamil_dict1 where dictionary_term='" + searctTextVal + "';",
 				"resultElement": "#meanings"
             }
             )
@@ -146,7 +146,7 @@ $(document).ready(function ()
             {
                 "searctTextVal": searctTextVal,
 				"dbname":"dictionary_termset_gt_853755.db"
-				"sql":"select * from tamil_dict1 where dictionary_term='" + searctTextVal + "';";,
+				"sql":"select * from tamil_dict1 where dictionary_term='" + searctTextVal + "';",
 				"resultElement": "#meanings"
             }
             )
@@ -185,7 +185,7 @@ $(document).ready(function ()
 
                     $.each(value, function (index1, value1)
                     {
-                        debugger
+                        
                         if (value1.Name === "dictionary_meaning")
                         {
                             apiResult.dictionary_meaning = value1.Value
