@@ -274,19 +274,21 @@ $(document).ready(function ()
                         $(accordionDiv).append(h3Div)
 
                         //var htmlVal = converter.makeHtml("- " + apiResultArray.join("\r\n- "));
-                    var pDiv = $("<p>")
+                        var pDiv = $("<p>")
                         //$(pDiv).addClass(apiResult.class)
                         //<button type="button" class="btn btn-link">Link</button>
-						$.each(apiResultArray,function(apiResultArray_ind,apiResultArray_val){
-							var pbutton = $("<button>")
-							pbutton.attr("type", "button")
-							pbutton.addClass("btn btn-link ttak_link")
-							pbutton.html("apiResultArray_val")
+                        $.each(apiResultArray, function (apiResultArray_ind, apiResultArray_val)
+                        {
+                            var pbutton = $("<button>")
+                                pbutton.attr("type", "button")
+                                pbutton.addClass("btn btn-link ttak_link")
+                                pbutton.html("apiResultArray_val")
 
-							pDiv.append(htmlVal)
-							
-						})
-                        
+                                pDiv.append(htmlVal)
+
+                        }
+                        )
+
                         $(accordionDiv).append(pDiv)
 
                         $(funcData.resultElement).append(accordionDiv)
@@ -315,40 +317,43 @@ $(document).ready(function ()
             type: 'POST',
             success: function (jsonObj)
             {
-                var obj = $.parseJSON(jsonObj);
-                //console.log(obj);
-                $.each(obj, function (index, value)
+                if (jsonObj !== null && jsonObj !== "null")
                 {
-
-                    //console.log(value)
-                    var apiResult = {};
-
-                    $.each(value, function (index1, value1)
+                    var obj = $.parseJSON(jsonObj);
+                    //console.log(obj);
+                    $.each(obj, function (index, value)
                     {
 
-                        if (value1.Name === "dictionary_meaning")
+                        //console.log(value)
+                        var apiResult = {};
+
+                        $.each(value, function (index1, value1)
                         {
-                            apiResult.dictionary_meaning = value1.Value
-                        }
-                        if (value1.Name === "dictionary_name")
-                        {
-                            if (funcData.dictionary_name == undefined)
+
+                            if (value1.Name === "dictionary_meaning")
                             {
-                                apiResult.dictionary_name = value1.Value
+                                apiResult.dictionary_meaning = value1.Value
                             }
-                            else
+                            if (value1.Name === "dictionary_name")
                             {
-                                apiResult.dictionary_name = funcData.dictionary_name
+                                if (funcData.dictionary_name == undefined)
+                                {
+                                    apiResult.dictionary_name = value1.Value
+                                }
+                                else
+                                {
+                                    apiResult.dictionary_name = funcData.dictionary_name
+                                }
+
                             }
 
                         }
+                        );
+                        addMeaning(funcData, apiResult)
 
                     }
-                    );
-                    addMeaning(funcData, apiResult)
-
+                    )
                 }
-                )
             }
         }
         );
