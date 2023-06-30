@@ -170,7 +170,7 @@ $(document).ready(function ()
         var sql_encoded = $.base64.btoa(funcData.sql, true);
         fd.append('sql', sql_encoded);
 		
-		 var apiResultArray = [];
+		 var apiResultArray = "";
 
         $.ajax(
         {
@@ -194,7 +194,7 @@ $(document).ready(function ()
 
                         if (value1.Name === "dictionary_word")
                         {
-                            apiResult.append(value1.Value)
+                            apiResult.append("\r\n- "+value1.Value)
                         }
                         // if (value1.Name === "dictionary_name")
                         // {
@@ -211,9 +211,8 @@ $(document).ready(function ()
 
                     }
                     );
-                }
+                })
 				addMeaning(funcData, apiResult)
-                )
             }
         }
         );
