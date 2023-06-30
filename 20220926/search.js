@@ -140,6 +140,16 @@ debugger
 				"dictionary_name":"எதுகை சொற்கள்"
             }
             )
+			
+			getTamilGroupWordsAndAddToElem(
+            {
+                "searctTextVal": searctTextVal,
+                "dbname": "dictionary_termset_lt_853755.db",
+                "sql": "select * from tamil_dict1 where dictionary_term='"+searctTextVal+"%';",
+                "resultElement": "#meanings",
+				"dictionary_name":"கிளைச் சொற்கள்"
+            }
+            )
 
             getTamilMeaningAndAddToElem(
             {
