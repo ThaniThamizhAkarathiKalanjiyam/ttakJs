@@ -194,9 +194,10 @@ $(document).ready(function ()
 
                         if (value1.Name === "dictionary_term")
                         {
-							if(apiResultArray.includes() === false)
+							var apiResultArrayLoc = $.trim(value1.Value)
+							if(apiResultArray.includes(apiResultArrayLoc) === false)
 							{
-								apiResultArray.push($.trim(value1.Value))
+								apiResultArray.push(apiResultArrayLoc)
 							}
                         }
                         // if (value1.Name === "dictionary_name")
@@ -222,7 +223,7 @@ $(document).ready(function ()
                     $(h3Div).html("கிளைச் சொற்கள்")//apiResult.dictionary_name)
                     $(accordionDiv).append(h3Div)
 					
-                var htmlVal = converter.makeHtml(apiResultArray.join("- "));
+                var htmlVal = converter.makeHtml("- "+apiResultArray.join("\r\n- "));
                 var pDiv = $("<p>")
                     //$(pDiv).addClass(apiResult.class)
 
