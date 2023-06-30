@@ -113,7 +113,7 @@ $(document).ready(function ()
     // // wordsearch(value)
     // // })
 
-    // tamilMeaning()
+    // getTamilMeaningAndAddToElem()
 
     // updateSearchWords(searctTextVal)
 
@@ -134,16 +134,20 @@ $(document).ready(function ()
             // wordsearch(value)
             // })
 
-            tamilMeaning(
+            getTamilMeaningAndAddToElem(
             {
                 "searctTextVal": searctTextVal,
-				"dbname":"dictionary_termset_lt_853755.db"
+				"dbname":"dictionary_termset_lt_853755.db",
+				"sql":"select * from tamil_dict1 where dictionary_term='" + searctTextVal + "';";,
+				"resultElement": "#meanings"
             }
             )
-			 tamilMeaning(
+			 getTamilMeaningAndAddToElem(
             {
                 "searctTextVal": searctTextVal,
 				"dbname":"dictionary_termset_gt_853755.db"
+				"sql":"select * from tamil_dict1 where dictionary_term='" + searctTextVal + "';";,
+				"resultElement": "#meanings"
             }
             )
 
@@ -152,14 +156,14 @@ $(document).ready(function ()
     }
     )
 
-    tamilMeaning = function (funcData)
+    getTamilMeaningAndAddToElem = function (funcData)
     {
         var fd = new FormData();
         fd.append('dbowner', "pitchai_dbhub");
         fd.append('dbname', funcData.dbname);
         //fd.append('sql', "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En");
-        var sql = "select * from tamil_dict1 where dictionary_term='" + funcData.searctTextVal + "';";
-        var sql_encoded = $.base64.btoa(sql, true);
+        //var sql = "select * from tamil_dict1 where dictionary_term='" + funcData.searctTextVal + "';";
+        var sql_encoded = $.base64.btoa(funcData.sql, true);
         fd.append('sql', sql_encoded);
 
         $.ajax(
@@ -177,23 +181,23 @@ $(document).ready(function ()
                 {
 
                     //console.log(value)
-                    var funcData = {};
+                    var apiResult = {};
 
                     $.each(value, function (index1, value1)
                     {
                         debugger
                         if (value1.Name === "dictionary_meaning")
                         {
-                            funcData.dictionary_meaning = value1.Value
+                            apiResult.dictionary_meaning = value1.Value
                         }
                         if (value1.Name === "dictionary_name")
                         {
-                            funcData.dictionary_name = value1.Value
+                            apiResult.dictionary_name = value1.Value
                         }
 
                     }
                     );
-                    addMeaning(funcData)
+                    addMeaning(funcData,apiResult)
 
                 }
                 )
@@ -201,41 +205,42 @@ $(document).ready(function ()
         }
         );
     }
-
-    addMeaning = function (funcData)
+	
+ addMeaning = function (funcData,apiResult)
     {
 
-        // funcData.dictionary_termset_id
-        // funcData.dictionary_term
-        // funcData.dictionary_meaning
-        // funcData.dictionaryset_id
-        // funcData.dictionary_name
+        // apiResult.dictionary_termset_id
+        // apiResult.dictionary_term
+        // apiResult.dictionary_meaning
+        // apiResult.dictionaryset_id
+        // apiResult.dictionary_name
 
         var accordionDiv = $("<div>")
             var h3Div = $("<h3>")
-            $(h3Div).html(funcData.dictionary_name)
+            $(h3Div).html(apiResult.dictionary_name)
             $(accordionDiv).append(h3Div)
 			 var dictionary_meaning = ""
-			   let result = funcData.dictionary_meaning.startsWith("#");
+			   let result = apiResult.dictionary_meaning.startsWith("#");
 
                     if (result === true)
                     {
-                        dictionary_meaning = funcData.dictionary_meaning.substring(funcData.dictionary_meaning.indexOf("\n") + 1)
+                        dictionary_meaning = $.trim(apiResult.dictionary_meaning.substring(apiResult.dictionary_meaning.indexOf("\n") + 1))
                     }else{
-						dictionary_meaning = funcData.dictionary_meaning
+						dictionary_meaning =$.trim( apiResult.dictionary_meaning)
 					}
 
             var htmlVal = converter.makeHtml(dictionary_meaning);
         var pDiv = $("<p>")
-            $(pDiv).addClass(funcData.class)
+            $(pDiv).addClass(apiResult.class)
 
             pDiv.html(htmlVal)
             $(accordionDiv).append(pDiv)
 
-            $("#meanings").append(accordionDiv)
+            $(funcData.resultElement).append(accordionDiv)
 
     }
 
+   
     appendMermaidToMeanings = function ()
     {
 
@@ -454,6 +459,12 @@ $(document).ready(function ()
         mermaid.render("preparedScheme", code, insert);
 
     }
+	
+	$("#btnEthukai").click(function(){
+		
+		$( "#dialog" ).dialog("open")
+		
+	})
 
     var jqxhr = $.when(init_getJSON())
         .then(function ()  {}
@@ -463,6 +474,7 @@ $(document).ready(function ()
             //versol_div("வேர்", ["இடது கிளை", "வலது கிளை"]);
             //$('#jstree_demo_div').jstree();
             // side_extra_info();
+			$( "#dialog" ).dialog( "option", "autoOpen", false );
         }
         );
     // Set another completion function for the request above
