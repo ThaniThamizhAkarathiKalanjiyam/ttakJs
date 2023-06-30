@@ -229,7 +229,7 @@ $(document).ready(function ()
             type: 'POST',
             success: function (jsonObj)
             {
-                if (jsonObj !== null)
+                if (jsonObj !== null && jsonObj !== "null")
                 {
                     var obj = $.parseJSON(jsonObj);
                     //console.log(obj);
