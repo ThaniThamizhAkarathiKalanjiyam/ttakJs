@@ -273,11 +273,20 @@ $(document).ready(function ()
                         $(h3Div).html(funcData.dictionary_name) //apiResult.dictionary_name)
                         $(accordionDiv).append(h3Div)
 
-                        var htmlVal = converter.makeHtml("- " + apiResultArray.join("\r\n- "));
+                        //var htmlVal = converter.makeHtml("- " + apiResultArray.join("\r\n- "));
                     var pDiv = $("<p>")
                         //$(pDiv).addClass(apiResult.class)
+                        //<button type="button" class="btn btn-link">Link</button>
+						$.each(apiResultArray,function(apiResultArray_ind,apiResultArray_val){
+							var pbutton = $("<button>")
+							pbutton.attr("type", "button")
+							pbutton.addClass("btn btn-link ttak_link")
+							pbutton.html("apiResultArray_val")
 
-                        pDiv.html(htmlVal)
+							pDiv.append(htmlVal)
+							
+						})
+                        
                         $(accordionDiv).append(pDiv)
 
                         $(funcData.resultElement).append(accordionDiv)
