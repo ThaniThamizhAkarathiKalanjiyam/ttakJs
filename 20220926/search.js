@@ -284,7 +284,7 @@ $(document).ready(function ()
                                 pbutton.addClass("btn btn-link ttak_link")
                                 pbutton.html("apiResultArray_val")
 
-                                pDiv.append(htmlVal)
+                                pDiv.append(pbutton)
 
                         }
                         )
