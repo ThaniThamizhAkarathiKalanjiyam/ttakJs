@@ -128,56 +128,60 @@ $(document).ready(function ()
         var searctTextVal = $.trim($("#txtSearch").val().toLowerCase())
 
             //drawWordLettersGraph(searctTextVal)
-			
-			var tam_separate_letters = getTamilLetters(searctTextVal)
-			var edhukaisorkal_regex = ""
-			var monaisorkal_regex = ""
-			
-			$.each(tam_separate_letters,function(index,value){
-				if(index === 0)
-				{
-					edhukaisorkal_regex += "_"
-				}else{
-					edhukaisorkal_regex += value
-				}
-				
-				if(index === 1)
-				{
-					monaisorkal_regex += "_"
-				}else{
-					monaisorkal_regex += value
-				}
-			})
-			
-			
-debugger
+
+            var tam_separate_letters = getTamilLetters(searctTextVal)
+            var edhukaisorkal_regex = ""
+            var monaisorkal_regex = ""
+
+            $.each(tam_separate_letters, function (index, value)
+            {
+                if (index === 0)
+                {
+                    edhukaisorkal_regex += "_"
+                }
+                else
+                {
+                    edhukaisorkal_regex += value
+                }
+
+                if (index === 1)
+                {
+                    monaisorkal_regex += "_"
+                }
+                else
+                {
+                    monaisorkal_regex += value
+                }
+            }
+            )
+
             getTamilGroupWordsAndAddToElem(
             {
                 "searctTextVal": searctTextVal,
                 "dbname": "dictionary_termset_lt_853755.db",
-                "sql": "select * from tamil_dict1 where dictionary_term='"+edhukaisorkal_regex+"';",
+                "sql": "select * from tamil_dict1 where dictionary_term='" + edhukaisorkal_regex + "';",
                 "resultElement": "#meanings",
-				"dictionary_name":"எதுகை சொற்கள்"
+                "dictionary_name": "எதுகை சொற்கள்"
             }
             )
-			
-			getTamilGroupWordsAndAddToElem(
+
+            getTamilGroupWordsAndAddToElem(
             {
                 "searctTextVal": searctTextVal,
                 "dbname": "dictionary_termset_lt_853755.db",
-                "sql": "select * from tamil_dict1 where dictionary_term='"+monaisorkal_regex+"';",
+                "sql": "select * from tamil_dict1 where dictionary_term='" + monaisorkal_regex + "';",
                 "resultElement": "#meanings",
-				"dictionary_name":"மோனைச் சொற்கள்"
+                "dictionary_name": "மோனைச் சொற்கள்"
             }
             )
-			
-			getTamilGroupWordsAndAddToElem(
+
+            getTamilGroupWordsAndAddToElem(
             {
                 "searctTextVal": searctTextVal,
                 "dbname": "dictionary_termset_lt_853755.db",
-                "sql": "select * from tamil_dict1 where dictionary_term='"+searctTextVal+"%';",
+                "sql": "select * from tamil_dict1 where dictionary_term='" + searctTextVal + "%';",
                 "resultElement": "#meanings",
-				"dictionary_name":"கிளைச் சொற்கள்"
+                "dictionary_name": "கிளைச் சொற்கள்"
             }
             )
 
@@ -212,6 +216,7 @@ debugger
         //var sql = "select * from tamil_dict1 where dictionary_term='" + funcData.searctTextVal + "';";
         var sql_encoded = $.base64.btoa(funcData.sql, true);
         fd.append('sql', sql_encoded);
+		fd.append('sql_txt', funcData.sql);
 
         var apiResultArray = [];
 
@@ -224,56 +229,54 @@ debugger
             type: 'POST',
             success: function (jsonObj)
             {
-                var obj = $.parseJSON(jsonObj);
-                //console.log(obj);
-                $.each(obj, function (index, value)
+                if (jsonObj !== null)
                 {
-
-                    //console.log(value)
-
-
-                    $.each(value, function (index1, value1)
+                    var obj = $.parseJSON(jsonObj);
+                    //console.log(obj);
+                    $.each(obj, function (index, value)
                     {
-
-                        if (value1.Name === "dictionary_term")
+                        $.each(value, function (index1, value1)
                         {
-							var apiResultArrayLoc = $.trim(value1.Value)
-							if(apiResultArray.includes(apiResultArrayLoc) === false)
-							{
-								apiResultArray.push(apiResultArrayLoc)
-							}
+                            if (value1.Name === "dictionary_term")
+                            {
+                                var apiResultArrayLoc = $.trim(value1.Value)
+                                    if (apiResultArray.includes(apiResultArrayLoc) === false)
+                                    {
+                                        apiResultArray.push(apiResultArrayLoc)
+                                    }
+                            }
+                            // if (value1.Name === "dictionary_name")
+                            // {
+                            // if (funcData.dictionary_name == undefined)
+                            // {
+                            // apiResult.dictionary_name = value1.Value
+                            // }
+                            // else
+                            // {
+                            // apiResult.dictionary_name = funcData.dictionary_name
+                            // }
+
+                            // }
+
                         }
-                        // if (value1.Name === "dictionary_name")
-                        // {
-                        // if (funcData.dictionary_name == undefined)
-                        // {
-                        // apiResult.dictionary_name = value1.Value
-                        // }
-                        // else
-                        // {
-                        // apiResult.dictionary_name = funcData.dictionary_name
-                        // }
-
-                        // }
-
+                        );
                     }
-                    );
+                    )
+                    //addMeaning(funcData, apiResult)
+                    var accordionDiv = $("<div>")
+                        var h3Div = $("<h3>")
+                        $(h3Div).html(funcData.dictionary_name) //apiResult.dictionary_name)
+                        $(accordionDiv).append(h3Div)
+
+                        var htmlVal = converter.makeHtml("- " + apiResultArray.join("\r\n- "));
+                    var pDiv = $("<p>")
+                        //$(pDiv).addClass(apiResult.class)
+
+                        pDiv.html(htmlVal)
+                        $(accordionDiv).append(pDiv)
+
+                        $(funcData.resultElement).append(accordionDiv)
                 }
-                )
-                //addMeaning(funcData, apiResult)
-                var accordionDiv = $("<div>")
-                    var h3Div = $("<h3>")
-                    $(h3Div).html(funcData.dictionary_name)//apiResult.dictionary_name)
-                    $(accordionDiv).append(h3Div)
-					
-                var htmlVal = converter.makeHtml("- "+apiResultArray.join("\r\n- "));
-                var pDiv = $("<p>")
-                    //$(pDiv).addClass(apiResult.class)
-
-                    pDiv.html(htmlVal)
-                    $(accordionDiv).append(pDiv)
-
-                    $(funcData.resultElement).append(accordionDiv)
             }
         }
         );
@@ -518,18 +521,19 @@ debugger
                     $("#btnSearch").trigger("click")
             }
     }
-	
-	getTamilLetters = function(tamilword){
-		 var mat_graph = tamilword.match(/[ஃ-ஹ]([ா-்]|)/gi);
+
+    getTamilLetters = function (tamilword)
+    {
+        var mat_graph = tamilword.match(/[ஃ-ஹ]([ா-்]|)/gi);
 
         if (mat_graph === null)
         {
             //graphTD = 'graph TD;\nA["' + word_for_graph + '"]-->B["இது தமிழ் மொழிச் சொல் இல்லை"];'
-        }else{
-			
-		}
-		return mat_graph
-	}
+        }
+        else
+        {}
+        return mat_graph
+    }
 
     drawWordLettersGraph = function (word_for_graph)
     {
