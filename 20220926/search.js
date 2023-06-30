@@ -139,22 +139,24 @@ $(document).ready(function ()
 
                     $.each(tam_separate_letters, function (index, value)
                     {
+						//இரண்டாம் எழுத்து "ந்" ஒன்றாக அமைவதால் இவை எதுகை எனச் சுட்டப்படுகின்றன.
                         if (index === 0)
+                        {
+                            edhukaisorkal_regex += "_"
+                        }
+                        else
+                        {
+                            edhukaisorkal_regex += value
+                        }
+						
+						//முதல் எழுத்து "ந்" ஒன்றாக அமைவதால் இவை மோனை எனச் சுட்டப்படுகின்றன.
+                        if (index === 1)
                         {
                             monaisorkal_regex += "_"
                         }
                         else
                         {
                             monaisorkal_regex += value
-                        }
-
-                        if (index === 1)
-                        {
-                           edhukaisorkal_regex  += "_"
-                        }
-                        else
-                        {
-                           edhukaisorkal_regex  += value
                         }
                     }
                     )
