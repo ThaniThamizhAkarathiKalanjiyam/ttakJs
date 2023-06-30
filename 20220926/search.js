@@ -187,7 +187,21 @@ $(document).ready(function ()
                     {
                         "searctTextVal": searctTextVal,
                         "dbname": "dictionary_termset_lt_853755.db",
-                        "sql": "select dictionary_term from tamil_dict1 where dictionary_term like '" + monaisorkal_regex + "' order by dictionary_term;",
+                        "sql": "select dictionary_term from tamil_dict1 where " 
+						+ "dictionary_term like '" + monaisorkal_regex + "'"
+						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_்") + "'"
+						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ா") + "'"
+						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ி") + "'"
+						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ீ") + "'"
+						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ு") + "'"
+						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ூ") + "'"
+						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ெ") + "'"
+						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ே") + "'"
+						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ை") + "'"
+						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ொ") + "'"
+						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ோ") + "'"
+						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ௌ") + "'"
+						+ " order by dictionary_term;",
                         "resultElement": "#sidebar",
                         "dictionary_name": "மோனைச் சொற்கள்"
                     }
