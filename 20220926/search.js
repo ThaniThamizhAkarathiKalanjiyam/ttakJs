@@ -133,7 +133,7 @@ $(document).ready(function ()
             {
                 "searctTextVal": searctTextVal,
                 "dbname": "dictionary_termset_lt_853755.db",
-                "sql": "select * from tamil_dict1 where dictionary_term='அண்';",
+                "sql": "select * from tamil_dict1 where dictionary_term='"+searctTextVal+"%';",
                 "resultElement": "#meanings"
             }
             )
