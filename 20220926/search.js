@@ -130,60 +130,65 @@ $(document).ready(function ()
             //drawWordLettersGraph(searctTextVal)
 
             var tam_separate_letters = getTamilLetters(searctTextVal)
-            var edhukaisorkal_regex = ""
-            var monaisorkal_regex = ""
 
-            $.each(tam_separate_letters, function (index, value)
+            if (tam_separate_letters != null)
             {
-                if (index === 0)
-                {
-                    edhukaisorkal_regex += "_"
-                }
-                else
-                {
-                    edhukaisorkal_regex += value
-                }
 
-                if (index === 1)
-                {
-                    monaisorkal_regex += "_"
-                }
-                else
-                {
-                    monaisorkal_regex += value
-                }
-            }
-            )
+                var edhukaisorkal_regex = ""
+                    var monaisorkal_regex = ""
 
-            getTamilGroupWordsAndAddToElem(
-            {
-                "searctTextVal": searctTextVal,
-                "dbname": "dictionary_termset_lt_853755.db",
-                "sql": "select * from tamil_dict1 where dictionary_term like '" + edhukaisorkal_regex + "';",
-                "resultElement": "#meanings",
-                "dictionary_name": "எதுகை சொற்கள்"
-            }
-            )
+                    $.each(tam_separate_letters, function (index, value)
+                    {
+                        if (index === 0)
+                        {
+                            edhukaisorkal_regex += "_"
+                        }
+                        else
+                        {
+                            edhukaisorkal_regex += value
+                        }
 
-            getTamilGroupWordsAndAddToElem(
-            {
-                "searctTextVal": searctTextVal,
-                "dbname": "dictionary_termset_lt_853755.db",
-                "sql": "select * from tamil_dict1 where dictionary_term like '" + monaisorkal_regex + "';",
-                "resultElement": "#meanings",
-                "dictionary_name": "மோனைச் சொற்கள்"
-            }
-            )
+                        if (index === 1)
+                        {
+                            monaisorkal_regex += "_"
+                        }
+                        else
+                        {
+                            monaisorkal_regex += value
+                        }
+                    }
+                    )
 
-            getTamilGroupWordsAndAddToElem(
-            {
-                "searctTextVal": searctTextVal,
-                "dbname": "dictionary_termset_lt_853755.db",
-                "sql": "select * from tamil_dict1 where dictionary_term like '" + searctTextVal + "%';",
-                "resultElement": "#meanings",
-                "dictionary_name": "கிளைச் சொற்கள்"
+                    getTamilGroupWordsAndAddToElem(
+                    {
+                        "searctTextVal": searctTextVal,
+                        "dbname": "dictionary_termset_lt_853755.db",
+                        "sql": "select * from tamil_dict1 where dictionary_term like '" + edhukaisorkal_regex + "';",
+                        "resultElement": "#meanings",
+                        "dictionary_name": "எதுகை சொற்கள்"
+                    }
+                    )
+
+                    getTamilGroupWordsAndAddToElem(
+                    {
+                        "searctTextVal": searctTextVal,
+                        "dbname": "dictionary_termset_lt_853755.db",
+                        "sql": "select * from tamil_dict1 where dictionary_term like '" + monaisorkal_regex + "';",
+                        "resultElement": "#meanings",
+                        "dictionary_name": "மோனைச் சொற்கள்"
+                    }
+                    )
+
+                    getTamilGroupWordsAndAddToElem(
+                    {
+                        "searctTextVal": searctTextVal,
+                        "dbname": "dictionary_termset_lt_853755.db",
+                        "sql": "select * from tamil_dict1 where dictionary_term like '" + searctTextVal + "%';",
+                        "resultElement": "#meanings",
+                        "dictionary_name": "கிளைச் சொற்கள்"
+                    }
+                    )
             }
-            )
 
             getTamilMeaningAndAddToElem(
             {
@@ -216,7 +221,7 @@ $(document).ready(function ()
         //var sql = "select * from tamil_dict1 where dictionary_term='" + funcData.searctTextVal + "';";
         var sql_encoded = $.base64.btoa(funcData.sql, true);
         fd.append('sql', sql_encoded);
-		fd.append('sql_txt', funcData.sql);
+        fd.append('sql_txt', funcData.sql);
 
         var apiResultArray = [];
 
