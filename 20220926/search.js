@@ -129,7 +129,9 @@ $(document).ready(function ()
 
             //drawWordLettersGraph(searctTextVal)
 			
-			var edhukaisorkal_regex = "_"+getTamilLetters(searctTextVal).pop(0).join("")
+			var tam_separate_letters = getTamilLetters(searctTextVal)
+			
+			var edhukaisorkal_regex = "_"+tam_separate_letters.splice(0,1).join("")
 debugger
             getTamilGroupWordsAndAddToElem(
             {
