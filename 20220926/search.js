@@ -196,7 +196,7 @@ $(document).ready(function ()
                         {
 							if(apiResultArray.includes() === false)
 							{
-								apiResultArray.append(value1.Value)
+								apiResultArray.push($.trim(value1.Value))
 							}
                         }
                         // if (value1.Name === "dictionary_name")
