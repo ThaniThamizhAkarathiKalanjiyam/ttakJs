@@ -141,7 +141,7 @@ $(document).ready(function ()
                     {
                         if (index === 0)
                         {
-                            edhukaisorkal_regex += "_(ா-்]"
+                            edhukaisorkal_regex += "_"
                         }
                         else
                         {
