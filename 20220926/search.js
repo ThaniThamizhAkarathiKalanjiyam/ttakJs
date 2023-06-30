@@ -128,8 +128,8 @@ $(document).ready(function ()
         var searctTextVal = $.trim($("#txtSearch").val().toLowerCase())
 
             //drawWordLettersGraph(searctTextVal)
-			
-			getTamilGroupWordsAndAddToElem(
+
+            getTamilGroupWordsAndAddToElem(
             {
                 "searctTextVal": searctTextVal,
                 "dbname": "dictionary_termset_lt_853755.db",
@@ -159,8 +159,8 @@ $(document).ready(function ()
 
     }
     )
-	
-	  getTamilGroupWordsAndAddToElem = function (funcData)
+
+    getTamilGroupWordsAndAddToElem = function (funcData)
     {
         var fd = new FormData();
         fd.append('dbowner', "pitchai_dbhub");
@@ -169,8 +169,8 @@ $(document).ready(function ()
         //var sql = "select * from tamil_dict1 where dictionary_term='" + funcData.searctTextVal + "';";
         var sql_encoded = $.base64.btoa(funcData.sql, true);
         fd.append('sql', sql_encoded);
-		
-		 var apiResultArray = "";
+
+        var apiResultArray = "";
 
         $.ajax(
         {
@@ -187,37 +187,50 @@ $(document).ready(function ()
                 {
 
                     //console.log(value)
-                   
+
 
                     $.each(value, function (index1, value1)
                     {
 
                         if (value1.Name === "dictionary_word")
                         {
-                            apiResult.append("\r\n- "+value1.Value)
+                            apiResult += "\r\n- " + value1.Value
                         }
                         // if (value1.Name === "dictionary_name")
                         // {
-                            // if (funcData.dictionary_name == undefined)
-                            // {
-                                // apiResult.dictionary_name = value1.Value
-                            // }
-                            // else
-                            // {
-                                // apiResult.dictionary_name = funcData.dictionary_name
-                            // }
+                        // if (funcData.dictionary_name == undefined)
+                        // {
+                        // apiResult.dictionary_name = value1.Value
+                        // }
+                        // else
+                        // {
+                        // apiResult.dictionary_name = funcData.dictionary_name
+                        // }
 
                         // }
 
                     }
                     );
-                })
-				addMeaning(funcData, apiResult)
+                }
+                )
+                //addMeaning(funcData, apiResult)
+                var accordionDiv = $("<div>")
+                    var h3Div = $("<h3>")
+                    $(h3Div).html("கிளைச் சொற்கள்")//apiResult.dictionary_name)
+                    $(accordionDiv).append(h3Div)
+					
+                var htmlVal = converter.makeHtml(apiResultArray);
+                var pDiv = $("<p>")
+                    $(pDiv).addClass(apiResult.class)
+
+                    pDiv.html(htmlVal)
+                    $(accordionDiv).append(pDiv)
+
+                    $(funcData.resultElement).append(accordionDiv)
             }
         }
         );
     }
-
 
     getTamilMeaningAndAddToElem = function (funcData)
     {
