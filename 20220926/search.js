@@ -127,13 +127,8 @@ $(document).ready(function ()
 
         var searctTextVal = $.trim($("#txtSearch").val().toLowerCase())
 
-            drawWordLettersGraph(searctTextVal)
-            //kilaichorkal(searctTextVal) //Nov21 2022
-
-            // $.each(searchUrls, function (index, value) {
-            // wordsearch(value)
-            // })
-
+            //drawWordLettersGraph(searctTextVal)
+        
             getTamilMeaningAndAddToElem(
             {
                 "searctTextVal": searctTextVal,
