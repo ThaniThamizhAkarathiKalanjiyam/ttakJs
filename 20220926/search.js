@@ -474,9 +474,10 @@ $(document).ready(function ()
             //versol_div("வேர்", ["இடது கிளை", "வலது கிளை"]);
             //$('#jstree_demo_div').jstree();
             // side_extra_info();
-			$( "#dialog" ).dialog( {
-				"autoOpen": false 
-				});
+			
+			// $( "#dialog" ).dialog( {
+				// "autoOpen": false 
+				// });
         }
         );
     // Set another completion function for the request above
