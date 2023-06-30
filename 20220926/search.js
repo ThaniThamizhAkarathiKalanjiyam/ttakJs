@@ -690,6 +690,7 @@ $(document).ready(function ()
     {
 
         //drawWordLettersGraph("தமிழ்")
+		$(".mermaid").hide()
 
     }
     );
