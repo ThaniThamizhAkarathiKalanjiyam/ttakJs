@@ -282,7 +282,12 @@ $(document).ready(function ()
                             var pbutton = $("<button>")
                                 pbutton.attr("type", "button")
                                 pbutton.addClass("btn btn-link ttak_link")
-                                pbutton.html(apiResultArray_val)								
+                                pbutton.html(apiResultArray_val)	
+								pbutton.click(function(){
+
+									location.href = "https://thanithamizhakarathikalanjiyam.github.io/searche?q="+apiResultArray_val;
+
+								})								
                                 pDiv.append(pbutton)
 
                         }
@@ -657,11 +662,7 @@ $(document).ready(function ()
     }
     );
 	
-	$(".ttak_link").click(function(){
-		
-		alert("HI all")
-		
-	})
+	
 
     checkIsFirstLetterValid = function (value)
     {
