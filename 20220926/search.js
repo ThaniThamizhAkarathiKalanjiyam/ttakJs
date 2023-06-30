@@ -159,7 +159,7 @@ $(document).ready(function ()
             {
                 "searctTextVal": searctTextVal,
                 "dbname": "dictionary_termset_lt_853755.db",
-                "sql": "select * from tamil_dict1 where dictionary_term='" + edhukaisorkal_regex + "';",
+                "sql": "select * from tamil_dict1 where dictionary_term like '" + edhukaisorkal_regex + "';",
                 "resultElement": "#meanings",
                 "dictionary_name": "எதுகை சொற்கள்"
             }
@@ -169,7 +169,7 @@ $(document).ready(function ()
             {
                 "searctTextVal": searctTextVal,
                 "dbname": "dictionary_termset_lt_853755.db",
-                "sql": "select * from tamil_dict1 where dictionary_term='" + monaisorkal_regex + "';",
+                "sql": "select * from tamil_dict1 where dictionary_term like '" + monaisorkal_regex + "';",
                 "resultElement": "#meanings",
                 "dictionary_name": "மோனைச் சொற்கள்"
             }
@@ -179,7 +179,7 @@ $(document).ready(function ()
             {
                 "searctTextVal": searctTextVal,
                 "dbname": "dictionary_termset_lt_853755.db",
-                "sql": "select * from tamil_dict1 where dictionary_term='" + searctTextVal + "%';",
+                "sql": "select * from tamil_dict1 where dictionary_term like '" + searctTextVal + "%';",
                 "resultElement": "#meanings",
                 "dictionary_name": "கிளைச் சொற்கள்"
             }
