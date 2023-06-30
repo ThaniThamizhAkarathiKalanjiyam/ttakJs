@@ -145,7 +145,7 @@ $(document).ready(function ()
 			 getTamilMeaningAndAddToElem(
             {
                 "searctTextVal": searctTextVal,
-				"dbname":"dictionary_termset_gt_853755.db"
+				"dbname":"dictionary_termset_gt_853755.db",
 				"sql":"select * from tamil_dict1 where dictionary_term='" + searctTextVal + "';",
 				"resultElement": "#meanings"
             }
