@@ -130,8 +130,26 @@ $(document).ready(function ()
             //drawWordLettersGraph(searctTextVal)
 			
 			var tam_separate_letters = getTamilLetters(searctTextVal)
+			var edhukaisorkal_regex = ""
+			var monaisorkal_regex = ""
 			
-			var edhukaisorkal_regex = "_"+tam_separate_letters.splice(0,1).join("")
+			$.each(tam_separate_letters,function(index,value){
+				if(index === 0)
+				{
+					edhukaisorkal_regex += "_"
+				}else{
+					edhukaisorkal_regex += value
+				}
+				
+				if(index === 1)
+				{
+					monaisorkal_regex += "_"
+				}else{
+					monaisorkal_regex += value
+				}
+			})
+			
+			
 debugger
             getTamilGroupWordsAndAddToElem(
             {
@@ -140,6 +158,16 @@ debugger
                 "sql": "select * from tamil_dict1 where dictionary_term='"+edhukaisorkal_regex+"';",
                 "resultElement": "#meanings",
 				"dictionary_name":"எதுகை சொற்கள்"
+            }
+            )
+			
+			getTamilGroupWordsAndAddToElem(
+            {
+                "searctTextVal": searctTextVal,
+                "dbname": "dictionary_termset_lt_853755.db",
+                "sql": "select * from tamil_dict1 where dictionary_term='"+monaisorkal_regex+"';",
+                "resultElement": "#meanings",
+				"dictionary_name":"மோனைச் சொற்கள்"
             }
             )
 			
