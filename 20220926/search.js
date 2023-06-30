@@ -128,13 +128,16 @@ $(document).ready(function ()
         var searctTextVal = $.trim($("#txtSearch").val().toLowerCase())
 
             //drawWordLettersGraph(searctTextVal)
-
+			
+			var edhukaisorkal_regex = "_"+getTamilLetters(searctTextVal).pop(0).join("")
+debugger
             getTamilGroupWordsAndAddToElem(
             {
                 "searctTextVal": searctTextVal,
                 "dbname": "dictionary_termset_lt_853755.db",
-                "sql": "select * from tamil_dict1 where dictionary_term='"+searctTextVal+"%';",
-                "resultElement": "#meanings"
+                "sql": "select * from tamil_dict1 where dictionary_term='"+edhukaisorkal_regex+"';",
+                "resultElement": "#meanings",
+				"dictionary_name":"எதுகை சொற்கள்"
             }
             )
 
@@ -220,7 +223,7 @@ $(document).ready(function ()
                 //addMeaning(funcData, apiResult)
                 var accordionDiv = $("<div>")
                     var h3Div = $("<h3>")
-                    $(h3Div).html("கிளைச் சொற்கள்")//apiResult.dictionary_name)
+                    $(h3Div).html(funcData.dictionary_name)//apiResult.dictionary_name)
                     $(accordionDiv).append(h3Div)
 					
                 var htmlVal = converter.makeHtml("- "+apiResultArray.join("\r\n- "));
@@ -475,6 +478,18 @@ $(document).ready(function ()
                     $("#btnSearch").trigger("click")
             }
     }
+	
+	getTamilLetters = function(tamilword){
+		 var mat_graph = tamilword.match(/[ஃ-ஹ]([ா-்]|)/gi);
+
+        if (mat_graph === null)
+        {
+            //graphTD = 'graph TD;\nA["' + word_for_graph + '"]-->B["இது தமிழ் மொழிச் சொல் இல்லை"];'
+        }else{
+			
+		}
+		return mat_graph
+	}
 
     drawWordLettersGraph = function (word_for_graph)
     {
