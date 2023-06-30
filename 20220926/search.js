@@ -141,20 +141,20 @@ $(document).ready(function ()
                     {
                         if (index === 0)
                         {
-                            edhukaisorkal_regex += "_"
-                        }
-                        else
-                        {
-                            edhukaisorkal_regex += value
-                        }
-
-                        if (index === 1)
-                        {
                             monaisorkal_regex += "_"
                         }
                         else
                         {
                             monaisorkal_regex += value
+                        }
+
+                        if (index === 1)
+                        {
+                           edhukaisorkal_regex  += "_"
+                        }
+                        else
+                        {
+                           edhukaisorkal_regex  += value
                         }
                     }
                     )
