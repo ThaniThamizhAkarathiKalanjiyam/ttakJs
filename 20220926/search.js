@@ -457,7 +457,7 @@ $(document).ready(function ()
 	
 	$("#btnEthukai").click(function(){
 		
-		$( "#dialog" ).dialog("open")
+		//$( "#dialog" ).dialog("open")
 		
 	})
 
