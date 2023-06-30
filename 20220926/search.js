@@ -194,7 +194,7 @@ $(document).ready(function ()
 
                         if (value1.Name === "dictionary_term")
                         {
-                            apiResult += "\r\n- " + value1.Value
+                            apiResultArray += "\r\n- " + value1.Value
                         }
                         // if (value1.Name === "dictionary_name")
                         // {
