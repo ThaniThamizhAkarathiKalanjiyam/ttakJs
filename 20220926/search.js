@@ -170,7 +170,7 @@ $(document).ready(function ()
         var sql_encoded = $.base64.btoa(funcData.sql, true);
         fd.append('sql', sql_encoded);
 
-        var apiResultArray = "";
+        var apiResultArray = [];
 
         $.ajax(
         {
@@ -194,7 +194,10 @@ $(document).ready(function ()
 
                         if (value1.Name === "dictionary_term")
                         {
-                            apiResultArray += "\r\n- " + value1.Value
+							if(apiResultArray.includes() === false)
+							{
+								apiResultArray.append(value1.Value)
+							}
                         }
                         // if (value1.Name === "dictionary_name")
                         // {
@@ -219,7 +222,7 @@ $(document).ready(function ()
                     $(h3Div).html("கிளைச் சொற்கள்")//apiResult.dictionary_name)
                     $(accordionDiv).append(h3Div)
 					
-                var htmlVal = converter.makeHtml(apiResultArray);
+                var htmlVal = converter.makeHtml(apiResultArray.join("- "));
                 var pDiv = $("<p>")
                     //$(pDiv).addClass(apiResult.class)
 
