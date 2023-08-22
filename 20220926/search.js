@@ -362,7 +362,7 @@ $(document).ready(function ()
 
 					if(index === 0){
 						updateSearchWord2twn_synset({
-							"db-name":"twn_pitchaimuthu-2.db",
+							"dbname":"twn_pitchaimuthu-2.db",
 							"sql":"insert into twn_synset (word) values (''" + funcData.searctTextVal + "';",
 							//'" + searctTextVal + "';",
 						})
