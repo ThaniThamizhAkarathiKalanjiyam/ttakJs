@@ -361,7 +361,9 @@ $(document).ready(function ()
                     {
 
 					if(index === 0){
-						var insert_sql = "insert into search_termset (search_term) values ('" + funcData.searctTextVal + "');"
+						var insert_sql = "INSERT OR REPLACE into search_termset (search_term) values ('" + funcData.searctTextVal + "');"
+						insert_sql += "insert into search_timestamp (search_termset_id) values ('select search_termset_id from search_termset where search_term'" + funcData.searctTextVal + "'');"
+						//Table/view: search_timestamp
 						console.log("insert_sql",insert_sql)
 						updateSearchWord2twn_synset({
 							"dbname":"twn_pitchaimuthu-2.db",
