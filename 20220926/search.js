@@ -361,9 +361,11 @@ $(document).ready(function ()
                     {
 
 					if(index === 0){
+						var insert_sql = "insert into twn_synset (word) values ('" + funcData.searctTextVal + "');"
+						console.log("insert_sql",insert_sql)
 						updateSearchWord2twn_synset({
 							"dbname":"twn_pitchaimuthu-2.db",
-							"sql":"insert into twn_synset (word) values ('" + funcData.searctTextVal + "');",
+							"sql":insert_sql,
 							//'" + searctTextVal + "';",
 						})
 					}
