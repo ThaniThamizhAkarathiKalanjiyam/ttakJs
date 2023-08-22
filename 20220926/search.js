@@ -360,6 +360,77 @@ $(document).ready(function ()
                     $.each(obj, function (index, value)
                     {
 
+					if(index === 0){
+						updateSearchWord2twn_synset({
+							"db-name":"twn_pitchaimuthu-2.db",
+							"sql":"insert into twn_synset (word) values (''" + searctTextVal + "';",
+							//'" + searctTextVal + "';",
+						})
+					}
+                        //console.log(value)
+                        var apiResult = {};
+
+                        $.each(value, function (index1, value1)
+                        {
+
+                            if (value1.Name === "dictionary_meaning")
+                            {
+                                apiResult.dictionary_meaning = value1.Value
+                            }
+                            if (value1.Name === "dictionary_name")
+                            {
+                                if (funcData.dictionary_name == undefined)
+                                {
+                                    apiResult.dictionary_name = value1.Value
+                                }
+                                else
+                                {
+                                    apiResult.dictionary_name = funcData.dictionary_name
+                                }
+
+                            }
+
+                        }
+                        );
+                        addMeaning(funcData, apiResult)
+
+                    }
+                    )
+                }
+            }
+        }
+        );
+    }
+	
+	updateSearchWord2twn_synset = function (funcData)
+    {
+        var fd = new FormData();
+        fd.append('dbowner', "pitchai_dbhub");
+        fd.append('dbname', funcData.dbname);
+        //fd.append('sql', "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En");
+        //var sql = "select * from tamil_dict1 where dictionary_term='" + funcData.searctTextVal + "';";
+        var sql_encoded = $.base64.btoa(funcData.sql, true);
+        fd.append('sql', sql_encoded);
+
+        $.ajax(
+        {
+            url: 'https://api.dbhub.io/v1/query?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
+            data: fd,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function (jsonObj)
+            {
+                if (jsonObj !== null && jsonObj !== "null")
+                {
+                    var obj = $.parseJSON(jsonObj);
+                    //console.log(obj);
+                    $.each(obj, function (index, value)
+                    {
+
+						// if(index === 0){
+							// updateSearchWord2twn_synset()
+						// }
                         //console.log(value)
                         var apiResult = {};
 
