@@ -361,7 +361,7 @@ $(document).ready(function ()
                     {
 
 					if(index === 0){
-						var insert_sql = "insert into twn_synset (word) values ('" + funcData.searctTextVal + "');"
+						var insert_sql = "insert into search_termset (search_term) values ('" + funcData.searctTextVal + "');"
 						console.log("insert_sql",insert_sql)
 						updateSearchWord2twn_synset({
 							"dbname":"twn_pitchaimuthu-2.db",
@@ -434,32 +434,7 @@ $(document).ready(function ()
 							// updateSearchWord2twn_synset()
 						// }
                         //console.log(value)
-                        var apiResult = {};
-
-                        $.each(value, function (index1, value1)
-                        {
-
-                            if (value1.Name === "dictionary_meaning")
-                            {
-                                apiResult.dictionary_meaning = value1.Value
-                            }
-                            if (value1.Name === "dictionary_name")
-                            {
-                                if (funcData.dictionary_name == undefined)
-                                {
-                                    apiResult.dictionary_name = value1.Value
-                                }
-                                else
-                                {
-                                    apiResult.dictionary_name = funcData.dictionary_name
-                                }
-
-                            }
-
-                        }
-                        );
-                        addMeaning(funcData, apiResult)
-
+                       
                     }
                     )
                 }
