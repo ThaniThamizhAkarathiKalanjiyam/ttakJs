@@ -346,7 +346,7 @@ $(document).ready(function ()
 
         $.ajax(
         {
-            url: 'https://api.dbhub.io/v1/execute?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
+            url: 'https://api.dbhub.io/v1/query?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
             data: fd,
             processData: false,
             contentType: false,
@@ -416,7 +416,7 @@ $(document).ready(function ()
 
         $.ajax(
         {
-            url: 'https://api.dbhub.io/v1/query?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
+            url: 'https://api.dbhub.io/v1/execute?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
             data: fd,
             processData: false,
             contentType: false,
