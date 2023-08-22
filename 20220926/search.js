@@ -333,7 +333,7 @@ $(document).ready(function ()
         }
         );
     }
-
+var pre_searctTextVal = ""
     getTamilMeaningAndAddToElem = function (funcData)
     {
         var fd = new FormData();
@@ -360,7 +360,10 @@ $(document).ready(function ()
                     $.each(obj, function (index, value)
                     {
 
-					if(index === 0){
+					if(index === 0 && pre_searctTextVal != funcData.searctTextVal){
+						
+						pre_searctTextVal = funcData.searctTextVal
+						
 						var insert_sql = "INSERT into search_termset (search_term) values ('" + funcData.searctTextVal + "');"						
 						//Table/view: search_timestamp
 						console.log("insert_sql",insert_sql)
