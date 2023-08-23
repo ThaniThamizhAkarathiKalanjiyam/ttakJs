@@ -821,7 +821,7 @@ $(document).ready(function ()
 							var linkWords = $("<a>")
 							linkWords.attr("href","/searche?q="+value1)
 							linkWords.addClass( addClass )
-							linkWords.html(value1)
+							linkWords.html(value1+"&#9;")
 
 							$("#divMostPopularWords").append(linkWords)
 						}
