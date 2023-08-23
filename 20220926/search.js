@@ -777,8 +777,8 @@ var pre_searctTextVal = ""
 		{
 			dbname:"twn_pitchaimuthu-2.db",
 			sql:"select * from search_term_popular;",
-			sql_api_cmd="query",
-			sql_api_call_back=function(jsonObj){
+			sql_api_cmd:"query",
+			sql_api_call_back:function(jsonObj){
 				console.log(jsonObj)
 			}
 		)
