@@ -795,9 +795,9 @@ $(document).ready(function ()
                             if (value1.Name === "search_term")
                             {
                                 var apiResultArrayLoc2 = $.trim(value1.Value)
-                                    if (apiResultArray.includes(apiResultArrayLoc2) === false)
+                                    if (apiResultArrayLoc2.includes(apiResultArrayLoc2) === false)
                                     {
-                                        apiResultArray.push(apiResultArrayLoc2)
+                                        apiResultArrayLoc2.push(apiResultArrayLoc2)
                                     }
                             }
                         }
