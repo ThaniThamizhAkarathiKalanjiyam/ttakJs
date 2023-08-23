@@ -773,7 +773,7 @@ var pre_searctTextVal = ""
 	
 	load_divMostPopularWords = function(){
 		
-		if($("#divMostPopularWords").css("display") !== "none")
+		if($("#divMostPopularWords").css("visibility") !== "hidden")
 		{
 			api_dbhub_io(
 				{
@@ -782,6 +782,23 @@ var pre_searctTextVal = ""
 					sql_api_cmd:"query",
 					sql_api_call_back:function(resJsonObj){
 						console.log(resJsonObj)
+						var apiResultArrayLoc2 = []
+						$.each(resJsonObj, function (index, value)
+						{
+							$.each(value, function (index1, value1)
+							{
+									if (value1.Name === "search_term")
+									{
+										var apiResultArrayLoc2 = $.trim(value1.Value)
+											if (apiResultArray.includes(apiResultArrayLoc2) === false)
+											{
+												apiResultArray.push(apiResultArrayLoc2)
+											}
+									}
+							}
+						}
+						
+						$("#divMostPopularWords").html(apiResultArrayLoc2.join(", "))
 					}
 				}
 			)
