@@ -241,6 +241,46 @@ $(document).ready(function ()
 
     }
     )
+	
+	
+	
+	
+api_dbhub_io = function (funcData)
+    {
+//funcData.dbname
+//funcData.sql
+//funcData.sql_api_cmd=[query|execute]
+//funcData.sql_api_call_back=function(jsonObj)
+
+        var fd = new FormData();
+        fd.append('dbowner', "pitchai_dbhub");
+        fd.append('dbname', funcData.dbname);
+        //fd.append('sql', "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En");
+        //var sql = "select * from tamil_dict1 where dictionary_term='" + funcData.searctTextVal + "';";
+        var sql_encoded = $.base64.btoa(funcData.sql, true);
+        fd.append('sql', sql_encoded);
+        fd.append('sql_txt', funcData.sql);
+
+        var apiResultArray = [];
+
+        $.ajax(
+        {
+            url: 'https://api.dbhub.io/v1/'+funcData.sql_api_cmd+'?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
+            data: fd,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function (resStr)
+            {
+                if (resStr !== null && resStr !== "null")
+                {
+                    var jsonObj = $.parseJSON(resStr);
+                    funcData.sql_api_call_back(jsonObj)
+                }
+            }
+        }
+        );
+    }
 
     getTamilGroupWordsAndAddToElem = function (funcData)
     {
@@ -516,7 +556,7 @@ var pre_searctTextVal = ""
 
                     var changed_uyir_mey = tam_consonant_val + accent_symbol_val
                     $(tam_vowel_id).html(changed_uyir_mey)
-
+					
             }
             )
 
@@ -730,9 +770,27 @@ var pre_searctTextVal = ""
 
     }
     )
+	
+	load_divMostPopularWords = function(){
+		
+		api_dbhub_io = function (funcData)
+		{
+			funcData.dbname:"",
+			funcData.sql:"",
+			funcData.sql_api_cmd="query",
+			funcData.sql_api_call_back=function(jsonObj){
+				
+			}
+		}
+		
+	}
 
     var jqxhr = $.when(init_getJSON())
-        .then(function ()  {}
+        .then(function ()  {
+			
+			load_divMostPopularWords()
+			
+		}
         )
         .done(function ()
         {
