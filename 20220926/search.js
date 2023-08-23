@@ -274,8 +274,8 @@ api_dbhub_io = function (funcData)
             {
                 if (resStr !== null && resStr !== "null")
                 {
-                    var jsonObj = $.parseJSON(resStr);
-                    funcData.sql_api_call_back(jsonObj)
+                    var resJsonObj = $.parseJSON(resStr);
+                    funcData.sql_api_call_back(resJsonObj)
                 }
             }
         }
@@ -773,17 +773,19 @@ var pre_searctTextVal = ""
 	
 	load_divMostPopularWords = function(){
 		
-		api_dbhub_io(
+		if($("#divMostPopularWords").css("display") !== "none")
 		{
-			dbname:"twn_pitchaimuthu-2.db",
-			sql:"select * from search_term_popular;",
-			sql_api_cmd:"query",
-			sql_api_call_back:function(jsonObj){
-				console.log(jsonObj)
-			}
+			api_dbhub_io(
+				{
+					dbname:"twn_pitchaimuthu-2.db",
+					sql:"select * from search_term_popular;",
+					sql_api_cmd:"query",
+					sql_api_call_back:function(resJsonObj){
+						console.log(resJsonObj)
+					}
+				}
+			)
 		}
-		)
-		
 	}
 
     var jqxhr = $.when(init_getJSON())
