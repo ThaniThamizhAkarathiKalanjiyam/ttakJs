@@ -139,7 +139,7 @@ $(document).ready(function ()
 
                     $.each(tam_separate_letters, function (index, value)
                     {
-						//இரண்டாம் எழுத்து "ந்" ஒன்றாக அமைவதால் இவை எதுகை எனச் சுட்டப்படுகின்றன.
+                        //இரண்டாம் எழுத்து "ந்" ஒன்றாக அமைவதால் இவை எதுகை எனச் சுட்டப்படுகின்றன.
                         if (index === 0)
                         {
                             edhukaisorkal_regex += "_"
@@ -148,8 +148,8 @@ $(document).ready(function ()
                         {
                             edhukaisorkal_regex += value
                         }
-						
-						//முதல் எழுத்து "ந்" ஒன்றாக அமைவதால் இவை மோனை எனச் சுட்டப்படுகின்றன.
+
+                        //முதல் எழுத்து "ந்" ஒன்றாக அமைவதால் இவை மோனை எனச் சுட்டப்படுகின்றன.
                         if (index === 1)
                         {
                             monaisorkal_regex += "_"
@@ -166,19 +166,19 @@ $(document).ready(function ()
                         "searctTextVal": searctTextVal,
                         "dbname": "dictionary_termset_lt_853755.db",
                         "sql": "select dictionary_term from tamil_dict1 where "
-						+ "dictionary_term like '" + edhukaisorkal_regex + "'"
-						+ " or dictionary_term like '" + edhukaisorkal_regex.replace("_","_்") + "'"
-						+ " or dictionary_term like '" + edhukaisorkal_regex.replace("_","_ா") + "'"
-						+ " or dictionary_term like '" + edhukaisorkal_regex.replace("_","_ி") + "'"
-						+ " or dictionary_term like '" + edhukaisorkal_regex.replace("_","_ீ") + "'"
-						+ " or dictionary_term like '" + edhukaisorkal_regex.replace("_","_ு") + "'"
-						+ " or dictionary_term like '" + edhukaisorkal_regex.replace("_","_ூ") + "'"
-						+ " or dictionary_term like '" + edhukaisorkal_regex.replace("_","_ெ") + "'"
-						+ " or dictionary_term like '" + edhukaisorkal_regex.replace("_","_ே") + "'"
-						+ " or dictionary_term like '" + edhukaisorkal_regex.replace("_","_ை") + "'"
-						+ " or dictionary_term like '" + edhukaisorkal_regex.replace("_","_ொ") + "'"
-						+ " or dictionary_term like '" + edhukaisorkal_regex.replace("_","_ோ") + "'"
-						+ " or dictionary_term like '" + edhukaisorkal_regex.replace("_","_ௌ") + "'"
+                         + "dictionary_term like '" + edhukaisorkal_regex + "'"
+                         + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_்") + "'"
+                         + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ா") + "'"
+                         + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ி") + "'"
+                         + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ீ") + "'"
+                         + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ு") + "'"
+                         + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ூ") + "'"
+                         + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ெ") + "'"
+                         + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ே") + "'"
+                         + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ை") + "'"
+                         + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ொ") + "'"
+                         + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ோ") + "'"
+                         + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ௌ") + "'"
                          + " order by dictionary_term;",
                         "resultElement": "#sidebar",
                         "dictionary_name": "எதுகை சொற்கள்"
@@ -189,21 +189,21 @@ $(document).ready(function ()
                     {
                         "searctTextVal": searctTextVal,
                         "dbname": "dictionary_termset_lt_853755.db",
-                        "sql": "select dictionary_term from tamil_dict1 where " 
-						+ "dictionary_term like '" + monaisorkal_regex + "'"
-						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_்") + "'"
-						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ா") + "'"
-						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ி") + "'"
-						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ீ") + "'"
-						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ு") + "'"
-						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ூ") + "'"
-						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ெ") + "'"
-						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ே") + "'"
-						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ை") + "'"
-						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ொ") + "'"
-						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ோ") + "'"
-						+ " or dictionary_term like '" + monaisorkal_regex.replace("_","_ௌ") + "'"
-						+ " order by dictionary_term;",
+                        "sql": "select dictionary_term from tamil_dict1 where "
+                         + "dictionary_term like '" + monaisorkal_regex + "'"
+                         + " or dictionary_term like '" + monaisorkal_regex.replace("_", "_்") + "'"
+                         + " or dictionary_term like '" + monaisorkal_regex.replace("_", "_ா") + "'"
+                         + " or dictionary_term like '" + monaisorkal_regex.replace("_", "_ி") + "'"
+                         + " or dictionary_term like '" + monaisorkal_regex.replace("_", "_ீ") + "'"
+                         + " or dictionary_term like '" + monaisorkal_regex.replace("_", "_ு") + "'"
+                         + " or dictionary_term like '" + monaisorkal_regex.replace("_", "_ூ") + "'"
+                         + " or dictionary_term like '" + monaisorkal_regex.replace("_", "_ெ") + "'"
+                         + " or dictionary_term like '" + monaisorkal_regex.replace("_", "_ே") + "'"
+                         + " or dictionary_term like '" + monaisorkal_regex.replace("_", "_ை") + "'"
+                         + " or dictionary_term like '" + monaisorkal_regex.replace("_", "_ொ") + "'"
+                         + " or dictionary_term like '" + monaisorkal_regex.replace("_", "_ோ") + "'"
+                         + " or dictionary_term like '" + monaisorkal_regex.replace("_", "_ௌ") + "'"
+                         + " order by dictionary_term;",
                         "resultElement": "#sidebar",
                         "dictionary_name": "மோனைச் சொற்கள்"
                     }
@@ -241,16 +241,13 @@ $(document).ready(function ()
 
     }
     )
-	
-	
-	
-	
-api_dbhub_io = function (funcData)
+
+    api_dbhub_io = function (funcData)
     {
-//funcData.dbname
-//funcData.sql
-//funcData.sql_api_cmd=[query|execute]
-//funcData.sql_api_call_back=function(jsonObj)
+        //funcData.dbname
+        //funcData.sql
+        //funcData.sql_api_cmd=[query|execute]
+        //funcData.sql_api_call_back=function(jsonObj)
 
         var fd = new FormData();
         fd.append('dbowner', "pitchai_dbhub");
@@ -265,7 +262,7 @@ api_dbhub_io = function (funcData)
 
         $.ajax(
         {
-            url: 'https://api.dbhub.io/v1/'+funcData.sql_api_cmd+'?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
+            url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd + '?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
             data: fd,
             processData: false,
             contentType: false,
@@ -373,8 +370,8 @@ api_dbhub_io = function (funcData)
         }
         );
     }
-var pre_searctTextVal = ""
-    getTamilMeaningAndAddToElem = function (funcData)
+    var pre_searctTextVal = ""
+        getTamilMeaningAndAddToElem = function (funcData)
     {
         var fd = new FormData();
         fd.append('dbowner', "pitchai_dbhub");
@@ -400,27 +397,32 @@ var pre_searctTextVal = ""
                     $.each(obj, function (index, value)
                     {
 
-					if(index === 0 && pre_searctTextVal != funcData.searctTextVal){
-						
-						pre_searctTextVal = funcData.searctTextVal
-						
-						var insert_sql = "INSERT into search_termset (search_term) values ('" + funcData.searctTextVal + "');"						
-						//Table/view: search_timestamp
-						console.log("insert_sql",insert_sql)
-						updateSearchWord2twn_synset({
-							"dbname":"twn_pitchaimuthu-2.db",
-							"sql":insert_sql,
-							//'" + searctTextVal + "';",
-						})
-						insert_sql = "insert into search_timestamp (search_termset_id) select search_termset_id from search_termset where search_term='" + funcData.searctTextVal + "';"
-						//Table/view: search_timestamp
-						console.log("insert_sql",insert_sql)
-						updateSearchWord2twn_synset({
-							"dbname":"twn_pitchaimuthu-2.db",
-							"sql":insert_sql,
-							//'" + searctTextVal + "';",
-						})
-					}
+                        if (index === 0 && pre_searctTextVal != funcData.searctTextVal)
+                        {
+
+                            pre_searctTextVal = funcData.searctTextVal
+
+                                var insert_sql = "INSERT into search_termset (search_term) values ('" + funcData.searctTextVal + "');"
+                                //Table/view: search_timestamp
+                                console.log("insert_sql", insert_sql)
+                                updateSearchWord2twn_synset(
+                                {
+                                    "dbname": "twn_pitchaimuthu-2.db",
+                                    "sql": insert_sql,
+                                    //'" + searctTextVal + "';",
+                                }
+                                )
+                                insert_sql = "insert into search_timestamp (search_termset_id) select search_termset_id from search_termset where search_term='" + funcData.searctTextVal + "';"
+                                //Table/view: search_timestamp
+                                console.log("insert_sql", insert_sql)
+                                updateSearchWord2twn_synset(
+                                {
+                                    "dbname": "twn_pitchaimuthu-2.db",
+                                    "sql": insert_sql,
+                                    //'" + searctTextVal + "';",
+                                }
+                                )
+                        }
                         //console.log(value)
                         var apiResult = {};
 
@@ -455,8 +457,8 @@ var pre_searctTextVal = ""
         }
         );
     }
-	
-	updateSearchWord2twn_synset = function (funcData)
+
+    updateSearchWord2twn_synset = function (funcData)
     {
         var fd = new FormData();
         fd.append('dbowner', "pitchai_dbhub");
@@ -482,11 +484,11 @@ var pre_searctTextVal = ""
                     $.each(obj, function (index, value)
                     {
 
-						// if(index === 0){
-							// updateSearchWord2twn_synset()
-						// }
+                        // if(index === 0){
+                        // updateSearchWord2twn_synset()
+                        // }
                         //console.log(value)
-                       
+
                     }
                     )
                 }
@@ -556,7 +558,7 @@ var pre_searctTextVal = ""
 
                     var changed_uyir_mey = tam_consonant_val + accent_symbol_val
                     $(tam_vowel_id).html(changed_uyir_mey)
-					
+
             }
             )
 
@@ -770,47 +772,53 @@ var pre_searctTextVal = ""
 
     }
     )
-	
-	load_divMostPopularWords = function(){
-		
-		if($("#divMostPopularWords").css("visibility") !== "hidden")
-		{
-			api_dbhub_io(
-				{
-					dbname:"twn_pitchaimuthu-2.db",
-					sql:"select * from search_term_popular;",
-					sql_api_cmd:"query",
-					sql_api_call_back:function(resJsonObj){
-						console.log(resJsonObj)
-						var apiResultArrayLoc2 = []
-						$.each(resJsonObj, function (index, value)
-						{
-							$.each(value, function (index1, value1)
-							{
-									if (value1.Name === "search_term")
-									{
-										var apiResultArrayLoc2 = $.trim(value1.Value)
-											if (apiResultArray.includes(apiResultArrayLoc2) === false)
-											{
-												apiResultArray.push(apiResultArrayLoc2)
-											}
-									}
-							}
-						}
-						
-						$("#divMostPopularWords").html(apiResultArrayLoc2.join(", "))
-					}
-				}
-			)
-		}
-	}
+
+    load_divMostPopularWords = function ()
+    {
+
+        if ($("#divMostPopularWords").css("visibility") !== "hidden")
+        {
+            api_dbhub_io(
+            {
+                dbname: "twn_pitchaimuthu-2.db",
+                sql: "select * from search_term_popular;",
+                sql_api_cmd: "query",
+                sql_api_call_back: function (resJsonObj)
+                {
+                    console.log(resJsonObj)
+                    var apiResultArrayLoc2 = []
+                    $.each(resJsonObj, function (index, value)
+                    {
+                        $.each(value,
+                            function (index1, value1)
+                        {
+                            if (value1.Name === "search_term")
+                            {
+                                var apiResultArrayLoc2 = $.trim(value1.Value)
+                                    if (apiResultArray.includes(apiResultArrayLoc2) === false)
+                                    {
+                                        apiResultArray.push(apiResultArrayLoc2)
+                                    }
+                            }
+                        }
+                        )
+                    }
+                    )
+
+                    $("#divMostPopularWords").html(apiResultArrayLoc2.join(", "))
+                }
+            }
+            )
+        }
+    }
 
     var jqxhr = $.when(init_getJSON())
-        .then(function ()  {
-			
-			load_divMostPopularWords()
-			
-		}
+        .then(function ()
+        {
+
+            load_divMostPopularWords()
+
+        }
         )
         .done(function ()
         {
@@ -828,7 +836,7 @@ var pre_searctTextVal = ""
     {
 
         //drawWordLettersGraph("தமிழ்")
-		$(".mermaid").hide()
+        $(".mermaid").hide()
 
     }
     );
