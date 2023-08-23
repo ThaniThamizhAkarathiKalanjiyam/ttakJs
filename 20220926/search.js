@@ -794,10 +794,10 @@ $(document).ready(function ()
                         {
                             if (value1.Name === "search_term")
                             {
-                                var apiResultArrayLoc2 = $.trim(value1.Value)
-                                    if (apiResultArrayLoc2.includes(apiResultArrayLoc2) === false)
+                                var apiResultArrayLoc2Term = $.trim(value1.Value)
+                                    if (apiResultArrayLoc2.includes(apiResultArrayLoc2Term) === false)
                                     {
-                                        apiResultArrayLoc2.push(apiResultArrayLoc2)
+                                        apiResultArrayLoc2.push(apiResultArrayLoc2Term)
                                     }
                             }
                         }
