@@ -808,8 +808,19 @@ $(document).ready(function ()
 					$.each(apiResultArrayLoc2,
                         function (index1, value1)
                         {
+							var addClassMod = index1 %6
+							var addClass = ""
+							
+							if(addClassMod == 0)	 {addClass = "link-primary"}
+							else if(addClassMod == 1){addClass = "link-secondary"}
+							else if(addClassMod == 2){addClass = "link-success"}
+							else if(addClassMod == 3){addClass = "link-danger"}
+							else if(addClassMod == 4){addClass = "link-warning"}
+							else if(addClassMod == 5){addClass = "link-info"}
+							
 							var linkWords = $("<a>")
 							linkWords.attr("href","/searche?q="+value1)
+							linkWords.addClass( addClass )
 							linkWords.html(value1)
 
 							$("#divMostPopularWords").append(linkWords)
