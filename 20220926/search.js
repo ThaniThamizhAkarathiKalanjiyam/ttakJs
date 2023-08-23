@@ -812,7 +812,7 @@ $(document).ready(function ()
 							linkWords.attr("href","/searche?q="+value1)
 							linkWords.html(value1)
 
-							$("#divMostPopularWords").appendChild(linkWords)
+							$("#divMostPopularWords").append(linkWords)
 						}
 					)
                 }
