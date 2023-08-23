@@ -804,8 +804,17 @@ $(document).ready(function ()
                         )
                     }
                     )
+					
+					$.each(apiResultArrayLoc2,
+                        function (index1, value1)
+                        {
+							var linkWords = $("<a>")
+							linkWords.attr("href","/searche?q="+value1)
+							linkWords.html(value1)
 
-                    $("#divMostPopularWords").html(apiResultArrayLoc2.join(", "))
+							$("#divMostPopularWords").appendChild(linkWords)
+						}
+					)
                 }
             }
             )
