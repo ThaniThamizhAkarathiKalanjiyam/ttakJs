@@ -773,15 +773,15 @@ var pre_searctTextVal = ""
 	
 	load_divMostPopularWords = function(){
 		
-		api_dbhub_io = function (funcData)
+		api_dbhub_io(
 		{
-			funcData.dbname:"",
-			funcData.sql:"",
-			funcData.sql_api_cmd="query",
-			funcData.sql_api_call_back=function(jsonObj){
-				
+			dbname:"twn_pitchaimuthu-2.db",
+			sql:"select * from search_term_popular;",
+			sql_api_cmd="query",
+			sql_api_call_back=function(jsonObj){
+				console.log(jsonObj)
 			}
-		}
+		)
 		
 	}
 
