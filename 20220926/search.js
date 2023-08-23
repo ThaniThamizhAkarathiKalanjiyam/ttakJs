@@ -781,6 +781,7 @@ var pre_searctTextVal = ""
 			sql_api_call_back:function(jsonObj){
 				console.log(jsonObj)
 			}
+		}
 		)
 		
 	}
