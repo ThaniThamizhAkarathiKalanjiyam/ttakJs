@@ -1,6 +1,6 @@
 
     $(document).ready(function () {
-        $('#PersonTableContainer').jtable({
+        $('#DictListContainer').jtable({
             title: 'Table of people',
             actions: {
                 listAction: '/GettingStarted/PersonList',
