@@ -66,7 +66,7 @@
 				monai: {
 					title: 'மோனை',
 					width: '1%',
-					list:false
+					list:false,
 					display: function (data) {
 						var $img = $("<span>")
 						$img.addClass("child-opener-image material-icons")
