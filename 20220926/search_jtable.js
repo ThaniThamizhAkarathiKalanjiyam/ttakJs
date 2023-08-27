@@ -45,7 +45,7 @@
 														// apiResultArray.push(apiResultArrayLoc)
 													// }
 											// }
-											debugger
+											
 											singleRecord[value1.Name]=value1.Value
 											// ({
 												// value1.Name,
@@ -102,7 +102,16 @@
                 },
                 dictionary_term: {
                     title: 'சொல்',
-                    width: '20%'
+                    width: '20%',
+					display:function(data){
+						
+						var aObj = $("<a>")
+						aObj.attr("href","https://thanithamizhakarathikalanjiyam.github.io/searche?q="+data.dictionary_term)
+						aObj.html(data.dictionary_term)
+						
+						return aObj
+						
+					}
                 },
                 dictionary_meaning: {
                     title: 'பொருள்',
