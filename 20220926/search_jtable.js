@@ -10,8 +10,8 @@ getAllDictionary = function(funcData){
 			"sql_api_cmd":"query",
 			"sql_api_call_back":function(jsonObj,resJsonObjJtable){
 								
-				$.each(resJsonObjJtable,function(index,value){
-					
+				$.each(resJsonObjJtable.Records,function(index,value){
+					debugger
 					var dictOption = $('<option>')
 					dictOption.attr("value",value.dictionaryset_id)
 					dictOption.html(value.dictionary_name)
