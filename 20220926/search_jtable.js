@@ -1,9 +1,26 @@
 
     $(document).ready(function () {
 		
+getAllDictionary = function(funcData){
+	
+	api_dbhub_io(
+		{
+			"dbname":"dictionary_termset_lt_853755.db",
+			"sql":"select * from dictionaryset;",
+			"sql_api_cmd":"query",
+			"sql_api_call_back":function(jsonObj,resJsonObjJtable){
+				console.log("test",resJsonObjJtable)
+				//resJsonObjJtable.TotalRecordCount = 1707511
+				
+				//$dfd.resolve(resJsonObjJtable);
+				
+			}
+		}
+	)
+	
+}		
 		
-		
-		
+initDictListContainer = function(){
 		
         $('#DictListContainer').jtable({
             title: 'சொற் பக்கங்கள்',
@@ -31,25 +48,9 @@
 								"sql_api_cmd":"query",
 								"sql_api_call_back":function(jsonObj,resJsonObjJtable){
 									console.log("test",jsonObj)
-									
-									//var records = {
-                                    //    "Result": "OK",
-                                    //    "Records": [],
-									//	"TotalRecordCount":1707511//853755
 									resJsonObjJtable.TotalRecordCount = 1707511
-                                    //}
-									//
-									//$.each(jsonObj, function (index, value)
-									//{
-									//	var singleRecord = {}
-									//	$.each(value, function (index1, value1)
-									//	{											
-									//		singleRecord[value1.Name]=value1.Value
-									//	})
-									//	records.Records.push(singleRecord)
-									//})
 									
-									$dfd.resolve(resJsonObjJtable);
+                                    $dfd.resolve(resJsonObjJtable);
 									
 								}
 							}
@@ -115,4 +116,21 @@
             }
         });
 		$('#DictListContainer').jtable("load");
+}
+		
+		//Initial method call
+var jqxhr = $.when(
+getAllDictionary ()
+).then(function () {
+initDictListContainer()	
+});
+// Set another completion function for the request above
+jqxhr.always(function () {
+	//Elements event Functionality Starts
+	//Elements event Functionality Ends
+	$("#diagFilterPackOrder").css("display","")
+});
+		
+		
+		
     });
