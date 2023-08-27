@@ -9,10 +9,10 @@
                       
 						api_dbhub_io(
 							{
-								funcData.dbname:"dictionary_termset_lt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db
-								funcData.sql:"select * from dictionary_termset",
-								funcData.sql_api_cmd:"query"
-								funcData.sql_api_call_back:function(jsonObj){
+								"dbname":"dictionary_termset_lt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db
+								"sql":"select * from dictionary_termset LIMIT 100 OFFSET 0;",
+								"sql_api_cmd":"query"
+								"sql_api_call_back":function(jsonObj){
 									console.log("test",jsonObj)
 								}
 							}
