@@ -67,7 +67,7 @@
 					display: function (data) {
 						var $img = $("<span>")
 						$img.addClass("child-opener-image material-icons")
-						$img.attr("src", baseUrl + "/Content/img/list_metro.png")
+						$img.attr("src", "/Content/img/list_metro.png")
 						$img.attr("title", "Details")
 
 						if(data.record.picked === true){
