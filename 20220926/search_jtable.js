@@ -2,6 +2,11 @@
     $(document).ready(function () {
         $('#DictListContainer').jtable({
             title: 'சொற் பக்கங்கள்',
+			paging: true,
+            pageSize: 10,
+            sorting: true,
+            defaultSorting: 'created_date ASC',
+            openChildAsAccordion: true,
             actions: {
                 listAction: function (postData, jtParams) {
                     
