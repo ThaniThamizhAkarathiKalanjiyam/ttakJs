@@ -64,7 +64,7 @@ initDictListContainer = function(){
 					  var sqlLOC = "select * from dictionary_termset"
 					  var sqlWhereClause = ""
 					  var sqlLimitClause = " LIMIT "+jtParams.jtPageSize+" OFFSET "+startIndex+";";
-					  if(postData.dictionaryset_id != undefined){
+					  if(postData != undefined && postData.dictionaryset_id != undefined){
 						  sqlWhereClause = " where dictionaryset_id="+postData.dictionaryset_id;					  
 					  }
 					  
