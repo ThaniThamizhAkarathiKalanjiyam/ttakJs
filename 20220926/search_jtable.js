@@ -25,6 +25,20 @@ getAllDictionary = function(funcData){
 	)
 	
 }		
+
+
+$("#selDictID").on("change",function(event,eventData){
+	
+	
+	$('#DictListContainer').jtable("load",{
+		
+		"dictionaryset_id":$("#selDictID").val()
+		
+	});
+	
+})
+
+
 		
 initDictListContainer = function(){
 		
@@ -47,10 +61,19 @@ initDictListContainer = function(){
 						  startIndex = startIndex - 853755
 					  }
 					  
+					  var sqlLOC = "select * from dictionary_termset"
+					  var sqlWhereClause = ""
+					  var sqlLimitClause = " LIMIT "+jtParams.jtPageSize+" OFFSET "+startIndex+";";
+					  if(postData.dictionaryset_id != undefined){
+						  sqlWhereClause = " where dictionaryset_id="+postData.dictionaryset_id;					  
+					  }
+					  
+					  sqlLOC = sqlLOC + sqlWhereClause + sqlLimitClause
+					  
 						api_dbhub_io(
 							{
 								"dbname":startIndex<853755?"dictionary_termset_lt_853755.db":"dictionary_termset_gt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db
-								"sql":"select * from dictionary_termset LIMIT "+jtParams.jtPageSize+" OFFSET "+startIndex+";",
+								"sql": sqlLOC
 								"sql_api_cmd":"query",
 								"sql_api_call_back":function(jsonObj,resJsonObjJtable){
 									
@@ -121,7 +144,7 @@ initDictListContainer = function(){
                 }
             }
         });
-		$('#DictListContainer').jtable("load");
+		
 }
 		
 		//Initial method call
@@ -134,7 +157,7 @@ initDictListContainer()
 jqxhr.always(function () {
 	//Elements event Functionality Starts
 	//Elements event Functionality Ends
-	$("#diagFilterPackOrder").css("display","")
+	$('#DictListContainer').jtable("load");
 });
 		
 		
