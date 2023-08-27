@@ -24,7 +24,7 @@
                 inai: {
                     title: 'இணை',
                     width: '30%',                   
-                }
+                },
                 dictionary_term: {
                     title: 'சொல்',
                     width: '40%'
