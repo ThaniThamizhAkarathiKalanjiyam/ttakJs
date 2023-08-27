@@ -92,11 +92,11 @@
                 },
                 dictionary_term: {
                     title: 'சொல்',
-                    width: '40%'
+                    width: '20%'
                 },
                 dictionary_meaning: {
                     title: 'பொருள்',
-                    width: '20%'
+                    width: '80%'
                 }
             }
         });
