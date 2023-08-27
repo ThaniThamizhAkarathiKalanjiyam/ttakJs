@@ -274,7 +274,23 @@ $(document).ready(function ()
                 if (resStr !== null && resStr !== "null")
                 {
                     var resJsonObj = $.parseJSON(resStr);
-                    funcData.sql_api_call_back(resJsonObj)
+					var resJsonObjJtable = {
+						"Result": "OK",
+						"Records": [],
+						"TotalRecordCount":resJsonObj.length
+					}
+					
+					$.each(resJsonObj, function (index, value)
+					{
+						var singleRecord = {}
+						$.each(value, function (index1, value1)
+						{											
+							singleRecord[value1.Name]=value1.Value
+						})
+						resJsonObjJtable.Records.push(singleRecord)
+					})
+					
+                    funcData.sql_api_call_back(resJsonObj,resJsonObjJtable)
                 }
             }
         }

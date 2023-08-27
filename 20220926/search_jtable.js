@@ -29,39 +29,27 @@
 								"dbname":startIndex<853755?"dictionary_termset_lt_853755.db":"dictionary_termset_gt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db
 								"sql":"select * from dictionary_termset LIMIT "+jtParams.jtPageSize+" OFFSET "+startIndex+";",
 								"sql_api_cmd":"query",
-								"sql_api_call_back":function(jsonObj){
+								"sql_api_call_back":function(jsonObj,resJsonObjJtable){
 									console.log("test",jsonObj)
 									
-									var records = {
-                                        "Result": "OK",
-                                        "Records": [],
-										"TotalRecordCount":1707511//853755
-                                    }
+									//var records = {
+                                    //    "Result": "OK",
+                                    //    "Records": [],
+									//	"TotalRecordCount":1707511//853755
+									resJsonObjJtable.TotalRecordCount = 1707511
+                                    //}
+									//
+									//$.each(jsonObj, function (index, value)
+									//{
+									//	var singleRecord = {}
+									//	$.each(value, function (index1, value1)
+									//	{											
+									//		singleRecord[value1.Name]=value1.Value
+									//	})
+									//	records.Records.push(singleRecord)
+									//})
 									
-									$.each(jsonObj, function (index, value)
-									{
-										var singleRecord = {}
-										$.each(value, function (index1, value1)
-										{
-											
-											// if (value1.Name === "dictionary_term")
-											// {
-												// var apiResultArrayLoc = $.trim(value1.Value)
-													// if (apiResultArray.includes(apiResultArrayLoc) === false)
-													// {
-														// apiResultArray.push(apiResultArrayLoc)
-													// }
-											// }
-											
-											singleRecord[value1.Name]=value1.Value
-											// ({
-												// value1.Name,
-												// value1.Value
-											// })
-										})
-										records.Records.push(singleRecord)
-									})
-									$dfd.resolve(records);
+									$dfd.resolve(resJsonObjJtable);
 									
 								}
 							}
