@@ -1,11 +1,16 @@
 
     $(document).ready(function () {
+		
+		
+		
+		
+		
         $('#DictListContainer').jtable({
             title: 'சொற் பக்கங்கள்',
 			paging: true,
             pageSize: 10,
             sorting: true,
-            defaultSorting: 'created_date ASC',
+            defaultSorting: 'dictionary_term ASC',
             openChildAsAccordion: true,
             actions: {
                 listAction: function (postData, jtParams) {
@@ -15,7 +20,7 @@
 						api_dbhub_io(
 							{
 								"dbname":"dictionary_termset_lt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db
-								"sql":"select * from dictionary_termset LIMIT 100 OFFSET 0;",
+								"sql":"select * from dictionary_termset LIMIT "+jtParams.jtPageSize+" OFFSET "+jtParams.jtStartIndex+";",
 								"sql_api_cmd":"query",
 								"sql_api_call_back":function(jsonObj){
 									console.log("test",jsonObj)
