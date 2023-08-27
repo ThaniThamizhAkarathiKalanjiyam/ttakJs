@@ -244,10 +244,12 @@ $(document).ready(function ()
 
     api_dbhub_io = function (funcData)
     {
-        //funcData.dbname
-        //funcData.sql
-        //funcData.sql_api_cmd=[query|execute]
-        //funcData.sql_api_call_back=function(jsonObj)
+		//api_dbhub_io({
+        //funcData.dbname:"dbname",
+        //funcData.sql:"dbname",
+        //funcData.sql_api_cmd:"[query|execute]"
+        //funcData.sql_api_call_back=function(jsonObj){}
+		//})
 
         var fd = new FormData();
         fd.append('dbowner', "pitchai_dbhub");
