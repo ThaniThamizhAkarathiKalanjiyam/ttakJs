@@ -73,7 +73,7 @@ initDictListContainer = function(){
 						api_dbhub_io(
 							{
 								"dbname":startIndex<853755?"dictionary_termset_lt_853755.db":"dictionary_termset_gt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db
-								"sql": sqlLOC
+								"sql": sqlLOC,
 								"sql_api_cmd":"query",
 								"sql_api_call_back":function(jsonObj,resJsonObjJtable){
 									
