@@ -25,6 +25,7 @@
 										var singleRecord = {}
 										$.each(value, function (index1, value1)
 										{
+											singleRecord[index1] = {}
 											// if (value1.Name === "dictionary_term")
 											// {
 												// var apiResultArrayLoc = $.trim(value1.Value)
