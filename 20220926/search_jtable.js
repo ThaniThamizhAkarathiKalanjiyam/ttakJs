@@ -17,7 +17,8 @@
 									
 									var records = {
                                         "Result": "OK",
-                                        "Records": []
+                                        "Records": [],
+										"TotalRecordCount":853755
                                     }
 									
 									$.each(jsonObj, function (index, value)
