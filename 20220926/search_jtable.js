@@ -14,6 +14,35 @@
 								"sql_api_cmd":"query",
 								"sql_api_call_back":function(jsonObj){
 									console.log("test",jsonObj)
+									
+									var records = {
+                                        "Result": "OK",
+                                        "Records": []
+                                    }
+									
+									$.each(jsonObj, function (index, value)
+									{
+										var singleRecord = {}
+										$.each(value, function (index1, value1)
+										{
+											// if (value1.Name === "dictionary_term")
+											// {
+												// var apiResultArrayLoc = $.trim(value1.Value)
+													// if (apiResultArray.includes(apiResultArrayLoc) === false)
+													// {
+														// apiResultArray.push(apiResultArrayLoc)
+													// }
+											// }
+											singleRecord[index1][value1.Name]=value1.Value
+											// ({
+												// value1.Name,
+												// value1.Value
+											// })
+										})
+										records.Records.push(singleRecord)
+									})
+									$dfd.resolve(records);
+									
 								}
 							}
 						)
