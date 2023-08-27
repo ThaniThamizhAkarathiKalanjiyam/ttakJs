@@ -94,4 +94,5 @@
                 }
             }
         });
+		$('#DictListContainer').jtable("load");
     });
