@@ -33,6 +33,7 @@
 														// apiResultArray.push(apiResultArrayLoc)
 													// }
 											// }
+											debugger
 											singleRecord[index1][value1.Name]=value1.Value
 											// ({
 												// value1.Name,
