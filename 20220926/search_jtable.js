@@ -6,13 +6,19 @@ getAllDictionary = function(funcData){
 	api_dbhub_io(
 		{
 			"dbname":"dictionary_termset_lt_853755.db",
-			"sql":"select * from dictionaryset;",
+			"sql":"select * from dictionaryset order by dictionary_name;",
 			"sql_api_cmd":"query",
 			"sql_api_call_back":function(jsonObj,resJsonObjJtable){
-				console.log("test",resJsonObjJtable)
-				//resJsonObjJtable.TotalRecordCount = 1707511
-				
-				//$dfd.resolve(resJsonObjJtable);
+								
+				$.each(resJsonObjJtable,function(index,value){
+					
+					var dictOption = $('<option>')
+					dictOption.attr("value",value.dictionaryset_id)
+					dictOption.html(value.dictionary_name)
+					
+					$("#selDictID").append(dictOption)
+					
+				})
 				
 			}
 		}
@@ -47,7 +53,7 @@ initDictListContainer = function(){
 								"sql":"select * from dictionary_termset LIMIT "+jtParams.jtPageSize+" OFFSET "+startIndex+";",
 								"sql_api_cmd":"query",
 								"sql_api_call_back":function(jsonObj,resJsonObjJtable){
-									console.log("test",jsonObj)
+									
 									resJsonObjJtable.TotalRecordCount = 1707511
 									
                                     $dfd.resolve(resJsonObjJtable);
