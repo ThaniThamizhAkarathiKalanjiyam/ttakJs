@@ -17,10 +17,17 @@
                     
                     return $.Deferred(function ($dfd) {
                       
+					  
+					  var startIndex  = (jtParams.jtStartIndex+jtParams.jtPageSize)
+					  if(startIndex >= 853755)
+					  {
+						  startIndex = startIndex - 853755
+					  }
+					  
 						api_dbhub_io(
 							{
-								"dbname":(jtParams.jtStartIndex+jtParams.jtPageSize)<853755?"dictionary_termset_lt_853755.db":"dictionary_termset_gt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db
-								"sql":"select * from dictionary_termset LIMIT "+jtParams.jtPageSize+" OFFSET "+jtParams.jtStartIndex+";",
+								"dbname":startIndex<853755?"dictionary_termset_lt_853755.db":"dictionary_termset_gt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db
+								"sql":"select * from dictionary_termset LIMIT "+jtParams.jtPageSize+" OFFSET "+startIndex+";",
 								"sql_api_cmd":"query",
 								"sql_api_call_back":function(jsonObj){
 									console.log("test",jsonObj)
