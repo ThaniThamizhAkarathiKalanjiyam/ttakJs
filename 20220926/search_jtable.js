@@ -4,7 +4,7 @@
             title: 'சொற் பக்கங்கள்',
             actions: {
                 listAction: function (postData, jtParams) {
-                    findOrderFilter()
+                    
                     return $.Deferred(function ($dfd) {
                       
 						api_dbhub_io(
