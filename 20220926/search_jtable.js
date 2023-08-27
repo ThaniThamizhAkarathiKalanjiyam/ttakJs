@@ -1,7 +1,7 @@
 
     $(document).ready(function () {
         $('#DictListContainer').jtable({
-            title: 'Table of people',
+            title: 'சொற் பக்கங்கள்',
             actions: {
                 listAction: '/GettingStarted/PersonList',
                 createAction: '/GettingStarted/CreatePerson',
@@ -9,24 +9,29 @@
                 deleteAction: '/GettingStarted/DeletePerson'
             },
             fields: {
-                PersonId: {
+                dictionary_termset_id: {
                     key: true,
                     list: false
                 },
-                Name: {
-                    title: 'Author Name',
+                edhukai: {
+                    title: 'எதுகை',
+                    width: '30%',                   
+                },
+                monai: {
+                    title: 'மோனை',
+                    width: '30%',                   
+                },
+                inai: {
+                    title: 'இணை',
+                    width: '30%',                   
+                }
+                dictionary_term: {
+                    title: 'சொல்',
                     width: '40%'
                 },
-                Age: {
-                    title: 'Age',
+                dictionary_meaning: {
+                    title: 'பொருள்',
                     width: '20%'
-                },
-                RecordDate: {
-                    title: 'Record date',
-                    width: '30%',
-                    type: 'date',
-                    create: false,
-                    edit: false
                 }
             }
         });
