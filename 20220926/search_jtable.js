@@ -106,8 +106,8 @@
 					display:function(data){
 						
 						var aObj = $("<a>")
-						aObj.attr("href","https://thanithamizhakarathikalanjiyam.github.io/searche?q="+data.dictionary_term)
-						aObj.html(data.dictionary_term)
+						aObj.attr("href","https://thanithamizhakarathikalanjiyam.github.io/searche?q="+data.record.dictionary_term)
+						aObj.html(data.record.dictionary_term)
 						
 						return aObj
 						
