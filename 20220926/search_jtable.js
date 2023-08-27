@@ -25,7 +25,7 @@
 										var singleRecord = {}
 										$.each(value, function (index1, value1)
 										{
-											singleRecord[index1] = {}
+											
 											// if (value1.Name === "dictionary_term")
 											// {
 												// var apiResultArrayLoc = $.trim(value1.Value)
@@ -35,7 +35,7 @@
 													// }
 											// }
 											debugger
-											singleRecord[index1][value1.Name]=value1.Value
+											singleRecord[value1.Name]=value1.Value
 											// ({
 												// value1.Name,
 												// value1.Value
