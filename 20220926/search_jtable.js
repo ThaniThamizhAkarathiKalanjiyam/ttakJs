@@ -59,11 +59,13 @@
                 },
                 edhukai: {
                     title: 'எதுகை',
-                    width: '30%',                   
+                    width: '30%',        
+					list:false
                 },
 				monai: {
 					title: 'மோனை',
 					width: '1%',
+					list:false
 					display: function (data) {
 						var $img = $("<span>")
 						$img.addClass("child-opener-image material-icons")
@@ -84,7 +86,8 @@
 				},
                 inai: {
                     title: 'இணை',
-                    width: '30%',                   
+                    width: '30%',        
+					list:false
                 },
                 dictionary_term: {
                     title: 'சொல்',
