@@ -277,10 +277,8 @@ api_dbhub_ioV2 = function (funcData)
 				"Result": "OK",
 				"Records": [],
 				"TotalRecordCount":0//resJsonObj.length
-			}
+		}
 			
-		
-
         $.ajax(
         {
             url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd + '?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
@@ -340,7 +338,7 @@ api_dbhub_ioV2 = function (funcData)
 		var resJsonObjJtable = {
 				"Result": "OK",
 				"Records": [],
-				"TotalRecordCount":resJsonObj.length
+				"TotalRecordCount":0//resJsonObj.length
 			}
 			
 		
@@ -362,6 +360,7 @@ api_dbhub_ioV2 = function (funcData)
 						// "Records": [],
 						// "TotalRecordCount":resJsonObj.length
 					// }
+					resJsonObjJtable.TotalRecordCount=resJsonObj.length
 					
 					$.each(resJsonObj, function (index, value)
 					{
