@@ -53,22 +53,26 @@ initDictListContainer = function(){
                 listAction: function (postData, jtParams) {
                     
                     return $.Deferred(function ($dfd) {
-                      
-					  
+                      					  
 					  var startIndex  = (jtParams.jtStartIndex+jtParams.jtPageSize)
 					  if(startIndex >= 853755)
 					  {
 						  startIndex = startIndex - 853755
 					  }
 					  
-					  var sqlLOC = "select * from dictionary_termset"
+					  var sqlLOC = ""
+					  var sqlSelectClause = ""					  
 					  var sqlWhereClause = ""
-					  var sqlLimitClause = " LIMIT "+jtParams.jtPageSize+" OFFSET "+startIndex+";";
+					  var sqlLimitClause = ""
+					  
+					  sqlSelectClause = "select * from dictionary_termset"				  
+					  sqlLimitClause = " LIMIT "+jtParams.jtPageSize+" OFFSET "+startIndex+";";
+					  
 					  if(postData != undefined && postData.dictionaryset_id != undefined){
 						  sqlWhereClause = " where dictionaryset_id="+postData.dictionaryset_id;					  
 					  }
 					  
-					  sqlLOC = sqlLOC + sqlWhereClause + sqlLimitClause
+					  sqlLOC = sqlSelectClause + sqlWhereClause + sqlLimitClause
 					  
 						api_dbhub_io(
 							{

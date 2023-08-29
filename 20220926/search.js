@@ -854,7 +854,7 @@ $(document).ready(function ()
         .then(function ()
         {
 
-            load_divMostPopularWords()
+            //load_divMostPopularWords()
 
         }
         )
