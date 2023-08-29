@@ -93,19 +93,23 @@ initDictListContainer = function(){
                 },
             },
             toolbar: {
-			items: [{
-					icon: '/images/excel.png',
-					text: 'தேடலி',
-					click: function () {
-						//perform your custom job...
-					}
-				},{
-					icon: '/images/pdf.png',
-					text: 'அகரமுதலி',
-					click: function () {
-						//perform your custom job...
-					}
-				}]
+			items: [
+			
+				//{
+				//	icon: '/images/excel.png',
+				//	text: 'தேடலி',
+				//	click: function () {
+				//		//perform your custom job...
+				//	}
+				//},{
+				//	icon: '/images/pdf.png',
+				//	text: 'அகரமுதலி',
+				//	click: function () {
+				//		//perform your custom job...
+				//	}
+				//}
+				
+				]
 			},
 			fields: {
                 dictionary_termset_id: {
