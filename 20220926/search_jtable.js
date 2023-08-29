@@ -51,14 +51,24 @@ queryBuilder = function(postData, jtParams){
 						  startIndex = startIndex - 853755
 					  }
 					  
-					  if(postData.sqlSelectClause !== undefined){
+					  if(postData.sqlSelectClause !== undefined && postData.sqlSelectClause !== "")
+					  {
+						  sqlSelectClause = postData.sqlSelectClause
+					  }
+					  else{
 						sqlSelectClause = "select * from dictionary_termset"
 					  }
-					  if(postData.sqlLimitClause !== undefined){
+					  if(postData.sqlLimitClause !== undefined && postData.sqlLimitClause !== "")					  {
+						  sqlLimitClause = postData.sqlLimitClause
+					  }
+					  else{
 						sqlLimitClause = " LIMIT "+jtParams.jtPageSize+" OFFSET "+startIndex+";";					  
 					  }
 					  
-					  if(postData.sqlWhereClause !== undefined){
+					  if(postData.sqlWhereClause !== undefined && postData.sqlWhereClause !== "")					  {
+						  sqlWhereClause= postData.sqlWhereClause
+					  }
+					  else{
 						  if(postData != undefined && postData.dictionaryset_id != undefined){
 							  sqlWhereClause = " where dictionaryset_id="+postData.dictionaryset_id;					  
 						  }
