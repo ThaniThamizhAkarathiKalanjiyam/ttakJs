@@ -104,7 +104,7 @@ initDictListContainer = function(){
 								"fromClause":postData.fromClause,
 								"whereClause":postData.whereClause,
 								"orderByClause":jtParams.jtSorting,
-								"limitClause":jtParams.jtPageSize+" OFFSET "+0+";",					  
+								"limitClause":jtParams.jtPageSize+" OFFSET "+0+";"					  
 								,"sql_api_cmd":"query",
 								"sql_api_call_back":function(jsonObj,resJsonObjJtable){
 									
