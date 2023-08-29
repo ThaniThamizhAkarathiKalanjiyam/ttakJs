@@ -88,7 +88,22 @@ initDictListContainer = function(){
 					  });
                 },
             },
-            fields: {
+            toolbar: {
+			items: [{
+					icon: '/images/excel.png',
+					text: 'தேடலி',
+					click: function () {
+						//perform your custom job...
+					}
+				},{
+					icon: '/images/pdf.png',
+					text: 'அகரமுதலி',
+					click: function () {
+						//perform your custom job...
+					}
+				}]
+			},
+			fields: {
                 dictionary_termset_id: {
                     key: true,
                     list: false
@@ -107,6 +122,7 @@ initDictListContainer = function(){
 						$img.addClass("child-opener-image material-icons")
 						$img.attr("src", "/Content/img/list_metro.png")
 						$img.attr("title", "Details")
+						$img.attr("target", "_blank")
 
 						if(data.record.picked === true){
 							$img.html("check_box")
