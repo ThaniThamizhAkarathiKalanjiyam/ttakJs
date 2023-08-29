@@ -38,32 +38,18 @@ $("#selDictID").on("change",function(event,eventData){
 	
 })
 
-
-		
-initDictListContainer = function(){
-		
-        $('#DictListContainer').jtable({
-            title: 'சொற் பக்கங்கள்',
-			paging: true,
-            pageSize: 10,
-            sorting: true,
-            defaultSorting: 'dictionary_term ASC',
-            openChildAsAccordion: true,
-            actions: {
-                listAction: function (postData, jtParams) {
-                    
-                    return $.Deferred(function ($dfd) {
-                      					  
+queryBuilder = function(postData, jtParams){
+	
+					  var sqlLOC = ""
+					  var sqlSelectClause = ""					  
+					  var sqlWhereClause = ""
+					  var sqlLimitClause = ""
+					  
 					  var startIndex  = (jtParams.jtStartIndex+jtParams.jtPageSize)
 					  if(startIndex >= 853755)
 					  {
 						  startIndex = startIndex - 853755
 					  }
-					  
-					  var sqlLOC = ""
-					  var sqlSelectClause = ""					  
-					  var sqlWhereClause = ""
-					  var sqlLimitClause = ""
 					  
 					  if(postData.sqlSelectClause !== undefined){
 						sqlSelectClause = "select * from dictionary_termset"
@@ -80,11 +66,30 @@ initDictListContainer = function(){
 					  
 					  sqlLOC = sqlSelectClause + sqlWhereClause + sqlLimitClause
 					  
+					  return sqlLOC 
+	
+}
+
+		
+initDictListContainer = function(){
+		
+        $('#DictListContainer').jtable({
+            title: 'சொற் பக்கங்கள்',
+			paging: true,
+            pageSize: 10,
+            sorting: true,
+            defaultSorting: 'dictionary_term ASC',
+            openChildAsAccordion: true,
+            actions: {
+                listAction: function (postData, jtParams) {
+                    
+                    return $.Deferred(function ($dfd) {
+					  
 						api_dbhub_io(
 							{
 								//"dbname":startIndex<853755?"dictionary_termset_lt_853755.db":"dictionary_termset_gt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db	
-								"dbname":dictionaryset_id<16?"dictionary_termset_lt_853755.db":"dictionary_termset_gt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db
-								"sql": sqlLOC,
+								"dbname":postData.dictionaryset_id== -1 ? "twn_pitchaimuthu-2.db":postData.dictionaryset_id<16?"dictionary_termset_lt_853755.db":"dictionary_termset_gt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db
+								"sql": queryBuilder(postData, jtParams),
 								"sql_api_cmd":"query",
 								"sql_api_call_back":function(jsonObj,resJsonObjJtable){
 									
@@ -189,7 +194,12 @@ $( "#accordSearch" ).accordion();
 jqxhr.always(function () {
 	//Elements event Functionality Starts
 	//Elements event Functionality Ends
-	$('#DictListContainer').jtable("load",{});
+	$('#DictListContainer').jtable("load",{
+		dictionaryset_id : "-1"		,
+		sqlSelectClause :"select * from search_term_popular;",
+		sqlWhereClause : "",
+		sqlLimitClause : ""
+	});
 });
 		
 		
