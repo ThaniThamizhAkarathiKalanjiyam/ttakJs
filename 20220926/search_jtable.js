@@ -206,7 +206,7 @@ jqxhr.always(function () {
 	//Elements event Functionality Ends
 	$('#DictListContainer').jtable("load",{
 		dictionaryset_id : "-1"		,
-		sqlSelectClause :"select * from search_term_popular;",
+		sqlSelectClause :"select search_term AS dictionary_term, search_termset_id AS dictionary_termset_id from search_term_popular;",
 		sqlWhereClause : "",
 		sqlLimitClause : ""
 	});
