@@ -242,7 +242,81 @@ $(document).ready(function ()
     }
     )
 
-    api_dbhub_io = function (funcData)
+
+
+
+api_dbhub_ioV2 = function (funcData)	
+{
+		//api_dbhub_io({
+        //funcData.dbname:"dbname",
+        //funcData.sql:{
+			// selectClause:"",
+			// fromClause:"",
+			// whereClause:"",
+			// orderByClause:"",
+			// limitClause:"",
+		// },
+        //funcData.sql_api_cmd:"[query|execute]"
+        //funcData.sql_api_call_back=function(jsonObj){}
+		//})
+		
+		var sqlLoc = "SELECT "+funcData.postData.selectClause+" FROM "+funcData.postData.fromClause+" WHERE "+funcData.postData.whereClause+" ORDER BY "+ funcData.postData.orderByClause +" LIMIT "+funcData.postData.limitClause
+
+        var fd = new FormData();
+        fd.append('dbowner', "pitchai_dbhub");
+        fd.append('dbname', funcData.dbname);
+        //fd.append('sql', "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En");
+        //var sql = "select * from tamil_dict1 where dictionary_term='" + funcData.searctTextVal + "';";
+        var sql_encoded = $.base64.btoa(sqlLoc, true);
+        fd.append('sql', sql_encoded);
+        fd.append('sql_txt', funcData.sql);
+
+        var apiResultArray = [];
+		
+		var resJsonObjJtable = {
+				"Result": "OK",
+				"Records": [],
+				"TotalRecordCount":resJsonObj.length
+			}
+			
+		
+
+        $.ajax(
+        {
+            url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd + '?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
+            data: fd,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function (resStr)
+            {
+                if (resStr !== null && resStr !== "null")
+                {
+                    var resJsonObj = $.parseJSON(resStr);
+					// var resJsonObjJtable = {
+						// "Result": "OK",
+						// "Records": [],
+						// "TotalRecordCount":resJsonObj.length
+					// }
+					
+					$.each(resJsonObj, function (index, value)
+					{
+						var singleRecord = {}
+						$.each(value, function (index1, value1)
+						{											
+							singleRecord[value1.Name]=value1.Value
+						})
+						resJsonObjJtable.Records.push(singleRecord)
+					})
+					
+                    funcData.sql_api_call_back(resJsonObj,resJsonObjJtable)
+                }
+            }
+        }
+        );
+    }
+
+    api_dbhub_io = function (funcData)	
     {
 		//api_dbhub_io({
         //funcData.dbname:"dbname",
@@ -261,6 +335,14 @@ $(document).ready(function ()
         fd.append('sql_txt', funcData.sql);
 
         var apiResultArray = [];
+		
+		var resJsonObjJtable = {
+				"Result": "OK",
+				"Records": [],
+				"TotalRecordCount":resJsonObj.length
+			}
+			
+		
 
         $.ajax(
         {
@@ -274,11 +356,11 @@ $(document).ready(function ()
                 if (resStr !== null && resStr !== "null")
                 {
                     var resJsonObj = $.parseJSON(resStr);
-					var resJsonObjJtable = {
-						"Result": "OK",
-						"Records": [],
-						"TotalRecordCount":resJsonObj.length
-					}
+					// var resJsonObjJtable = {
+						// "Result": "OK",
+						// "Records": [],
+						// "TotalRecordCount":resJsonObj.length
+					// }
 					
 					$.each(resJsonObj, function (index, value)
 					{

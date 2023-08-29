@@ -95,12 +95,16 @@ initDictListContainer = function(){
                     
                     return $.Deferred(function ($dfd) {
 					  
-						api_dbhub_io(
+						api_dbhub_ioV2(
 							{
 								//"dbname":startIndex<853755?"dictionary_termset_lt_853755.db":"dictionary_termset_gt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db	
 								"dbname":postData.dictionaryset_id== -1 ? "twn_pitchaimuthu-2.db":postData.dictionaryset_id<=16?"dictionary_termset_lt_853755.db":"dictionary_termset_gt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db
-								"sql": queryBuilder(postData, jtParams),
-								"sql_api_cmd":"query",
+								//"sql": queryBuilder(postData, jtParams),
+								"selectClause":postData.selectClause,
+								"fromClause":postData.fromClause,
+								"whereClause":postData.whereClause,
+								"orderByClause":jtParams.jtSorting,
+								"limitClause":jtParams.jtPageSize+" OFFSET "+startIndex+";";					  ,"sql_api_cmd":"query",
 								"sql_api_call_back":function(jsonObj,resJsonObjJtable){
 									
 									resJsonObjJtable.TotalRecordCount = 1707511
@@ -207,8 +211,9 @@ jqxhr.always(function () {
 	$('#DictListContainer').jtable("load",{
 		dictionaryset_id : "-1"		,
 		sqlSelectClause :"select search_term AS dictionary_term, search_termset_id AS dictionary_termset_id from search_term_popular;",
-		sqlWhereClause : "",
-		sqlLimitClause : ""
+		"selectClause":"search_term AS dictionary_term, search_termset_id AS dictionary_termset_id",
+		"fromClause":"search_term_popular",
+		"whereClause":"1=1"
 	});
 });
 		
