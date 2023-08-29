@@ -276,7 +276,7 @@ api_dbhub_ioV2 = function (funcData)
 		var resJsonObjJtable = {
 				"Result": "OK",
 				"Records": [],
-				"TotalRecordCount":resJsonObj.length
+				"TotalRecordCount":0//resJsonObj.length
 			}
 			
 		
@@ -293,6 +293,7 @@ api_dbhub_ioV2 = function (funcData)
                 if (resStr !== null && resStr !== "null")
                 {
                     var resJsonObj = $.parseJSON(resStr);
+					resJsonObjJtable.TotalRecordCount = resJsonObj.length
 					// var resJsonObjJtable = {
 						// "Result": "OK",
 						// "Records": [],
