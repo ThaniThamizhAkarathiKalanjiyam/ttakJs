@@ -260,7 +260,7 @@ api_dbhub_ioV2 = function (funcData)
         //funcData.sql_api_call_back=function(jsonObj){}
 		//})
 		
-		var sqlLoc = "SELECT "+funcData.postData.selectClause+" FROM "+funcData.postData.fromClause+" WHERE "+funcData.postData.whereClause+" ORDER BY "+ funcData.postData.orderByClause +" LIMIT "+funcData.postData.limitClause
+		var sqlLoc = "SELECT "+funcData.selectClause+" FROM "+funcData.fromClause+" WHERE "+funcData.whereClause+" ORDER BY "+ funcData.orderByClause +" LIMIT "+funcData.limitClause
 
         var fd = new FormData();
         fd.append('dbowner', "pitchai_dbhub");
