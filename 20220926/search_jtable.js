@@ -104,7 +104,8 @@ initDictListContainer = function(){
 								"fromClause":postData.fromClause,
 								"whereClause":postData.whereClause,
 								"orderByClause":jtParams.jtSorting,
-								"limitClause":jtParams.jtPageSize+" OFFSET "+startIndex+";",					  ,"sql_api_cmd":"query",
+								"limitClause":jtParams.jtPageSize+" OFFSET "+0+";",					  
+								,"sql_api_cmd":"query",
 								"sql_api_call_back":function(jsonObj,resJsonObjJtable){
 									
 									resJsonObjJtable.TotalRecordCount = 1707511
