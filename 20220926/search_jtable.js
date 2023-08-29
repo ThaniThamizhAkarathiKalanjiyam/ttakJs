@@ -172,6 +172,7 @@ var jqxhr = $.when(
 getAllDictionary ()
 ).then(function () {
 initDictListContainer()	
+$( "#accordSearch" ).accordion();
 });
 // Set another completion function for the request above
 jqxhr.always(function () {
