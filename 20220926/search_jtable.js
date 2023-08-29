@@ -11,7 +11,7 @@ getAllDictionary = function(funcData){
 			"sql_api_call_back":function(jsonObj,resJsonObjJtable){
 								
 				$.each(resJsonObjJtable.Records,function(index,value){
-					debugger
+					
 					var dictOption = $('<option>')
 					dictOption.attr("value",value.dictionaryset_id)
 					dictOption.html(value.dictionary_name)
@@ -65,18 +65,25 @@ initDictListContainer = function(){
 					  var sqlWhereClause = ""
 					  var sqlLimitClause = ""
 					  
-					  sqlSelectClause = "select * from dictionary_termset"				  
-					  sqlLimitClause = " LIMIT "+jtParams.jtPageSize+" OFFSET "+startIndex+";";
+					  if(postData.sqlSelectClause !== undefined){
+						sqlSelectClause = "select * from dictionary_termset"
+					  }
+					  if(postData.sqlLimitClause !== undefined){
+						sqlLimitClause = " LIMIT "+jtParams.jtPageSize+" OFFSET "+startIndex+";";					  
+					  }
 					  
-					  if(postData != undefined && postData.dictionaryset_id != undefined){
-						  sqlWhereClause = " where dictionaryset_id="+postData.dictionaryset_id;					  
+					  if(postData.sqlWhereClause !== undefined){
+						  if(postData != undefined && postData.dictionaryset_id != undefined){
+							  sqlWhereClause = " where dictionaryset_id="+postData.dictionaryset_id;					  
+						  }
 					  }
 					  
 					  sqlLOC = sqlSelectClause + sqlWhereClause + sqlLimitClause
 					  
 						api_dbhub_io(
 							{
-								"dbname":startIndex<853755?"dictionary_termset_lt_853755.db":"dictionary_termset_gt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db
+								//"dbname":startIndex<853755?"dictionary_termset_lt_853755.db":"dictionary_termset_gt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db	
+								"dbname":dictionaryset_id<16?"dictionary_termset_lt_853755.db":"dictionary_termset_gt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db
 								"sql": sqlLOC,
 								"sql_api_cmd":"query",
 								"sql_api_call_back":function(jsonObj,resJsonObjJtable){
