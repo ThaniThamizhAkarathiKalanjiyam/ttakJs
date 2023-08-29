@@ -189,7 +189,7 @@ $( "#accordSearch" ).accordion();
 jqxhr.always(function () {
 	//Elements event Functionality Starts
 	//Elements event Functionality Ends
-	$('#DictListContainer').jtable("load");
+	$('#DictListContainer').jtable("load",{});
 });
 		
 		
