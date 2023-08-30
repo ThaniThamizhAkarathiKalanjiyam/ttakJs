@@ -270,6 +270,9 @@ api_dbhub_ioV2 = function (funcData)
 				"sql":sqlLocCount,
 				"sql_api_cmd":"query",
 				"sql_api_call_back":function(jsonObj,resJsonObjJtable){
+					
+					console.log("resJsonObjJtable",resJsonObjJtable)
+									
 									
 					$.each(resJsonObjJtable.Records,function(index,value){
 						
