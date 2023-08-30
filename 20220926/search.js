@@ -260,59 +260,25 @@ api_dbhub_ioV2 = function (funcData)
         //funcData.sql_api_call_back=function(jsonObj){}
 		//})
 		
-		var sqlLoc = "SELECT "+funcData.selectClause+" FROM "+funcData.fromClause+" WHERE "+funcData.whereClause+" ORDER BY "+ funcData.orderByClause +" LIMIT "+funcData.limitClause
-
-        var fd = new FormData();
-        fd.append('dbowner', "pitchai_dbhub");
-        fd.append('dbname', funcData.dbname);
-        //fd.append('sql', "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En");
-        //var sql = "select * from tamil_dict1 where dictionary_term='" + funcData.searctTextVal + "';";
-        var sql_encoded = $.base64.btoa(sqlLoc, true);
-        fd.append('sql', sql_encoded);
-        fd.append('sql_txt', funcData.sql);
-
-        var apiResultArray = [];
+		var sqlLocCount = "SELECT count(1) AS TotalRecordCount FROM "+funcData.fromClause+" WHERE "+funcData.whereClause
 		
-		var resJsonObjJtable = {
-				"Result": "OK",
-				"Records": [],
-				"TotalRecordCount":0//resJsonObj.length
-		}
-			
-        $.ajax(
-        {
-            url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd + '?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
-            data: fd,
-            processData: false,
-            contentType: false,
-            type: 'POST',
-            success: function (resStr)
-            {
-                if (resStr !== null && resStr !== "null")
-                {
-                    var resJsonObj = $.parseJSON(resStr);
-					resJsonObjJtable.TotalRecordCount = resJsonObj.length
-					// var resJsonObjJtable = {
-						// "Result": "OK",
-						// "Records": [],
-						// "TotalRecordCount":resJsonObj.length
-					// }
-					
-					$.each(resJsonObj, function (index, value)
-					{
-						var singleRecord = {}
-						$.each(value, function (index1, value1)
-						{											
-							singleRecord[value1.Name]=value1.Value
-						})
-						resJsonObjJtable.Records.push(singleRecord)
+		var sqlLoc = "SELECT "+funcData.selectClause+" FROM "+funcData.fromClause+" WHERE "+funcData.whereClause+" ORDER BY "+ funcData.orderByClause +" LIMIT "+funcData.limitClause
+		
+		api_dbhub_io(
+			{
+				"dbname":funcData.dbname,
+				"sql":sqlLocCount,
+				"sql_api_cmd":"query",
+				"sql_api_call_back":function(jsonObj,resJsonObjJtable){
+									
+					$.each(resJsonObjJtable.Records,function(index,value){
+						
 					})
 					
-                    funcData.sql_api_call_back(resJsonObj,resJsonObjJtable)
-                }
-            }
-        }
-        );
+				}
+			}
+		)
+        
     }
 
     api_dbhub_io = function (funcData)	
