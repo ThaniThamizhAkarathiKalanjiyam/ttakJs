@@ -280,7 +280,7 @@ var jqxhr = $.when(
 						"sql_api_cmd":"query",
 						"sql_api_call_back":function(jsonObj,resJsonObjJtable){	
 						
-							console.log("resJsonObjJtableCountCal",resJsonObjJtable)
+							//console.log("resJsonObjJtableCountCal",resJsonObjJtable)
 											
 							$.each(resJsonObjJtable.Records,function(index,value){
 								resJsonObjJtableV2.TotalRecordCount = resJsonObjJtable.Records[0].TotalRecordCount
@@ -297,7 +297,7 @@ var jqxhr = $.when(
 						"sql_api_cmd":"query",
 						"sql_api_call_back":function(jsonObj,resJsonObjJtable){	
 						
-							console.log("resJsonObjJtableRecords",resJsonObjJtable)
+							//console.log("resJsonObjJtableRecords",resJsonObjJtable)
 											
 							//$.each(resJsonObjJtable.Records,function(index,value){
 								 resJsonObjJtableV2.Records = resJsonObjJtable.Records
