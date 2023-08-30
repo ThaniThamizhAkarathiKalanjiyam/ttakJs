@@ -298,9 +298,9 @@ api_dbhub_ioV2 = function (funcData)
 						
 							console.log("resJsonObjJtableRecords",resJsonObjJtable)
 											
-							$.each(resJsonObjJtable.Records,function(index,value){
+							//$.each(resJsonObjJtable.Records,function(index,value){
 								 resJsonObjJtableV2.Records = resJsonObjJtable.Records
-							})
+							//})
 							
 						}
 					}
