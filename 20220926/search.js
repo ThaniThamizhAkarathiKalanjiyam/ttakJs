@@ -288,7 +288,7 @@ var jqxhr = $.when(
 							
 						}
 					}
-				)))
+				))
 .then(function () {
 				api_dbhub_io(
 					{
