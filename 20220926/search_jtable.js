@@ -29,11 +29,11 @@ getAllDictionary = function(funcData){
 
 $("#selDictID").on("change",function(event,eventData){
 	
-	
 	$('#DictListContainer').jtable("load",{
-		
-		"dictionaryset_id":$("#selDictID").val()
-		
+		"dictionaryset_id":$("#selDictID").val(),		
+		"selectClause":"search_term AS dictionary_term, search_termset_id AS dictionary_termset_id",
+		"fromClause":"dictionary_termset",
+		"whereClause":"1=1"
 	});
 	
 })
@@ -210,8 +210,7 @@ jqxhr.always(function () {
 	//Elements event Functionality Starts
 	//Elements event Functionality Ends
 	$('#DictListContainer').jtable("load",{
-		dictionaryset_id : "-1"		,
-		sqlSelectClause :"select search_term AS dictionary_term, search_termset_id AS dictionary_termset_id from search_term_popular;",
+		dictionaryset_id : "-1"		,		
 		"selectClause":"search_term AS dictionary_term, search_termset_id AS dictionary_termset_id",
 		"fromClause":"search_term_popular",
 		"whereClause":"1=1"
