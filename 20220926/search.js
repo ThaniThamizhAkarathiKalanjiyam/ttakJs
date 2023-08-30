@@ -302,7 +302,7 @@ api_dbhub_ioV2 = function (funcData)
 								 resJsonObjJtableV2.Records = resJsonObjJtable.Records
 							//})
 							
-							funcData.sql_api_call_back(resJsonObj,resJsonObjJtableV2)
+							funcData.sql_api_call_back(jsonObj,resJsonObjJtableV2)
 							
 						}
 					}
