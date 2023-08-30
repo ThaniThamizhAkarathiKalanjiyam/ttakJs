@@ -108,7 +108,7 @@ initDictListContainer = function(){
 								,"sql_api_cmd":"query",
 								"sql_api_call_back":function(jsonObj,resJsonObjJtable){
 									
-									resJsonObjJtable.TotalRecordCount = 1707511
+									//resJsonObjJtable.TotalRecordCount = 1707511
 									
                                     $dfd.resolve(resJsonObjJtable);
 									
