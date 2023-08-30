@@ -264,7 +264,7 @@ api_dbhub_ioV2 = function (funcData)
 		
 		var sqlLoc = "SELECT "+funcData.selectClause+" FROM "+funcData.fromClause+" WHERE "+funcData.whereClause+" ORDER BY "+ funcData.orderByClause +" LIMIT "+funcData.limitClause
 		
-		return $.Deferred(function ($dfd){
+		//return $.Deferred(function ($dfd){
 				
 				var resJsonObjJtableV2 = {
 					"Result": "OK",
@@ -272,6 +272,7 @@ api_dbhub_ioV2 = function (funcData)
 					"TotalRecordCount":0//resJsonObj.length
 				}
 
+var jqxhr = $.when(
 				api_dbhub_io(
 					{
 						"dbname":funcData.dbname,
@@ -287,8 +288,8 @@ api_dbhub_ioV2 = function (funcData)
 							
 						}
 					}
-				)
-
+				)))
+.then(function () {
 				api_dbhub_io(
 					{
 						"dbname":funcData.dbname,
@@ -307,9 +308,10 @@ api_dbhub_ioV2 = function (funcData)
 						}
 					}
 				)
+});
 
-				$dfd.resolve(resJsonObjJtableV2);
-			})
+				//$dfd.resolve(resJsonObjJtableV2);
+			//})
         
     }
 
