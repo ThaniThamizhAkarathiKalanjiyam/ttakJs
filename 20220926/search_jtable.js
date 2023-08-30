@@ -33,7 +33,7 @@ $("#selDictID").on("change",function(event,eventData){
 		"dictionaryset_id":$("#selDictID").val(),		
 		"selectClause":"search_term AS dictionary_term, search_termset_id AS dictionary_termset_id",
 		"fromClause":"dictionary_termset",
-		"whereClause":"1=1"
+		"whereClause":"dictionaryset_id="+$("#selDictID").val(),		
 	});
 	
 })
