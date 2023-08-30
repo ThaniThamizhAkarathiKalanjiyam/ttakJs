@@ -272,43 +272,38 @@ api_dbhub_ioV2 = function (funcData)
 					"TotalRecordCount":0//resJsonObj.length
 				}
 
-var jqxhr = $.when(
+
 				api_dbhub_io(
 					{
 						"dbname":funcData.dbname,
 						"sql":sqlLocCount,
 						"sql_api_cmd":"query",
 						"sql_api_call_back":function(jsonObj,resJsonObjJtable){	
-						
-							//console.log("resJsonObjJtableCountCal",resJsonObjJtable)
 											
 							$.each(resJsonObjJtable.Records,function(index,value){
 								resJsonObjJtableV2.TotalRecordCount = resJsonObjJtable.Records[0].TotalRecordCount
 							})
 							
-						}
-					}
-				))
-.then(function () {
-				api_dbhub_io(
-					{
-						"dbname":funcData.dbname,
-						"sql":sqlLoc,
-						"sql_api_cmd":"query",
-						"sql_api_call_back":function(jsonObj,resJsonObjJtable){	
-						
-							//console.log("resJsonObjJtableRecords",resJsonObjJtable)
-											
-							//$.each(resJsonObjJtable.Records,function(index,value){
-								 resJsonObjJtableV2.Records = resJsonObjJtable.Records
-							//})
-							
-							funcData.sql_api_call_back(jsonObj,resJsonObjJtableV2)
+							api_dbhub_io(
+							{
+								"dbname":funcData.dbname,
+								"sql":sqlLoc,
+								"sql_api_cmd":"query",
+								"sql_api_call_back":function(jsonObj,resJsonObjJtable){	
+
+									resJsonObjJtableV2.Records = resJsonObjJtable.Records
+									funcData.sql_api_call_back(jsonObj,resJsonObjJtableV2)
+									
+								}
+							}
+						)
 							
 						}
 					}
 				)
-});
+
+				
+
 
 				//$dfd.resolve(resJsonObjJtableV2);
 			//})
@@ -360,7 +355,7 @@ var jqxhr = $.when(
 						// "Records": [],
 						// "TotalRecordCount":resJsonObj.length
 					// }
-					resJsonObjJtable.TotalRecordCount=resJsonObj.length
+					//resJsonObjJtable.TotalRecordCount=resJsonObj.length
 					
 					$.each(resJsonObj, function (index, value)
 					{
