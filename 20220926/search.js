@@ -264,23 +264,50 @@ api_dbhub_ioV2 = function (funcData)
 		
 		var sqlLoc = "SELECT "+funcData.selectClause+" FROM "+funcData.fromClause+" WHERE "+funcData.whereClause+" ORDER BY "+ funcData.orderByClause +" LIMIT "+funcData.limitClause
 		
-		api_dbhub_io(
-			{
-				"dbname":funcData.dbname,
-				"sql":sqlLocCount,
-				"sql_api_cmd":"query",
-				"sql_api_call_back":function(jsonObj,resJsonObjJtable){
-					
-					console.log("resJsonObjJtable",resJsonObjJtable)
-									
-									
-					$.each(resJsonObjJtable.Records,function(index,value){
-						
-					})
-					
+		return $.Deferred(function ($dfd){
+				
+				var resJsonObjJtableV2 = {
+					"Result": "OK",
+					"Records": [],
+					"TotalRecordCount":0//resJsonObj.length
 				}
-			}
-		)
+
+				api_dbhub_io(
+					{
+						"dbname":funcData.dbname,
+						"sql":sqlLocCount,
+						"sql_api_cmd":"query",
+						"sql_api_call_back":function(jsonObj,resJsonObjJtable){	
+						
+							console.log("resJsonObjJtableCountCal",resJsonObjJtable)
+											
+							$.each(resJsonObjJtable.Records,function(index,value){
+								resJsonObjJtableV2.TotalRecordCount = resJsonObjJtable.Records[0].TotalRecordCount
+							})
+							
+						}
+					}
+				)
+
+				api_dbhub_io(
+					{
+						"dbname":funcData.dbname,
+						"sql":sqlLocCount,
+						"sql_api_cmd":"query",
+						"sql_api_call_back":function(jsonObj,resJsonObjJtable){	
+						
+							console.log("resJsonObjJtableRecords",resJsonObjJtable)
+											
+							$.each(resJsonObjJtable.Records,function(index,value){
+								 resJsonObjJtableV2.Records = resJsonObjJtable.Records
+							})
+							
+						}
+					}
+				)
+
+				$dfd.resolve(resJsonObjJtableV2);
+			})
         
     }
 
