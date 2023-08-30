@@ -95,7 +95,6 @@ initDictListContainer = function(){
                     
                     return $.Deferred(function ($dfd) {
 					  
-						$dfd.resolve(
 						api_dbhub_ioV2(
 							{
 								//"dbname":startIndex<853755?"dictionary_termset_lt_853755.db":"dictionary_termset_gt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db	
@@ -111,11 +110,11 @@ initDictListContainer = function(){
 									
 									resJsonObjJtable.TotalRecordCount = 1707511
 									
-                                    //$dfd.resolve(resJsonObjJtable);
+                                    $dfd.resolve(resJsonObjJtable);
 									
 								}
 							}
-						))
+						)
 					  
 					  });
                 },
