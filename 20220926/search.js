@@ -292,7 +292,7 @@ api_dbhub_ioV2 = function (funcData)
 				api_dbhub_io(
 					{
 						"dbname":funcData.dbname,
-						"sql":sqlLocCount,
+						"sql":sqlLoc,
 						"sql_api_cmd":"query",
 						"sql_api_call_back":function(jsonObj,resJsonObjJtable){	
 						
