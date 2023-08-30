@@ -301,13 +301,6 @@ api_dbhub_ioV2 = function (funcData)
 						}
 					}
 				)
-
-				
-
-
-				//$dfd.resolve(resJsonObjJtableV2);
-			//})
-        
     }
 
     api_dbhub_io = function (funcData)	
