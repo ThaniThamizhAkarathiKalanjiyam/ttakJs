@@ -242,75 +242,76 @@ $(document).ready(function ()
     }
     )
 
-
-
-
-api_dbhub_ioV2 = function (funcData)	
-{
-		//api_dbhub_io({
+    api_dbhub_ioV2 = function (funcData)
+    {
+        //api_dbhub_io({
         //funcData.dbname:"dbname",
         //funcData.sql:{
-			// selectClause:"",
-			// fromClause:"",
-			// whereClause:"",
-			// orderByClause:"",
-			// limitClause:"",
-		// },
+        // selectClause:"",
+        // fromClause:"",
+        // whereClause:"",
+        // orderByClause:"",
+        // limitClause:"",
+        // },
         //funcData.sql_api_cmd:"[query|execute]"
         //funcData.sql_api_call_back=function(jsonObj){}
-		//})
-		
-		var sqlLocCount = "SELECT count(1) AS TotalRecordCount FROM "+funcData.fromClause+" WHERE "+funcData.whereClause
-		
-		var sqlLoc = "SELECT "+funcData.selectClause+" FROM "+funcData.fromClause+" WHERE "+funcData.whereClause+" ORDER BY "+ funcData.orderByClause +" LIMIT "+funcData.limitClause
-		
-		//return $.Deferred(function ($dfd){
-				
-				var resJsonObjJtableV2 = {
-					"Result": "OK",
-					"Records": [],
-					"TotalRecordCount":0//resJsonObj.length
-				}
+        //})
 
+        var sqlLocCount = "SELECT count(1) AS TotalRecordCount FROM " + funcData.fromClause + " WHERE " + funcData.whereClause
 
-				api_dbhub_io(
-					{
-						"dbname":funcData.dbname,
-						"sql":sqlLocCount,
-						"sql_api_cmd":"query",
-						"sql_api_call_back":function(jsonObj,resJsonObjJtable){	
-											
-							$.each(resJsonObjJtable.Records,function(index,value){
-								resJsonObjJtableV2.TotalRecordCount = resJsonObjJtable.Records[0].TotalRecordCount
-							})
-							
-							api_dbhub_io(
-							{
-								"dbname":funcData.dbname,
-								"sql":sqlLoc,
-								"sql_api_cmd":"query",
-								"sql_api_call_back":function(jsonObj,resJsonObjJtable){	
+            var sqlLoc = "SELECT " + funcData.selectClause + " FROM " + funcData.fromClause + " WHERE " + funcData.whereClause + " ORDER BY " + funcData.orderByClause + " LIMIT " + funcData.limitClause
 
-									resJsonObjJtableV2.Records = resJsonObjJtable.Records
-									funcData.sql_api_call_back(jsonObj,resJsonObjJtableV2)
-									
-								}
-							}
-						)
-							
-						}
-					}
-				)
+            //return $.Deferred(function ($dfd){
+
+            var resJsonObjJtableV2 =
+        {
+            "Result": "OK",
+            "Records": [],
+            "TotalRecordCount": 0 //resJsonObj.length
+        }
+
+        api_dbhub_io(
+        {
+            "dbname": funcData.dbname,
+            "sql": sqlLocCount,
+            "sql_api_cmd": "query",
+            "sql_api_call_back": function (jsonObj, resJsonObjJtable)
+            {
+
+                $.each(resJsonObjJtable.Records, function (index, value)
+                {
+                    resJsonObjJtableV2.TotalRecordCount = resJsonObjJtable.Records[0].TotalRecordCount
+                }
+                )
+
+                api_dbhub_io(
+                {
+                    "dbname": funcData.dbname,
+                    "sql": sqlLoc,
+                    "sql_api_cmd": "query",
+                    "sql_api_call_back": function (jsonObj, resJsonObjJtable)
+                    {
+
+                        resJsonObjJtableV2.Records = resJsonObjJtable.Records
+                            funcData.sql_api_call_back(jsonObj, resJsonObjJtableV2)
+
+                    }
+                }
+                )
+
+            }
+        }
+        )
     }
 
-    api_dbhub_io = function (funcData)	
+    api_dbhub_io = function (funcData)
     {
-		//api_dbhub_io({
+        //api_dbhub_io({
         //funcData.dbname:"dbname",
         //funcData.sql:"dbname",
         //funcData.sql_api_cmd:"[query|execute]"
         //funcData.sql_api_call_back=function(jsonObj){}
-		//})
+        //})
 
         var fd = new FormData();
         fd.append('dbowner', "pitchai_dbhub");
@@ -322,14 +323,13 @@ api_dbhub_ioV2 = function (funcData)
         fd.append('sql_txt', funcData.sql);
 
         var apiResultArray = [];
-		
-		var resJsonObjJtable = {
-				"Result": "OK",
-				"Records": [],
-				"TotalRecordCount":0//resJsonObj.length
-			}
-			
-		
+
+        var resJsonObjJtable =
+        {
+            "Result": "OK",
+            "Records": [],
+            "TotalRecordCount": 0 //resJsonObj.length
+        }
 
         $.ajax(
         {
@@ -343,24 +343,26 @@ api_dbhub_ioV2 = function (funcData)
                 if (resStr !== null && resStr !== "null")
                 {
                     var resJsonObj = $.parseJSON(resStr);
-					// var resJsonObjJtable = {
-						// "Result": "OK",
-						// "Records": [],
-						// "TotalRecordCount":resJsonObj.length
-					// }
-					//resJsonObjJtable.TotalRecordCount=resJsonObj.length
-					
-					$.each(resJsonObj, function (index, value)
-					{
-						var singleRecord = {}
-						$.each(value, function (index1, value1)
-						{											
-							singleRecord[value1.Name]=value1.Value
-						})
-						resJsonObjJtable.Records.push(singleRecord)
-					})
-					
-                    funcData.sql_api_call_back(resJsonObj,resJsonObjJtable)
+                    // var resJsonObjJtable = {
+                    // "Result": "OK",
+                    // "Records": [],
+                    // "TotalRecordCount":resJsonObj.length
+                    // }
+                    //resJsonObjJtable.TotalRecordCount=resJsonObj.length
+
+                    $.each(resJsonObj, function (index, value)
+                    {
+                        var singleRecord = {}
+                        $.each(value, function (index1, value1)
+                        {
+                            singleRecord[value1.Name] = value1.Value
+                        }
+                        )
+                        resJsonObjJtable.Records.push(singleRecord)
+                    }
+                    )
+
+                    funcData.sql_api_call_back(resJsonObj, resJsonObjJtable)
                 }
             }
         }
@@ -892,28 +894,46 @@ api_dbhub_ioV2 = function (funcData)
                         )
                     }
                     )
-					
-					$.each(apiResultArrayLoc2,
-                        function (index1, value1)
-                        {
-							var addClassMod = index1 %6
-							var addClass = ""
-							
-							if(addClassMod == 0)	 {addClass = "link-primary"}
-							else if(addClassMod == 1){addClass = "link-secondary"}
-							else if(addClassMod == 2){addClass = "link-success"}
-							else if(addClassMod == 3){addClass = "link-danger"}
-							else if(addClassMod == 4){addClass = "link-warning"}
-							else if(addClassMod == 5){addClass = "link-info"}
-							
-							var linkWords = $("<a>")
-							linkWords.attr("href","/searche?q="+value1)
-							linkWords.addClass( addClass )
-							linkWords.html(value1+"&#9;")
 
-							$("#divMostPopularWords").append(linkWords)
-						}
-					)
+                    $.each(apiResultArrayLoc2,
+                        function (index1, value1)
+                    {
+                        var addClassMod = index1 % 6
+                            var addClass = ""
+
+                            if (addClassMod == 0)
+                            {
+                                addClass = "link-primary"
+                            }
+                            else if (addClassMod == 1)
+                            {
+                                addClass = "link-secondary"
+                            }
+                            else if (addClassMod == 2)
+                            {
+                                addClass = "link-success"
+                            }
+                            else if (addClassMod == 3)
+                            {
+                                addClass = "link-danger"
+                            }
+                            else if (addClassMod == 4)
+                            {
+                                addClass = "link-warning"
+                            }
+                            else if (addClassMod == 5)
+                            {
+                                addClass = "link-info"
+                            }
+
+                            var linkWords = $("<a>")
+                            linkWords.attr("href", "/searche?q=" + value1)
+                            linkWords.addClass(addClass)
+                            linkWords.html(value1 + "&#9;")
+
+                            $("#divMostPopularWords").append(linkWords)
+                    }
+                    )
                 }
             }
             )
