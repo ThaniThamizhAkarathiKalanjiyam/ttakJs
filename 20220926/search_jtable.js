@@ -113,6 +113,14 @@ $(document).ready(function ()
 
                     return $.Deferred(function ($dfd)
                     {
+						
+						if(postData.dictionaryset_id == -1){
+							$('#DictListContainer').jtable('changeColumnVisibility','dictionary_meaning','hidden');
+							$('#DictListContainer').jtable('changeColumnVisibility','search_count','visible');
+						}else{
+							$('#DictListContainer').jtable('changeColumnVisibility','dictionary_meaning','visible');
+							$('#DictListContainer').jtable('changeColumnVisibility','search_count','hidden');
+						}
 
                         api_dbhub_ioV2(
                         {
@@ -164,7 +172,7 @@ $(document).ready(function ()
             {
                 dictionary_termset_id:
                 {
-                    key: true,
+                    //key: true,
                     list: false
                 },
                 edhukai:
@@ -234,7 +242,7 @@ $(document).ready(function ()
                 {
                     title: '#',
                     width: '80%',
-					list: false
+					//list: false
                 }
             }
         }
