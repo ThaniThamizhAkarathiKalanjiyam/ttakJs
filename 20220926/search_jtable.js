@@ -104,7 +104,7 @@ $(document).ready(function ()
             paging: true,
             pageSize: 10,
             sorting: true,
-            defaultSorting: 'dictionary_term ASC',
+            defaultSorting: 'search_count DESC',
             openChildAsAccordion: true,
             actions:
             {
@@ -229,7 +229,12 @@ $(document).ready(function ()
                 {
                     title: 'பொருள்',
                     width: '80%'
-                }
+                },
+                // search_count:
+                // {
+                    // title: 'எண்ணிக்கை',
+                    // width: '80%'
+                // }
             }
         }
         );
