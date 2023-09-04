@@ -224,7 +224,7 @@ $(document).ready(function ()
                 dictionary_term:
                 {
                     title: 'சொல்',
-                    width: '20%',
+                    width: '19%',
                     display: function (data)
                     {
 
