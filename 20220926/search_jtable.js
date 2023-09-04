@@ -37,7 +37,7 @@ $(document).ready(function ()
         $('#DictListContainer').jtable("load",
         {
             "dictionaryset_id": $("#selDictID").val(),
-            "selectClause": "dictionary_term,dictionary_termset_id,dictionary_meaning",
+            "selectClause": "dictionary_term,dictionary_termset_id,dictionary_meaning, 1 AS search_count",
             "fromClause": "dictionary_termset",
             "whereClause": "dictionaryset_id=" + $("#selDictID").val(),
         }
