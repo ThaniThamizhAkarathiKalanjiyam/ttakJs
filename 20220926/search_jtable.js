@@ -181,13 +181,13 @@ $(document).ready(function ()
                 edhukai:
                 {
                     title: 'எதுகை',
-                    width: '30%',
+                    //width: '30%',
                     list: false
                 },
                 monai:
                 {
                     title: 'மோனை',
-                    width: '1%',
+                    //width: '1%',
                     list: false,
                     display: function (data)
                     {
@@ -218,7 +218,7 @@ $(document).ready(function ()
                 inai:
                 {
                     title: 'இணை',
-                    width: '30%',
+                    //width: '30%',
                     list: false
                 },
                 dictionary_term:
@@ -244,7 +244,7 @@ $(document).ready(function ()
                 search_count:
                 {
                     title: '#',
-                    width: '80%',
+                    width: '1%',
 					//list: false
                 }
             }
