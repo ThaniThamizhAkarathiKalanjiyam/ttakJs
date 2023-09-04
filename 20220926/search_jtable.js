@@ -114,7 +114,7 @@ $(document).ready(function ()
                     return $.Deferred(function ($dfd)
                     {
 						
-						$('#DictListContainer').jtable("option","title",$("#selDictID option:selected").html())
+						$('#DictListContainer .jtable-title-text').html($("#selDictID option:selected").html())
 						
 						if(postData.dictionaryset_id == -1){
 							$('#DictListContainer').jtable('changeColumnVisibility','dictionary_meaning','hidden');
