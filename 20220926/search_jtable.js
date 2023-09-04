@@ -118,6 +118,7 @@ $(document).ready(function ()
 							$('#DictListContainer').jtable('changeColumnVisibility','dictionary_meaning','hidden');
 							$('#DictListContainer').jtable('changeColumnVisibility','search_count','visible');
 						}else{
+							jtParams.jtSorting = "dictionary_term ASC"
 							$('#DictListContainer').jtable('changeColumnVisibility','dictionary_meaning','visible');
 							$('#DictListContainer').jtable('changeColumnVisibility','search_count','hidden');
 						}
