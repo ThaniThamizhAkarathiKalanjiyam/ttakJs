@@ -104,7 +104,7 @@ $(document).ready(function ()
             paging: true,
             pageSize: 10,
             sorting: true,
-            defaultSorting: postData.dictionaryset_id == -1?'search_count DESC':'dictionary_termset_id ASC',
+            defaultSorting: postData.dictionaryset_id == -1?'search_count DESC':'dictionary_term ASC',
             openChildAsAccordion: true,
             actions:
             {
