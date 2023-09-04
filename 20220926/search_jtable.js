@@ -266,7 +266,7 @@ $(document).ready(function ()
         $('#DictListContainer').jtable("load",
         {
             dictionaryset_id: "-1",
-            "selectClause": "search_term AS dictionary_term, search_termset_id AS dictionary_termset_id",
+            "selectClause": "search_term AS dictionary_term, search_termset_id AS dictionary_termset_id,search_count",
             "fromClause": "search_term_popular",
             "whereClause": "1=1"
         }
