@@ -95,7 +95,7 @@ $(document).ready(function ()
 
     }
 
-    initDictListContainer = function ()
+    initDictListContainer = function (postData)
     {
 
         $('#DictListContainer').jtable(
@@ -254,7 +254,7 @@ $(document).ready(function ()
     var jqxhr = $.when(
             getAllDictionary()).then(function ()
         {
-            initDictListContainer()
+            initDictListContainer({dictionaryset_id:-1})
             $("#accordSearch").accordion();
         }
         );
