@@ -262,6 +262,7 @@ $(document).ready(function ()
                                         }
                                     }, function (data)
                                     {
+										debugger
                                         data.childTable.jtable('load');
                                     }
                                     );
