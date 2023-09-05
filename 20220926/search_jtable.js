@@ -260,7 +260,7 @@ $(document).ready(function ()
                                             //width: '30%',
                                             //list: false
                                         },
-                                    }
+                                    },
                                     function (data)
                                     {
                                         debugger
