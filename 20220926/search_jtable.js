@@ -241,6 +241,7 @@ $(document).ready(function () {
                 }
             }
         })
+	}
 
         //Initial method call
         var jqxhr = $.when(
