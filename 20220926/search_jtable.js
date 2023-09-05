@@ -184,16 +184,16 @@ $(document).ready(function ()
                     //width: '30%',
                     list: false
                 },
-                monai:
+                list_details:
                 {
-                    title: 'மோனை',
-                    //width: '1%',
-                    list: false,
+                    title: ' ',
+                    width: '1%',
+                    //list: false,
                     display: function (data)
                     {
                         var $img = $("<span>")
                             $img.addClass("child-opener-image material-icons")
-                            $img.attr("src", "/Content/img/list_metro.png")
+                            $img.attr("src", "../jtable/themes/basic/list.png")
                             $img.attr("title", "Details")
                             $img.attr("target", "_blank")
 
