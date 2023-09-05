@@ -300,8 +300,6 @@ $(document).ready(function ()
                     }
                 }
             }
-            );
-
         }
 
             //Initial method call
