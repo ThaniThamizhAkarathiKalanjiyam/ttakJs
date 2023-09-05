@@ -104,7 +104,7 @@ $(document).ready(function ()
             paging: true,
             pageSize: 10,
             sorting: true,
-            defaultSorting: postData.dictionaryset_id == -1?'search_count DESC':'dictionary_term ASC',
+            defaultSorting: postData.dictionaryset_id == -1 ? 'search_count DESC' : 'dictionary_term ASC',
             openChildAsAccordion: true,
             actions:
             {
@@ -113,17 +113,20 @@ $(document).ready(function ()
 
                     return $.Deferred(function ($dfd)
                     {
-						
-						$('#DictListContainer .jtable-title-text').html($("#selDictID option:selected").html())
-						
-						if(postData.dictionaryset_id == -1){
-							$('#DictListContainer').jtable('changeColumnVisibility','dictionary_meaning','hidden');
-							$('#DictListContainer').jtable('changeColumnVisibility','search_count','visible');
-						}else{
-							jtParams.jtSorting = "dictionary_term ASC"
-							$('#DictListContainer').jtable('changeColumnVisibility','dictionary_meaning','visible');
-							$('#DictListContainer').jtable('changeColumnVisibility','search_count','hidden');
-						}
+
+                        $('#DictListContainer .jtable-title-text').html($("#selDictID option:selected").html())
+
+                        if (postData.dictionaryset_id == -1)
+                        {
+                            $('#DictListContainer').jtable('changeColumnVisibility', 'dictionary_meaning', 'hidden');
+                            $('#DictListContainer').jtable('changeColumnVisibility', 'search_count', 'visible');
+                        }
+                        else
+                        {
+                            jtParams.jtSorting = "dictionary_term ASC"
+                                $('#DictListContainer').jtable('changeColumnVisibility', 'dictionary_meaning', 'visible');
+                            $('#DictListContainer').jtable('changeColumnVisibility', 'search_count', 'hidden');
+                        }
 
                         api_dbhub_ioV2(
                         {
@@ -140,7 +143,7 @@ $(document).ready(function ()
                             {
 
                                 //resJsonObjJtable.TotalRecordCount = 1707511
-                                console.log(resJsonObjJtable)
+                                //console.log(resJsonObjJtable)
                                 $dfd.resolve(resJsonObjJtable);
 
                             }
@@ -178,12 +181,7 @@ $(document).ready(function ()
                     //key: true,
                     list: false
                 },
-                edhukai:
-                {
-                    title: 'எதுகை',
-                    //width: '30%',
-                    list: false
-                },
+
                 list_details:
                 {
                     title: '',
@@ -206,114 +204,133 @@ $(document).ready(function ()
                                 $img.html("crop_square")
                             }
 
-                            $img.click(function ()  {
-								var isChildRowOpen = $('#DictListContainer').jtable('isChildRowOpen', $img.closest('tr'));
+                            $img.click(function (data)
+                            {
+                                var isChildRowOpen = $('#DictListContainer').jtable('isChildRowOpen', $img.closest('tr'));
 
-								if (isChildRowOpen) {
-									$('#DictListContainer').jtable('getChildRow', $img.closest('tr')).slideUp();
-									return;
-								}
-								$('#DictListContainer').jtable('openChildTable',
-									$img.closest('tr'),
-									{
-										title: data.record.desc_txt,
-										actions: {
-											listAction: function (postData, jtParams) {
-												return {
-													"Result": "OK",
-													"Records": [
-														{
-															"outlet_name": data.record.outlet_name,
-															"outlet_address": data.record.outlet_address,
-															"posting_date": data.record.posting_date
-														}
-													],
-													"TotalRecordCount": 1
-												};
-											}
-										},
-										fields: {
-											//vendor_name: {
-											//    title: "Vendor"
-											//},
-											outlet_name: {
-												title: "Outlet Name"
-											},
-											outlet_address: {
-												title: "Outlet Address"
-											}
-										}
-									}, function (data) {
-										data.childTable.jtable('load');
-									}
-								);
+                                if (isChildRowOpen)
+                                {
+                                    $('#DictListContainer').jtable('getChildRow', $img.closest('tr')).slideUp();
+                                    return;
+                                }
+                                $('#DictListContainer').jtable('openChildTable',
+                                    $img.closest('tr'),
+                                {
+                                    title: data.record.dictionary_term,
+                                    actions:
+                                    {
+                                        listAction: function (postData, jtParams)
+                                        {
+                                            api_dbhub_ioV2(
+                                            {
+                                                //"dbname":startIndex<853755?"dictionary_termset_lt_853755.db":"dictionary_termset_gt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db
+                                                "dbname": postData.dictionaryset_id == -1 ? "twn_pitchaimuthu-2.db" : postData.dictionaryset_id <= 16 ? "dictionary_termset_lt_853755.db" : "dictionary_termset_gt_853755.db", //pitchai_dbhub / dictionary_termset_lt_853755.db
+                                                //"sql": queryBuilder(postData, jtParams),
+                                                "selectClause": "dictionary_term",
+                                                "fromClause": "tamil_dict1",
+                                                "whereClause": postData.whereClause,
+                                                "orderByClause": jtParams.jtSorting,
+                                                "limitClause": jtParams.jtPageSize + " OFFSET " + jtParams.jtStartIndex + ";",
+                                                "sql_api_cmd": "query",
+                                                "sql_api_call_back": function (jsonObj, resJsonObjJtable)
+                                                {
 
-							}
-                            );
-                        return $img;
-                    }
-                },
-                inai:
-                {
-                    title: 'இணை',
-                    //width: '30%',
-                    list: false
-                },
-                dictionary_term:
-                {
-                    title: 'சொல்',
-                    width: '18%',
-                    display: function (data)
+                                                    //resJsonObjJtable.TotalRecordCount = 1707511
+                                                    //console.log(resJsonObjJtable)
+                                                    //$dfd.resolve(resJsonObjJtable);
+
+                                                    return resJsonObjJtable
+
+                                                }
+                                            }
+                                            }
+                                        },
+                                        fields:
+                                        {
+                                            edhukai:
+                                            {
+                                                title: 'எதுகை',
+                                                //width: '30%',
+                                                //list: false
+                                            },
+                                            inai:
+                                            {
+                                                title: 'இணை',
+                                                //width: '30%',
+                                                //list: false
+                                            },
+                                        }
+                                    }, function (data)
+                                    {
+                                        data.childTable.jtable('load');
+                                    }
+                                    );
+
+                                }
+                                );
+                            return $img;
+                        }
+                    },
+
+                    dictionary_term:
                     {
+                        title: 'சொல்',
+                        width: '18%',
+                        display: function (data)
+                        {
 
-                        var aObj = $("<a>")
-                            aObj.attr("href", "https://thanithamizhakarathikalanjiyam.github.io/searche?q=" + data.record.dictionary_term)
-                            aObj.html(data.record.dictionary_term)
+                            var aObj = $("<a>")
+                                aObj.attr("href", "https://thanithamizhakarathikalanjiyam.github.io/searche?q=" + data.record.dictionary_term)
+                                aObj.html(data.record.dictionary_term)
 
-                            return aObj
+                                return aObj
 
+                        }
+                    },
+                    dictionary_meaning:
+                    {
+                        title: 'பொருள்',
+                        width: '80%'
+                    },
+                    search_count:
+                    {
+                        title: '#',
+                        width: '1%',
+                        //list: false
                     }
-                },
-                dictionary_meaning:
-                {
-                    title: 'பொருள்',
-                    width: '80%'
-                },
-                search_count:
-                {
-                    title: '#',
-                    width: '1%',
-					//list: false
                 }
             }
+            );
+
+        }
+
+        //Initial method call
+        var jqxhr = $.when(
+                getAllDictionary()).then(function ()
+            {
+                initDictListContainer(
+                {
+                    dictionaryset_id: -1
+                }
+                )
+                $("#accordSearch").accordion();
+            }
+            );
+        // Set another completion function for the request above
+        jqxhr.always(function ()
+        {
+            //Elements event Functionality Starts
+            //Elements event Functionality Ends
+            $('#DictListContainer').jtable("load",
+            {
+                dictionaryset_id: "-1",
+                "selectClause": "search_term AS dictionary_term, search_termset_id AS dictionary_termset_id,search_count",
+                "fromClause": "search_term_popular",
+                "whereClause": "1=1"
+            }
+            );
         }
         );
 
-    }
-
-    //Initial method call
-    var jqxhr = $.when(
-            getAllDictionary()).then(function ()
-        {
-            initDictListContainer({dictionaryset_id:-1})
-            $("#accordSearch").accordion();
-        }
-        );
-    // Set another completion function for the request above
-    jqxhr.always(function ()
-    {
-        //Elements event Functionality Starts
-        //Elements event Functionality Ends
-        $('#DictListContainer').jtable("load",
-        {
-            dictionaryset_id: "-1",
-            "selectClause": "search_term AS dictionary_term, search_termset_id AS dictionary_termset_id,search_count",
-            "fromClause": "search_term_popular",
-            "whereClause": "1=1"
-        }
-        );
     }
     );
-
-}
-);
