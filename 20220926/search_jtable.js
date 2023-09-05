@@ -193,7 +193,7 @@ $(document).ready(function ()
                     {
                         var $img = $("<span>")
                             $img.addClass("child-opener-image material-icons")
-                            $img.attr("src", "../jtable/themes/basic/list.png")
+                            $img.attr("src", "../ttakJs/jtable/themes/basic/list.png")
                             $img.attr("title", "Details")
                             $img.attr("target", "_blank")
 
