@@ -245,32 +245,31 @@ $(document).ready(function ()
                                             }
                                             )
                                         },
-                                        fields:
-                                        {
-                                            edhukai:
-                                            {
-                                                title: 'எதுகை',
-                                                //width: '30%',
-                                                //list: false
-                                            },
-                                            inai:
-                                            {
-                                                title: 'இணை',
-                                                //width: '30%',
-                                                //list: false
-                                            },
-                                        }
-                                    }, function (data)
+                                    },
+                                    fields:
                                     {
-										debugger
+                                        edhukai:
+                                        {
+                                            title: 'எதுகை',
+                                            //width: '30%',
+                                            //list: false
+                                        },
+                                        inai:
+                                        {
+                                            title: 'இணை',
+                                            //width: '30%',
+                                            //list: false
+                                        },
+                                    }
+                                    function (data)
+                                    {
+                                        debugger
                                         data.childTable.jtable('load');
                                     }
-                                    );
-
                                 }
                                 );
-                            return $img;
-                        }
+                                return $img;
+                            }
                     },
 
                     dictionary_term:
@@ -305,33 +304,33 @@ $(document).ready(function ()
 
         }
 
-        //Initial method call
-        var jqxhr = $.when(
-                getAllDictionary()).then(function ()
-            {
-                initDictListContainer(
+            //Initial method call
+            var jqxhr = $.when(
+                    getAllDictionary()).then(function ()
                 {
-                    dictionaryset_id: -1
+                    initDictListContainer(
+                    {
+                        dictionaryset_id: -1
+                    }
+                    )
+                    $("#accordSearch").accordion();
                 }
-                )
-                $("#accordSearch").accordion();
-            }
-            );
-        // Set another completion function for the request above
-        jqxhr.always(function ()
-        {
-            //Elements event Functionality Starts
-            //Elements event Functionality Ends
-            $('#DictListContainer').jtable("load",
+                );
+            // Set another completion function for the request above
+            jqxhr.always(function ()
             {
-                dictionaryset_id: "-1",
-                "selectClause": "search_term AS dictionary_term, search_termset_id AS dictionary_termset_id,search_count",
-                "fromClause": "search_term_popular",
-                "whereClause": "1=1"
+                //Elements event Functionality Starts
+                //Elements event Functionality Ends
+                $('#DictListContainer').jtable("load",
+                {
+                    dictionaryset_id: "-1",
+                    "selectClause": "search_term AS dictionary_term, search_termset_id AS dictionary_termset_id,search_count",
+                    "fromClause": "search_term_popular",
+                    "whereClause": "1=1"
+                }
+                );
             }
             );
+
         }
         );
-
-    }
-    );
