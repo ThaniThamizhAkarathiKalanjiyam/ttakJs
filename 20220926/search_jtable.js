@@ -1,4 +1,3 @@
-"use strict";
 $(document).ready(function () {
 
     getAllDictionary = function (funcData) {
@@ -241,28 +240,28 @@ $(document).ready(function () {
                 }
             }
         })
-	}
+    }
 
-        //Initial method call
-        var jqxhr = $.when(
-                getAllDictionary())
-            .then(
-                function () {
-                initDictListContainer({
-                    dictionaryset_id: -1
-                })
-                $("#accordSearch").accordion();
-            });
-        // Set another completion function for the request above
-        jqxhr.always(function () {
-            //Elements event Functionality Starts
-            //Elements event Functionality Ends
-            $('#DictListContainer').jtable("load", {
-                dictionaryset_id: "-1",
-                "selectClause": "search_term AS dictionary_term, search_termset_id AS dictionary_termset_id,search_count",
-                "fromClause": "search_term_popular",
-                "whereClause": "1=1"
-            });
+    //Initial method call
+    var jqxhr = $.when(
+            getAllDictionary())
+        .then(
+            function () {
+            initDictListContainer({
+                dictionaryset_id: -1
+            })
+            $("#accordSearch").accordion();
         });
-
+    // Set another completion function for the request above
+    jqxhr.always(function () {
+        //Elements event Functionality Starts
+        //Elements event Functionality Ends
+        $('#DictListContainer').jtable("load", {
+            dictionaryset_id: "-1",
+            "selectClause": "search_term AS dictionary_term, search_termset_id AS dictionary_termset_id,search_count",
+            "fromClause": "search_term_popular",
+            "whereClause": "1=1"
+        });
     });
+
+});
