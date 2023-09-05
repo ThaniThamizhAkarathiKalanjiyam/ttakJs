@@ -1,4 +1,4 @@
-
+"use strict";
 $(document).ready(function ()
 {
 
@@ -16,20 +16,20 @@ $(document).ready(function ()
                 $.each(resJsonObjJtable.Records, function (index, value)
                 {
 
-                    var dictOption = $('<option>')
-                        dictOption.attr("value", value.dictionaryset_id)
-                        dictOption.html(value.dictionary_name)
+                    var dictOption = $('<option>');
+                    dictOption.attr("value", value.dictionaryset_id);
+                    dictOption.html(value.dictionary_name);
 
-                        $("#selDictID").append(dictOption)
+                    $("#selDictID").append(dictOption);
 
                 }
-                )
+                );
 
             }
         }
-        )
+        );
 
-    }
+    };
 
     $("#selDictID").on("change", function (event, eventData)
     {
@@ -39,61 +39,61 @@ $(document).ready(function ()
             "dictionaryset_id": $("#selDictID").val(),
             "selectClause": "dictionary_term,dictionary_termset_id,dictionary_meaning, 1 AS search_count",
             "fromClause": "dictionary_termset",
-            "whereClause": "dictionaryset_id=" + $("#selDictID").val(),
+            "whereClause": "dictionaryset_id=" + $("#selDictID").val()
         }
         );
 
     }
-    )
+    );
 
     queryBuilder = function (postData, jtParams)
     {
 
-        var sqlLOC = ""
-            var sqlSelectClause = ""
-            var sqlWhereClause = ""
-            var sqlLimitClause = ""
+        var sqlLOC = "";
+        var sqlSelectClause = "";
+        var sqlWhereClause = "";
+        var sqlLimitClause = "";
 
-            var startIndex = (jtParams.jtStartIndex + jtParams.jtPageSize)
-            if (startIndex >= 853755)
-            {
-                startIndex = startIndex - 853755
-            }
+        var startIndex = (jtParams.jtStartIndex + jtParams.jtPageSize);
+        if (startIndex >= 853755)
+        {
+            startIndex = startIndex - 853755;
+        }
 
-            if (postData.sqlSelectClause !== undefined && postData.sqlSelectClause !== "")
-            {
-                sqlSelectClause = postData.sqlSelectClause
-            }
-            else
-            {
-                sqlSelectClause = "select * from dictionary_termset"
-            }
-            if (postData.sqlLimitClause !== undefined && postData.sqlLimitClause !== "")
-            {
-                sqlLimitClause = postData.sqlLimitClause
-            }
-            else
-            {
-                sqlLimitClause = " LIMIT " + jtParams.jtPageSize + " OFFSET " + startIndex + ";";
-            }
+        if (postData.sqlSelectClause !== undefined && postData.sqlSelectClause !== "")
+        {
+            sqlSelectClause = postData.sqlSelectClause;
+        }
+        else
+        {
+            sqlSelectClause = "select * from dictionary_termset";
+        }
+        if (postData.sqlLimitClause !== undefined && postData.sqlLimitClause !== "")
+        {
+            sqlLimitClause = postData.sqlLimitClause;
+        }
+        else
+        {
+            sqlLimitClause = " LIMIT " + jtParams.jtPageSize + " OFFSET " + startIndex + ";";
+        }
 
-            if (postData.sqlWhereClause !== undefined && postData.sqlWhereClause !== "")
+        if (postData.sqlWhereClause !== undefined && postData.sqlWhereClause !== "")
+        {
+            sqlWhereClause = postData.sqlWhereClause;
+        }
+        else
+        {
+            if (postData != undefined && postData.dictionaryset_id != undefined)
             {
-                sqlWhereClause = postData.sqlWhereClause
+                sqlWhereClause = " where dictionaryset_id=" + postData.dictionaryset_id;
             }
-            else
-            {
-                if (postData != undefined && postData.dictionaryset_id != undefined)
-                {
-                    sqlWhereClause = " where dictionaryset_id=" + postData.dictionaryset_id;
-                }
-            }
+        }
 
-            sqlLOC = sqlSelectClause + sqlWhereClause + sqlLimitClause
+        sqlLOC = sqlSelectClause + sqlWhereClause + sqlLimitClause;
 
-            return sqlLOC
+        return sqlLOC;
 
-    }
+    };
 
     initDictListContainer = function (postData)
     {
@@ -114,7 +114,7 @@ $(document).ready(function ()
                     return $.Deferred(function ($dfd)
                     {
 
-                        $('#DictListContainer .jtable-title-text').html($("#selDictID option:selected").html())
+                        $('#DictListContainer .jtable-title-text').html($("#selDictID option:selected").html());
 
                         if (postData.dictionaryset_id == -1)
                         {
@@ -123,8 +123,8 @@ $(document).ready(function ()
                         }
                         else
                         {
-                            jtParams.jtSorting = "dictionary_term ASC"
-                                $('#DictListContainer').jtable('changeColumnVisibility', 'dictionary_meaning', 'visible');
+                            jtParams.jtSorting = "dictionary_term ASC";
+                            $('#DictListContainer').jtable('changeColumnVisibility', 'dictionary_meaning', 'visible');
                             $('#DictListContainer').jtable('changeColumnVisibility', 'search_count', 'hidden');
                         }
 
@@ -148,7 +148,7 @@ $(document).ready(function ()
 
                             }
                         }
-                        )
+                        );
 
                     }
                     );
@@ -159,17 +159,17 @@ $(document).ready(function ()
                 items: [
 
                     //{
-                    //	icon: '/images/excel.png',
-                    //	text: 'தேடலி',
-                    //	click: function () {
-                    //		//perform your custom job...
-                    //	}
+                    // icon: '/images/excel.png',
+                    // text: 'தேடலி',
+                    // click: function () {
+                    //  //perform your custom job...
+                    // }
                     //},{
-                    //	icon: '/images/pdf.png',
-                    //	text: 'அகரமுதலி',
-                    //	click: function () {
-                    //		//perform your custom job...
-                    //	}
+                    // icon: '/images/pdf.png',
+                    // text: 'அகரமுதலி',
+                    // click: function () {
+                    //  //perform your custom job...
+                    // }
                     //}
 
                 ]
@@ -269,7 +269,8 @@ $(document).ready(function ()
                                 }
                                 );
                                 return $img;
-                            })
+                            }
+                            )
                     },
 
                     dictionary_term:
@@ -301,34 +302,37 @@ $(document).ready(function ()
                 }
             }
         }
+        )
 
-            //Initial method call
-            var jqxhr = $.when(
-                    getAllDictionary()).then(function ()
-                {
-                    initDictListContainer(
-                    {
-                        dictionaryset_id: -1
-                    }
-                    )
-                    $("#accordSearch").accordion();
-                }
-                );
-            // Set another completion function for the request above
-            jqxhr.always(function ()
+        //Initial method call
+        var jqxhr = $.when(
+                getAllDictionary())
+            .then(
+                function ()
             {
-                //Elements event Functionality Starts
-                //Elements event Functionality Ends
-                $('#DictListContainer').jtable("load",
+                initDictListContainer(
                 {
-                    dictionaryset_id: "-1",
-                    "selectClause": "search_term AS dictionary_term, search_termset_id AS dictionary_termset_id,search_count",
-                    "fromClause": "search_term_popular",
-                    "whereClause": "1=1"
+                    dictionaryset_id: -1
                 }
-                );
+                )
+                $("#accordSearch").accordion();
             }
             );
-
+        // Set another completion function for the request above
+        jqxhr.always(function ()
+        {
+            //Elements event Functionality Starts
+            //Elements event Functionality Ends
+            $('#DictListContainer').jtable("load",
+            {
+                dictionaryset_id: "-1",
+                "selectClause": "search_term AS dictionary_term, search_termset_id AS dictionary_termset_id,search_count",
+                "fromClause": "search_term_popular",
+                "whereClause": "1=1"
+            }
+            );
         }
         );
+
+    }
+    );
