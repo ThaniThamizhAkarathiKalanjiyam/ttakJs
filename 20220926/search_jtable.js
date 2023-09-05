@@ -269,7 +269,7 @@ $(document).ready(function ()
                                 }
                                 );
                                 return $img;
-                            }
+                            })
                     },
 
                     dictionary_term:
