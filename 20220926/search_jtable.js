@@ -191,7 +191,7 @@ $(document).ready(function ()
                     //list: false,
                     display: function (data)
                     {
-                        var $img = $("<span>")
+                        var $img = $("<img>")
                             $img.addClass("child-opener-image material-icons")
                             $img.attr("src", "../ttakJs/jtable/themes/basic/list.png")
                             $img.attr("title", "Details")
