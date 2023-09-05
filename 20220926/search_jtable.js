@@ -186,8 +186,8 @@ $(document).ready(function ()
                 },
                 list_details:
                 {
-                    title: ' ',
-                    width: '1%',
+                    title: '',
+                    //width: '1%',
                     //list: false,
                     display: function (data)
                     {
@@ -207,9 +207,47 @@ $(document).ready(function ()
                             }
 
                             $img.click(function ()  {
-								
-								
-								
+								var isChildRowOpen = $('#DictListContainer').jtable('isChildRowOpen', $img.closest('tr'));
+
+								if (isChildRowOpen) {
+									$('#DictListContainer').jtable('getChildRow', $img.closest('tr')).slideUp();
+									return;
+								}
+								$('#DictListContainer').jtable('openChildTable',
+									$img.closest('tr'),
+									{
+										title: data.record.desc_txt,
+										actions: {
+											listAction: function (postData, jtParams) {
+												return {
+													"Result": "OK",
+													"Records": [
+														{
+															"outlet_name": data.record.outlet_name,
+															"outlet_address": data.record.outlet_address,
+															"posting_date": data.record.posting_date
+														}
+													],
+													"TotalRecordCount": 1
+												};
+											}
+										},
+										fields: {
+											//vendor_name: {
+											//    title: "Vendor"
+											//},
+											outlet_name: {
+												title: "Outlet Name"
+											},
+											outlet_address: {
+												title: "Outlet Address"
+											}
+										}
+									}, function (data) {
+										data.childTable.jtable('load');
+									}
+								);
+
 							}
                             );
                         return $img;
@@ -224,7 +262,7 @@ $(document).ready(function ()
                 dictionary_term:
                 {
                     title: 'சொல்',
-                    width: '19%',
+                    width: '18%',
                     display: function (data)
                     {
 
