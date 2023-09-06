@@ -156,6 +156,8 @@ $(document).ready(function () {
                                 $('#DictListContainer').jtable('openChildTable',
                                     $img.closest('tr'), {
                                     title: data_record.record.dictionary_term,
+									paging: true,
+									pageSize: 10,
                                     actions: {
                                         listAction: function (postData, jtParams) {
                                             return $.Deferred(function ($dfd) {
