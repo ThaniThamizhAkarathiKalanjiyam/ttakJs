@@ -156,7 +156,7 @@ $(document).ready(function () {
                             // } else {
                                 // $img.html("crop_square")
                             // }
-                            $img.click(function (data) {
+                            $img.click(function () {
                                 var isChildRowOpen = $('#DictListContainer').jtable('isChildRowOpen', $img.closest('tr'));
                                 if (isChildRowOpen) {
                                     $('#DictListContainer').jtable('getChildRow', $img.closest('tr')).slideUp();
