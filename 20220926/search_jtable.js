@@ -167,6 +167,7 @@ $(document).ready(function () {
                                     title: data_record.record.dictionary_term,
                                     actions: {
                                         listAction: function (postData, jtParams) {
+											debugger
                                             api_dbhub_ioV2({
                                                 //"dbname":startIndex<853755?"dictionary_termset_lt_853755.db":"dictionary_termset_gt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db
                                                 "dbname": postData.dictionaryset_id == -1 ? "twn_pitchaimuthu-2.db" : postData.dictionaryset_id <= 16 ? "dictionary_termset_lt_853755.db" : "dictionary_termset_gt_853755.db", //pitchai_dbhub / dictionary_termset_lt_853755.db
