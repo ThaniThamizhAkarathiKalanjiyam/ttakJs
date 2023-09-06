@@ -151,11 +151,11 @@ $(document).ready(function () {
                             $img.attr("src", "../ttakJs/jtable/themes/basic/list.png")
                             $img.attr("title", "Details")
                             $img.attr("target", "_blank")
-                            if (data.record.picked === true) {
-                                $img.html("check_box")
-                            } else {
-                                $img.html("crop_square")
-                            }
+                            // if (data.record.picked === true) {
+                                // $img.html("check_box")
+                            // } else {
+                                // $img.html("crop_square")
+                            // }
                             $img.click(function (data) {
                                 var isChildRowOpen = $('#DictListContainer').jtable('isChildRowOpen', $img.closest('tr'));
                                 if (isChildRowOpen) {
