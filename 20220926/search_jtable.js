@@ -170,8 +170,10 @@ $(document).ready(function () {
                                         data.childTable.jtable('load');
                                     }
                                 });
-                                return $img;
+                                
                             })
+							
+							return $img;
                     },
                   
 				},
