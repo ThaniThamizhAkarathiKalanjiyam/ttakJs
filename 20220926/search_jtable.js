@@ -110,9 +110,42 @@ $(document).ready(function () {
             fields: {
 				list_details: {
                     title: '',
-                    //width: '1%',
+                    width: '1%',
                     //list: false,
-                    display: function (data) {
+                    display: function (data_record) {
+						
+					var edhukaisorkal_regex = ""
+					var monaisorkal_regex = ""
+					
+					var tam_separate_letters = getTamilLetters(searctTextVal)
+
+					if (tam_separate_letters != null)
+					{
+							$.each(tam_separate_letters, function (index, value)
+							{
+								//இரண்டாம் எழுத்து "ந்" ஒன்றாக அமைவதால் இவை எதுகை எனச் சுட்டப்படுகின்றன.
+								if (index === 0)
+								{
+									edhukaisorkal_regex += "_"
+								}
+								else
+								{
+									edhukaisorkal_regex += value
+								}
+
+								//முதல் எழுத்து "ந்" ஒன்றாக அமைவதால் இவை மோனை எனச் சுட்டப்படுகின்றன.
+								if (index === 1)
+								{
+									monaisorkal_regex += "_"
+								}
+								else
+								{
+									monaisorkal_regex += value
+								}
+							}
+							)
+					}
+						
                         var $img = $("<img>")
                             $img.addClass("child-opener-image material-icons")
                             $img.attr("src", "../ttakJs/jtable/themes/basic/list.png")
@@ -131,7 +164,7 @@ $(document).ready(function () {
                                 }
                                 $('#DictListContainer').jtable('openChildTable',
                                     $img.closest('tr'), {
-                                    title: data.record.dictionary_term,
+                                    title: data_record.record.dictionary_term,
                                     actions: {
                                         listAction: function (postData, jtParams) {
                                             api_dbhub_ioV2({
@@ -140,8 +173,20 @@ $(document).ready(function () {
                                                 //"sql": queryBuilder(postData, jtParams),
                                                 "selectClause": "dictionary_term",
                                                 "fromClause": "tamil_dict1",
-                                                "whereClause": postData.whereClause,
-                                                "orderByClause": jtParams.jtSorting,
+                                                "whereClause": "dictionary_term like '" + edhukaisorkal_regex + "'"
+																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_்") + "'"
+																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ா") + "'"
+																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ி") + "'"
+																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ீ") + "'"
+																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ு") + "'"
+																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ூ") + "'"
+																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ெ") + "'"
+																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ே") + "'"
+																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ை") + "'"
+																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ொ") + "'"
+																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ோ") + "'"
+																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ௌ") + "'",
+                                                "orderByClause": "dictionary_term ASC",
                                                 "limitClause": jtParams.jtPageSize + " OFFSET " + jtParams.jtStartIndex + ";",
                                                 "sql_api_cmd": "query",
                                                 "sql_api_call_back": function (jsonObj, resJsonObjJtable) {
