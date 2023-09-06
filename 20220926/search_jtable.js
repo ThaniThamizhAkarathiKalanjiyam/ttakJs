@@ -117,7 +117,7 @@ $(document).ready(function () {
 					var edhukaisorkal_regex = ""
 					var monaisorkal_regex = ""
 					
-					var tam_separate_letters = getTamilLetters(searctTextVal)
+					var tam_separate_letters = getTamilLetters(data_record.record.dictionary_term)
 
 					if (tam_separate_letters != null)
 					{
