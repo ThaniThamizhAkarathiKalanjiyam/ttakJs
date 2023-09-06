@@ -108,53 +108,44 @@ $(document).ready(function () {
                 ]
             },
             fields: {
-				list_details: {
+                list_details: {
                     title: '',
                     width: '1%',
                     //list: false,
                     display: function (data_record) {
-						
-					var edhukaisorkal_regex = ""
-					var monaisorkal_regex = ""
-					
-					var tam_separate_letters = getTamilLetters(data_record.record.dictionary_term)
 
-					if (tam_separate_letters != null)
-					{
-							$.each(tam_separate_letters, function (index, value)
-							{
-								//இரண்டாம் எழுத்து "ந்" ஒன்றாக அமைவதால் இவை எதுகை எனச் சுட்டப்படுகின்றன.
-								if (index === 0)
-								{
-									edhukaisorkal_regex += "_"
-								}
-								else
-								{
-									edhukaisorkal_regex += value
-								}
+                        var edhukaisorkal_regex = ""
+                            var monaisorkal_regex = ""
 
-								//முதல் எழுத்து "ந்" ஒன்றாக அமைவதால் இவை மோனை எனச் சுட்டப்படுகின்றன.
-								if (index === 1)
-								{
-									monaisorkal_regex += "_"
-								}
-								else
-								{
-									monaisorkal_regex += value
-								}
-							}
-							)
-					}
-						
-                        var $img = $("<img>")
+                            var tam_separate_letters = getTamilLetters(data_record.record.dictionary_term)
+
+                            if (tam_separate_letters != null) {
+                                $.each(tam_separate_letters, function (index, value) {
+                                    //இரண்டாம் எழுத்து "ந்" ஒன்றாக அமைவதால் இவை எதுகை எனச் சுட்டப்படுகின்றன.
+                                    if (index === 0) {
+                                        edhukaisorkal_regex += "_"
+                                    } else {
+                                        edhukaisorkal_regex += value
+                                    }
+
+                                    //முதல் எழுத்து "ந்" ஒன்றாக அமைவதால் இவை மோனை எனச் சுட்டப்படுகின்றன.
+                                    if (index === 1) {
+                                        monaisorkal_regex += "_"
+                                    } else {
+                                        monaisorkal_regex += value
+                                    }
+                                })
+                            }
+
+                            var $img = $("<img>")
                             $img.addClass("child-opener-image material-icons")
                             $img.attr("src", "../ttakJs/jtable/themes/basic/list.png")
                             $img.attr("title", "Details")
                             $img.attr("target", "_blank")
                             // if (data.record.picked === true) {
-                                // $img.html("check_box")
+                            // $img.html("check_box")
                             // } else {
-                                // $img.html("crop_square")
+                            // $img.html("crop_square")
                             // }
                             $img.click(function () {
                                 var isChildRowOpen = $('#DictListContainer').jtable('isChildRowOpen', $img.closest('tr'));
@@ -167,7 +158,7 @@ $(document).ready(function () {
                                     title: data_record.record.dictionary_term,
                                     actions: {
                                         listAction: function (postData, jtParams) {
-											debugger
+                                            debugger
                                             api_dbhub_ioV2({
                                                 //"dbname":startIndex<853755?"dictionary_termset_lt_853755.db":"dictionary_termset_gt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db
                                                 "dbname": postData.dictionaryset_id == -1 ? "twn_pitchaimuthu-2.db" : postData.dictionaryset_id <= 16 ? "dictionary_termset_lt_853755.db" : "dictionary_termset_gt_853755.db", //pitchai_dbhub / dictionary_termset_lt_853755.db
@@ -175,18 +166,18 @@ $(document).ready(function () {
                                                 "selectClause": "dictionary_term",
                                                 "fromClause": "tamil_dict1",
                                                 "whereClause": "dictionary_term like '" + edhukaisorkal_regex + "'"
-																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_்") + "'"
-																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ா") + "'"
-																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ி") + "'"
-																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ீ") + "'"
-																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ு") + "'"
-																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ூ") + "'"
-																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ெ") + "'"
-																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ே") + "'"
-																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ை") + "'"
-																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ொ") + "'"
-																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ோ") + "'"
-																 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ௌ") + "'",
+                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_்") + "'"
+                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ா") + "'"
+                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ி") + "'"
+                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ீ") + "'"
+                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ு") + "'"
+                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ூ") + "'"
+                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ெ") + "'"
+                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ே") + "'"
+                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ை") + "'"
+                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ொ") + "'"
+                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ோ") + "'"
+                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ௌ") + "'",
                                                 "orderByClause": "dictionary_term ASC",
                                                 "limitClause": jtParams.jtPageSize + " OFFSET " + jtParams.jtStartIndex + ";",
                                                 "sql_api_cmd": "query",
@@ -210,19 +201,19 @@ $(document).ready(function () {
                                             //width: '30%',
                                             //list: false
                                         },
-                                    },
-                                    function (data) {
-                                        debugger
-                                        data.childTable.jtable('load');
                                     }
+                                },
+                                    function (data) {
+                                    debugger
+                                    data.childTable.jtable('load');
                                 });
-                                
+
                             })
-							
-							return $img;
+
+                            return $img;
                     },
-                  
-				},
+
+                },
                 dictionary_termset_id: {
                     //key: true,
                     list: false
