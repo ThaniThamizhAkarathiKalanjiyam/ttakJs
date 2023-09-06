@@ -181,7 +181,7 @@ $(document).ready(function ()
                 edhukai:
                 {
                     title: 'எதுகை',
-                    //width: '30%',
+                    //width: '30%',checking
                     list: false
                 },
                 monai:
