@@ -158,134 +158,139 @@ $(document).ready(function () {
                                     title: data_record.record.dictionary_term,
                                     actions: {
                                         listAction: function (postData, jtParams) {
-                                            debugger
-                                            api_dbhub_ioV2({
-                                                //"dbname":startIndex<853755?"dictionary_termset_lt_853755.db":"dictionary_termset_gt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db
-                                                "dbname": postData.dictionaryset_id == -1 ? "twn_pitchaimuthu-2.db" : postData.dictionaryset_id <= 16 ? "dictionary_termset_lt_853755.db" : "dictionary_termset_gt_853755.db", //pitchai_dbhub / dictionary_termset_lt_853755.db
-                                                //"sql": queryBuilder(postData, jtParams),
-                                                "selectClause": "dictionary_term",
-                                                "fromClause": "tamil_dict1",
-                                                "whereClause": "dictionary_term like '" + edhukaisorkal_regex + "'"
-                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_்") + "'"
-                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ா") + "'"
-                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ி") + "'"
-                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ீ") + "'"
-                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ு") + "'"
-                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ூ") + "'"
-                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ெ") + "'"
-                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ே") + "'"
-                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ை") + "'"
-                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ொ") + "'"
-                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ோ") + "'"
-                                                 + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ௌ") + "'",
-                                                "orderByClause": "dictionary_term ASC",
-                                                "limitClause": jtParams.jtPageSize + " OFFSET " + jtParams.jtStartIndex + ";",
-                                                "sql_api_cmd": "query",
-                                                "sql_api_call_back": function (jsonObj, resJsonObjJtable) {
-                                                    //resJsonObjJtable.TotalRecordCount = 1707511
-                                                    //console.log(resJsonObjJtable)
-                                                    //$dfd.resolve(resJsonObjJtable);
-                                                    return resJsonObjJtable
-                                                }
-                                            })
+                                            return $.Deferred(function ($dfd) {
+                                                api_dbhub_ioV2({
+                                                    //"dbname":startIndex<853755?"dictionary_termset_lt_853755.db":"dictionary_termset_gt_853755.db",//pitchai_dbhub / dictionary_termset_lt_853755.db
+                                                    "dbname": postData.dictionaryset_id == -1 ? "twn_pitchaimuthu-2.db" : postData.dictionaryset_id <= 16 ? "dictionary_termset_lt_853755.db" : "dictionary_termset_gt_853755.db", //pitchai_dbhub / dictionary_termset_lt_853755.db
+                                                    //"sql": queryBuilder(postData, jtParams),
+                                                    "selectClause": "dictionary_term",
+                                                    "fromClause": "tamil_dict1",
+                                                    "whereClause": "dictionary_term like '" + edhukaisorkal_regex + "'"
+                                                     + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_்") + "'"
+                                                     + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ா") + "'"
+                                                     + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ி") + "'"
+                                                     + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ீ") + "'"
+                                                     + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ு") + "'"
+                                                     + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ூ") + "'"
+                                                     + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ெ") + "'"
+                                                     + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ே") + "'"
+                                                     + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ை") + "'"
+                                                     + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ொ") + "'"
+                                                     + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ோ") + "'"
+                                                     + " or dictionary_term like '" + edhukaisorkal_regex.replace("_", "_ௌ") + "'",
+                                                    "orderByClause": "dictionary_term ASC",
+                                                    "limitClause": jtParams.jtPageSize + " OFFSET " + jtParams.jtStartIndex + ";",
+                                                    "sql_api_cmd": "query",
+                                                    "sql_api_call_back": function (jsonObj, resJsonObjJtable) {
+                                                        //resJsonObjJtable.TotalRecordCount = 1707511
+                                                        //console.log(resJsonObjJtable)
+                                                        //$dfd.resolve(resJsonObjJtable);
+                                                        //return resJsonObjJtable
+                                                        $dfd.resolve(resJsonObjJtable);
+                                                    }
+                                                })
+
+                                            }
+                                            },
                                         },
+                                        fields: {
+                                            edhukai: {
+                                                title: 'எதுகை',
+                                                //width: '30%',
+                                                //list: false
+                                            },
+                                            inai: {
+                                                title: 'இணை',
+                                                //width: '30%',
+                                                //list: false
+                                            },
+                                        }
                                     },
-                                    fields: {
-                                        edhukai: {
-                                            title: 'எதுகை',
-                                            //width: '30%',
-                                            //list: false
-                                        },
-                                        inai: {
-                                            title: 'இணை',
-                                            //width: '30%',
-                                            //list: false
-                                        },
-                                    }
-                                },
-                                    function (data) {
-                                    debugger
-                                    data.childTable.jtable('load');
-                                });
+                                        function (data) {
+                                        debugger
+                                        data.childTable.jtable('load', {
+                                            "dictionaryset_id": $("#selDictID").val()
+                                        });
+                                    });
 
-                            })
+                                })
 
-                            return $img;
+                                return $img;
+                        },
+
                     },
-
-                },
-                dictionary_termset_id: {
-                    //key: true,
-                    list: false
-                },
-                edhukai: {
-                    title: 'எதுகை',
-                    //width: '30%',checking
-                    list: false
-                },
-                monai: {
-                    title: 'மோனை',
-                    //width: '1%',
-                    list: false,
-                    display: function (data) {
-                        var $img = $("<span>")
-                            $img.addClass("child-opener-image material-icons")
-                            $img.attr("src", "/Content/img/list_metro.png")
-                            $img.attr("title", "Details")
-                            $img.attr("target", "_blank")
-                            if (data.record.picked === true) {
-                                $img.html("check_box")
-                            } else {
-                                $img.html("crop_square")
-                            }
-                            $img.click(function () {});
-                        return $img;
+                    dictionary_termset_id: {
+                        //key: true,
+                        list: false
+                    },
+                    edhukai: {
+                        title: 'எதுகை',
+                        //width: '30%',checking
+                        list: false
+                    },
+                    monai: {
+                        title: 'மோனை',
+                        //width: '1%',
+                        list: false,
+                        display: function (data) {
+                            var $img = $("<span>")
+                                $img.addClass("child-opener-image material-icons")
+                                $img.attr("src", "/Content/img/list_metro.png")
+                                $img.attr("title", "Details")
+                                $img.attr("target", "_blank")
+                                if (data.record.picked === true) {
+                                    $img.html("check_box")
+                                } else {
+                                    $img.html("crop_square")
+                                }
+                                $img.click(function () {});
+                            return $img;
+                        }
+                    },
+                    inai: {
+                        title: 'இணை',
+                        //width: '30%',
+                        list: false
+                    },
+                    dictionary_term: {
+                        title: 'சொல்',
+                        width: '19%',
+                        display: function (data) {
+                            var aObj = $("<a>")
+                                aObj.attr("href", "https://thanithamizhakarathikalanjiyam.github.io/searche?q=" + data.record.dictionary_term)
+                                aObj.html(data.record.dictionary_term)
+                                return aObj
+                        }
+                    },
+                    dictionary_meaning: {
+                        title: 'பொருள்',
+                        width: '80%'
+                    },
+                    search_count: {
+                        title: '#',
+                        width: '1%',
+                        //list: false
                     }
-                },
-                inai: {
-                    title: 'இணை',
-                    //width: '30%',
-                    list: false
-                },
-                dictionary_term: {
-                    title: 'சொல்',
-                    width: '19%',
-                    display: function (data) {
-                        var aObj = $("<a>")
-                            aObj.attr("href", "https://thanithamizhakarathikalanjiyam.github.io/searche?q=" + data.record.dictionary_term)
-                            aObj.html(data.record.dictionary_term)
-                            return aObj
-                    }
-                },
-                dictionary_meaning: {
-                    title: 'பொருள்',
-                    width: '80%'
-                },
-                search_count: {
-                    title: '#',
-                    width: '1%',
-                    //list: false
                 }
-            }
-        });
-    }
-    //Initial method call
-    var jqxhr = $.when(
-            getAllDictionary()).then(function () {
-            initDictListContainer({
-                dictionaryset_id: -1
-            })
-            $("#accordSearch").accordion();
-        });
-    // Set another completion function for the request above
-    jqxhr.always(function () {
-        //Elements event Functionality Starts
-        //Elements event Functionality Ends
-        $('#DictListContainer').jtable("load", {
-            dictionaryset_id: "-1",
-            "selectClause": "search_term AS dictionary_term, search_termset_id AS dictionary_termset_id,search_count",
-            "fromClause": "search_term_popular",
-            "whereClause": "1=1"
+            });
+        }
+        //Initial method call
+        var jqxhr = $.when(
+                getAllDictionary()).then(function () {
+                initDictListContainer({
+                    dictionaryset_id: -1
+                })
+                $("#accordSearch").accordion();
+            });
+        // Set another completion function for the request above
+        jqxhr.always(function () {
+            //Elements event Functionality Starts
+            //Elements event Functionality Ends
+            $('#DictListContainer').jtable("load", {
+                dictionaryset_id: "-1",
+                "selectClause": "search_term AS dictionary_term, search_termset_id AS dictionary_termset_id,search_count",
+                "fromClause": "search_term_popular",
+                "whereClause": "1=1"
+            });
         });
     });
-});
