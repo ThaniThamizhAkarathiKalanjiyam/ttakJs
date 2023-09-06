@@ -190,107 +190,107 @@ $(document).ready(function () {
                                                     }
                                                 })
 
-                                            }
-                                            },
+                                            })
                                         },
-                                        fields: {
-                                            edhukai: {
-                                                title: 'எதுகை',
-                                                //width: '30%',
-                                                //list: false
-                                            },
-                                            inai: {
-                                                title: 'இணை',
-                                                //width: '30%',
-                                                //list: false
-                                            },
-                                        }
                                     },
-                                        function (data) {
-                                        debugger
-                                        data.childTable.jtable('load', {
-                                            "dictionaryset_id": $("#selDictID").val()
-                                        });
+                                    fields: {
+                                        edhukai: {
+                                            title: 'எதுகை',
+                                            //width: '30%',
+                                            //list: false
+                                        },
+                                        inai: {
+                                            title: 'இணை',
+                                            //width: '30%',
+                                            //list: false
+                                        },
+                                    }
+                                },
+                                    function (data) {
+                                    debugger
+                                    data.childTable.jtable('load', {
+                                        "dictionaryset_id": $("#selDictID").val()
                                     });
+                                });
 
-                                })
+                            })
 
-                                return $img;
-                        },
-
-                    },
-                    dictionary_termset_id: {
-                        //key: true,
-                        list: false
-                    },
-                    edhukai: {
-                        title: 'எதுகை',
-                        //width: '30%',checking
-                        list: false
-                    },
-                    monai: {
-                        title: 'மோனை',
-                        //width: '1%',
-                        list: false,
-                        display: function (data) {
-                            var $img = $("<span>")
-                                $img.addClass("child-opener-image material-icons")
-                                $img.attr("src", "/Content/img/list_metro.png")
-                                $img.attr("title", "Details")
-                                $img.attr("target", "_blank")
-                                if (data.record.picked === true) {
-                                    $img.html("check_box")
-                                } else {
-                                    $img.html("crop_square")
-                                }
-                                $img.click(function () {});
                             return $img;
-                        }
                     },
-                    inai: {
-                        title: 'இணை',
-                        //width: '30%',
-                        list: false
-                    },
-                    dictionary_term: {
-                        title: 'சொல்',
-                        width: '19%',
-                        display: function (data) {
-                            var aObj = $("<a>")
-                                aObj.attr("href", "https://thanithamizhakarathikalanjiyam.github.io/searche?q=" + data.record.dictionary_term)
-                                aObj.html(data.record.dictionary_term)
-                                return aObj
-                        }
-                    },
-                    dictionary_meaning: {
-                        title: 'பொருள்',
-                        width: '80%'
-                    },
-                    search_count: {
-                        title: '#',
-                        width: '1%',
-                        //list: false
+
+                },
+                dictionary_termset_id: {
+                    //key: true,
+                    list: false
+                },
+                edhukai: {
+                    title: 'எதுகை',
+                    //width: '30%',checking
+                    list: false
+                },
+                monai: {
+                    title: 'மோனை',
+                    //width: '1%',
+                    list: false,
+                    display: function (data) {
+                        var $img = $("<span>")
+                            $img.addClass("child-opener-image material-icons")
+                            $img.attr("src", "/Content/img/list_metro.png")
+                            $img.attr("title", "Details")
+                            $img.attr("target", "_blank")
+                            if (data.record.picked === true) {
+                                $img.html("check_box")
+                            } else {
+                                $img.html("crop_square")
+                            }
+                            $img.click(function () {});
+                        return $img;
                     }
+                },
+                inai: {
+                    title: 'இணை',
+                    //width: '30%',
+                    list: false
+                },
+                dictionary_term: {
+                    title: 'சொல்',
+                    width: '19%',
+                    display: function (data) {
+                        var aObj = $("<a>")
+                            aObj.attr("href", "https://thanithamizhakarathikalanjiyam.github.io/searche?q=" + data.record.dictionary_term)
+                            aObj.html(data.record.dictionary_term)
+                            return aObj
+                    }
+                },
+                dictionary_meaning: {
+                    title: 'பொருள்',
+                    width: '80%'
+                },
+                search_count: {
+                    title: '#',
+                    width: '1%',
+                    //list: false
                 }
-            });
-        }
-        //Initial method call
-        var jqxhr = $.when(
-                getAllDictionary()).then(function () {
-                initDictListContainer({
-                    dictionaryset_id: -1
-                })
-                $("#accordSearch").accordion();
-            });
-        // Set another completion function for the request above
-        jqxhr.always(function () {
-            //Elements event Functionality Starts
-            //Elements event Functionality Ends
-            $('#DictListContainer').jtable("load", {
-                dictionaryset_id: "-1",
-                "selectClause": "search_term AS dictionary_term, search_termset_id AS dictionary_termset_id,search_count",
-                "fromClause": "search_term_popular",
-                "whereClause": "1=1"
-            });
+            }
+        });
+    }
+    //Initial method call
+    var jqxhr = $.when(
+            getAllDictionary()).then(function () {
+            initDictListContainer({
+                dictionaryset_id: -1
+            })
+            $("#accordSearch").accordion();
+        });
+    // Set another completion function for the request above
+    jqxhr.always(function () {
+        //Elements event Functionality Starts
+        //Elements event Functionality Ends
+        $('#DictListContainer').jtable("load", {
+            dictionaryset_id: "-1",
+            "selectClause": "search_term AS dictionary_term, search_termset_id AS dictionary_termset_id,search_count",
+            "fromClause": "search_term_popular",
+            "whereClause": "1=1"
         });
     });
+});
