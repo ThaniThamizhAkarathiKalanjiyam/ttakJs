@@ -111,7 +111,7 @@ $(document).ready(function () {
                 list_details: {
                     title: '',
                     width: '1%',
-                    //list: false,
+                    list: false,
                     display: function (data_record) {
 
                         var edhukaisorkal_regex = ""
