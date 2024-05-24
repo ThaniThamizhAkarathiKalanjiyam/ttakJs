@@ -1,5 +1,6 @@
 $(document).ready(function ()
 {
+	var apikey = 'BQi4we7lcQAPi1rXsVXYBXF9MV3KrUI7LCiE8m3AWfFng75UM9ZaOg'
 
     var searchBaseUrl = "https://thanithamizhakarathikalanjiyam.github.io/"
 
@@ -333,7 +334,7 @@ $(document).ready(function ()
 
         $.ajax(
         {
-            url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd + '?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
+            url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd + '?apikey='+apikey,
             data: fd,
             processData: false,
             contentType: false,
@@ -384,7 +385,7 @@ $(document).ready(function ()
 
         $.ajax(
         {
-            url: 'https://api.dbhub.io/v1/query?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
+            url: 'https://api.dbhub.io/v1/query?apikey='+apikey,
             data: fd,
             processData: false,
             contentType: false,
@@ -473,7 +474,7 @@ $(document).ready(function ()
 
         $.ajax(
         {
-            url: 'https://api.dbhub.io/v1/query?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
+            url: 'https://api.dbhub.io/v1/query?apikey='+apikey,
             data: fd,
             processData: false,
             contentType: false,
@@ -560,7 +561,7 @@ $(document).ready(function ()
 
         $.ajax(
         {
-            url: 'https://api.dbhub.io/v1/execute?apikey=2RjMahZ2NN4JrC6kCzzI7HeOF9u',
+            url: 'https://api.dbhub.io/v1/execute?apikey='+apikey,
             data: fd,
             processData: false,
             contentType: false,
