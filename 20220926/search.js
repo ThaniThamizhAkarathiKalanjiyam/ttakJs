@@ -401,7 +401,7 @@ $(document).ready(function ()
 
         $.ajax(
         {
-            url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd,
+            url: 'https://api.dbhub.io/v1/query',
             "method": "POST",
             "timeout": 0,
             "processData": false,
@@ -492,7 +492,7 @@ $(document).ready(function ()
 
         $.ajax(
         {
-            url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd,
+            url: 'https://api.dbhub.io/v1/query',
             "method": "POST",
             "timeout": 0,
             "processData": false,
@@ -581,7 +581,7 @@ $(document).ready(function ()
 
         $.ajax(
         {
-            url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd,
+            url: 'https://api.dbhub.io/v1/execute',
             "method": "POST",
             "timeout": 0,
             "processData": false,
