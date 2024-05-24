@@ -1,8 +1,8 @@
 $(document).ready(function ()
 {
-	var apikey = 'BQi4we7lcQAPi1rXsVXYBXF9MV3KrUI7LCiE8m3AWfFng75UM9ZaOg'
+	
 
-    var searchBaseUrl = "https://thanithamizhakarathikalanjiyam.github.io/"
+        var searchBaseUrl = "https://thanithamizhakarathikalanjiyam.github.io/"
 
         $.ajaxSetup(
         {
@@ -16,6 +16,20 @@ $(document).ready(function ()
             }
         }
         );
+
+    getFormData = function (dbowner,dbname,sql)
+    {
+        var form = new FormData();
+        form.append("apikey", "BQi4we7lcQAPi1rXsVXYBXF9MV3KrUI7LCiE8m3AWfFng75UM9ZaOg");
+        form.append("dbowner", "pitchai_dbhub");
+        form.append("dbname", dbname);
+		
+		var sql_encoded = $.base64.btoa(funcData.sql, true);
+        form.append('sql', sql_encoded);
+        form.append('sql_txt', funcData.sql);		
+		
+		return form
+    }
 
     var searchUrls = [];
 
@@ -315,6 +329,7 @@ $(document).ready(function ()
         //})
 
         var fd = new FormData();
+        form.append("apikey", "BQi4we7lcQAPi1rXsVXYBXF9MV3KrUI7LCiE8m3AWfFng75UM9ZaOg");
         fd.append('dbowner', "pitchai_dbhub");
         fd.append('dbname', funcData.dbname);
         //fd.append('sql', "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En");
@@ -334,8 +349,8 @@ $(document).ready(function ()
 
         $.ajax(
         {
-            url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd + '?apikey='+apikey,
-            data: fd,
+            url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd,
+            data: getFormData("pitchai_dbhub",funcData.dbname,funcData.sql),
             processData: false,
             contentType: false,
             type: 'POST',
@@ -385,7 +400,7 @@ $(document).ready(function ()
 
         $.ajax(
         {
-            url: 'https://api.dbhub.io/v1/query?apikey='+apikey,
+            url: 'https://api.dbhub.io/v1/query?apikey=' + apikey,
             data: fd,
             processData: false,
             contentType: false,
@@ -474,7 +489,7 @@ $(document).ready(function ()
 
         $.ajax(
         {
-            url: 'https://api.dbhub.io/v1/query?apikey='+apikey,
+            url: 'https://api.dbhub.io/v1/query?apikey=' + apikey,
             data: fd,
             processData: false,
             contentType: false,
@@ -561,7 +576,7 @@ $(document).ready(function ()
 
         $.ajax(
         {
-            url: 'https://api.dbhub.io/v1/execute?apikey='+apikey,
+            url: 'https://api.dbhub.io/v1/execute?apikey=' + apikey,
             data: fd,
             processData: false,
             contentType: false,
