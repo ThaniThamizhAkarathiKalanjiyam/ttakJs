@@ -349,11 +349,18 @@ $(document).ready(function ()
 
         $.ajax(
         {
-            url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd,
-            data: getFormData("pitchai_dbhub",funcData.dbname,funcData.sql),
-            processData: false,
-            contentType: false,
-            type: 'POST',
+            //url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd,
+            // data: getFormData("pitchai_dbhub",funcData.dbname,funcData.sql),
+            // processData: false,
+            // contentType: false,			
+            // type: 'POST',			
+			url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd,
+			"method": "POST",
+			"timeout": 0,
+			"processData": false,
+			"mimeType": "multipart/form-data",
+			"contentType": false,
+			"data": getFormData("pitchai_dbhub",funcData.dbname,funcData.sql),
             success: function (resStr)
             {
                 if (resStr !== null && resStr !== "null")
