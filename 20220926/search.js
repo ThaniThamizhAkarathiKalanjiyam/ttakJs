@@ -329,7 +329,7 @@ $(document).ready(function ()
         //})
 
         var fd = new FormData();
-        form.append("apikey", "BQi4we7lcQAPi1rXsVXYBXF9MV3KrUI7LCiE8m3AWfFng75UM9ZaOg");
+        //form.append("apikey", "BQi4we7lcQAPi1rXsVXYBXF9MV3KrUI7LCiE8m3AWfFng75UM9ZaOg");
         fd.append('dbowner', "pitchai_dbhub");
         fd.append('dbname', funcData.dbname);
         //fd.append('sql', "c2VsZWN0ICogZnJvbSBkaWN0aW9uYXJ5X3Rlcm1zZXQgd2hlcmUgZGljdGlvbmFyeV90ZXJtPSfgroXgrpXgrp7gr43grprgr4fgrrDgrqngr4En");
