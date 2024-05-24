@@ -24,9 +24,9 @@ $(document).ready(function ()
         form.append("dbowner", "pitchai_dbhub");
         form.append("dbname", dbname);
 		
-		var sql_encoded = $.base64.btoa(funcData.sql, true);
+		var sql_encoded = $.base64.btoa(sql, true);
         form.append('sql', sql_encoded);
-        form.append('sql_txt', funcData.sql);		
+        form.append('sql_txt', sql);		
 		
 		return form
     }
