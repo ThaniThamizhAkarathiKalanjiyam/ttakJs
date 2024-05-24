@@ -1,8 +1,7 @@
 $(document).ready(function ()
 {
-	
 
-        var searchBaseUrl = "https://thanithamizhakarathikalanjiyam.github.io/"
+    var searchBaseUrl = "https://thanithamizhakarathikalanjiyam.github.io/"
 
         $.ajaxSetup(
         {
@@ -17,18 +16,18 @@ $(document).ready(function ()
         }
         );
 
-    getFormData = function (dbowner,dbname,sql)
+    getFormData = function (dbowner, dbname, sql)
     {
         var form = new FormData();
         form.append("apikey", "BQi4we7lcQAPi1rXsVXYBXF9MV3KrUI7LCiE8m3AWfFng75UM9ZaOg");
         form.append("dbowner", "pitchai_dbhub");
         form.append("dbname", dbname);
-		
-		var sql_encoded = $.base64.btoa(sql, true);
+
+        var sql_encoded = $.base64.btoa(sql, true);
         form.append('sql', sql_encoded);
-        form.append('sql_txt', sql);		
-		
-		return form
+        form.append('sql_txt', sql);
+
+        return form
     }
 
     var searchUrls = [];
@@ -349,18 +348,13 @@ $(document).ready(function ()
 
         $.ajax(
         {
-            //url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd,
-            // data: getFormData("pitchai_dbhub",funcData.dbname,funcData.sql),
-            // processData: false,
-            // contentType: false,			
-            // type: 'POST',			
-			url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd,
-			"method": "POST",
-			"timeout": 0,
-			"processData": false,
-			"mimeType": "multipart/form-data",
-			"contentType": false,
-			"data": getFormData("pitchai_dbhub",funcData.dbname,funcData.sql),
+            url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd,
+            "method": "POST",
+            "timeout": 0,
+            "processData": false,
+            "mimeType": "multipart/form-data",
+            "contentType": false,
+            "data": getFormData("pitchai_dbhub", funcData.dbname, funcData.sql),
             success: function (resStr)
             {
                 if (resStr !== null && resStr !== "null")
@@ -407,11 +401,13 @@ $(document).ready(function ()
 
         $.ajax(
         {
-            url: 'https://api.dbhub.io/v1/query?apikey=' + apikey,
-            data: fd,
-            processData: false,
-            contentType: false,
-            type: 'POST',
+            url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd,
+            "method": "POST",
+            "timeout": 0,
+            "processData": false,
+            "mimeType": "multipart/form-data",
+            "contentType": false,
+            "data": getFormData("pitchai_dbhub", funcData.dbname, funcData.sql),
             success: function (jsonObj)
             {
                 if (jsonObj !== null && jsonObj !== "null")
@@ -496,11 +492,13 @@ $(document).ready(function ()
 
         $.ajax(
         {
-            url: 'https://api.dbhub.io/v1/query?apikey=' + apikey,
-            data: fd,
-            processData: false,
-            contentType: false,
-            type: 'POST',
+            url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd,
+            "method": "POST",
+            "timeout": 0,
+            "processData": false,
+            "mimeType": "multipart/form-data",
+            "contentType": false,
+            "data": getFormData("pitchai_dbhub", funcData.dbname, funcData.sql),
             success: function (jsonObj)
             {
                 if (jsonObj !== null && jsonObj !== "null")
@@ -583,11 +581,13 @@ $(document).ready(function ()
 
         $.ajax(
         {
-            url: 'https://api.dbhub.io/v1/execute?apikey=' + apikey,
-            data: fd,
-            processData: false,
-            contentType: false,
-            type: 'POST',
+            url: 'https://api.dbhub.io/v1/' + funcData.sql_api_cmd,
+            "method": "POST",
+            "timeout": 0,
+            "processData": false,
+            "mimeType": "multipart/form-data",
+            "contentType": false,
+            "data": getFormData("pitchai_dbhub", funcData.dbname, funcData.sql),
             success: function (jsonObj)
             {
                 if (jsonObj !== null && jsonObj !== "null")
